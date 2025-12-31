@@ -1,0 +1,786 @@
+extend type Mutation {
+  """
+  ✨ Insert a single `Channel` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  channel_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Channel_Data!
+  ): Channel_KeyOutput! @fdc_generated(from: "Channel", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `ChannelMembership` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  channelMembership_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: ChannelMembership_Data!
+  ): ChannelMembership_KeyOutput! @fdc_generated(from: "ChannelMembership", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `ChannelMessage` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  channelMessage_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: ChannelMessage_Data!
+  ): ChannelMessage_KeyOutput! @fdc_generated(from: "ChannelMessage", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Guest` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  guest_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Guest_Data!
+  ): Guest_KeyOutput! @fdc_generated(from: "Guest", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Host` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  host_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Host_Data!
+  ): Host_KeyOutput! @fdc_generated(from: "Host", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Invite` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  invite_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Invite_Data!
+  ): Invite_KeyOutput! @fdc_generated(from: "Invite", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Party` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  party_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Party_Data!
+  ): Party_KeyOutput! @fdc_generated(from: "Party", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert `Channel` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  channel_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Channel_Data!]!
+  ): [Channel_KeyOutput!]! @fdc_generated(from: "Channel", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `ChannelMembership` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  channelMembership_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [ChannelMembership_Data!]!
+  ): [ChannelMembership_KeyOutput!]! @fdc_generated(from: "ChannelMembership", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `ChannelMessage` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  channelMessage_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [ChannelMessage_Data!]!
+  ): [ChannelMessage_KeyOutput!]! @fdc_generated(from: "ChannelMessage", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Guest` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  guest_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Guest_Data!]!
+  ): [Guest_KeyOutput!]! @fdc_generated(from: "Guest", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Host` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  host_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Host_Data!]!
+  ): [Host_KeyOutput!]! @fdc_generated(from: "Host", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Invite` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  invite_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Invite_Data!]!
+  ): [Invite_KeyOutput!]! @fdc_generated(from: "Invite", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Party` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  party_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Party_Data!]!
+  ): [Party_KeyOutput!]! @fdc_generated(from: "Party", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert or update a single `Channel` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Channel`.
+  """
+  channel_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Channel_Data!
+  ): Channel_KeyOutput! @fdc_generated(from: "Channel", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `ChannelMembership` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `ChannelMembership`.
+  """
+  channelMembership_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: ChannelMembership_Data!
+  ): ChannelMembership_KeyOutput! @fdc_generated(from: "ChannelMembership", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `ChannelMessage` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `ChannelMessage`.
+  """
+  channelMessage_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: ChannelMessage_Data!
+  ): ChannelMessage_KeyOutput! @fdc_generated(from: "ChannelMessage", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Guest` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Guest`.
+  """
+  guest_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Guest_Data!
+  ): Guest_KeyOutput! @fdc_generated(from: "Guest", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Host` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Host`.
+  """
+  host_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Host_Data!
+  ): Host_KeyOutput! @fdc_generated(from: "Host", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Invite` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Invite`.
+  """
+  invite_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Invite_Data!
+  ): Invite_KeyOutput! @fdc_generated(from: "Invite", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Party` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Party`.
+  """
+  party_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Party_Data!
+  ): Party_KeyOutput! @fdc_generated(from: "Party", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update `Channel` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Channel`.
+  """
+  channel_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Channel_Data!]!
+  ): [Channel_KeyOutput!]! @fdc_generated(from: "Channel", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `ChannelMembership` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `ChannelMembership`.
+  """
+  channelMembership_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [ChannelMembership_Data!]!
+  ): [ChannelMembership_KeyOutput!]! @fdc_generated(from: "ChannelMembership", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `ChannelMessage` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `ChannelMessage`.
+  """
+  channelMessage_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [ChannelMessage_Data!]!
+  ): [ChannelMessage_KeyOutput!]! @fdc_generated(from: "ChannelMessage", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Guest` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Guest`.
+  """
+  guest_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Guest_Data!]!
+  ): [Guest_KeyOutput!]! @fdc_generated(from: "Guest", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Host` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Host`.
+  """
+  host_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Host_Data!]!
+  ): [Host_KeyOutput!]! @fdc_generated(from: "Host", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Invite` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Invite`.
+  """
+  invite_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Invite_Data!]!
+  ): [Invite_KeyOutput!]! @fdc_generated(from: "Invite", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Party` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Party`.
+  """
+  party_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Party_Data!]!
+  ): [Party_KeyOutput!]! @fdc_generated(from: "Party", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Update a single `Channel` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Channel` or `null` if not found.
+  """
+  channel_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Channel_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Channel_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Channel_Data!
+  ): Channel_KeyOutput @fdc_generated(from: "Channel", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `ChannelMembership` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `ChannelMembership` or `null` if not found.
+  """
+  channelMembership_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: ChannelMembership_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: ChannelMembership_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: ChannelMembership_Data!
+  ): ChannelMembership_KeyOutput @fdc_generated(from: "ChannelMembership", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `ChannelMessage` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `ChannelMessage` or `null` if not found.
+  """
+  channelMessage_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: ChannelMessage_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: ChannelMessage_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: ChannelMessage_Data!
+  ): ChannelMessage_KeyOutput @fdc_generated(from: "ChannelMessage", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Guest` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Guest` or `null` if not found.
+  """
+  guest_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Guest_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Guest_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Guest_Data!
+  ): Guest_KeyOutput @fdc_generated(from: "Guest", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Host` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Host` or `null` if not found.
+  """
+  host_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Host_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Host_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Host_Data!
+  ): Host_KeyOutput @fdc_generated(from: "Host", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Invite` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Invite` or `null` if not found.
+  """
+  invite_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Invite_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Invite_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Invite_Data!
+  ): Invite_KeyOutput @fdc_generated(from: "Invite", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Party` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Party` or `null` if not found.
+  """
+  party_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Party_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Party_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Party_Data!
+  ): Party_KeyOutput @fdc_generated(from: "Party", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update `Channel` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  channel_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Channel_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Channel_Data!
+  ): Int! @fdc_generated(from: "Channel", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `ChannelMembership` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  channelMembership_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: ChannelMembership_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: ChannelMembership_Data!
+  ): Int! @fdc_generated(from: "ChannelMembership", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `ChannelMessage` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  channelMessage_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: ChannelMessage_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: ChannelMessage_Data!
+  ): Int! @fdc_generated(from: "ChannelMessage", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Guest` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  guest_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Guest_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Guest_Data!
+  ): Int! @fdc_generated(from: "Guest", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Host` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  host_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Host_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Host_Data!
+  ): Int! @fdc_generated(from: "Host", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Invite` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  invite_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Invite_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Invite_Data!
+  ): Int! @fdc_generated(from: "Invite", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Party` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  party_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Party_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Party_Data!
+  ): Int! @fdc_generated(from: "Party", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Delete a single `Channel` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  channel_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Channel_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Channel_FirstRow
+  ): Channel_KeyOutput @fdc_generated(from: "Channel", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `ChannelMembership` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  channelMembership_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: ChannelMembership_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: ChannelMembership_FirstRow
+  ): ChannelMembership_KeyOutput @fdc_generated(from: "ChannelMembership", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `ChannelMessage` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  channelMessage_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: ChannelMessage_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: ChannelMessage_FirstRow
+  ): ChannelMessage_KeyOutput @fdc_generated(from: "ChannelMessage", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Guest` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  guest_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Guest_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Guest_FirstRow
+  ): Guest_KeyOutput @fdc_generated(from: "Guest", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Host` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  host_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Host_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Host_FirstRow
+  ): Host_KeyOutput @fdc_generated(from: "Host", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Invite` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  invite_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Invite_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Invite_FirstRow
+  ): Invite_KeyOutput @fdc_generated(from: "Invite", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Party` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  party_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Party_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Party_FirstRow
+  ): Party_KeyOutput @fdc_generated(from: "Party", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete `Channel` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  channel_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Channel_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Channel", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `ChannelMembership` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  channelMembership_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: ChannelMembership_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "ChannelMembership", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `ChannelMessage` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  channelMessage_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: ChannelMessage_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "ChannelMessage", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Guest` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  guest_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Guest_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Guest", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Host` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  host_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Host_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Host", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Invite` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  invite_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Invite_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Invite", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Party` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  party_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Party_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Party", purpose: DELETE_MULTIPLE)
+}

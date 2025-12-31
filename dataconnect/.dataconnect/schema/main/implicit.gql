@@ -1,0 +1,66 @@
+extend type Channel {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Channel", purpose: IMPLICIT_KEY_FIELD)
+}
+extend type ChannelMembership {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "ChannelMembership", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `ChannelMembership`.`channel`. It must match the value of `Channel`.`id`. See `@ref` for how to customize it.
+  """
+  channelId: UUID! @fdc_generated(from: "ChannelMembership.channel", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `ChannelMembership`.`invite`. It must match the value of `Invite`.`id`. See `@ref` for how to customize it.
+  """
+  inviteId: UUID! @fdc_generated(from: "ChannelMembership.invite", purpose: IMPLICIT_REF_FIELD)
+}
+extend type ChannelMessage {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "ChannelMessage", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `ChannelMessage`.`channel`. It must match the value of `Channel`.`id`. See `@ref` for how to customize it.
+  """
+  channelId: UUID! @fdc_generated(from: "ChannelMessage.channel", purpose: IMPLICIT_REF_FIELD)
+}
+extend type Guest {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Guest", purpose: IMPLICIT_KEY_FIELD)
+}
+extend type Host {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Host", purpose: IMPLICIT_KEY_FIELD)
+}
+extend type Invite {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Invite", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Invite`.`guest`. It must match the value of `Guest`.`id`. See `@ref` for how to customize it.
+  """
+  guestId: UUID! @fdc_generated(from: "Invite.guest", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Invite`.`party`. It must match the value of `Party`.`id`. See `@ref` for how to customize it.
+  """
+  partyId: UUID! @fdc_generated(from: "Invite.party", purpose: IMPLICIT_REF_FIELD)
+}
+extend type Party {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Party", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Party`.`host`. It must match the value of `Host`.`id`. See `@ref` for how to customize it.
+  """
+  hostId: UUID! @fdc_generated(from: "Party.host", purpose: IMPLICIT_REF_FIELD)
+}

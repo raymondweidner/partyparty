@@ -1,0 +1,49 @@
+type Host @table {
+  # id: UUID! @default(expr: "uuidV4()")
+  name: String!
+  email: String! @unique
+}
+
+type Guest @table {
+  # id: UUID! @default(expr: "uuidV4()")
+  name: String!
+  email: String! @unique
+  phone: String
+}
+
+type Party @table {
+  # id: UUID! @default(expr: "uuidV4()")
+  host: Host!
+  title: String!
+  details: String! @col(dataType: "varchar(2048)")
+  scheduledFor: Date!
+  state: String! @default(value: "draft")
+}
+
+type Invite @table {
+  # id: UUID! @default(expr: "uuidV4()")
+  guest: Guest!
+  party: Party!
+  state: String! @default(value: "draft")
+}
+
+type Channel @table {
+  # id: UUID! @default(expr: "uuidV4()")
+  name: String!
+  description: String! @col(dataType: "varchar(2048)")
+  scheduledFor: Date!
+  type: String! @default(value: "chat")
+}
+
+type ChannelMembership @table {
+  # id: UUID! @default(expr: "uuidV4()")
+  invite: Invite!
+  channel: Channel!
+}
+
+type ChannelMessage @table {
+  # id: UUID! @default(expr: "uuidV4()")
+  channel: Channel!
+  content: String!
+  timestamp: Date! @default(expr: "request.time")
+}

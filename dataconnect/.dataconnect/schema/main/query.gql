@@ -1,0 +1,373 @@
+extend type Query {
+  """
+  ✨ Look up a single `Channel` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  channel(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Channel_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Channel_FirstRow
+  ): Channel @fdc_generated(from: "Channel", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `ChannelMembership` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  channelMembership(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: ChannelMembership_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: ChannelMembership_FirstRow
+  ): ChannelMembership @fdc_generated(from: "ChannelMembership", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `ChannelMessage` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  channelMessage(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: ChannelMessage_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: ChannelMessage_FirstRow
+  ): ChannelMessage @fdc_generated(from: "ChannelMessage", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Guest` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  guest(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Guest_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Guest_FirstRow
+  ): Guest @fdc_generated(from: "Guest", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Host` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  host(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Host_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Host_FirstRow
+  ): Host @fdc_generated(from: "Host", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Invite` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  invite(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Invite_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Invite_FirstRow
+  ): Invite @fdc_generated(from: "Invite", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Party` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  party(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Party_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Party_FirstRow
+  ): Party @fdc_generated(from: "Party", purpose: QUERY_SINGLE)
+  """
+  ✨ List `Channel` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  channels(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Channel_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Channel_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Channel_Having
+  ): [Channel!]! @fdc_generated(from: "Channel", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `ChannelMembership` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  channelMemberships(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: ChannelMembership_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [ChannelMembership_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: ChannelMembership_Having
+  ): [ChannelMembership!]! @fdc_generated(from: "ChannelMembership", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `ChannelMessage` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  channelMessages(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: ChannelMessage_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [ChannelMessage_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: ChannelMessage_Having
+  ): [ChannelMessage!]! @fdc_generated(from: "ChannelMessage", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Guest` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  guests(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Guest_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Guest_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Guest_Having
+  ): [Guest!]! @fdc_generated(from: "Guest", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Host` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  hosts(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Host_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Host_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Host_Having
+  ): [Host!]! @fdc_generated(from: "Host", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Invite` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  invites(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Invite_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Invite_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Invite_Having
+  ): [Invite!]! @fdc_generated(from: "Invite", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Party` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  parties(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Party_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Party_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Party_Having
+  ): [Party!]! @fdc_generated(from: "Party", purpose: QUERY_MULTIPLE)
+}

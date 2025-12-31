@@ -1,0 +1,691 @@
+[debug] [2025-12-19T00:19:02.254Z] [Firebase Plugin] Activating Firebase extension.
+[debug] [2025-12-19T00:19:06.017Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-19T00:19:06.030Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-19T00:19:06.031Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-19T00:19:06.034Z] Checked if tokens are valid: true, expires at: 1766105499684
+[debug] [2025-12-19T00:19:06.034Z] Checked if tokens are valid: true, expires at: 1766105499684
+[debug] [2025-12-19T00:19:06.035Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-19T00:19:06.036Z] Checked if tokens are valid: true, expires at: 1766105499684
+[debug] [2025-12-19T00:19:06.038Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-19T00:19:06.047Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[debug] [2025-12-19T00:19:06.493Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-12-19T00:19:06.494Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"function"}
+[debug] [2025-12-19T00:19:06.494Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"function"}
+[debug] [2025-12-19T00:19:06.494Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"glob"}
+[debug] [2025-12-19T00:19:06.494Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"dynamicLinks"}
+[debug] [2025-12-19T00:19:06.494Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-12-19T00:19:06.494Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"function"}
+[debug] [2025-12-19T00:19:06.495Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"function"}
+[debug] [2025-12-19T00:19:06.495Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"run"}
+[debug] [2025-12-19T00:19:06.495Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"dynamicLinks"}
+[debug] [2025-12-19T00:19:06.495Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-12-19T00:19:06.495Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"function"}
+[debug] [2025-12-19T00:19:06.495Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"function"}
+[debug] [2025-12-19T00:19:06.495Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"regex"}
+[debug] [2025-12-19T00:19:06.496Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"dynamicLinks"}
+[debug] [2025-12-19T00:19:06.496Z] Field "/hosting/rewrites/0" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2025-12-19T00:19:06.496Z] Field "/hosting" in "firebase.json" is possibly invalid: must be array
+[debug] [2025-12-19T00:19:06.496Z] Field "/hosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[info] [Firebase Plugin] Starting Data Connect toolkit (version 3.0.0) on port 50001
+[debug] [2025-12-19T00:19:06.698Z] I1218 19:19:06.674441     720 control.go:94] [/emulator/partyparty 5efb] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1992B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 19:19:06.674441     720 control.go:94] [/emulator/partyparty 5efb] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1992B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \n"}}
+[debug] [2025-12-19T00:19:06.699Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2025-12-19T00:19:06.699Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2025-12-19T00:19:06.699Z] Starting Data Connect Emulator with command {"binary":"C:\\Users\\raymo\\.cache\\firebase\\emulators\\dataconnect-emulator-3.0.0.exe","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=d:\\projects\\partyparty\\dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting Data Connect Emulator with command {\"binary\":\"C:\\\\Users\\\\raymo\\\\.cache\\\\firebase\\\\emulators\\\\dataconnect-emulator-3.0.0.exe\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=d:\\\\projects\\\\partyparty\\\\dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: Data Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"Data Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2025-12-19T00:19:06.764Z] I1218 19:19:06.735258   57156 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 19:19:06.735258   57156 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2025-12-19T00:19:06.782Z] I1218 19:19:06.777540   57156 control.go:94] [/emulator/partyparty b788] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1992B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 19:19:06.777540   57156 control.go:94] [/emulator/partyparty b788] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1992B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \n"}}
+[debug] [2025-12-19T00:19:06.946Z] I1218 19:19:06.820408   57156 codegen.go:80] [connector "example" javascriptSdk] Generating sources into "d:\\projects\\partyparty\\src\\dataconnect-generated"
+I1218 19:19:06.830950   57156 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\implicit.gql [1261B] main\input.gql [28173B] main\relation.gql [14318B] main\query.gql [5099B] main\mutation.gql [13679B] prelude.gql [73219B] 
+I1218 19:19:06.834131   57156 collector.go:107] connector "example" javascriptSdk wrote into "d:\\projects\\partyparty\\src\\dataconnect-generated"
+Generated sources: index.d.ts [8025B] esm\index.esm.js [3560B] index.cjs.js [4050B] package.json [637B] README.md [40804B] .guides/usage.md [1705B] .guides/setup.md [584B] .guides/config.json [236B] esm\package.json [17B] 
+I1218 19:19:06.835265   57156 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation
+I1218 19:19:06.835265   57156 load.go:109] Finished reloading
+I1218 19:19:06.848740   57156 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 19:19:06.820408   57156 codegen.go:80] [connector \"example\" javascriptSdk] Generating sources into \"d:\\\\projects\\\\partyparty\\\\src\\\\dataconnect-generated\"\nI1218 19:19:06.830950   57156 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\implicit.gql [1261B] main\\input.gql [28173B] main\\relation.gql [14318B] main\\query.gql [5099B] main\\mutation.gql [13679B] prelude.gql [73219B] \nI1218 19:19:06.834131   57156 collector.go:107] connector \"example\" javascriptSdk wrote into \"d:\\\\projects\\\\partyparty\\\\src\\\\dataconnect-generated\"\nGenerated sources: index.d.ts [8025B] esm\\index.esm.js [3560B] index.cjs.js [4050B] package.json [637B] README.md [40804B] .guides/usage.md [1705B] .guides/setup.md [584B] .guides/config.json [236B] esm\\package.json [17B] \nI1218 19:19:06.835265   57156 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation\nI1218 19:19:06.835265   57156 load.go:109] Finished reloading\nI1218 19:19:06.848740   57156 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2025-12-19T00:19:06.998Z] I1218 19:19:06.998546   57156 engine.go:179] [/emulator/partyparty b788] ExecuteGraphqlRead IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 19:19:06.998546   57156 engine.go:179] [/emulator/partyparty b788] ExecuteGraphqlRead IntrospectionQuery: succeeded. \n"}}
+[debug] [2025-12-19T00:19:08.087Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:19:08.090Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:19:08.090Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:19:08.587Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-19T00:19:08.588Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-19T00:20:19.739Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2025-12-19T00:20:19.739Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-19T00:20:19.741Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-19T00:20:19.741Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-19T00:20:19.742Z] Checked if tokens are valid: true, expires at: 1766105499684
+[debug] [2025-12-19T00:20:19.742Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-19T00:20:19.743Z] Checked if tokens are valid: true, expires at: 1766105499684
+[debug] [2025-12-19T00:20:19.743Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-19T00:20:19.751Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2025-12-19T00:20:19.751Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-19T00:20:19.752Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-19T00:20:19.752Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-19T00:20:19.753Z] Checked if tokens are valid: true, expires at: 1766105499684
+[debug] [2025-12-19T00:20:19.753Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-19T00:20:19.753Z] Checked if tokens are valid: true, expires at: 1766105499684
+[debug] [2025-12-19T00:20:19.754Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-19T00:20:19.760Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T00:20:20.078Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-19T00:20:20.079Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-19T00:20:20.093Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-19T00:20:20.094Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-19T00:20:25.811Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T00:20:25.815Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:21:38.341Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-19T00:21:38.342Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T00:22:28.421Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T00:22:28.462Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:22:28.464Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:36:59.702Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T00:36:59.748Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:36:59.750Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:40:28.694Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T00:40:28.744Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:40:28.746Z] [Firebase Plugin] Received emulators shutdown notification.
+[info] [Firebase Plugin] Stopping Data Connect toolkit
+[warn] !  Data Connect Emulator has exited upon receiving signal: SIGINT 
+[debug] [2025-12-19T00:42:58.017Z] [Firebase Plugin] Activating Firebase extension.
+[debug] [2025-12-19T00:43:02.580Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-19T00:43:02.593Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-19T00:43:02.593Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-19T00:43:02.595Z] Checked if tokens are valid: true, expires at: 1766108204785
+[debug] [2025-12-19T00:43:02.596Z] Checked if tokens are valid: true, expires at: 1766108204785
+[debug] [2025-12-19T00:43:02.596Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-19T00:43:02.597Z] Checked if tokens are valid: true, expires at: 1766108204785
+[debug] [2025-12-19T00:43:02.597Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-19T00:43:02.603Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[debug] [2025-12-19T00:43:02.822Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-12-19T00:43:02.822Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"function"}
+[debug] [2025-12-19T00:43:02.822Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"function"}
+[debug] [2025-12-19T00:43:02.822Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"glob"}
+[debug] [2025-12-19T00:43:02.822Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"dynamicLinks"}
+[debug] [2025-12-19T00:43:02.822Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-12-19T00:43:02.822Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"function"}
+[debug] [2025-12-19T00:43:02.823Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"function"}
+[debug] [2025-12-19T00:43:02.823Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"run"}
+[debug] [2025-12-19T00:43:02.823Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"dynamicLinks"}
+[debug] [2025-12-19T00:43:02.823Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-12-19T00:43:02.823Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"function"}
+[debug] [2025-12-19T00:43:02.823Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"function"}
+[debug] [2025-12-19T00:43:02.823Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"regex"}
+[debug] [2025-12-19T00:43:02.823Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"dynamicLinks"}
+[debug] [2025-12-19T00:43:02.823Z] Field "/hosting/rewrites/0" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2025-12-19T00:43:02.823Z] Field "/hosting" in "firebase.json" is possibly invalid: must be array
+[debug] [2025-12-19T00:43:02.824Z] Field "/hosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[info] [Firebase Plugin] Starting Data Connect toolkit (version 3.0.0) on port 50001
+[debug] [2025-12-19T00:43:02.936Z] I1218 19:43:02.917556   75828 control.go:94] [/emulator/partyparty a9c5] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1992B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 19:43:02.917556   75828 control.go:94] [/emulator/partyparty a9c5] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1992B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \n"}}
+[debug] [2025-12-19T00:43:02.936Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2025-12-19T00:43:02.936Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2025-12-19T00:43:02.937Z] Starting Data Connect Emulator with command {"binary":"C:\\Users\\raymo\\.cache\\firebase\\emulators\\dataconnect-emulator-3.0.0.exe","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=d:\\projects\\partyparty\\dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting Data Connect Emulator with command {\"binary\":\"C:\\\\Users\\\\raymo\\\\.cache\\\\firebase\\\\emulators\\\\dataconnect-emulator-3.0.0.exe\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=d:\\\\projects\\\\partyparty\\\\dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: Data Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"Data Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2025-12-19T00:43:02.975Z] I1218 19:43:02.970691    2036 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 19:43:02.970691    2036 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2025-12-19T00:43:03.005Z] I1218 19:43:03.005816    2036 control.go:94] [/emulator/partyparty ab2a] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1992B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 19:43:03.005816    2036 control.go:94] [/emulator/partyparty ab2a] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1992B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \n"}}
+[debug] [2025-12-19T00:43:03.039Z] I1218 19:43:03.039453    2036 codegen.go:80] [connector "example" javascriptSdk] Generating sources into "d:\\projects\\partyparty\\src\\dataconnect-generated"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 19:43:03.039453    2036 codegen.go:80] [connector \"example\" javascriptSdk] Generating sources into \"d:\\\\projects\\\\partyparty\\\\src\\\\dataconnect-generated\"\n"}}
+[debug] [2025-12-19T00:43:03.073Z] I1218 19:43:03.049484    2036 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\mutation.gql [13679B] main\implicit.gql [1261B] main\input.gql [28173B] main\relation.gql [14318B] prelude.gql [73219B] main\query.gql [5099B] 
+I1218 19:43:03.051485    2036 collector.go:107] connector "example" javascriptSdk wrote into "d:\\projects\\partyparty\\src\\dataconnect-generated"
+Generated sources: esm\index.esm.js [3560B] esm\package.json [17B] index.cjs.js [4050B] package.json [637B] .guides/setup.md [584B] README.md [40804B] .guides/usage.md [1705B] .guides/config.json [236B] index.d.ts [8025B] 
+I1218 19:43:03.052990    2036 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation
+I1218 19:43:03.052990    2036 load.go:109] Finished reloading
+I1218 19:43:03.066462    2036 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 19:43:03.049484    2036 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\mutation.gql [13679B] main\\implicit.gql [1261B] main\\input.gql [28173B] main\\relation.gql [14318B] prelude.gql [73219B] main\\query.gql [5099B] \nI1218 19:43:03.051485    2036 collector.go:107] connector \"example\" javascriptSdk wrote into \"d:\\\\projects\\\\partyparty\\\\src\\\\dataconnect-generated\"\nGenerated sources: esm\\index.esm.js [3560B] esm\\package.json [17B] index.cjs.js [4050B] package.json [637B] .guides/setup.md [584B] README.md [40804B] .guides/usage.md [1705B] .guides/config.json [236B] index.d.ts [8025B] \nI1218 19:43:03.052990    2036 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation\nI1218 19:43:03.052990    2036 load.go:109] Finished reloading\nI1218 19:43:03.066462    2036 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2025-12-19T00:43:03.584Z] I1218 19:43:03.186932    2036 engine.go:179] [/emulator/partyparty ab2a] ExecuteGraphqlRead IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 19:43:03.186932    2036 engine.go:179] [/emulator/partyparty ab2a] ExecuteGraphqlRead IntrospectionQuery: succeeded. \n"}}
+[debug] [2025-12-19T00:43:03.802Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-19T00:43:03.803Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-19T00:44:26.324Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2025-12-19T00:44:26.324Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-19T00:44:26.325Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-19T00:44:26.325Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-19T00:44:26.326Z] Checked if tokens are valid: true, expires at: 1766108204785
+[debug] [2025-12-19T00:44:26.326Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-19T00:44:26.326Z] Checked if tokens are valid: true, expires at: 1766108204785
+[debug] [2025-12-19T00:44:26.327Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-19T00:44:26.334Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2025-12-19T00:44:26.334Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-19T00:44:26.335Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-19T00:44:26.335Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-19T00:44:26.335Z] Checked if tokens are valid: true, expires at: 1766108204785
+[debug] [2025-12-19T00:44:26.335Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-19T00:44:26.336Z] Checked if tokens are valid: true, expires at: 1766108204785
+[debug] [2025-12-19T00:44:26.336Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-19T00:44:26.342Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T00:44:26.577Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-19T00:44:26.577Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-19T00:44:26.582Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-19T00:44:26.582Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-19T00:44:45.730Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T00:44:45.774Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:44:45.775Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:48:16.463Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-19T00:48:16.463Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T00:52:53.985Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T00:52:54.030Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:52:54.033Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:57:42.823Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T00:57:42.827Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:58:33.153Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:58:36.769Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T00:58:36.771Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:59:55.680Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T00:59:59.337Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T00:59:59.339Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:10:53.054Z] I1218 20:10:53.054767    2036 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 20:10:53.054767    2036 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2025-12-19T01:10:53.077Z] I1218 20:10:53.077445    2036 codegen.go:80] [connector "example" javascriptSdk] Generating sources into "d:\\projects\\partyparty\\src\\dataconnect-generated"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 20:10:53.077445    2036 codegen.go:80] [connector \"example\" javascriptSdk] Generating sources into \"d:\\\\projects\\\\partyparty\\\\src\\\\dataconnect-generated\"\n"}}
+[debug] [2025-12-19T01:10:53.087Z] I1218 20:10:53.087687    2036 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\implicit.gql [1261B] main\input.gql [28173B] main\relation.gql [14318B] prelude.gql [73219B] main\query.gql [5099B] main\mutation.gql [13679B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 20:10:53.087687    2036 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\implicit.gql [1261B] main\\input.gql [28173B] main\\relation.gql [14318B] prelude.gql [73219B] main\\query.gql [5099B] main\\mutation.gql [13679B] \n"}}
+[debug] [2025-12-19T01:10:53.089Z] I1218 20:10:53.090468    2036 collector.go:107] connector "example" javascriptSdk wrote into "d:\\projects\\partyparty\\src\\dataconnect-generated"
+Generated sources: index.cjs.js [4050B] README.md [40804B] .guides/usage.md [1705B] esm\package.json [17B] package.json [637B] .guides/setup.md [584B] .guides/config.json [236B] index.d.ts [8025B] esm\index.esm.js [3560B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 20:10:53.090468    2036 collector.go:107] connector \"example\" javascriptSdk wrote into \"d:\\\\projects\\\\partyparty\\\\src\\\\dataconnect-generated\"\nGenerated sources: index.cjs.js [4050B] README.md [40804B] .guides/usage.md [1705B] esm\\package.json [17B] package.json [637B] .guides/setup.md [584B] .guides/config.json [236B] index.d.ts [8025B] esm\\index.esm.js [3560B] \n"}}
+[debug] [2025-12-19T01:10:53.091Z] I1218 20:10:53.091474    2036 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation
+I1218 20:10:53.091474    2036 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 20:10:53.091474    2036 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation\nI1218 20:10:53.091474    2036 load.go:109] Finished reloading\n"}}
+[info] [Firebase Plugin] Stopping Data Connect toolkit
+[warn] !  Data Connect Emulator has exited upon receiving signal: SIGINT 
+[debug] [2025-12-19T01:12:47.410Z] [Firebase Plugin] Activating Firebase extension.
+[debug] [2025-12-19T01:12:50.266Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-19T01:12:50.268Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-19T01:12:50.269Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-19T01:12:50.271Z] Checked if tokens are valid: true, expires at: 1766108204785
+[debug] [2025-12-19T01:12:50.271Z] Checked if tokens are valid: true, expires at: 1766108204785
+[debug] [2025-12-19T01:12:50.271Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-19T01:12:50.272Z] Checked if tokens are valid: true, expires at: 1766108204785
+[debug] [2025-12-19T01:12:50.273Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-19T01:12:50.281Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[debug] [2025-12-19T01:12:51.482Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2025-12-19T01:12:51.483Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-19T01:12:51.483Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-19T01:12:51.483Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-19T01:12:51.484Z] Checked if tokens are valid: true, expires at: 1766108204785
+[debug] [2025-12-19T01:12:51.484Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-19T01:12:51.484Z] Checked if tokens are valid: true, expires at: 1766108204785
+[debug] [2025-12-19T01:12:51.485Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-19T01:12:51.490Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2025-12-19T01:12:51.490Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-19T01:12:51.491Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-19T01:12:51.491Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-19T01:12:51.491Z] Checked if tokens are valid: true, expires at: 1766108204785
+[debug] [2025-12-19T01:12:51.491Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-19T01:12:51.492Z] Checked if tokens are valid: true, expires at: 1766108204785
+[debug] [2025-12-19T01:12:51.492Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-19T01:12:51.498Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-demo-no-project.json
+[info] [Firebase Plugin] Starting Data Connect toolkit (version 3.0.0) on port 50001
+[debug] [2025-12-19T01:12:51.748Z] I1218 20:12:51.730193   67164 control.go:94] [/emulator/partyparty a304] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1992B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 20:12:51.730193   67164 control.go:94] [/emulator/partyparty a304] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1992B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \n"}}
+[debug] [2025-12-19T01:12:51.749Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2025-12-19T01:12:51.749Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2025-12-19T01:12:51.749Z] Starting Data Connect Emulator with command {"binary":"C:\\Users\\raymo\\.cache\\firebase\\emulators\\dataconnect-emulator-3.0.0.exe","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=d:\\projects\\partyparty\\dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting Data Connect Emulator with command {\"binary\":\"C:\\\\Users\\\\raymo\\\\.cache\\\\firebase\\\\emulators\\\\dataconnect-emulator-3.0.0.exe\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=d:\\\\projects\\\\partyparty\\\\dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: Data Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"Data Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2025-12-19T01:12:51.953Z] I1218 20:12:51.774361   62380 load.go:31] Reloading schema and connectors...
+I1218 20:12:51.816831   62380 control.go:94] [/emulator/partyparty 493a] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1992B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+I1218 20:12:51.845320   62380 codegen.go:80] [connector "example" javascriptSdk] Generating sources into "d:\\projects\\partyparty\\src\\dataconnect-generated"
+I1218 20:12:51.850319   62380 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\mutation.gql [13679B] main\implicit.gql [1261B] prelude.gql [73219B] main\input.gql [28173B] main\relation.gql [14318B] main\query.gql [5099B] 
+I1218 20:12:51.853346   62380 collector.go:107] connector "example" javascriptSdk wrote into "d:\\projects\\partyparty\\src\\dataconnect-generated"
+Generated sources: index.d.ts [8025B] esm\index.esm.js [3560B] package.json [637B] .guides/setup.md [584B] .guides/config.json [236B] esm\package.json [17B] index.cjs.js [4050B] README.md [40804B] .guides/usage.md [1705B] 
+I1218 20:12:51.855472   62380 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation
+I1218 20:12:51.855472   62380 load.go:109] Finished reloading
+I1218 20:12:51.866262   62380 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 20:12:51.774361   62380 load.go:31] Reloading schema and connectors...\nI1218 20:12:51.816831   62380 control.go:94] [/emulator/partyparty 493a] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1992B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \nI1218 20:12:51.845320   62380 codegen.go:80] [connector \"example\" javascriptSdk] Generating sources into \"d:\\\\projects\\\\partyparty\\\\src\\\\dataconnect-generated\"\nI1218 20:12:51.850319   62380 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\mutation.gql [13679B] main\\implicit.gql [1261B] prelude.gql [73219B] main\\input.gql [28173B] main\\relation.gql [14318B] main\\query.gql [5099B] \nI1218 20:12:51.853346   62380 collector.go:107] connector \"example\" javascriptSdk wrote into \"d:\\\\projects\\\\partyparty\\\\src\\\\dataconnect-generated\"\nGenerated sources: index.d.ts [8025B] esm\\index.esm.js [3560B] package.json [637B] .guides/setup.md [584B] .guides/config.json [236B] esm\\package.json [17B] index.cjs.js [4050B] README.md [40804B] .guides/usage.md [1705B] \nI1218 20:12:51.855472   62380 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation\nI1218 20:12:51.855472   62380 load.go:109] Finished reloading\nI1218 20:12:51.866262   62380 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2025-12-19T01:12:52.289Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-19T01:12:52.290Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-19T01:12:52.299Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-19T01:12:52.300Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-19T01:12:52.300Z] I1218 20:12:52.293421   62380 engine.go:179] [/emulator/partyparty 493a] ExecuteGraphqlRead IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1218 20:12:52.293421   62380 engine.go:179] [/emulator/partyparty 493a] ExecuteGraphqlRead IntrospectionQuery: succeeded. \n"}}
+[debug] [2025-12-19T01:12:52.382Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-19T01:12:52.382Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-19T01:13:14.714Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T01:13:14.762Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:13:14.764Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:14:17.071Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T01:14:17.074Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:14:37.533Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:14:41.185Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T01:14:41.187Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:16:31.978Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:16:35.590Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T01:16:35.592Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:19:56.143Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:19:56.146Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:19:56.411Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-19T01:19:56.412Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T01:20:29.952Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:22:42.306Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:22:45.960Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T01:22:45.961Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:23:30.131Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T01:23:30.174Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:23:30.176Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:26:33.244Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T01:26:33.287Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:26:33.288Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:32:26.984Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T01:32:26.987Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:32:56.718Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T01:32:56.770Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:32:56.773Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:35:26.811Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-19T01:35:26.812Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T01:37:25.069Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T01:37:25.112Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:37:25.114Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:38:17.989Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-19T01:38:17.990Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T01:38:59.905Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:38:59.906Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:38:59.910Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:41:08.213Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-19T01:41:08.213Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T01:43:08.198Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-19T01:43:08.198Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T01:46:19.565Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:46:19.566Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:46:19.567Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T01:46:45.970Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-19T01:46:45.971Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T19:36:08.067Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T19:36:08.070Z] [Firebase Plugin] Received emulators shutdown notification.
+[info] [Firebase Plugin] Stopping Data Connect toolkit
+[warn] !  Data Connect Emulator has exited upon receiving signal: SIGINT 
+[debug] [2025-12-19T19:42:45.398Z] [Firebase Plugin] Activating Firebase extension.
+[info] [Firebase Plugin] Checked firebase-tools, is up to date!
+[debug] [2025-12-19T19:42:47.651Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-19T19:42:47.663Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-19T19:42:47.663Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-19T19:42:47.665Z] Checked if tokens are valid: true, expires at: 1766176566788
+[debug] [2025-12-19T19:42:47.665Z] Checked if tokens are valid: true, expires at: 1766176566788
+[debug] [2025-12-19T19:42:47.665Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-19T19:42:47.666Z] Checked if tokens are valid: true, expires at: 1766176566788
+[debug] [2025-12-19T19:42:47.667Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-19T19:42:47.673Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[info] [Firebase Plugin] Starting Data Connect toolkit (version 3.0.0) on port 50001
+[debug] [2025-12-19T19:42:49.364Z] I1219 14:42:49.343031   63604 control.go:94] [/emulator/partyparty 1a8a] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1992B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1219 14:42:49.343031   63604 control.go:94] [/emulator/partyparty 1a8a] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1992B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \n"}}
+[debug] [2025-12-19T19:42:49.365Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2025-12-19T19:42:49.365Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2025-12-19T19:42:49.365Z] Starting Data Connect Emulator with command {"binary":"C:\\Users\\raymo\\.cache\\firebase\\emulators\\dataconnect-emulator-3.0.0.exe","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=d:\\projects\\partyparty\\dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting Data Connect Emulator with command {\"binary\":\"C:\\\\Users\\\\raymo\\\\.cache\\\\firebase\\\\emulators\\\\dataconnect-emulator-3.0.0.exe\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=d:\\\\projects\\\\partyparty\\\\dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: Data Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"Data Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2025-12-19T19:42:49.677Z] I1219 14:42:49.389782   52036 load.go:31] Reloading schema and connectors...
+I1219 14:42:49.422452   52036 control.go:94] [/emulator/partyparty 1e41] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1992B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+I1219 14:42:49.451997   52036 codegen.go:80] [connector "example" javascriptSdk] Generating sources into "d:\\projects\\partyparty\\src\\dataconnect-generated"
+I1219 14:42:49.458503   52036 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\relation.gql [14318B] main\query.gql [5099B] main\mutation.gql [13679B] prelude.gql [73219B] main\implicit.gql [1261B] main\input.gql [28173B] 
+I1219 14:42:49.462512   52036 collector.go:107] connector "example" javascriptSdk wrote into "d:\\projects\\partyparty\\src\\dataconnect-generated"
+Generated sources: package.json [637B] .guides/config.json [236B] index.d.ts [8025B] esm\index.esm.js [3560B] esm\package.json [17B] README.md [40804B] .guides/usage.md [1705B] .guides/setup.md [584B] index.cjs.js [4050B] 
+I1219 14:42:49.463511   52036 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation
+I1219 14:42:49.463511   52036 load.go:109] Finished reloading
+I1219 14:42:49.476807   52036 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1219 14:42:49.389782   52036 load.go:31] Reloading schema and connectors...\nI1219 14:42:49.422452   52036 control.go:94] [/emulator/partyparty 1e41] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1992B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \nI1219 14:42:49.451997   52036 codegen.go:80] [connector \"example\" javascriptSdk] Generating sources into \"d:\\\\projects\\\\partyparty\\\\src\\\\dataconnect-generated\"\nI1219 14:42:49.458503   52036 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\relation.gql [14318B] main\\query.gql [5099B] main\\mutation.gql [13679B] prelude.gql [73219B] main\\implicit.gql [1261B] main\\input.gql [28173B] \nI1219 14:42:49.462512   52036 collector.go:107] connector \"example\" javascriptSdk wrote into \"d:\\\\projects\\\\partyparty\\\\src\\\\dataconnect-generated\"\nGenerated sources: package.json [637B] .guides/config.json [236B] index.d.ts [8025B] esm\\index.esm.js [3560B] esm\\package.json [17B] README.md [40804B] .guides/usage.md [1705B] .guides/setup.md [584B] index.cjs.js [4050B] \nI1219 14:42:49.463511   52036 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation\nI1219 14:42:49.463511   52036 load.go:109] Finished reloading\nI1219 14:42:49.476807   52036 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2025-12-19T19:42:50.157Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-19T19:42:50.158Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-19T19:42:50.512Z] I1219 14:42:50.495182   52036 engine.go:179] [/emulator/partyparty 1e41] ExecuteGraphqlRead IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1219 14:42:50.495182   52036 engine.go:179] [/emulator/partyparty 1e41] ExecuteGraphqlRead IntrospectionQuery: succeeded. \n"}}
+[debug] [2025-12-19T19:44:38.816Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T19:44:38.819Z] [Firebase Plugin] Received emulators shutdown notification.
+[warn] !  dataconnect: Fatal error occurred: 
+   Data Connect Emulator has exited with code: 1, 
+   stopping all running emulators {"metadata":{"emulator":{"name":"dataconnect"},"message":"Fatal error occurred: \n   Data Connect Emulator has exited with code: 1, \n   stopping all running emulators"}}
+[debug] [2025-12-19T19:48:14.776Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-19T19:48:14.777Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T21:08:07.655Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-19T21:08:07.656Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T21:32:29.418Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T21:32:29.420Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T21:34:16.667Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2025-12-19T21:34:16.667Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-19T21:34:16.680Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-19T21:34:16.680Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-19T21:34:16.681Z] Checked if tokens are valid: false, expires at: 1766176566788
+[debug] [2025-12-19T21:34:16.681Z] Checked if tokens are valid: false, expires at: 1766176566788
+[debug] [2025-12-19T21:34:16.681Z] > refreshing access token with scopes: []
+[debug] [2025-12-19T21:34:16.682Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-19T21:34:16.683Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-19T21:34:16.685Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2025-12-19T21:34:16.685Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-19T21:34:16.686Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-19T21:34:16.686Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-19T21:34:16.687Z] Checked if tokens are valid: false, expires at: 1766176566788
+[debug] [2025-12-19T21:34:16.687Z] Checked if tokens are valid: false, expires at: 1766176566788
+[debug] [2025-12-19T21:34:16.687Z] > refreshing access token with scopes: []
+[debug] [2025-12-19T21:34:16.687Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-19T21:34:16.687Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-19T21:34:16.689Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T21:34:16.858Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-19T21:34:16.858Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-19T21:34:16.876Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-19T21:34:16.877Z] Checked if tokens are valid: true, expires at: 1766183655859
+[debug] [2025-12-19T21:34:16.878Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-19T21:34:16.886Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-19T21:34:16.886Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-19T21:34:16.902Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-19T21:34:16.903Z] Checked if tokens are valid: true, expires at: 1766183655886
+[debug] [2025-12-19T21:34:16.903Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-19T21:34:17.286Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-19T21:34:17.286Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-19T21:34:17.332Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-19T21:34:17.332Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-19T21:34:38.113Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T21:34:38.155Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T21:34:38.157Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T22:33:02.206Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T22:33:02.251Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T22:33:02.253Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T22:36:14.064Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-19T22:36:14.064Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T22:36:32.422Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T22:36:32.423Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T22:36:40.750Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-19T22:36:40.753Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T22:39:21.562Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-19T22:39:21.563Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-19T22:54:18.022Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T22:54:18.024Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-19T22:55:18.404Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-19T22:55:18.404Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-20T00:01:33.277Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:01:33.278Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:02:30.171Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-20T00:02:30.216Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:02:30.218Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:15:47.598Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-20T00:15:47.598Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-20T00:17:24.598Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:17:24.601Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:18:26.261Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-20T00:18:26.262Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-20T00:18:41.538Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:18:41.539Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:19:48.841Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-20T00:19:48.842Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-20T00:22:25.192Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:22:25.194Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:22:55.091Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-20T00:22:55.135Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:22:55.137Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:24:04.112Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-20T00:24:04.151Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:24:04.153Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:34:58.056Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-20T00:34:58.113Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:34:58.115Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:35:54.538Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-20T00:35:54.539Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-20T00:38:37.802Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-20T00:38:37.851Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:38:37.854Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:39:34.162Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-20T00:39:34.162Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-20T00:41:47.589Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:41:47.590Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:42:55.453Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-20T00:42:55.498Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:42:55.501Z] [Firebase Plugin] Received emulators shutdown notification.
+[info] [Firebase Plugin] Stopping Data Connect toolkit
+[debug] [2025-12-20T00:45:32.106Z] [Firebase Plugin] Activating Firebase extension.
+[info] [Firebase Plugin] Checked firebase-tools, is up to date!
+[debug] [2025-12-20T00:45:35.097Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-20T00:45:35.110Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-20T00:45:35.110Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-20T00:45:35.112Z] Checked if tokens are valid: true, expires at: 1766192535873
+[debug] [2025-12-20T00:45:35.112Z] Checked if tokens are valid: true, expires at: 1766192535873
+[debug] [2025-12-20T00:45:35.113Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-20T00:45:35.113Z] Checked if tokens are valid: true, expires at: 1766192535873
+[debug] [2025-12-20T00:45:35.114Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-20T00:45:35.120Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[info] [Firebase Plugin] Starting Data Connect toolkit (version 3.0.0) on port 50001
+[debug] [2025-12-20T00:45:35.672Z] I1219 19:45:35.646302   60248 control.go:94] [/emulator/partyparty 9605] UpdateResources(): done
+Main schema: sources: schema\schema.gql [3040B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1219 19:45:35.646302   60248 control.go:94] [/emulator/partyparty 9605] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [3040B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \n"}}
+[debug] [2025-12-20T00:45:35.673Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2025-12-20T00:45:35.673Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2025-12-20T00:45:35.673Z] Starting Data Connect Emulator with command {"binary":"C:\\Users\\raymo\\.cache\\firebase\\emulators\\dataconnect-emulator-3.0.0.exe","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=d:\\projects\\partyparty\\dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting Data Connect Emulator with command {\"binary\":\"C:\\\\Users\\\\raymo\\\\.cache\\\\firebase\\\\emulators\\\\dataconnect-emulator-3.0.0.exe\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=d:\\\\projects\\\\partyparty\\\\dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: Data Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"Data Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2025-12-20T00:45:35.799Z] I1219 19:45:35.698285    7228 load.go:31] Reloading schema and connectors...
+I1219 19:45:35.745835    7228 control.go:94] [/emulator/partyparty 4d6b] UpdateResources(): done
+Main schema: sources: schema\schema.gql [3040B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+I1219 19:45:35.793774    7228 codegen.go:80] [connector "example" javascriptSdk] Generating sources into "d:\\projects\\partyparty\\src\\dataconnect-generated"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1219 19:45:35.698285    7228 load.go:31] Reloading schema and connectors...\nI1219 19:45:35.745835    7228 control.go:94] [/emulator/partyparty 4d6b] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [3040B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \nI1219 19:45:35.793774    7228 codegen.go:80] [connector \"example\" javascriptSdk] Generating sources into \"d:\\\\projects\\\\partyparty\\\\src\\\\dataconnect-generated\"\n"}}
+[debug] [2025-12-20T00:45:35.815Z] I1219 19:45:35.808798    7228 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\relation.gql [34680B] main\query.gql [14002B] main\mutation.gql [37779B] prelude.gql [73219B] main\implicit.gql [4572B] main\input.gql [73256B] 
+I1219 19:45:35.811542    7228 collector.go:107] connector "example" javascriptSdk wrote into "d:\\projects\\partyparty\\src\\dataconnect-generated"
+Generated sources: index.d.ts [8617B] esm\index.esm.js [3560B] esm\package.json [17B] index.cjs.js [4050B] .guides/usage.md [1705B] .guides/setup.md [584B] .guides/config.json [236B] package.json [637B] README.md [40804B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1219 19:45:35.808798    7228 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\relation.gql [34680B] main\\query.gql [14002B] main\\mutation.gql [37779B] prelude.gql [73219B] main\\implicit.gql [4572B] main\\input.gql [73256B] \nI1219 19:45:35.811542    7228 collector.go:107] connector \"example\" javascriptSdk wrote into \"d:\\\\projects\\\\partyparty\\\\src\\\\dataconnect-generated\"\nGenerated sources: index.d.ts [8617B] esm\\index.esm.js [3560B] esm\\package.json [17B] index.cjs.js [4050B] .guides/usage.md [1705B] .guides/setup.md [584B] .guides/config.json [236B] package.json [637B] README.md [40804B] \n"}}
+[debug] [2025-12-20T00:45:35.844Z] I1219 19:45:35.815639    7228 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation
+I1219 19:45:35.815639    7228 load.go:109] Finished reloading
+I1219 19:45:35.832927    7228 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1219 19:45:35.815639    7228 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation\nI1219 19:45:35.815639    7228 load.go:109] Finished reloading\nI1219 19:45:35.832927    7228 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2025-12-20T00:45:35.978Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-20T00:45:35.979Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-20T00:45:36.236Z] I1219 19:45:36.057760    7228 engine.go:179] [/emulator/partyparty 4d6b] ExecuteGraphqlRead IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1219 19:45:36.057760    7228 engine.go:179] [/emulator/partyparty 4d6b] ExecuteGraphqlRead IntrospectionQuery: succeeded. \n"}}
+[debug] [2025-12-20T00:45:45.639Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2025-12-20T00:45:45.640Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-20T00:45:45.641Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-20T00:45:45.641Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-20T00:45:45.641Z] Checked if tokens are valid: true, expires at: 1766192535873
+[debug] [2025-12-20T00:45:45.641Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-20T00:45:45.642Z] Checked if tokens are valid: true, expires at: 1766192535873
+[debug] [2025-12-20T00:45:45.643Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-20T00:45:45.649Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2025-12-20T00:45:45.649Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-20T00:45:45.649Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-20T00:45:45.650Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-20T00:45:45.650Z] Checked if tokens are valid: true, expires at: 1766192535873
+[debug] [2025-12-20T00:45:45.650Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-20T00:45:45.650Z] Checked if tokens are valid: true, expires at: 1766192535873
+[debug] [2025-12-20T00:45:45.651Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-20T00:45:45.657Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-20T00:45:45.882Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-20T00:45:45.882Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-20T00:45:45.923Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-20T00:45:45.923Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-20T00:46:07.334Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-20T00:46:07.380Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-20T00:46:07.382Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T16:43:01.102Z] [Firebase Plugin] Activating Firebase extension.
+[info] [Firebase Plugin] Checked firebase-tools, is up to date!
+[debug] [2025-12-30T16:43:03.709Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-30T16:43:03.721Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-30T16:43:03.721Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-30T16:43:03.723Z] Checked if tokens are valid: false, expires at: 1766192535873
+[debug] [2025-12-30T16:43:03.723Z] Checked if tokens are valid: false, expires at: 1766192535873
+[debug] [2025-12-30T16:43:03.723Z] > refreshing access token with scopes: []
+[debug] [2025-12-30T16:43:03.724Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-30T16:43:03.725Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-30T16:43:03.731Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[info] [Firebase Plugin] Starting Data Connect toolkit (version 3.0.0) on port 50001
+[debug] [2025-12-30T16:43:04.704Z] I1230 11:43:04.672842   33864 control.go:94] [/emulator/partyparty 0a68] UpdateResources(): done
+Main schema: sources: schema\schema.gql [3040B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1230 11:43:04.672842   33864 control.go:94] [/emulator/partyparty 0a68] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [3040B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \n"}}
+[debug] [2025-12-30T16:43:04.705Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2025-12-30T16:43:04.705Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2025-12-30T16:43:04.705Z] Starting Data Connect Emulator with command {"binary":"C:\\Users\\raymo\\.cache\\firebase\\emulators\\dataconnect-emulator-3.0.0.exe","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=d:\\projects\\partyparty\\dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting Data Connect Emulator with command {\"binary\":\"C:\\\\Users\\\\raymo\\\\.cache\\\\firebase\\\\emulators\\\\dataconnect-emulator-3.0.0.exe\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=d:\\\\projects\\\\partyparty\\\\dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: Data Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"Data Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2025-12-30T16:43:04.807Z] I1230 11:43:04.730925   12436 load.go:31] Reloading schema and connectors...
+I1230 11:43:04.778885   12436 control.go:94] [/emulator/partyparty aae8] UpdateResources(): done
+Main schema: sources: schema\schema.gql [3040B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1230 11:43:04.730925   12436 load.go:31] Reloading schema and connectors...\nI1230 11:43:04.778885   12436 control.go:94] [/emulator/partyparty aae8] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [3040B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \n"}}
+[debug] [2025-12-30T16:43:04.840Z] I1230 11:43:04.830834   12436 codegen.go:80] [connector "example" javascriptSdk] Generating sources into "d:\\projects\\partyparty\\src\\dataconnect-generated"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1230 11:43:04.830834   12436 codegen.go:80] [connector \"example\" javascriptSdk] Generating sources into \"d:\\\\projects\\\\partyparty\\\\src\\\\dataconnect-generated\"\n"}}
+[debug] [2025-12-30T16:43:04.870Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-30T16:43:04.870Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-30T16:43:04.894Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-30T16:43:04.896Z] Checked if tokens are valid: true, expires at: 1767116583870
+[debug] [2025-12-30T16:43:04.897Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-30T16:43:04.902Z] I1230 11:43:04.860104   12436 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\relation.gql [34680B] main\query.gql [14002B] main\mutation.gql [37779B] prelude.gql [73219B] main\implicit.gql [4572B] main\input.gql [73256B] 
+I1230 11:43:04.875670   12436 collector.go:107] connector "example" javascriptSdk wrote into "d:\\projects\\partyparty\\src\\dataconnect-generated"
+Generated sources: index.d.ts [8617B] esm\index.esm.js [3560B] esm\package.json [17B] package.json [637B] README.md [40804B] .guides/usage.md [1705B] .guides/setup.md [584B] index.cjs.js [4050B] .guides/config.json [236B] 
+I1230 11:43:04.902023   12436 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation
+I1230 11:43:04.902023   12436 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1230 11:43:04.860104   12436 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\relation.gql [34680B] main\\query.gql [14002B] main\\mutation.gql [37779B] prelude.gql [73219B] main\\implicit.gql [4572B] main\\input.gql [73256B] \nI1230 11:43:04.875670   12436 collector.go:107] connector \"example\" javascriptSdk wrote into \"d:\\\\projects\\\\partyparty\\\\src\\\\dataconnect-generated\"\nGenerated sources: index.d.ts [8617B] esm\\index.esm.js [3560B] esm\\package.json [17B] package.json [637B] README.md [40804B] .guides/usage.md [1705B] .guides/setup.md [584B] index.cjs.js [4050B] .guides/config.json [236B] \nI1230 11:43:04.902023   12436 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation\nI1230 11:43:04.902023   12436 load.go:109] Finished reloading\n"}}
+[debug] [2025-12-30T16:43:04.918Z] I1230 11:43:04.913086   12436 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1230 11:43:04.913086   12436 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2025-12-30T16:43:05.065Z] I1230 11:43:05.065327   12436 engine.go:179] [/emulator/partyparty aae8] ExecuteGraphqlRead IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1230 11:43:05.065327   12436 engine.go:179] [/emulator/partyparty aae8] ExecuteGraphqlRead IntrospectionQuery: succeeded. \n"}}
+[debug] [2025-12-30T16:43:05.240Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-30T16:43:05.240Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-30T16:44:35.697Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-30T16:44:35.698Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-30T20:00:27.962Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:00:27.964Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:01:12.005Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-30T20:01:12.005Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-30T20:05:44.967Z] I1230 15:05:44.967408   12436 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1230 15:05:44.967408   12436 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2025-12-30T20:05:44.997Z] W1230 15:05:44.997329   12436 control.go:68] [/emulator/partyparty 0dd3] connector "example" has errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+
+sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+I1230 15:05:44.997329   12436 control.go:94] [/emulator/partyparty 0dd3] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1047B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"W1230 15:05:44.997329   12436 control.go:68] [/emulator/partyparty 0dd3] connector \"example\" has errors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\n\nsources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \nI1230 15:05:44.997329   12436 control.go:94] [/emulator/partyparty 0dd3] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1047B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \n"}}
+[debug] [2025-12-30T20:05:44.999Z] E1230 15:05:44.998858   12436 load.go:73] Could not load sources: 
+Errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E1230 15:05:44.998858   12436 load.go:73] Could not load sources: \nErrors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\n"}}
+[debug] [2025-12-30T20:05:45.024Z] I1230 15:05:45.023547   12436 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\mutation.gql [24125B] main\implicit.gql [3311B] main\input.gql [45083B] prelude.gql [73219B] main\relation.gql [20362B] main\query.gql [8925B] 
+I1230 15:05:45.023547   12436 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I1230 15:05:45.023547   12436 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\mutation.gql [24125B] main\\implicit.gql [3311B] main\\input.gql [45083B] prelude.gql [73219B] main\\relation.gql [20362B] main\\query.gql [8925B] \nI1230 15:05:45.023547   12436 load.go:74] Finished reloading\n"}}
+[debug] [2025-12-30T20:24:13.239Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-30T20:24:13.283Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:24:13.284Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:27:26.729Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2025-12-30T20:27:26.729Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-30T20:27:26.744Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-30T20:27:26.744Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-30T20:27:26.745Z] Checked if tokens are valid: false, expires at: 1767116583870
+[debug] [2025-12-30T20:27:26.745Z] Checked if tokens are valid: false, expires at: 1767116583870
+[debug] [2025-12-30T20:27:26.746Z] > refreshing access token with scopes: []
+[debug] [2025-12-30T20:27:26.747Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-30T20:27:26.748Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-30T20:27:26.756Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2025-12-30T20:27:26.756Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-12-30T20:27:26.757Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-30T20:27:26.757Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2025-12-30T20:27:26.757Z] Checked if tokens are valid: false, expires at: 1767116583870
+[debug] [2025-12-30T20:27:26.757Z] Checked if tokens are valid: false, expires at: 1767116583870
+[debug] [2025-12-30T20:27:26.757Z] > refreshing access token with scopes: []
+[debug] [2025-12-30T20:27:26.758Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-30T20:27:26.758Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-30T20:27:26.764Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-30T20:27:26.851Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-30T20:27:26.852Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-30T20:27:26.867Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-30T20:27:26.868Z] Checked if tokens are valid: true, expires at: 1767130045852
+[debug] [2025-12-30T20:27:26.869Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-30T20:27:26.876Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-30T20:27:26.876Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-30T20:27:26.892Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-12-30T20:27:26.893Z] Checked if tokens are valid: true, expires at: 1767130045877
+[debug] [2025-12-30T20:27:26.893Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-12-30T20:27:27.118Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-30T20:27:27.118Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-30T20:27:27.120Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-12-30T20:27:27.121Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-12-30T20:27:48.649Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-30T20:27:48.687Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:27:48.689Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:29:37.738Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-30T20:29:37.773Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:29:37.775Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:44:25.848Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-30T20:44:25.894Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:44:25.895Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:53:08.317Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-30T20:53:08.358Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:53:08.362Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:56:36.730Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-30T20:56:36.772Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:56:36.774Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:57:49.378Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:57:49.379Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T20:57:57.762Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T23:28:05.465Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-30T23:28:05.501Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T23:28:05.503Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T23:36:44.995Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-30T23:36:45.037Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T23:36:45.038Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T23:47:15.251Z] [Firebase Plugin] Received CLI notification.
+[debug] [2025-12-30T23:47:15.296Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T23:47:15.298Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T23:50:13.597Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T23:50:13.599Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-30T23:50:44.294Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-30T23:50:44.294Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2025-12-31T00:44:24.231Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-31T00:44:24.232Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-31T00:44:43.708Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-31T00:45:11.200Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-31T00:45:11.201Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-31T00:45:55.325Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2025-12-31T00:46:31.127Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2025-12-31T00:46:31.128Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json

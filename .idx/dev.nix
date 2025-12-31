@@ -1,15 +1,11 @@
-# To learn more about how to use Nix to configure your environment
-# see: https://developers.google.com/idx/guides/customize-idx-env
 { pkgs, ... }: {
-  # Which nixpkgs channel to use.
-  channel = "stable-24.05"; # or "unstable"
-  # Use https://search.nixos.org/packages to find packages
   packages = [
     # pkgs.go
     # pkgs.python311
     # pkgs.python311Packages.pip
     pkgs.nodejs_20
     pkgs.postgresql
+    pkgs.firebase-tools
     # pkgs.nodePackages.nodemon
   ];
   # Sets environment variables in the workspace
@@ -20,6 +16,8 @@
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
       # "vscodevim.vim"
+      "dbaeumer.vscode-eslint"
+      "googlecloudtools.firebase-vscode-extension"
       "google.gemini-cli-vscode-ide-companion"
     ];
     # Enable previews
@@ -29,7 +27,7 @@
         web = {
           # Example: run "npm run dev" with PORT set to IDX's defined port for previews,
           # and show it in IDX's web preview panel
-          command = ["npm" "start" "--" "--port" "$PORT"];
+          command = ["node" "index.js"];
           manager = "web";
         };
       };
@@ -44,7 +42,9 @@
         default.openFiles = [ ".idx/dev.nix" "README.md" "index.js" ];
       };
       # Runs when the workspace is (re)started
-      onStart = {};
+      onStart = {
+        start-app = "npm start";
+      };
     };
   };
 }

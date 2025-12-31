@@ -1,0 +1,587 @@
+extend type Channel {
+  """
+  ✨ List `ChannelMembership` objects in a one-to-many relationship (where `ChannelMembership`.`channel` is this object).
+  """
+  channelMemberships_on_channel(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: ChannelMembership_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [ChannelMembership_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: ChannelMembership_Having
+  ): [ChannelMembership!]! @fdc_generated(from: "ChannelMembership.channel", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `ChannelMessage` objects in a one-to-many relationship (where `ChannelMessage`.`channel` is this object).
+  """
+  channelMessages_on_channel(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: ChannelMessage_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [ChannelMessage_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: ChannelMessage_Having
+  ): [ChannelMessage!]! @fdc_generated(from: "ChannelMessage.channel", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Channel", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Channel` table.
+  """
+  _count: Int! @fdc_generated(from: "Channel.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Channel` table where the `description` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  description_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Channel.description", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Channel` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Channel.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Channel` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  name_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Channel.name", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Channel` table where the `scheduledFor` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  scheduledFor_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Channel.scheduledFor", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Channel` table where the `type` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  type_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Channel.type", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `scheduledFor` field in the `Channel` table.
+  """
+  scheduledFor_min: Date @fdc_generated(from: "Channel.scheduledFor", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `scheduledFor` field in the `Channel` table.
+  """
+  scheduledFor_max: Date @fdc_generated(from: "Channel.scheduledFor", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Channel.id", purpose: GLOBAL_ID)
+}
+extend type ChannelMembership {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "ChannelMembership", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `ChannelMembership` table.
+  """
+  _count: Int! @fdc_generated(from: "ChannelMembership.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ChannelMembership` table where the `channelId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  channelId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ChannelMembership.channelId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ChannelMembership` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ChannelMembership.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ChannelMembership` table where the `inviteId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  inviteId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ChannelMembership.inviteId", purpose: QUERY_COUNT)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "ChannelMembership.id", purpose: GLOBAL_ID)
+}
+extend type ChannelMessage {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "ChannelMessage", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `ChannelMessage` table.
+  """
+  _count: Int! @fdc_generated(from: "ChannelMessage.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ChannelMessage` table where the `channelId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  channelId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ChannelMessage.channelId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ChannelMessage` table where the `content` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  content_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ChannelMessage.content", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ChannelMessage` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ChannelMessage.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ChannelMessage` table where the `timestamp` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  timestamp_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ChannelMessage.timestamp", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `timestamp` field in the `ChannelMessage` table.
+  """
+  timestamp_min: Date @fdc_generated(from: "ChannelMessage.timestamp", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `timestamp` field in the `ChannelMessage` table.
+  """
+  timestamp_max: Date @fdc_generated(from: "ChannelMessage.timestamp", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "ChannelMessage.id", purpose: GLOBAL_ID)
+}
+extend type Guest {
+  """
+  ✨ List `Invite` objects in a one-to-many relationship (where `Invite`.`guest` is this object).
+  """
+  invites_on_guest(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Invite_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Invite_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Invite_Having
+  ): [Invite!]! @fdc_generated(from: "Invite.guest", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Guest", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Guest` table.
+  """
+  _count: Int! @fdc_generated(from: "Guest.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Guest` table where the `email` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  email_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Guest.email", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Guest` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Guest.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Guest` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  name_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Guest.name", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Guest` table where the `phone` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  phone_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Guest.phone", purpose: QUERY_COUNT)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Guest.id", purpose: GLOBAL_ID)
+}
+extend type Host {
+  """
+  ✨ List `Party` objects in a one-to-many relationship (where `Party`.`host` is this object).
+  """
+  parties_on_host(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Party_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Party_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Party_Having
+  ): [Party!]! @fdc_generated(from: "Party.host", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Host", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Host` table.
+  """
+  _count: Int! @fdc_generated(from: "Host.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Host` table where the `email` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  email_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Host.email", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Host` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Host.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Host` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  name_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Host.name", purpose: QUERY_COUNT)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Host.id", purpose: GLOBAL_ID)
+}
+extend type Invite {
+  """
+  ✨ List `ChannelMembership` objects in a one-to-many relationship (where `ChannelMembership`.`invite` is this object).
+  """
+  channelMemberships_on_invite(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: ChannelMembership_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [ChannelMembership_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: ChannelMembership_Having
+  ): [ChannelMembership!]! @fdc_generated(from: "ChannelMembership.invite", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Invite", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Invite` table.
+  """
+  _count: Int! @fdc_generated(from: "Invite.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Invite` table where the `guestId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  guestId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Invite.guestId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Invite` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Invite.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Invite` table where the `partyId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  partyId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Invite.partyId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Invite` table where the `state` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  state_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Invite.state", purpose: QUERY_COUNT)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Invite.id", purpose: GLOBAL_ID)
+}
+extend type Party {
+  """
+  ✨ List `Invite` objects in a one-to-many relationship (where `Invite`.`party` is this object).
+  """
+  invites_on_party(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Invite_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Invite_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Invite_Having
+  ): [Invite!]! @fdc_generated(from: "Invite.party", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Party", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Party` table.
+  """
+  _count: Int! @fdc_generated(from: "Party.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Party` table where the `details` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  details_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Party.details", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Party` table where the `hostId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  hostId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Party.hostId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Party` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Party.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Party` table where the `scheduledFor` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  scheduledFor_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Party.scheduledFor", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Party` table where the `state` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  state_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Party.state", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Party` table where the `title` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  title_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Party.title", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `scheduledFor` field in the `Party` table.
+  """
+  scheduledFor_min: Date @fdc_generated(from: "Party.scheduledFor", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `scheduledFor` field in the `Party` table.
+  """
+  scheduledFor_max: Date @fdc_generated(from: "Party.scheduledFor", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Party.id", purpose: GLOBAL_ID)
+}

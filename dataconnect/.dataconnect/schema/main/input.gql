@@ -1,0 +1,1571 @@
+"""
+✨ `Channel_KeyOutput` returns the primary key fields of table type `Channel`.
+
+It has the same format as `Channel_Key`, but is only used as mutation return value.
+"""
+scalar Channel_KeyOutput
+"""
+✨ `ChannelMembership_KeyOutput` returns the primary key fields of table type `ChannelMembership`.
+
+It has the same format as `ChannelMembership_Key`, but is only used as mutation return value.
+"""
+scalar ChannelMembership_KeyOutput
+"""
+✨ `ChannelMessage_KeyOutput` returns the primary key fields of table type `ChannelMessage`.
+
+It has the same format as `ChannelMessage_Key`, but is only used as mutation return value.
+"""
+scalar ChannelMessage_KeyOutput
+"""
+✨ `Guest_KeyOutput` returns the primary key fields of table type `Guest`.
+
+It has the same format as `Guest_Key`, but is only used as mutation return value.
+"""
+scalar Guest_KeyOutput
+"""
+✨ `Host_KeyOutput` returns the primary key fields of table type `Host`.
+
+It has the same format as `Host_Key`, but is only used as mutation return value.
+"""
+scalar Host_KeyOutput
+"""
+✨ `Invite_KeyOutput` returns the primary key fields of table type `Invite`.
+
+It has the same format as `Invite_Key`, but is only used as mutation return value.
+"""
+scalar Invite_KeyOutput
+"""
+✨ `Party_KeyOutput` returns the primary key fields of table type `Party`.
+
+It has the same format as `Party_Key`, but is only used as mutation return value.
+"""
+scalar Party_KeyOutput
+"""
+✨ Generated data input type for table 'Channel'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Channel_Data {
+  """
+  ✨ Generated from Field `Channel`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Channel`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Channel`.`description` of type `String!`
+  """
+  description: String
+  """
+  ✨ `_expr` server value variant of `description` (✨ Generated from Field `Channel`.`description` of type `String!`)
+  """
+  description_expr: String_Expr
+  """
+  ✨ Generated from Field `Channel`.`name` of type `String!`
+  """
+  name: String
+  """
+  ✨ `_expr` server value variant of `name` (✨ Generated from Field `Channel`.`name` of type `String!`)
+  """
+  name_expr: String_Expr
+  """
+  ✨ Generated from Field `Channel`.`scheduledFor` of type `Date!`
+  """
+  scheduledFor: Date
+  """
+  ✨ `_date` server value variant of `scheduledFor` (✨ Generated from Field `Channel`.`scheduledFor` of type `Date!`)
+  """
+  scheduledFor_date: Date_Relative
+  """
+  ✨ `_expr` server value variant of `scheduledFor` (✨ Generated from Field `Channel`.`scheduledFor` of type `Date!`)
+  """
+  scheduledFor_expr: Date_Expr
+  """
+  ✨ `_update` server value variant of `scheduledFor` (✨ Generated from Field `Channel`.`scheduledFor` of type `Date!`)
+  """
+  scheduledFor_update: [Date_Update!]
+  """
+  ✨ Generated from Field `Channel`.`type` of type `String!`
+  """
+  type: String
+  """
+  ✨ `_expr` server value variant of `type` (✨ Generated from Field `Channel`.`type` of type `String!`)
+  """
+  type_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'Channel'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Channel_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Channel_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Channel_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Channel_Filter!]
+  """
+  ✨ Generated from Field `Channel`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `Channel`.`description` of type `String!`
+  """
+  description: String_Filter
+  """
+  ✨ Generated from Field `Channel`.`name` of type `String!`
+  """
+  name: String_Filter
+  """
+  ✨ Generated from Field `Channel`.`scheduledFor` of type `Date!`
+  """
+  scheduledFor: Date_Filter
+  """
+  ✨ Generated from Field `Channel`.`type` of type `String!`
+  """
+  type: String_Filter
+  """
+  ✨ Generated from Field `Channel`.`channelMemberships_on_channel` of type `[ChannelMembership!]!`
+  """
+  channelMemberships_on_channel: ChannelMembership_ListFilter
+  """
+  ✨ Generated from Field `Channel`.`channelMessages_on_channel` of type `[ChannelMessage!]!`
+  """
+  channelMessages_on_channel: ChannelMessage_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'Channel'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Channel_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Channel_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Channel_Filter
+}
+"""
+✨ Generated having input type for table 'Channel'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Channel_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [Channel_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: Channel_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [Channel_Having!]
+  """
+  ✨ Generated from Field `Channel`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `Channel`.`description_count` of type `Int!`
+  """
+  description_count: Int_Filter
+  """
+  ✨ Generated from Field `Channel`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `Channel`.`name_count` of type `Int!`
+  """
+  name_count: Int_Filter
+  """
+  ✨ Generated from Field `Channel`.`scheduledFor_count` of type `Int!`
+  """
+  scheduledFor_count: Int_Filter
+  """
+  ✨ Generated from Field `Channel`.`type_count` of type `Int!`
+  """
+  type_count: Int_Filter
+  """
+  ✨ Generated from Field `Channel`.`scheduledFor_min` of type `Date`
+  """
+  scheduledFor_min: Date_Filter
+  """
+  ✨ Generated from Field `Channel`.`scheduledFor_max` of type `Date`
+  """
+  scheduledFor_max: Date_Filter
+}
+"""
+✨ Generated key input type for table 'Channel'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Channel_Key {
+  """
+  ✨ Generated from Field `Channel`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Channel`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Channel'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Channel_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Channel_Filter
+}
+"""
+✨ Generated order input type for table 'Channel'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Channel_Order {
+  """
+  ✨ Generated from Field `Channel`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `Channel`.`description` of type `String!`
+  """
+  description: OrderDirection
+  """
+  ✨ Generated from Field `Channel`.`name` of type `String!`
+  """
+  name: OrderDirection
+  """
+  ✨ Generated from Field `Channel`.`scheduledFor` of type `Date!`
+  """
+  scheduledFor: OrderDirection
+  """
+  ✨ Generated from Field `Channel`.`type` of type `String!`
+  """
+  type: OrderDirection
+  """
+  ✨ Generated from Field `Channel`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `Channel`.`description_count` of type `Int!`
+  """
+  description_count: OrderDirection
+  """
+  ✨ Generated from Field `Channel`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `Channel`.`name_count` of type `Int!`
+  """
+  name_count: OrderDirection
+  """
+  ✨ Generated from Field `Channel`.`scheduledFor_count` of type `Int!`
+  """
+  scheduledFor_count: OrderDirection
+  """
+  ✨ Generated from Field `Channel`.`type_count` of type `Int!`
+  """
+  type_count: OrderDirection
+  """
+  ✨ Generated from Field `Channel`.`scheduledFor_min` of type `Date`
+  """
+  scheduledFor_min: OrderDirection
+  """
+  ✨ Generated from Field `Channel`.`scheduledFor_max` of type `Date`
+  """
+  scheduledFor_max: OrderDirection
+}
+"""
+✨ Generated data input type for table 'ChannelMembership'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input ChannelMembership_Data {
+  """
+  ✨ Generated from Field `ChannelMembership`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `ChannelMembership`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `ChannelMembership`.`channelId` of type `UUID!`
+  """
+  channelId: UUID
+  """
+  ✨ `_expr` server value variant of `channelId` (✨ Generated from Field `ChannelMembership`.`channelId` of type `UUID!`)
+  """
+  channelId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `ChannelMembership`.`inviteId` of type `UUID!`
+  """
+  inviteId: UUID
+  """
+  ✨ `_expr` server value variant of `inviteId` (✨ Generated from Field `ChannelMembership`.`inviteId` of type `UUID!`)
+  """
+  inviteId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `ChannelMembership`.`channel` of type `Channel!`
+  """
+  channel: Channel_Key
+  """
+  ✨ Generated from Field `ChannelMembership`.`invite` of type `Invite!`
+  """
+  invite: Invite_Key
+}
+"""
+✨ Generated filter input type for table 'ChannelMembership'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input ChannelMembership_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [ChannelMembership_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: ChannelMembership_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [ChannelMembership_Filter!]
+  """
+  ✨ Generated from Field `ChannelMembership`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `ChannelMembership`.`channelId` of type `UUID!`
+  """
+  channelId: UUID_Filter
+  """
+  ✨ Generated from Field `ChannelMembership`.`inviteId` of type `UUID!`
+  """
+  inviteId: UUID_Filter
+  """
+  ✨ Generated from Field `ChannelMembership`.`channel` of type `Channel!`
+  """
+  channel: Channel_Filter
+  """
+  ✨ Generated from Field `ChannelMembership`.`invite` of type `Invite!`
+  """
+  invite: Invite_Filter
+}
+"""
+✨ Generated first-row input type for table 'ChannelMembership'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input ChannelMembership_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [ChannelMembership_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: ChannelMembership_Filter
+}
+"""
+✨ Generated having input type for table 'ChannelMembership'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input ChannelMembership_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [ChannelMembership_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: ChannelMembership_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [ChannelMembership_Having!]
+  """
+  ✨ Generated from Field `ChannelMembership`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `ChannelMembership`.`channelId_count` of type `Int!`
+  """
+  channelId_count: Int_Filter
+  """
+  ✨ Generated from Field `ChannelMembership`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `ChannelMembership`.`inviteId_count` of type `Int!`
+  """
+  inviteId_count: Int_Filter
+}
+"""
+✨ Generated key input type for table 'ChannelMembership'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input ChannelMembership_Key {
+  """
+  ✨ Generated from Field `ChannelMembership`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `ChannelMembership`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'ChannelMembership'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input ChannelMembership_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: ChannelMembership_Filter
+}
+"""
+✨ Generated order input type for table 'ChannelMembership'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input ChannelMembership_Order {
+  """
+  ✨ Generated from Field `ChannelMembership`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMembership`.`channelId` of type `UUID!`
+  """
+  channelId: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMembership`.`inviteId` of type `UUID!`
+  """
+  inviteId: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMembership`.`channel` of type `Channel!`
+  """
+  channel: Channel_Order
+  """
+  ✨ Generated from Field `ChannelMembership`.`invite` of type `Invite!`
+  """
+  invite: Invite_Order
+  """
+  ✨ Generated from Field `ChannelMembership`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMembership`.`channelId_count` of type `Int!`
+  """
+  channelId_count: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMembership`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMembership`.`inviteId_count` of type `Int!`
+  """
+  inviteId_count: OrderDirection
+}
+"""
+✨ Generated data input type for table 'ChannelMessage'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input ChannelMessage_Data {
+  """
+  ✨ Generated from Field `ChannelMessage`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `ChannelMessage`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `ChannelMessage`.`channelId` of type `UUID!`
+  """
+  channelId: UUID
+  """
+  ✨ `_expr` server value variant of `channelId` (✨ Generated from Field `ChannelMessage`.`channelId` of type `UUID!`)
+  """
+  channelId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `ChannelMessage`.`channel` of type `Channel!`
+  """
+  channel: Channel_Key
+  """
+  ✨ Generated from Field `ChannelMessage`.`content` of type `String!`
+  """
+  content: String
+  """
+  ✨ `_expr` server value variant of `content` (✨ Generated from Field `ChannelMessage`.`content` of type `String!`)
+  """
+  content_expr: String_Expr
+  """
+  ✨ Generated from Field `ChannelMessage`.`timestamp` of type `Date!`
+  """
+  timestamp: Date
+  """
+  ✨ `_date` server value variant of `timestamp` (✨ Generated from Field `ChannelMessage`.`timestamp` of type `Date!`)
+  """
+  timestamp_date: Date_Relative
+  """
+  ✨ `_expr` server value variant of `timestamp` (✨ Generated from Field `ChannelMessage`.`timestamp` of type `Date!`)
+  """
+  timestamp_expr: Date_Expr
+  """
+  ✨ `_update` server value variant of `timestamp` (✨ Generated from Field `ChannelMessage`.`timestamp` of type `Date!`)
+  """
+  timestamp_update: [Date_Update!]
+}
+"""
+✨ Generated filter input type for table 'ChannelMessage'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input ChannelMessage_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [ChannelMessage_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: ChannelMessage_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [ChannelMessage_Filter!]
+  """
+  ✨ Generated from Field `ChannelMessage`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `ChannelMessage`.`channelId` of type `UUID!`
+  """
+  channelId: UUID_Filter
+  """
+  ✨ Generated from Field `ChannelMessage`.`channel` of type `Channel!`
+  """
+  channel: Channel_Filter
+  """
+  ✨ Generated from Field `ChannelMessage`.`content` of type `String!`
+  """
+  content: String_Filter
+  """
+  ✨ Generated from Field `ChannelMessage`.`timestamp` of type `Date!`
+  """
+  timestamp: Date_Filter
+}
+"""
+✨ Generated first-row input type for table 'ChannelMessage'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input ChannelMessage_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [ChannelMessage_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: ChannelMessage_Filter
+}
+"""
+✨ Generated having input type for table 'ChannelMessage'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input ChannelMessage_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [ChannelMessage_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: ChannelMessage_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [ChannelMessage_Having!]
+  """
+  ✨ Generated from Field `ChannelMessage`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `ChannelMessage`.`channelId_count` of type `Int!`
+  """
+  channelId_count: Int_Filter
+  """
+  ✨ Generated from Field `ChannelMessage`.`content_count` of type `Int!`
+  """
+  content_count: Int_Filter
+  """
+  ✨ Generated from Field `ChannelMessage`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `ChannelMessage`.`timestamp_count` of type `Int!`
+  """
+  timestamp_count: Int_Filter
+  """
+  ✨ Generated from Field `ChannelMessage`.`timestamp_min` of type `Date`
+  """
+  timestamp_min: Date_Filter
+  """
+  ✨ Generated from Field `ChannelMessage`.`timestamp_max` of type `Date`
+  """
+  timestamp_max: Date_Filter
+}
+"""
+✨ Generated key input type for table 'ChannelMessage'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input ChannelMessage_Key {
+  """
+  ✨ Generated from Field `ChannelMessage`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `ChannelMessage`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'ChannelMessage'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input ChannelMessage_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: ChannelMessage_Filter
+}
+"""
+✨ Generated order input type for table 'ChannelMessage'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input ChannelMessage_Order {
+  """
+  ✨ Generated from Field `ChannelMessage`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMessage`.`channelId` of type `UUID!`
+  """
+  channelId: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMessage`.`channel` of type `Channel!`
+  """
+  channel: Channel_Order
+  """
+  ✨ Generated from Field `ChannelMessage`.`content` of type `String!`
+  """
+  content: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMessage`.`timestamp` of type `Date!`
+  """
+  timestamp: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMessage`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMessage`.`channelId_count` of type `Int!`
+  """
+  channelId_count: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMessage`.`content_count` of type `Int!`
+  """
+  content_count: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMessage`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMessage`.`timestamp_count` of type `Int!`
+  """
+  timestamp_count: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMessage`.`timestamp_min` of type `Date`
+  """
+  timestamp_min: OrderDirection
+  """
+  ✨ Generated from Field `ChannelMessage`.`timestamp_max` of type `Date`
+  """
+  timestamp_max: OrderDirection
+}
+"""
+✨ Generated data input type for table 'Guest'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Guest_Data {
+  """
+  ✨ Generated from Field `Guest`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Guest`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Guest`.`email` of type `String!`
+  """
+  email: String
+  """
+  ✨ `_expr` server value variant of `email` (✨ Generated from Field `Guest`.`email` of type `String!`)
+  """
+  email_expr: String_Expr
+  """
+  ✨ Generated from Field `Guest`.`name` of type `String!`
+  """
+  name: String
+  """
+  ✨ `_expr` server value variant of `name` (✨ Generated from Field `Guest`.`name` of type `String!`)
+  """
+  name_expr: String_Expr
+  """
+  ✨ Generated from Field `Guest`.`phone` of type `String`
+  """
+  phone: String
+  """
+  ✨ `_expr` server value variant of `phone` (✨ Generated from Field `Guest`.`phone` of type `String`)
+  """
+  phone_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'Guest'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Guest_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Guest_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Guest_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Guest_Filter!]
+  """
+  ✨ Generated from Field `Guest`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `Guest`.`email` of type `String!`
+  """
+  email: String_Filter
+  """
+  ✨ Generated from Field `Guest`.`name` of type `String!`
+  """
+  name: String_Filter
+  """
+  ✨ Generated from Field `Guest`.`phone` of type `String`
+  """
+  phone: String_Filter
+  """
+  ✨ Generated from Field `Guest`.`invites_on_guest` of type `[Invite!]!`
+  """
+  invites_on_guest: Invite_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'Guest'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Guest_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Guest_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Guest_Filter
+}
+"""
+✨ Generated having input type for table 'Guest'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Guest_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [Guest_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: Guest_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [Guest_Having!]
+  """
+  ✨ Generated from Field `Guest`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `Guest`.`email_count` of type `Int!`
+  """
+  email_count: Int_Filter
+  """
+  ✨ Generated from Field `Guest`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `Guest`.`name_count` of type `Int!`
+  """
+  name_count: Int_Filter
+  """
+  ✨ Generated from Field `Guest`.`phone_count` of type `Int!`
+  """
+  phone_count: Int_Filter
+}
+"""
+✨ Generated key input type for table 'Guest'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Guest_Key {
+  """
+  ✨ Generated from Field `Guest`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Guest`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Guest'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Guest_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Guest_Filter
+}
+"""
+✨ Generated order input type for table 'Guest'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Guest_Order {
+  """
+  ✨ Generated from Field `Guest`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `Guest`.`email` of type `String!`
+  """
+  email: OrderDirection
+  """
+  ✨ Generated from Field `Guest`.`name` of type `String!`
+  """
+  name: OrderDirection
+  """
+  ✨ Generated from Field `Guest`.`phone` of type `String`
+  """
+  phone: OrderDirection
+  """
+  ✨ Generated from Field `Guest`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `Guest`.`email_count` of type `Int!`
+  """
+  email_count: OrderDirection
+  """
+  ✨ Generated from Field `Guest`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `Guest`.`name_count` of type `Int!`
+  """
+  name_count: OrderDirection
+  """
+  ✨ Generated from Field `Guest`.`phone_count` of type `Int!`
+  """
+  phone_count: OrderDirection
+}
+"""
+✨ Generated data input type for table 'Host'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Host_Data {
+  """
+  ✨ Generated from Field `Host`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Host`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Host`.`email` of type `String!`
+  """
+  email: String
+  """
+  ✨ `_expr` server value variant of `email` (✨ Generated from Field `Host`.`email` of type `String!`)
+  """
+  email_expr: String_Expr
+  """
+  ✨ Generated from Field `Host`.`name` of type `String!`
+  """
+  name: String
+  """
+  ✨ `_expr` server value variant of `name` (✨ Generated from Field `Host`.`name` of type `String!`)
+  """
+  name_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'Host'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Host_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Host_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Host_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Host_Filter!]
+  """
+  ✨ Generated from Field `Host`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `Host`.`email` of type `String!`
+  """
+  email: String_Filter
+  """
+  ✨ Generated from Field `Host`.`name` of type `String!`
+  """
+  name: String_Filter
+  """
+  ✨ Generated from Field `Host`.`parties_on_host` of type `[Party!]!`
+  """
+  parties_on_host: Party_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'Host'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Host_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Host_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Host_Filter
+}
+"""
+✨ Generated having input type for table 'Host'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Host_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [Host_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: Host_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [Host_Having!]
+  """
+  ✨ Generated from Field `Host`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `Host`.`email_count` of type `Int!`
+  """
+  email_count: Int_Filter
+  """
+  ✨ Generated from Field `Host`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `Host`.`name_count` of type `Int!`
+  """
+  name_count: Int_Filter
+}
+"""
+✨ Generated key input type for table 'Host'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Host_Key {
+  """
+  ✨ Generated from Field `Host`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Host`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Host'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Host_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Host_Filter
+}
+"""
+✨ Generated order input type for table 'Host'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Host_Order {
+  """
+  ✨ Generated from Field `Host`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `Host`.`email` of type `String!`
+  """
+  email: OrderDirection
+  """
+  ✨ Generated from Field `Host`.`name` of type `String!`
+  """
+  name: OrderDirection
+  """
+  ✨ Generated from Field `Host`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `Host`.`email_count` of type `Int!`
+  """
+  email_count: OrderDirection
+  """
+  ✨ Generated from Field `Host`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `Host`.`name_count` of type `Int!`
+  """
+  name_count: OrderDirection
+}
+"""
+✨ Generated data input type for table 'Invite'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Invite_Data {
+  """
+  ✨ Generated from Field `Invite`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Invite`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Invite`.`guestId` of type `UUID!`
+  """
+  guestId: UUID
+  """
+  ✨ `_expr` server value variant of `guestId` (✨ Generated from Field `Invite`.`guestId` of type `UUID!`)
+  """
+  guestId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Invite`.`partyId` of type `UUID!`
+  """
+  partyId: UUID
+  """
+  ✨ `_expr` server value variant of `partyId` (✨ Generated from Field `Invite`.`partyId` of type `UUID!`)
+  """
+  partyId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Invite`.`guest` of type `Guest!`
+  """
+  guest: Guest_Key
+  """
+  ✨ Generated from Field `Invite`.`party` of type `Party!`
+  """
+  party: Party_Key
+  """
+  ✨ Generated from Field `Invite`.`state` of type `String!`
+  """
+  state: String
+  """
+  ✨ `_expr` server value variant of `state` (✨ Generated from Field `Invite`.`state` of type `String!`)
+  """
+  state_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'Invite'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Invite_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Invite_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Invite_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Invite_Filter!]
+  """
+  ✨ Generated from Field `Invite`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `Invite`.`guestId` of type `UUID!`
+  """
+  guestId: UUID_Filter
+  """
+  ✨ Generated from Field `Invite`.`partyId` of type `UUID!`
+  """
+  partyId: UUID_Filter
+  """
+  ✨ Generated from Field `Invite`.`guest` of type `Guest!`
+  """
+  guest: Guest_Filter
+  """
+  ✨ Generated from Field `Invite`.`party` of type `Party!`
+  """
+  party: Party_Filter
+  """
+  ✨ Generated from Field `Invite`.`state` of type `String!`
+  """
+  state: String_Filter
+  """
+  ✨ Generated from Field `Invite`.`channelMemberships_on_invite` of type `[ChannelMembership!]!`
+  """
+  channelMemberships_on_invite: ChannelMembership_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'Invite'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Invite_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Invite_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Invite_Filter
+}
+"""
+✨ Generated having input type for table 'Invite'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Invite_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [Invite_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: Invite_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [Invite_Having!]
+  """
+  ✨ Generated from Field `Invite`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `Invite`.`guestId_count` of type `Int!`
+  """
+  guestId_count: Int_Filter
+  """
+  ✨ Generated from Field `Invite`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `Invite`.`partyId_count` of type `Int!`
+  """
+  partyId_count: Int_Filter
+  """
+  ✨ Generated from Field `Invite`.`state_count` of type `Int!`
+  """
+  state_count: Int_Filter
+}
+"""
+✨ Generated key input type for table 'Invite'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Invite_Key {
+  """
+  ✨ Generated from Field `Invite`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Invite`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Invite'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Invite_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Invite_Filter
+}
+"""
+✨ Generated order input type for table 'Invite'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Invite_Order {
+  """
+  ✨ Generated from Field `Invite`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `Invite`.`guestId` of type `UUID!`
+  """
+  guestId: OrderDirection
+  """
+  ✨ Generated from Field `Invite`.`partyId` of type `UUID!`
+  """
+  partyId: OrderDirection
+  """
+  ✨ Generated from Field `Invite`.`guest` of type `Guest!`
+  """
+  guest: Guest_Order
+  """
+  ✨ Generated from Field `Invite`.`party` of type `Party!`
+  """
+  party: Party_Order
+  """
+  ✨ Generated from Field `Invite`.`state` of type `String!`
+  """
+  state: OrderDirection
+  """
+  ✨ Generated from Field `Invite`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `Invite`.`guestId_count` of type `Int!`
+  """
+  guestId_count: OrderDirection
+  """
+  ✨ Generated from Field `Invite`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `Invite`.`partyId_count` of type `Int!`
+  """
+  partyId_count: OrderDirection
+  """
+  ✨ Generated from Field `Invite`.`state_count` of type `Int!`
+  """
+  state_count: OrderDirection
+}
+"""
+✨ Generated data input type for table 'Party'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Party_Data {
+  """
+  ✨ Generated from Field `Party`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Party`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Party`.`hostId` of type `UUID!`
+  """
+  hostId: UUID
+  """
+  ✨ `_expr` server value variant of `hostId` (✨ Generated from Field `Party`.`hostId` of type `UUID!`)
+  """
+  hostId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Party`.`host` of type `Host!`
+  """
+  host: Host_Key
+  """
+  ✨ Generated from Field `Party`.`details` of type `String!`
+  """
+  details: String
+  """
+  ✨ `_expr` server value variant of `details` (✨ Generated from Field `Party`.`details` of type `String!`)
+  """
+  details_expr: String_Expr
+  """
+  ✨ Generated from Field `Party`.`scheduledFor` of type `Date!`
+  """
+  scheduledFor: Date
+  """
+  ✨ `_date` server value variant of `scheduledFor` (✨ Generated from Field `Party`.`scheduledFor` of type `Date!`)
+  """
+  scheduledFor_date: Date_Relative
+  """
+  ✨ `_expr` server value variant of `scheduledFor` (✨ Generated from Field `Party`.`scheduledFor` of type `Date!`)
+  """
+  scheduledFor_expr: Date_Expr
+  """
+  ✨ `_update` server value variant of `scheduledFor` (✨ Generated from Field `Party`.`scheduledFor` of type `Date!`)
+  """
+  scheduledFor_update: [Date_Update!]
+  """
+  ✨ Generated from Field `Party`.`state` of type `String!`
+  """
+  state: String
+  """
+  ✨ `_expr` server value variant of `state` (✨ Generated from Field `Party`.`state` of type `String!`)
+  """
+  state_expr: String_Expr
+  """
+  ✨ Generated from Field `Party`.`title` of type `String!`
+  """
+  title: String
+  """
+  ✨ `_expr` server value variant of `title` (✨ Generated from Field `Party`.`title` of type `String!`)
+  """
+  title_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'Party'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Party_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Party_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Party_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Party_Filter!]
+  """
+  ✨ Generated from Field `Party`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `Party`.`hostId` of type `UUID!`
+  """
+  hostId: UUID_Filter
+  """
+  ✨ Generated from Field `Party`.`host` of type `Host!`
+  """
+  host: Host_Filter
+  """
+  ✨ Generated from Field `Party`.`details` of type `String!`
+  """
+  details: String_Filter
+  """
+  ✨ Generated from Field `Party`.`scheduledFor` of type `Date!`
+  """
+  scheduledFor: Date_Filter
+  """
+  ✨ Generated from Field `Party`.`state` of type `String!`
+  """
+  state: String_Filter
+  """
+  ✨ Generated from Field `Party`.`title` of type `String!`
+  """
+  title: String_Filter
+  """
+  ✨ Generated from Field `Party`.`invites_on_party` of type `[Invite!]!`
+  """
+  invites_on_party: Invite_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'Party'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Party_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Party_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Party_Filter
+}
+"""
+✨ Generated having input type for table 'Party'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Party_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [Party_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: Party_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [Party_Having!]
+  """
+  ✨ Generated from Field `Party`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `Party`.`details_count` of type `Int!`
+  """
+  details_count: Int_Filter
+  """
+  ✨ Generated from Field `Party`.`hostId_count` of type `Int!`
+  """
+  hostId_count: Int_Filter
+  """
+  ✨ Generated from Field `Party`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `Party`.`scheduledFor_count` of type `Int!`
+  """
+  scheduledFor_count: Int_Filter
+  """
+  ✨ Generated from Field `Party`.`state_count` of type `Int!`
+  """
+  state_count: Int_Filter
+  """
+  ✨ Generated from Field `Party`.`title_count` of type `Int!`
+  """
+  title_count: Int_Filter
+  """
+  ✨ Generated from Field `Party`.`scheduledFor_min` of type `Date`
+  """
+  scheduledFor_min: Date_Filter
+  """
+  ✨ Generated from Field `Party`.`scheduledFor_max` of type `Date`
+  """
+  scheduledFor_max: Date_Filter
+}
+"""
+✨ Generated key input type for table 'Party'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Party_Key {
+  """
+  ✨ Generated from Field `Party`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Party`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Party'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Party_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Party_Filter
+}
+"""
+✨ Generated order input type for table 'Party'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Party_Order {
+  """
+  ✨ Generated from Field `Party`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`hostId` of type `UUID!`
+  """
+  hostId: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`host` of type `Host!`
+  """
+  host: Host_Order
+  """
+  ✨ Generated from Field `Party`.`details` of type `String!`
+  """
+  details: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`scheduledFor` of type `Date!`
+  """
+  scheduledFor: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`state` of type `String!`
+  """
+  state: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`title` of type `String!`
+  """
+  title: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`details_count` of type `Int!`
+  """
+  details_count: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`hostId_count` of type `Int!`
+  """
+  hostId_count: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`scheduledFor_count` of type `Int!`
+  """
+  scheduledFor_count: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`state_count` of type `Int!`
+  """
+  state_count: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`title_count` of type `Int!`
+  """
+  title_count: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`scheduledFor_min` of type `Date`
+  """
+  scheduledFor_min: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`scheduledFor_max` of type `Date`
+  """
+  scheduledFor_max: OrderDirection
+}
