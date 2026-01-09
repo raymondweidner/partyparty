@@ -13,7 +13,7 @@ type Guest @table {
 
 type Party @table {
   # id: UUID! @default(expr: "uuidV4()")
-  host: Host!
+  userId: String!
   title: String!
   details: String! @col(dataType: "varchar(2048)")
   scheduledFor: Date!

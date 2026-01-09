@@ -318,40 +318,6 @@ extend type Guest {
 }
 extend type Host {
   """
-  ✨ List `Party` objects in a one-to-many relationship (where `Party`.`host` is this object).
-  """
-  parties_on_host(
-    """
-    Filter condition to narrow down the query results.
-    """
-    where: Party_Filter
-
-    """
-    Order the query results by specific fields.
-    """
-    orderBy: [Party_Order!]
-
-    """
-    Number of rows to skip before starting to return the results.
-    """
-    offset: Int
-
-    """
-    Maximum number of rows to return (defaults to 100 rows).
-    """
-    limit: Int = 100
-
-    """
-    Set to true to return distinct results.
-    """
-    distinct: Boolean = false
-
-    """
-    Filter condition to apply to the groups of aggregate queries.
-    """
-    having: Party_Having
-  ): [Party!]! @fdc_generated(from: "Party.host", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
-  """
   Implicit metadata field that cannot be written. It provides extra information about query results.
   """
   _metadata: _Metadata @fdc_generated(from: "Host", purpose: METADATA_FIELD)
@@ -528,15 +494,6 @@ extend type Party {
     distinct: Boolean = false
   ): Int! @fdc_generated(from: "Party.details", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `Party` table where the `hostId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  hostId_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Party.hostId", purpose: QUERY_COUNT)
-  """
   ✨ Count the number of rows in the `Party` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   id_count(
@@ -572,6 +529,15 @@ extend type Party {
     """
     distinct: Boolean = false
   ): Int! @fdc_generated(from: "Party.title", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Party` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Party.userId", purpose: QUERY_COUNT)
   """
   ✨ Minimum of the `scheduledFor` field in the `Party` table.
   """

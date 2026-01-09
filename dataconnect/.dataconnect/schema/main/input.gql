@@ -957,10 +957,6 @@ input Host_Filter {
   ✨ Generated from Field `Host`.`name` of type `String!`
   """
   name: String_Filter
-  """
-  ✨ Generated from Field `Host`.`parties_on_host` of type `[Party!]!`
-  """
-  parties_on_host: Party_ListFilter
 }
 """
 ✨ Generated first-row input type for table 'Host'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
@@ -1303,18 +1299,6 @@ input Party_Data {
   """
   id_expr: UUID_Expr
   """
-  ✨ Generated from Field `Party`.`hostId` of type `UUID!`
-  """
-  hostId: UUID
-  """
-  ✨ `_expr` server value variant of `hostId` (✨ Generated from Field `Party`.`hostId` of type `UUID!`)
-  """
-  hostId_expr: UUID_Expr
-  """
-  ✨ Generated from Field `Party`.`host` of type `Host!`
-  """
-  host: Host_Key
-  """
   ✨ Generated from Field `Party`.`details` of type `String!`
   """
   details: String
@@ -1354,6 +1338,14 @@ input Party_Data {
   ✨ `_expr` server value variant of `title` (✨ Generated from Field `Party`.`title` of type `String!`)
   """
   title_expr: String_Expr
+  """
+  ✨ Generated from Field `Party`.`userId` of type `String!`
+  """
+  userId: String
+  """
+  ✨ `_expr` server value variant of `userId` (✨ Generated from Field `Party`.`userId` of type `String!`)
+  """
+  userId_expr: String_Expr
 }
 """
 ✨ Generated filter input type for table 'Party'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
@@ -1376,14 +1368,6 @@ input Party_Filter {
   """
   id: UUID_Filter
   """
-  ✨ Generated from Field `Party`.`hostId` of type `UUID!`
-  """
-  hostId: UUID_Filter
-  """
-  ✨ Generated from Field `Party`.`host` of type `Host!`
-  """
-  host: Host_Filter
-  """
   ✨ Generated from Field `Party`.`details` of type `String!`
   """
   details: String_Filter
@@ -1399,6 +1383,10 @@ input Party_Filter {
   ✨ Generated from Field `Party`.`title` of type `String!`
   """
   title: String_Filter
+  """
+  ✨ Generated from Field `Party`.`userId` of type `String!`
+  """
+  userId: String_Filter
   """
   ✨ Generated from Field `Party`.`invites_on_party` of type `[Invite!]!`
   """
@@ -1446,10 +1434,6 @@ input Party_Having {
   """
   details_count: Int_Filter
   """
-  ✨ Generated from Field `Party`.`hostId_count` of type `Int!`
-  """
-  hostId_count: Int_Filter
-  """
   ✨ Generated from Field `Party`.`id_count` of type `Int!`
   """
   id_count: Int_Filter
@@ -1465,6 +1449,10 @@ input Party_Having {
   ✨ Generated from Field `Party`.`title_count` of type `Int!`
   """
   title_count: Int_Filter
+  """
+  ✨ Generated from Field `Party`.`userId_count` of type `Int!`
+  """
+  userId_count: Int_Filter
   """
   ✨ Generated from Field `Party`.`scheduledFor_min` of type `Date`
   """
@@ -1509,14 +1497,6 @@ input Party_Order {
   """
   id: OrderDirection
   """
-  ✨ Generated from Field `Party`.`hostId` of type `UUID!`
-  """
-  hostId: OrderDirection
-  """
-  ✨ Generated from Field `Party`.`host` of type `Host!`
-  """
-  host: Host_Order
-  """
   ✨ Generated from Field `Party`.`details` of type `String!`
   """
   details: OrderDirection
@@ -1533,6 +1513,10 @@ input Party_Order {
   """
   title: OrderDirection
   """
+  ✨ Generated from Field `Party`.`userId` of type `String!`
+  """
+  userId: OrderDirection
+  """
   ✨ Generated from Field `Party`.`_count` of type `Int!`
   """
   _count: OrderDirection
@@ -1540,10 +1524,6 @@ input Party_Order {
   ✨ Generated from Field `Party`.`details_count` of type `Int!`
   """
   details_count: OrderDirection
-  """
-  ✨ Generated from Field `Party`.`hostId_count` of type `Int!`
-  """
-  hostId_count: OrderDirection
   """
   ✨ Generated from Field `Party`.`id_count` of type `Int!`
   """
@@ -1560,6 +1540,10 @@ input Party_Order {
   ✨ Generated from Field `Party`.`title_count` of type `Int!`
   """
   title_count: OrderDirection
+  """
+  ✨ Generated from Field `Party`.`userId_count` of type `Int!`
+  """
+  userId_count: OrderDirection
   """
   ✨ Generated from Field `Party`.`scheduledFor_min` of type `Date`
   """

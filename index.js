@@ -1,17 +1,22 @@
-const express = require('express');
-const { Pool } = require('pg');
-const cors = require('cors'); // Import the cors package
-const app = express();
-const port = process.env.PORT || 3000;
-
 const GET_ENTITIES = ["host", "guest", "party", "invite", "channel", "channel_membership", "channel_message"];
 const POST_ENTITIES = ["host", "guest", "party", "invite", "channel", "channel_membership", "channel_message"];
 const PUT_ENTITIES = ["host", "guest", "party", "invite", "channel", "channel_membership", "channel_message"];
 const DELETE_ENTITIES = ["host", "guest", "party", "invite", "channel", "channel_membership", "channel_message"];
 
+const express = require('express');
+const { Pool } = require('pg');
+const cors = require('cors'); // Import the cors package
+const app = express();
+const port = process.env.PORT || 3000;
+const admin = require('firebase-admin');
+const validateFirebaseIdToken = require('./authMiddleware');
+
+admin.initializeApp(); // Ensure Firebase Admin is initialized
+
 // Enable CORS for all routes and allow Express to parse JSON request bodies
 app.use(cors());
 app.use(express.json());
+app.use(validateFirebaseIdToken);
 
 const pool = new Pool({
   // Default to the emulator's port (5432) if DATABASE_URL is not set

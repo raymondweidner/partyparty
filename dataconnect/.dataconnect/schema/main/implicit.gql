@@ -59,8 +59,4 @@ extend type Party {
   ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
   """
   id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Party", purpose: IMPLICIT_KEY_FIELD)
-  """
-  ✨ Implicit foreign key field based on `Party`.`host`. It must match the value of `Host`.`id`. See `@ref` for how to customize it.
-  """
-  hostId: UUID! @fdc_generated(from: "Party.host", purpose: IMPLICIT_REF_FIELD)
 }

@@ -689,3 +689,368 @@ I1230 15:05:45.023547   12436 load.go:74] Finished reloading
 [debug] [2025-12-31T00:45:55.325Z] [Firebase Plugin] Received emulators shutdown notification.
 [debug] [2025-12-31T00:46:31.127Z] [Firebase Plugin] Received emulators started notification. Running detection.
 [debug] [2025-12-31T00:46:31.128Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[info] [Firebase Plugin] Stopping Data Connect toolkit
+[warn] !  Data Connect Emulator has exited upon receiving signal: SIGINT 
+[debug] [2026-01-02T18:07:13.123Z] [Firebase Plugin] Activating Firebase extension.
+[info] [Firebase Plugin] Checked firebase-tools, is up to date!
+[debug] [2026-01-02T18:07:18.629Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2026-01-02T18:07:18.990Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-02T18:07:18.991Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2026-01-02T18:07:18.994Z] Checked if tokens are valid: false, expires at: 1767145493701
+[debug] [2026-01-02T18:07:18.994Z] Checked if tokens are valid: false, expires at: 1767145493701
+[debug] [2026-01-02T18:07:18.994Z] > refreshing access token with scopes: []
+[debug] [2026-01-02T18:07:18.996Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-01-02T18:07:18.997Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-02T18:07:19.008Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[info] [Firebase Plugin] Starting Data Connect toolkit (version 3.0.0) on port 50001
+[debug] [2026-01-02T18:07:20.115Z] W0102 13:07:20.110226   26308 control.go:68] [/emulator/partyparty 5f42] connector "example" has errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+
+sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+I0102 13:07:20.111229   26308 control.go:94] [/emulator/partyparty 5f42] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1047B] 
+Connector "example": sources: example\queries.gql [1801B] example\mutations.gql [1243B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"W0102 13:07:20.110226   26308 control.go:68] [/emulator/partyparty 5f42] connector \"example\" has errors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\n\nsources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \nI0102 13:07:20.111229   26308 control.go:94] [/emulator/partyparty 5f42] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1047B] \nConnector \"example\": sources: example\\queries.gql [1801B] example\\mutations.gql [1243B] \n"}}
+[debug] [2026-01-02T18:07:20.116Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2026-01-02T18:07:20.116Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2026-01-02T18:07:20.116Z] Starting Data Connect Emulator with command {"binary":"C:\\Users\\raymo\\.cache\\firebase\\emulators\\dataconnect-emulator-3.0.0.exe","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=d:\\projects\\partyparty\\dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting Data Connect Emulator with command {\"binary\":\"C:\\\\Users\\\\raymo\\\\.cache\\\\firebase\\\\emulators\\\\dataconnect-emulator-3.0.0.exe\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=d:\\\\projects\\\\partyparty\\\\dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: Data Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"Data Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2026-01-02T18:07:20.182Z] I0102 13:07:20.147161   41468 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0102 13:07:20.147161   41468 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-01-02T18:07:20.235Z] W0102 13:07:20.202712   41468 control.go:68] [/emulator/partyparty 6986] connector "example" has errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+
+sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+I0102 13:07:20.202712   41468 control.go:94] [/emulator/partyparty 6986] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1047B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+E0102 13:07:20.204712   41468 load.go:73] Could not load sources: 
+Errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+I0102 13:07:20.206713   41468 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\relation.gql [20362B] main\query.gql [8925B] main\mutation.gql [24125B] main\implicit.gql [3311B] main\input.gql [45083B] prelude.gql [73219B] 
+I0102 13:07:20.206713   41468 load.go:74] Finished reloading
+I0102 13:07:20.220936   41468 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"W0102 13:07:20.202712   41468 control.go:68] [/emulator/partyparty 6986] connector \"example\" has errors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\n\nsources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \nI0102 13:07:20.202712   41468 control.go:94] [/emulator/partyparty 6986] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1047B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \nE0102 13:07:20.204712   41468 load.go:73] Could not load sources: \nErrors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nI0102 13:07:20.206713   41468 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\relation.gql [20362B] main\\query.gql [8925B] main\\mutation.gql [24125B] main\\implicit.gql [3311B] main\\input.gql [45083B] prelude.gql [73219B] \nI0102 13:07:20.206713   41468 load.go:74] Finished reloading\nI0102 13:07:20.220936   41468 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2026-01-02T18:07:20.550Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-01-02T18:07:20.550Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-02T18:07:20.571Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2026-01-02T18:07:20.572Z] Checked if tokens are valid: true, expires at: 1767380839550
+[debug] [2026-01-02T18:07:20.572Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2026-01-02T18:07:20.591Z] I0102 13:07:20.566325   41468 engine.go:179] [/emulator/partyparty 6986] ExecuteGraphqlRead IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0102 13:07:20.566325   41468 engine.go:179] [/emulator/partyparty 6986] ExecuteGraphqlRead IntrospectionQuery: succeeded. \n"}}
+[debug] [2026-01-02T18:07:21.558Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-01-02T18:07:21.558Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2026-01-05T16:31:33.522Z] [Firebase Plugin] Activating Firebase extension.
+[info] [Firebase Plugin] Checked firebase-tools, is up to date!
+[debug] [2026-01-05T16:31:37.801Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2026-01-05T16:31:37.803Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-05T16:31:37.804Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2026-01-05T16:31:37.806Z] Checked if tokens are valid: false, expires at: 1767380839550
+[debug] [2026-01-05T16:31:37.806Z] Checked if tokens are valid: false, expires at: 1767380839550
+[debug] [2026-01-05T16:31:37.807Z] > refreshing access token with scopes: []
+[debug] [2026-01-05T16:31:37.808Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-01-05T16:31:37.808Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-05T16:31:37.816Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[info] [Firebase Plugin] Starting Data Connect toolkit (version 3.0.0) on port 50001
+[debug] [2026-01-05T16:31:38.530Z] W0105 11:31:38.522866   30196 control.go:68] [/emulator/partyparty c4f4] connector "example" has errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+
+sources: example\queries.gql [1801B] example\mutations.gql [1243B] 
+I0105 11:31:38.523870   30196 control.go:94] [/emulator/partyparty c4f4] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1047B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"W0105 11:31:38.522866   30196 control.go:68] [/emulator/partyparty c4f4] connector \"example\" has errors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\n\nsources: example\\queries.gql [1801B] example\\mutations.gql [1243B] \nI0105 11:31:38.523870   30196 control.go:94] [/emulator/partyparty c4f4] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1047B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \n"}}
+[debug] [2026-01-05T16:31:38.531Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2026-01-05T16:31:38.532Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2026-01-05T16:31:38.532Z] Starting Data Connect Emulator with command {"binary":"C:\\Users\\raymo\\.cache\\firebase\\emulators\\dataconnect-emulator-3.0.0.exe","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=d:\\projects\\partyparty\\dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting Data Connect Emulator with command {\"binary\":\"C:\\\\Users\\\\raymo\\\\.cache\\\\firebase\\\\emulators\\\\dataconnect-emulator-3.0.0.exe\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=d:\\\\projects\\\\partyparty\\\\dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: Data Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"Data Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2026-01-05T16:31:38.577Z] I0105 11:31:38.568251   35916 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0105 11:31:38.568251   35916 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-01-05T16:31:38.632Z] W0105 11:31:38.621578   35916 control.go:68] [/emulator/partyparty 57db] connector "example" has errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+
+sources: example\queries.gql [1801B] example\mutations.gql [1243B] 
+I0105 11:31:38.621578   35916 control.go:94] [/emulator/partyparty 57db] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1047B] 
+Connector "example": sources: example\queries.gql [1801B] example\mutations.gql [1243B] 
+E0105 11:31:38.623159   35916 load.go:73] Could not load sources: 
+Errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"W0105 11:31:38.621578   35916 control.go:68] [/emulator/partyparty 57db] connector \"example\" has errors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\n\nsources: example\\queries.gql [1801B] example\\mutations.gql [1243B] \nI0105 11:31:38.621578   35916 control.go:94] [/emulator/partyparty 57db] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1047B] \nConnector \"example\": sources: example\\queries.gql [1801B] example\\mutations.gql [1243B] \nE0105 11:31:38.623159   35916 load.go:73] Could not load sources: \nErrors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\n"}}
+[debug] [2026-01-05T16:31:38.639Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-01-05T16:31:38.640Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-05T16:31:38.663Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2026-01-05T16:31:38.664Z] Checked if tokens are valid: true, expires at: 1767634297640
+[debug] [2026-01-05T16:31:38.665Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2026-01-05T16:31:38.729Z] I0105 11:31:38.725877   35916 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [73219B] main\mutation.gql [24125B] main\implicit.gql [3311B] main\input.gql [45083B] main\relation.gql [20362B] main\query.gql [8925B] 
+I0105 11:31:38.725877   35916 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0105 11:31:38.725877   35916 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: prelude.gql [73219B] main\\mutation.gql [24125B] main\\implicit.gql [3311B] main\\input.gql [45083B] main\\relation.gql [20362B] main\\query.gql [8925B] \nI0105 11:31:38.725877   35916 load.go:74] Finished reloading\n"}}
+[debug] [2026-01-05T16:31:38.744Z] I0105 11:31:38.743375   35916 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0105 11:31:38.743375   35916 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2026-01-05T16:31:38.836Z] I0105 11:31:38.824699   35916 engine.go:179] [/emulator/partyparty 57db] ExecuteGraphqlRead IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0105 11:31:38.824699   35916 engine.go:179] [/emulator/partyparty 57db] ExecuteGraphqlRead IntrospectionQuery: succeeded. \n"}}
+[debug] [2026-01-05T16:31:38.951Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-01-05T16:31:38.951Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2026-01-07T19:21:35.698Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2026-01-07T19:21:35.699Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2026-01-07T19:21:35.714Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-07T19:21:35.714Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2026-01-07T19:21:35.714Z] Checked if tokens are valid: false, expires at: 1767634297640
+[debug] [2026-01-07T19:21:35.715Z] Checked if tokens are valid: false, expires at: 1767634297640
+[debug] [2026-01-07T19:21:35.715Z] > refreshing access token with scopes: []
+[debug] [2026-01-07T19:21:35.716Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-01-07T19:21:35.716Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-07T19:21:35.719Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2026-01-07T19:21:35.720Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2026-01-07T19:21:35.721Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-07T19:21:35.721Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2026-01-07T19:21:35.721Z] Checked if tokens are valid: false, expires at: 1767634297640
+[debug] [2026-01-07T19:21:35.721Z] Checked if tokens are valid: false, expires at: 1767634297640
+[debug] [2026-01-07T19:21:35.721Z] > refreshing access token with scopes: []
+[debug] [2026-01-07T19:21:35.722Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-01-07T19:21:35.722Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-07T19:21:35.725Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2026-01-07T19:21:35.833Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-01-07T19:21:35.833Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-07T19:21:35.848Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2026-01-07T19:21:35.849Z] Checked if tokens are valid: true, expires at: 1767817294833
+[debug] [2026-01-07T19:21:35.850Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2026-01-07T19:21:35.858Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-01-07T19:21:35.859Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-07T19:21:35.874Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2026-01-07T19:21:35.875Z] Checked if tokens are valid: true, expires at: 1767817294859
+[debug] [2026-01-07T19:21:35.876Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2026-01-07T19:21:36.127Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-01-07T19:21:36.127Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2026-01-07T19:21:36.198Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-01-07T19:21:36.198Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2026-01-07T19:21:59.268Z] [Firebase Plugin] Received CLI notification.
+[debug] [2026-01-07T19:21:59.315Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-07T19:21:59.318Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-07T19:24:07.400Z] [Firebase Plugin] Received CLI notification.
+[debug] [2026-01-07T19:24:07.439Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-07T19:24:07.441Z] [Firebase Plugin] Received emulators shutdown notification.
+[info] [Firebase Plugin] Stopping Data Connect toolkit
+[warn] !  Data Connect Emulator has exited upon receiving signal: SIGINT 
+[debug] [2026-01-07T20:25:49.701Z] [Firebase Plugin] Activating Firebase extension.
+[info] [Firebase Plugin] Checked firebase-tools, is up to date!
+[debug] [2026-01-07T20:25:52.254Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2026-01-07T20:25:52.266Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-07T20:25:52.267Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2026-01-07T20:25:52.269Z] Checked if tokens are valid: false, expires at: 1767817294859
+[debug] [2026-01-07T20:25:52.269Z] Checked if tokens are valid: false, expires at: 1767817294859
+[debug] [2026-01-07T20:25:52.270Z] > refreshing access token with scopes: []
+[debug] [2026-01-07T20:25:52.271Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-01-07T20:25:52.271Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-07T20:25:52.280Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[info] [Firebase Plugin] Starting Data Connect toolkit (version 3.0.0) on port 50001
+[debug] [2026-01-07T20:25:53.190Z] W0107 15:25:53.184402    3664 control.go:68] [/emulator/partyparty cfa2] connector "example" has errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+
+sources: example\queries.gql [1801B] example\mutations.gql [1243B] 
+I0107 15:25:53.185907    3664 control.go:94] [/emulator/partyparty cfa2] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1047B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"W0107 15:25:53.184402    3664 control.go:68] [/emulator/partyparty cfa2] connector \"example\" has errors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\n\nsources: example\\queries.gql [1801B] example\\mutations.gql [1243B] \nI0107 15:25:53.185907    3664 control.go:94] [/emulator/partyparty cfa2] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1047B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \n"}}
+[debug] [2026-01-07T20:25:53.191Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2026-01-07T20:25:53.191Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2026-01-07T20:25:53.191Z] Starting Data Connect Emulator with command {"binary":"C:\\Users\\raymo\\.cache\\firebase\\emulators\\dataconnect-emulator-3.0.0.exe","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=d:\\projects\\partyparty\\dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting Data Connect Emulator with command {\"binary\":\"C:\\\\Users\\\\raymo\\\\.cache\\\\firebase\\\\emulators\\\\dataconnect-emulator-3.0.0.exe\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=d:\\\\projects\\\\partyparty\\\\dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: Data Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"Data Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2026-01-07T20:25:53.244Z] I0107 15:25:53.217806   41352 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0107 15:25:53.217806   41352 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-01-07T20:25:53.348Z] W0107 15:25:53.272362   41352 control.go:68] [/emulator/partyparty 1b7a] connector "example" has errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+
+sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+I0107 15:25:53.272362   41352 control.go:94] [/emulator/partyparty 1b7a] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1047B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+E0107 15:25:53.273871   41352 load.go:73] Could not load sources: 
+Errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+I0107 15:25:53.275879   41352 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [73219B] main\relation.gql [20362B] main\query.gql [8925B] main\mutation.gql [24125B] main\implicit.gql [3311B] main\input.gql [45083B] 
+I0107 15:25:53.275879   41352 load.go:74] Finished reloading
+I0107 15:25:53.293305   41352 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"W0107 15:25:53.272362   41352 control.go:68] [/emulator/partyparty 1b7a] connector \"example\" has errors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\n\nsources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \nI0107 15:25:53.272362   41352 control.go:94] [/emulator/partyparty 1b7a] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1047B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \nE0107 15:25:53.273871   41352 load.go:73] Could not load sources: \nErrors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nI0107 15:25:53.275879   41352 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: prelude.gql [73219B] main\\relation.gql [20362B] main\\query.gql [8925B] main\\mutation.gql [24125B] main\\implicit.gql [3311B] main\\input.gql [45083B] \nI0107 15:25:53.275879   41352 load.go:74] Finished reloading\nI0107 15:25:53.293305   41352 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2026-01-07T20:25:53.555Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-01-07T20:25:53.555Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-07T20:25:53.578Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2026-01-07T20:25:53.580Z] Checked if tokens are valid: true, expires at: 1767821152556
+[debug] [2026-01-07T20:25:53.580Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2026-01-07T20:25:53.595Z] I0107 15:25:53.573382   41352 engine.go:179] [/emulator/partyparty 1b7a] ExecuteGraphqlRead IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0107 15:25:53.573382   41352 engine.go:179] [/emulator/partyparty 1b7a] ExecuteGraphqlRead IntrospectionQuery: succeeded. \n"}}
+[debug] [2026-01-07T20:25:53.874Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-01-07T20:25:53.875Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2026-01-08T22:34:54.362Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T22:34:54.367Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T22:35:36.945Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-01-08T22:35:36.946Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2026-01-08T22:38:06.401Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T22:38:06.402Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T22:38:09.875Z] [Firebase Plugin] Received CLI notification.
+[debug] [2026-01-08T22:38:09.878Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T22:38:40.132Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-01-08T22:38:40.132Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2026-01-08T22:58:37.532Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-01-08T22:58:37.532Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2026-01-08T23:00:04.582Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T23:00:04.583Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T23:01:03.299Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T23:01:42.047Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-01-08T23:01:42.048Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2026-01-08T23:26:43.662Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T23:26:43.663Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T23:27:25.507Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-01-08T23:27:25.507Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2026-01-08T23:33:34.046Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T23:33:34.047Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T23:34:11.589Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-01-08T23:34:11.589Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2026-01-08T23:38:53.285Z] I0108 18:38:53.283271   41352 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0108 18:38:53.283271   41352 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-01-08T23:38:53.354Z] W0108 18:38:53.355157   41352 control.go:68] [/emulator/partyparty 441a] connector "example" has errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+
+sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+I0108 18:38:53.355157   41352 control.go:94] [/emulator/partyparty 441a] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1049B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"W0108 18:38:53.355157   41352 control.go:68] [/emulator/partyparty 441a] connector \"example\" has errors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\n\nsources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \nI0108 18:38:53.355157   41352 control.go:94] [/emulator/partyparty 441a] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1049B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \n"}}
+[debug] [2026-01-08T23:38:53.356Z] E0108 18:38:53.356898   41352 load.go:73] Could not load sources: 
+Errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0108 18:38:53.356898   41352 load.go:73] Could not load sources: \nErrors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\n"}}
+[debug] [2026-01-08T23:38:53.358Z] I0108 18:38:53.358904   41352 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [73219B] main\relation.gql [19557B] main\query.gql [8925B] main\mutation.gql [24125B] main\implicit.gql [3085B] main\input.gql [44685B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0108 18:38:53.358904   41352 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: prelude.gql [73219B] main\\relation.gql [19557B] main\\query.gql [8925B] main\\mutation.gql [24125B] main\\implicit.gql [3085B] main\\input.gql [44685B] \n"}}
+[debug] [2026-01-08T23:38:53.358Z] I0108 18:38:53.358904   41352 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0108 18:38:53.358904   41352 load.go:74] Finished reloading\n"}}
+[debug] [2026-01-08T23:39:33.277Z] I0108 18:39:33.277768   41352 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0108 18:39:33.277768   41352 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-01-08T23:39:33.312Z] W0108 18:39:33.312034   41352 control.go:68] [/emulator/partyparty e9f4] connector "example" has errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+
+sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+I0108 18:39:33.312547   41352 control.go:94] [/emulator/partyparty e9f4] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1051B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"W0108 18:39:33.312034   41352 control.go:68] [/emulator/partyparty e9f4] connector \"example\" has errors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\n\nsources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \nI0108 18:39:33.312547   41352 control.go:94] [/emulator/partyparty e9f4] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1051B] \nConnector \"example\": sources: example\\mutations.gql [1243B] example\\queries.gql [1801B] \n"}}
+[debug] [2026-01-08T23:39:33.312Z] E0108 18:39:33.313081   41352 load.go:73] Could not load sources: 
+Errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
+example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
+example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
+example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
+example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+example\queries.gql:16:3: Cannot query field "users" on type "Query".
+example\queries.gql:25:3: Cannot query field "user" on type "Query".
+example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
+example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0108 18:39:33.313081   41352 load.go:73] Could not load sources: \nErrors: example\\mutations.gql:6:3: Cannot query field \"movie_insert\" on type \"Mutation\". Did you mean \"invite_insert\", \"host_insert\", \"guest_insert\", \"invite_upsert\", or \"party_insert\"?\nexample\\mutations.gql:12:3: Cannot query field \"user_upsert\" on type \"Mutation\". Did you mean \"guest_upsert\", \"host_upsert\", or \"party_upsert\"?\nexample\\mutations.gql:18:3: Cannot query field \"review_upsert\" on type \"Mutation\". Did you mean \"invite_upsert\", \"channel_upsert\", \"guest_upsert\", \"host_upsert\", or \"invite_insert\"?\nexample\\mutations.gql:32:3: Cannot query field \"review_delete\" on type \"Mutation\". Did you mean \"invite_delete\", \"channel_delete\", \"guest_delete\", \"host_delete\", or \"party_delete\"?\nexample\\queries.gql:6:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\nexample\\queries.gql:16:3: Cannot query field \"users\" on type \"Query\".\nexample\\queries.gql:25:3: Cannot query field \"user\" on type \"Query\".\nexample\\queries.gql:44:3: Cannot query field \"movie\" on type \"Query\". Did you mean \"invite\"?\nexample\\queries.gql:68:3: Cannot query field \"movies\" on type \"Query\". Did you mean \"invites\"?\n"}}
+[debug] [2026-01-08T23:39:33.314Z] I0108 18:39:33.314657   41352 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\relation.gql [19563B] main\query.gql [8925B] main\mutation.gql [24125B] prelude.gql [73219B] main\implicit.gql [3085B] main\input.gql [44711B] 
+I0108 18:39:33.314657   41352 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0108 18:39:33.314657   41352 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\relation.gql [19563B] main\\query.gql [8925B] main\\mutation.gql [24125B] prelude.gql [73219B] main\\implicit.gql [3085B] main\\input.gql [44711B] \nI0108 18:39:33.314657   41352 load.go:74] Finished reloading\n"}}
+[debug] [2026-01-08T23:40:30.028Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T23:40:30.029Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T23:40:58.664Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-01-08T23:40:58.664Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
+[debug] [2026-01-08T23:43:21.576Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T23:43:21.578Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T23:43:21.579Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T23:44:24.048Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T23:44:27.650Z] [Firebase Plugin] Received CLI notification.
+[debug] [2026-01-08T23:44:27.654Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-01-08T23:45:05.799Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-01-08T23:45:05.799Z] Emulator locator file path: C:\Users\raymo\AppData\Local\Temp\hub-partyparty-6918c.json
