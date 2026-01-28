@@ -1,54 +1,10 @@
-I0108 18:44:54.549835   45836 load.go:31] Reloading schema and connectors...
-W0108 18:44:54.593700   45836 control.go:68] [/emulator/partyparty 951b] connector "example" has errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
-example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
-example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
-example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
-example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
-example\queries.gql:16:3: Cannot query field "users" on type "Query".
-example\queries.gql:25:3: Cannot query field "user" on type "Query".
-example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
-example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
-
-sources: example\queries.gql [1801B] example\mutations.gql [1243B] 
-I0108 18:44:54.593700   45836 control.go:94] [/emulator/partyparty 951b] UpdateResources(): done
-Main schema: sources: schema\schema.gql [1051B] 
-Connector "example": sources: example\queries.gql [1801B] example\mutations.gql [1243B] 
-E0108 18:44:54.595699   45836 load.go:73] Could not load sources: 
-Errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
-example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
-example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
-example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
-example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
-example\queries.gql:16:3: Cannot query field "users" on type "Query".
-example\queries.gql:25:3: Cannot query field "user" on type "Query".
-example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
-example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
-I0108 18:44:54.597702   45836 collector.go:107] schema extensions wrote into "D:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
-Generated sources: main\mutation.gql [24125B] prelude.gql [73219B] main\implicit.gql [3085B] main\input.gql [44711B] main\relation.gql [19563B] main\query.gql [8925B] 
-I0108 18:44:54.597702   45836 load.go:74] Finished reloading
-I0108 18:44:54.598703   45836 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
-I0108 18:44:54.598703   45836 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
-W0108 18:44:57.199066   45836 control.go:68] [/emulator/partyparty e382] connector "example" has errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
-example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
-example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
-example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
-example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
-example\queries.gql:16:3: Cannot query field "users" on type "Query".
-example\queries.gql:25:3: Cannot query field "user" on type "Query".
-example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
-example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
-
-sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
-I0108 18:44:57.199587   45836 control.go:94] [/emulator/partyparty e382] UpdateResources(): done
-Main schema: sources: schema\schema.gql [1051B] 
-Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
-I0108 18:44:57.199587   45836 service.go:148] [/emulator/partyparty e382] while configuring to server.Settings{ConnectionString:"dbname='postgres' host='127.0.0.1' port='5432' sslmode='disable' dbname='postgres'", MaxOpenConnection:1, UseDummy:false, EnableGoogleMLIntegration:false, SchemaValidationMode:""}, failed to reload last live sources: 
-Errors: example\mutations.gql:6:3: Cannot query field "movie_insert" on type "Mutation". Did you mean "invite_insert", "host_insert", "guest_insert", "invite_upsert", or "party_insert"?
-example\mutations.gql:12:3: Cannot query field "user_upsert" on type "Mutation". Did you mean "guest_upsert", "host_upsert", or "party_upsert"?
-example\mutations.gql:18:3: Cannot query field "review_upsert" on type "Mutation". Did you mean "invite_upsert", "channel_upsert", "guest_upsert", "host_upsert", or "invite_insert"?
-example\mutations.gql:32:3: Cannot query field "review_delete" on type "Mutation". Did you mean "invite_delete", "channel_delete", "guest_delete", "host_delete", or "party_delete"?
-example\queries.gql:6:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
-example\queries.gql:16:3: Cannot query field "users" on type "Query".
-example\queries.gql:25:3: Cannot query field "user" on type "Query".
-example\queries.gql:44:3: Cannot query field "movie" on type "Query". Did you mean "invite"?
-example\queries.gql:68:3: Cannot query field "movies" on type "Query". Did you mean "invites"?
+I0128 00:49:48.377419   68660 load.go:31] Reloading schema and connectors...
+I0128 00:49:48.412496   68660 control.go:94] [/emulator/partyparty d5fb] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1435B] 
+I0128 00:49:48.449565   68660 collector.go:107] schema extensions wrote into "D:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [73219B] main\relation.gql [23012B] main\query.gql [10219B] main\mutation.gql [27645B] main\implicit.gql [3352B] main\input.gql [53197B] 
+I0128 00:49:48.449565   68660 load.go:109] Finished reloading
+I0128 00:49:48.451118   68660 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
+I0128 00:49:48.451422   68660 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
+I0128 00:49:51.207475   68660 control.go:94] [/emulator/partyparty b32a] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1435B] 

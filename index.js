@@ -1,7 +1,7 @@
-const GET_ENTITIES = ["host", "guest", "party", "invite", "channel", "channel_membership", "channel_message"];
-const POST_ENTITIES = ["host", "guest", "party", "invite", "channel", "channel_membership", "channel_message"];
-const PUT_ENTITIES = ["host", "guest", "party", "invite", "channel", "channel_membership", "channel_message"];
-const DELETE_ENTITIES = ["host", "guest", "party", "invite", "channel", "channel_membership", "channel_message"];
+const GET_ENTITIES = ["host", "guest", "party", "invite", "channel", "channel_membership", "channel_message", "user_device"];
+const POST_ENTITIES = ["host", "guest", "party", "invite", "channel", "channel_membership", "channel_message", "user_device"];
+const PUT_ENTITIES = ["host", "guest", "party", "invite", "channel", "channel_membership", "user_device"];
+const DELETE_ENTITIES = ["host", "guest", "party", "invite", "channel", "channel_membership", "user_device"];
 
 const express = require('express');
 const { Pool } = require('pg');
@@ -78,8 +78,33 @@ async function startServer() {
         
         app.get(route, async (req, res) => {
           try {
-            const result = await pool.query(`SELECT * FROM "${tableName}"`);
+            const queryParams = req.query;
+            const keys = Object.keys(queryParams);
+            const values = Object.values(queryParams);
+
+            let query = `SELECT * FROM "${tableName}"`;
+            if (keys.length > 0) {
+              const whereClause = keys.map((key, index) => `"${key}" = $${index + 1}`).join(' AND ');
+              query += ` WHERE ${whereClause}`;
+            }
+
+            console.log(`Executing query: ${query} with values: ${values}`);
+
+            const result = await pool.query(query, values);
             res.send(result.rows);
+          } catch (err) {
+            res.status(500).send(err.message);
+          }
+        });
+
+        app.get(`${route}/:id`, async (req, res) => {
+          try {
+            const { id } = req.params;
+            const query = `SELECT * FROM "${tableName}" WHERE "id" = $1`;
+            const result = await pool.query(query, [id]);
+
+            if (result.rows.length === 0) return res.status(404).send('Record not found');
+            res.send(result.rows[0]);
           } catch (err) {
             res.status(500).send(err.message);
           }

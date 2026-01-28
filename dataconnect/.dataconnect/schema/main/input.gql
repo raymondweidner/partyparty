@@ -41,6 +41,12 @@ It has the same format as `Party_Key`, but is only used as mutation return value
 """
 scalar Party_KeyOutput
 """
+✨ `UserDevice_KeyOutput` returns the primary key fields of table type `UserDevice`.
+
+It has the same format as `UserDevice_Key`, but is only used as mutation return value.
+"""
+scalar UserDevice_KeyOutput
+"""
 ✨ Generated data input type for table 'Channel'. It includes all necessary fields for creating or upserting rows into table.
 """
 input Channel_Data {
@@ -741,6 +747,14 @@ input Guest_Data {
   ✨ `_expr` server value variant of `phone` (✨ Generated from Field `Guest`.`phone` of type `String`)
   """
   phone_expr: String_Expr
+  """
+  ✨ Generated from Field `Guest`.`userId` of type `String`
+  """
+  userId: String
+  """
+  ✨ `_expr` server value variant of `userId` (✨ Generated from Field `Guest`.`userId` of type `String`)
+  """
+  userId_expr: String_Expr
 }
 """
 ✨ Generated filter input type for table 'Guest'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
@@ -774,6 +788,10 @@ input Guest_Filter {
   ✨ Generated from Field `Guest`.`phone` of type `String`
   """
   phone: String_Filter
+  """
+  ✨ Generated from Field `Guest`.`userId` of type `String`
+  """
+  userId: String_Filter
   """
   ✨ Generated from Field `Guest`.`invites_on_guest` of type `[Invite!]!`
   """
@@ -832,6 +850,10 @@ input Guest_Having {
   ✨ Generated from Field `Guest`.`phone_count` of type `Int!`
   """
   phone_count: Int_Filter
+  """
+  ✨ Generated from Field `Guest`.`userId_count` of type `Int!`
+  """
+  userId_count: Int_Filter
 }
 """
 ✨ Generated key input type for table 'Guest'. It represents the primary key fields used to uniquely identify a row in the table.
@@ -880,6 +902,10 @@ input Guest_Order {
   """
   phone: OrderDirection
   """
+  ✨ Generated from Field `Guest`.`userId` of type `String`
+  """
+  userId: OrderDirection
+  """
   ✨ Generated from Field `Guest`.`_count` of type `Int!`
   """
   _count: OrderDirection
@@ -899,6 +925,10 @@ input Guest_Order {
   ✨ Generated from Field `Guest`.`phone_count` of type `Int!`
   """
   phone_count: OrderDirection
+  """
+  ✨ Generated from Field `Guest`.`userId_count` of type `Int!`
+  """
+  userId_count: OrderDirection
 }
 """
 ✨ Generated data input type for table 'Host'. It includes all necessary fields for creating or upserting rows into table.
@@ -928,6 +958,14 @@ input Host_Data {
   ✨ `_expr` server value variant of `name` (✨ Generated from Field `Host`.`name` of type `String!`)
   """
   name_expr: String_Expr
+  """
+  ✨ Generated from Field `Host`.`userId` of type `String`
+  """
+  userId: String
+  """
+  ✨ `_expr` server value variant of `userId` (✨ Generated from Field `Host`.`userId` of type `String`)
+  """
+  userId_expr: String_Expr
 }
 """
 ✨ Generated filter input type for table 'Host'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
@@ -957,6 +995,10 @@ input Host_Filter {
   ✨ Generated from Field `Host`.`name` of type `String!`
   """
   name: String_Filter
+  """
+  ✨ Generated from Field `Host`.`userId` of type `String`
+  """
+  userId: String_Filter
 }
 """
 ✨ Generated first-row input type for table 'Host'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
@@ -1007,6 +1049,10 @@ input Host_Having {
   ✨ Generated from Field `Host`.`name_count` of type `Int!`
   """
   name_count: Int_Filter
+  """
+  ✨ Generated from Field `Host`.`userId_count` of type `Int!`
+  """
+  userId_count: Int_Filter
 }
 """
 ✨ Generated key input type for table 'Host'. It represents the primary key fields used to uniquely identify a row in the table.
@@ -1051,6 +1097,10 @@ input Host_Order {
   """
   name: OrderDirection
   """
+  ✨ Generated from Field `Host`.`userId` of type `String`
+  """
+  userId: OrderDirection
+  """
   ✨ Generated from Field `Host`.`_count` of type `Int!`
   """
   _count: OrderDirection
@@ -1066,6 +1116,10 @@ input Host_Order {
   ✨ Generated from Field `Host`.`name_count` of type `Int!`
   """
   name_count: OrderDirection
+  """
+  ✨ Generated from Field `Host`.`userId_count` of type `Int!`
+  """
+  userId_count: OrderDirection
 }
 """
 ✨ Generated data input type for table 'Invite'. It includes all necessary fields for creating or upserting rows into table.
@@ -1552,4 +1606,243 @@ input Party_Order {
   ✨ Generated from Field `Party`.`scheduledFor_max` of type `Date`
   """
   scheduledFor_max: OrderDirection
+}
+"""
+✨ Generated data input type for table 'UserDevice'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input UserDevice_Data {
+  """
+  ✨ Generated from Field `UserDevice`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `UserDevice`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `UserDevice`.`platform` of type `String!`
+  """
+  platform: String
+  """
+  ✨ `_expr` server value variant of `platform` (✨ Generated from Field `UserDevice`.`platform` of type `String!`)
+  """
+  platform_expr: String_Expr
+  """
+  ✨ Generated from Field `UserDevice`.`token` of type `String!`
+  """
+  token: String
+  """
+  ✨ `_expr` server value variant of `token` (✨ Generated from Field `UserDevice`.`token` of type `String!`)
+  """
+  token_expr: String_Expr
+  """
+  ✨ Generated from Field `UserDevice`.`updatedAt` of type `Date!`
+  """
+  updatedAt: Date
+  """
+  ✨ `_date` server value variant of `updatedAt` (✨ Generated from Field `UserDevice`.`updatedAt` of type `Date!`)
+  """
+  updatedAt_date: Date_Relative
+  """
+  ✨ `_expr` server value variant of `updatedAt` (✨ Generated from Field `UserDevice`.`updatedAt` of type `Date!`)
+  """
+  updatedAt_expr: Date_Expr
+  """
+  ✨ `_update` server value variant of `updatedAt` (✨ Generated from Field `UserDevice`.`updatedAt` of type `Date!`)
+  """
+  updatedAt_update: [Date_Update!]
+  """
+  ✨ Generated from Field `UserDevice`.`userId` of type `String!`
+  """
+  userId: String
+  """
+  ✨ `_expr` server value variant of `userId` (✨ Generated from Field `UserDevice`.`userId` of type `String!`)
+  """
+  userId_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'UserDevice'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input UserDevice_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [UserDevice_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: UserDevice_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [UserDevice_Filter!]
+  """
+  ✨ Generated from Field `UserDevice`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `UserDevice`.`platform` of type `String!`
+  """
+  platform: String_Filter
+  """
+  ✨ Generated from Field `UserDevice`.`token` of type `String!`
+  """
+  token: String_Filter
+  """
+  ✨ Generated from Field `UserDevice`.`updatedAt` of type `Date!`
+  """
+  updatedAt: Date_Filter
+  """
+  ✨ Generated from Field `UserDevice`.`userId` of type `String!`
+  """
+  userId: String_Filter
+}
+"""
+✨ Generated first-row input type for table 'UserDevice'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input UserDevice_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [UserDevice_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: UserDevice_Filter
+}
+"""
+✨ Generated having input type for table 'UserDevice'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input UserDevice_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [UserDevice_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: UserDevice_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [UserDevice_Having!]
+  """
+  ✨ Generated from Field `UserDevice`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `UserDevice`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `UserDevice`.`platform_count` of type `Int!`
+  """
+  platform_count: Int_Filter
+  """
+  ✨ Generated from Field `UserDevice`.`token_count` of type `Int!`
+  """
+  token_count: Int_Filter
+  """
+  ✨ Generated from Field `UserDevice`.`updatedAt_count` of type `Int!`
+  """
+  updatedAt_count: Int_Filter
+  """
+  ✨ Generated from Field `UserDevice`.`userId_count` of type `Int!`
+  """
+  userId_count: Int_Filter
+  """
+  ✨ Generated from Field `UserDevice`.`updatedAt_min` of type `Date`
+  """
+  updatedAt_min: Date_Filter
+  """
+  ✨ Generated from Field `UserDevice`.`updatedAt_max` of type `Date`
+  """
+  updatedAt_max: Date_Filter
+}
+"""
+✨ Generated key input type for table 'UserDevice'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input UserDevice_Key {
+  """
+  ✨ Generated from Field `UserDevice`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `UserDevice`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'UserDevice'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input UserDevice_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: UserDevice_Filter
+}
+"""
+✨ Generated order input type for table 'UserDevice'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input UserDevice_Order {
+  """
+  ✨ Generated from Field `UserDevice`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `UserDevice`.`platform` of type `String!`
+  """
+  platform: OrderDirection
+  """
+  ✨ Generated from Field `UserDevice`.`token` of type `String!`
+  """
+  token: OrderDirection
+  """
+  ✨ Generated from Field `UserDevice`.`updatedAt` of type `Date!`
+  """
+  updatedAt: OrderDirection
+  """
+  ✨ Generated from Field `UserDevice`.`userId` of type `String!`
+  """
+  userId: OrderDirection
+  """
+  ✨ Generated from Field `UserDevice`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `UserDevice`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `UserDevice`.`platform_count` of type `Int!`
+  """
+  platform_count: OrderDirection
+  """
+  ✨ Generated from Field `UserDevice`.`token_count` of type `Int!`
+  """
+  token_count: OrderDirection
+  """
+  ✨ Generated from Field `UserDevice`.`updatedAt_count` of type `Int!`
+  """
+  updatedAt_count: OrderDirection
+  """
+  ✨ Generated from Field `UserDevice`.`userId_count` of type `Int!`
+  """
+  userId_count: OrderDirection
+  """
+  ✨ Generated from Field `UserDevice`.`updatedAt_min` of type `Date`
+  """
+  updatedAt_min: OrderDirection
+  """
+  ✨ Generated from Field `UserDevice`.`updatedAt_max` of type `Date`
+  """
+  updatedAt_max: OrderDirection
 }

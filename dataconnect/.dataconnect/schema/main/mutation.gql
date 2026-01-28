@@ -63,6 +63,15 @@ extend type Mutation {
     data: Party_Data!
   ): Party_KeyOutput! @fdc_generated(from: "Party", purpose: INSERT_SINGLE)
   """
+  ✨ Insert a single `UserDevice` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  userDevice_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: UserDevice_Data!
+  ): UserDevice_KeyOutput! @fdc_generated(from: "UserDevice", purpose: INSERT_SINGLE)
+  """
   ✨ Insert `Channel` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
   channel_insertMany(
@@ -125,6 +134,15 @@ extend type Mutation {
     """
     data: [Party_Data!]!
   ): [Party_KeyOutput!]! @fdc_generated(from: "Party", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `UserDevice` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  userDevice_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [UserDevice_Data!]!
+  ): [UserDevice_KeyOutput!]! @fdc_generated(from: "UserDevice", purpose: INSERT_MULTIPLE)
   """
   ✨ Insert or update a single `Channel` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Channel`.
   """
@@ -189,6 +207,15 @@ extend type Mutation {
     data: Party_Data!
   ): Party_KeyOutput! @fdc_generated(from: "Party", purpose: UPSERT_SINGLE)
   """
+  ✨ Insert or update a single `UserDevice` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `UserDevice`.
+  """
+  userDevice_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: UserDevice_Data!
+  ): UserDevice_KeyOutput! @fdc_generated(from: "UserDevice", purpose: UPSERT_SINGLE)
+  """
   ✨ Insert or update `Channel` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Channel`.
   """
   channel_upsertMany(
@@ -251,6 +278,15 @@ extend type Mutation {
     """
     data: [Party_Data!]!
   ): [Party_KeyOutput!]! @fdc_generated(from: "Party", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `UserDevice` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `UserDevice`.
+  """
+  userDevice_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [UserDevice_Data!]!
+  ): [UserDevice_KeyOutput!]! @fdc_generated(from: "UserDevice", purpose: UPSERT_MULTIPLE)
   """
   ✨ Update a single `Channel` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Channel` or `null` if not found.
   """
@@ -420,6 +456,30 @@ extend type Mutation {
     data: Party_Data!
   ): Party_KeyOutput @fdc_generated(from: "Party", purpose: UPDATE_SINGLE)
   """
+  ✨ Update a single `UserDevice` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `UserDevice` or `null` if not found.
+  """
+  userDevice_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: UserDevice_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UserDevice_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: UserDevice_Data!
+  ): UserDevice_KeyOutput @fdc_generated(from: "UserDevice", purpose: UPDATE_SINGLE)
+  """
   ✨ Update `Channel` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
   """
   channel_updateMany(
@@ -552,6 +612,25 @@ extend type Mutation {
     """
     data: Party_Data!
   ): Int! @fdc_generated(from: "Party", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `UserDevice` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  userDevice_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: UserDevice_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: UserDevice_Data!
+  ): Int! @fdc_generated(from: "UserDevice", purpose: UPDATE_MULTIPLE)
   """
   ✨ Delete a single `Channel` based on `id`, `key` or `first` and return its key (or `null` if not found).
   """
@@ -686,6 +765,25 @@ extend type Mutation {
     first: Party_FirstRow
   ): Party_KeyOutput @fdc_generated(from: "Party", purpose: DELETE_SINGLE)
   """
+  ✨ Delete a single `UserDevice` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  userDevice_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: UserDevice_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UserDevice_FirstRow
+  ): UserDevice_KeyOutput @fdc_generated(from: "UserDevice", purpose: DELETE_SINGLE)
+  """
   ✨ Delete `Channel` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
   """
   channel_deleteMany(
@@ -783,4 +881,18 @@ extend type Mutation {
     """
     all: Boolean = false
   ): Int! @fdc_generated(from: "Party", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `UserDevice` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  userDevice_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: UserDevice_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "UserDevice", purpose: DELETE_MULTIPLE)
 }

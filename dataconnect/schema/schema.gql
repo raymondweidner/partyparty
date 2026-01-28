@@ -1,30 +1,32 @@
 type Host @table {
   # id: UUID! @default(expr: "uuidV4()")
-  name: String!
+  name: String! @index
   email: String! @unique
+  userId: String @unique
 }
 
 type Guest @table {
   # id: UUID! @default(expr: "uuidV4()")
-  name: String!
+  name: String! @index
   email: String! @unique
-  phone: String
+  phone: String @index
+  userId: String @index
 }
 
 type Party @table {
   # id: UUID! @default(expr: "uuidV4()")
-  userId: String!
-  title: String!
+  userId: String! @index
+  title: String! @index
   details: String! @col(dataType: "varchar(2048)")
-  scheduledFor: Date!
-  state: String! @default(value: "draft")
+  scheduledFor: Date! @index
+  state: String! @default(value: "draft") @index
 }
 
 type Invite @table {
   # id: UUID! @default(expr: "uuidV4()")
-  guest: Guest!
-  party: Party!
-  state: String! @default(value: "draft")
+  guest: Guest! @index
+  party: Party! @index
+  state: String! @default(value: "pending") @index
 }
 
 type Channel @table {
@@ -43,7 +45,15 @@ type ChannelMembership @table {
 
 type ChannelMessage @table {
   # id: UUID! @default(expr: "uuidV4()")
-  channel: Channel!
+  channel: Channel! @index
   content: String!
-  timestamp: Date! @default(expr: "request.time")
+  timestamp: Date! @default(expr: "request.time") @index
+}
+
+type UserDevice @table {
+  # id: UUID! @default(expr: "uuidV4()")
+  userId: String! @index
+  token: String! @unique # The FCM registration token
+  platform: String! # e.g. "android", "ios", "web"
+  updatedAt: Date! @default(expr: "request.time")
 }

@@ -312,6 +312,15 @@ extend type Guest {
     distinct: Boolean = false
   ): Int! @fdc_generated(from: "Guest.phone", purpose: QUERY_COUNT)
   """
+  ✨ Count the number of rows in the `Guest` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Guest.userId", purpose: QUERY_COUNT)
+  """
   A generated field that is used for caching results in SDKs.
   """
   _id: ID! @fdc_generated(from: "Guest.id", purpose: GLOBAL_ID)
@@ -352,6 +361,15 @@ extend type Host {
     """
     distinct: Boolean = false
   ): Int! @fdc_generated(from: "Host.name", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Host` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Host.userId", purpose: QUERY_COUNT)
   """
   A generated field that is used for caching results in SDKs.
   """
@@ -550,4 +568,71 @@ extend type Party {
   A generated field that is used for caching results in SDKs.
   """
   _id: ID! @fdc_generated(from: "Party.id", purpose: GLOBAL_ID)
+}
+extend type UserDevice {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "UserDevice", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `UserDevice` table.
+  """
+  _count: Int! @fdc_generated(from: "UserDevice.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserDevice` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserDevice.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserDevice` table where the `platform` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  platform_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserDevice.platform", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserDevice` table where the `token` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  token_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserDevice.token", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserDevice` table where the `updatedAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  updatedAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserDevice.updatedAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserDevice` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserDevice.userId", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `updatedAt` field in the `UserDevice` table.
+  """
+  updatedAt_min: Date @fdc_generated(from: "UserDevice.updatedAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `updatedAt` field in the `UserDevice` table.
+  """
+  updatedAt_max: Date @fdc_generated(from: "UserDevice.updatedAt", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "UserDevice.id", purpose: GLOBAL_ID)
 }
