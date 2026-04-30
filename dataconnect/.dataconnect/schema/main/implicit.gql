@@ -14,9 +14,9 @@ extend type ChannelMembership {
   """
   channelId: UUID! @fdc_generated(from: "ChannelMembership.channel", purpose: IMPLICIT_REF_FIELD)
   """
-  ✨ Implicit foreign key field based on `ChannelMembership`.`invite`. It must match the value of `Invite`.`id`. See `@ref` for how to customize it.
+  ✨ Implicit foreign key field based on `ChannelMembership`.`guest`. It must match the value of `Guest`.`id`. See `@ref` for how to customize it.
   """
-  inviteId: UUID! @fdc_generated(from: "ChannelMembership.invite", purpose: IMPLICIT_REF_FIELD)
+  guestId: UUID! @fdc_generated(from: "ChannelMembership.guest", purpose: IMPLICIT_REF_FIELD)
 }
 extend type ChannelMessage {
   """
@@ -27,18 +27,16 @@ extend type ChannelMessage {
   ✨ Implicit foreign key field based on `ChannelMessage`.`channel`. It must match the value of `Channel`.`id`. See `@ref` for how to customize it.
   """
   channelId: UUID! @fdc_generated(from: "ChannelMessage.channel", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `ChannelMessage`.`sender`. It must match the value of `Guest`.`id`. See `@ref` for how to customize it.
+  """
+  senderId: UUID! @fdc_generated(from: "ChannelMessage.sender", purpose: IMPLICIT_REF_FIELD)
 }
 extend type Guest {
   """
   ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
   """
   id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Guest", purpose: IMPLICIT_KEY_FIELD)
-}
-extend type Host {
-  """
-  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
-  """
-  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Host", purpose: IMPLICIT_KEY_FIELD)
 }
 extend type Invite {
   """

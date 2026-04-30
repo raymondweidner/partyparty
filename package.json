@@ -2,11 +2,11 @@
   "name": "partyparty",
   "version": "1.0.0",
   "description": "Get started by customizing your environment (defined in the .idx/dev.nix file) with the tools and IDE extensions you'll need for your project!",
-  "main": "index.js",
+  "main": "dist/index.ts",
   "scripts": {
-    "start": "node index.js",
+    "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres nodemon index.js",
+    "dev": "cross-env DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres nodemon --exec ts-node index.ts",
     "migrate": "node-pg-migrate",
     "migrate:local": "cross-env DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres node-pg-migrate",
     "lint": "eslint --ext .js,.ts .",
@@ -30,6 +30,7 @@
     "pg": "^8.16.3"
   },
   "devDependencies": {
+    "@types/pg": "^8.16.0",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
     "cross-env": "^7.0.3",
@@ -37,8 +38,9 @@
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.25.4",
     "firebase-functions-test": "^3.4.1",
-    "firebase-tools": "^13.13.0",
+    "firebase-tools": "^15.4.0",
     "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   }
 }

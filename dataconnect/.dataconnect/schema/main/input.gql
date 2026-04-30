@@ -23,12 +23,6 @@ It has the same format as `Guest_Key`, but is only used as mutation return value
 """
 scalar Guest_KeyOutput
 """
-✨ `Host_KeyOutput` returns the primary key fields of table type `Host`.
-
-It has the same format as `Host_Key`, but is only used as mutation return value.
-"""
-scalar Host_KeyOutput
-"""
 ✨ `Invite_KeyOutput` returns the primary key fields of table type `Invite`.
 
 It has the same format as `Invite_Key`, but is only used as mutation return value.
@@ -57,15 +51,31 @@ input Channel_Data {
   """
   ✨ `_expr` server value variant of `id` (✨ Generated from Field `Channel`.`id` of type `UUID!`)
   """
-  id_expr: UUID_Expr
+  id_expr: UUID_Expr @fdc_forbiddenInVariables
   """
-  ✨ Generated from Field `Channel`.`description` of type `String!`
+  ✨ Generated from Field `Channel`.`createdOn` of type `Date!`
+  """
+  createdOn: Date
+  """
+  ✨ `_date` server value variant of `createdOn` (✨ Generated from Field `Channel`.`createdOn` of type `Date!`)
+  """
+  createdOn_date: Date_Relative @fdc_forbiddenInVariables
+  """
+  ✨ `_expr` server value variant of `createdOn` (✨ Generated from Field `Channel`.`createdOn` of type `Date!`)
+  """
+  createdOn_expr: Date_Expr @fdc_forbiddenInVariables
+  """
+  ✨ `_update` server value variant of `createdOn` (✨ Generated from Field `Channel`.`createdOn` of type `Date!`)
+  """
+  createdOn_update: [Date_Update!] @fdc_forbiddenInVariables
+  """
+  ✨ Generated from Field `Channel`.`description` of type `String`
   """
   description: String
   """
-  ✨ `_expr` server value variant of `description` (✨ Generated from Field `Channel`.`description` of type `String!`)
+  ✨ `_expr` server value variant of `description` (✨ Generated from Field `Channel`.`description` of type `String`)
   """
-  description_expr: String_Expr
+  description_expr: String_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Channel`.`name` of type `String!`
   """
@@ -73,23 +83,7 @@ input Channel_Data {
   """
   ✨ `_expr` server value variant of `name` (✨ Generated from Field `Channel`.`name` of type `String!`)
   """
-  name_expr: String_Expr
-  """
-  ✨ Generated from Field `Channel`.`scheduledFor` of type `Date!`
-  """
-  scheduledFor: Date
-  """
-  ✨ `_date` server value variant of `scheduledFor` (✨ Generated from Field `Channel`.`scheduledFor` of type `Date!`)
-  """
-  scheduledFor_date: Date_Relative
-  """
-  ✨ `_expr` server value variant of `scheduledFor` (✨ Generated from Field `Channel`.`scheduledFor` of type `Date!`)
-  """
-  scheduledFor_expr: Date_Expr
-  """
-  ✨ `_update` server value variant of `scheduledFor` (✨ Generated from Field `Channel`.`scheduledFor` of type `Date!`)
-  """
-  scheduledFor_update: [Date_Update!]
+  name_expr: String_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Channel`.`type` of type `String!`
   """
@@ -97,7 +91,7 @@ input Channel_Data {
   """
   ✨ `_expr` server value variant of `type` (✨ Generated from Field `Channel`.`type` of type `String!`)
   """
-  type_expr: String_Expr
+  type_expr: String_Expr @fdc_forbiddenInVariables
 }
 """
 ✨ Generated filter input type for table 'Channel'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
@@ -120,17 +114,17 @@ input Channel_Filter {
   """
   id: UUID_Filter
   """
-  ✨ Generated from Field `Channel`.`description` of type `String!`
+  ✨ Generated from Field `Channel`.`createdOn` of type `Date!`
+  """
+  createdOn: Date_Filter
+  """
+  ✨ Generated from Field `Channel`.`description` of type `String`
   """
   description: String_Filter
   """
   ✨ Generated from Field `Channel`.`name` of type `String!`
   """
   name: String_Filter
-  """
-  ✨ Generated from Field `Channel`.`scheduledFor` of type `Date!`
-  """
-  scheduledFor: Date_Filter
   """
   ✨ Generated from Field `Channel`.`type` of type `String!`
   """
@@ -182,6 +176,10 @@ input Channel_Having {
   """
   _count: Int_Filter
   """
+  ✨ Generated from Field `Channel`.`createdOn_count` of type `Int!`
+  """
+  createdOn_count: Int_Filter
+  """
   ✨ Generated from Field `Channel`.`description_count` of type `Int!`
   """
   description_count: Int_Filter
@@ -194,21 +192,17 @@ input Channel_Having {
   """
   name_count: Int_Filter
   """
-  ✨ Generated from Field `Channel`.`scheduledFor_count` of type `Int!`
-  """
-  scheduledFor_count: Int_Filter
-  """
   ✨ Generated from Field `Channel`.`type_count` of type `Int!`
   """
   type_count: Int_Filter
   """
-  ✨ Generated from Field `Channel`.`scheduledFor_min` of type `Date`
+  ✨ Generated from Field `Channel`.`createdOn_min` of type `Date`
   """
-  scheduledFor_min: Date_Filter
+  createdOn_min: Date_Filter
   """
-  ✨ Generated from Field `Channel`.`scheduledFor_max` of type `Date`
+  ✨ Generated from Field `Channel`.`createdOn_max` of type `Date`
   """
-  scheduledFor_max: Date_Filter
+  createdOn_max: Date_Filter
 }
 """
 ✨ Generated key input type for table 'Channel'. It represents the primary key fields used to uniquely identify a row in the table.
@@ -221,7 +215,7 @@ input Channel_Key {
   """
   ✨ `_expr` server value variant of `id` (✨ Generated from Field `Channel`.`id` of type `UUID!`)
   """
-  id_expr: UUID_Expr
+  id_expr: UUID_Expr @fdc_forbiddenInVariables
 }
 """
 ✨ Generated list filter input type for table 'Channel'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
@@ -245,17 +239,17 @@ input Channel_Order {
   """
   id: OrderDirection
   """
-  ✨ Generated from Field `Channel`.`description` of type `String!`
+  ✨ Generated from Field `Channel`.`createdOn` of type `Date!`
+  """
+  createdOn: OrderDirection
+  """
+  ✨ Generated from Field `Channel`.`description` of type `String`
   """
   description: OrderDirection
   """
   ✨ Generated from Field `Channel`.`name` of type `String!`
   """
   name: OrderDirection
-  """
-  ✨ Generated from Field `Channel`.`scheduledFor` of type `Date!`
-  """
-  scheduledFor: OrderDirection
   """
   ✨ Generated from Field `Channel`.`type` of type `String!`
   """
@@ -264,6 +258,10 @@ input Channel_Order {
   ✨ Generated from Field `Channel`.`_count` of type `Int!`
   """
   _count: OrderDirection
+  """
+  ✨ Generated from Field `Channel`.`createdOn_count` of type `Int!`
+  """
+  createdOn_count: OrderDirection
   """
   ✨ Generated from Field `Channel`.`description_count` of type `Int!`
   """
@@ -277,21 +275,17 @@ input Channel_Order {
   """
   name_count: OrderDirection
   """
-  ✨ Generated from Field `Channel`.`scheduledFor_count` of type `Int!`
-  """
-  scheduledFor_count: OrderDirection
-  """
   ✨ Generated from Field `Channel`.`type_count` of type `Int!`
   """
   type_count: OrderDirection
   """
-  ✨ Generated from Field `Channel`.`scheduledFor_min` of type `Date`
+  ✨ Generated from Field `Channel`.`createdOn_min` of type `Date`
   """
-  scheduledFor_min: OrderDirection
+  createdOn_min: OrderDirection
   """
-  ✨ Generated from Field `Channel`.`scheduledFor_max` of type `Date`
+  ✨ Generated from Field `Channel`.`createdOn_max` of type `Date`
   """
-  scheduledFor_max: OrderDirection
+  createdOn_max: OrderDirection
 }
 """
 ✨ Generated data input type for table 'ChannelMembership'. It includes all necessary fields for creating or upserting rows into table.
@@ -304,7 +298,7 @@ input ChannelMembership_Data {
   """
   ✨ `_expr` server value variant of `id` (✨ Generated from Field `ChannelMembership`.`id` of type `UUID!`)
   """
-  id_expr: UUID_Expr
+  id_expr: UUID_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `ChannelMembership`.`channelId` of type `UUID!`
   """
@@ -312,23 +306,23 @@ input ChannelMembership_Data {
   """
   ✨ `_expr` server value variant of `channelId` (✨ Generated from Field `ChannelMembership`.`channelId` of type `UUID!`)
   """
-  channelId_expr: UUID_Expr
+  channelId_expr: UUID_Expr @fdc_forbiddenInVariables
   """
-  ✨ Generated from Field `ChannelMembership`.`inviteId` of type `UUID!`
+  ✨ Generated from Field `ChannelMembership`.`guestId` of type `UUID!`
   """
-  inviteId: UUID
+  guestId: UUID
   """
-  ✨ `_expr` server value variant of `inviteId` (✨ Generated from Field `ChannelMembership`.`inviteId` of type `UUID!`)
+  ✨ `_expr` server value variant of `guestId` (✨ Generated from Field `ChannelMembership`.`guestId` of type `UUID!`)
   """
-  inviteId_expr: UUID_Expr
+  guestId_expr: UUID_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `ChannelMembership`.`channel` of type `Channel!`
   """
-  channel: Channel_Key
+  channel: Channel_Key @fdc_forbiddenInVariables
   """
-  ✨ Generated from Field `ChannelMembership`.`invite` of type `Invite!`
+  ✨ Generated from Field `ChannelMembership`.`guest` of type `Guest!`
   """
-  invite: Invite_Key
+  guest: Guest_Key @fdc_forbiddenInVariables
 }
 """
 ✨ Generated filter input type for table 'ChannelMembership'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
@@ -355,17 +349,17 @@ input ChannelMembership_Filter {
   """
   channelId: UUID_Filter
   """
-  ✨ Generated from Field `ChannelMembership`.`inviteId` of type `UUID!`
+  ✨ Generated from Field `ChannelMembership`.`guestId` of type `UUID!`
   """
-  inviteId: UUID_Filter
+  guestId: UUID_Filter
   """
   ✨ Generated from Field `ChannelMembership`.`channel` of type `Channel!`
   """
   channel: Channel_Filter
   """
-  ✨ Generated from Field `ChannelMembership`.`invite` of type `Invite!`
+  ✨ Generated from Field `ChannelMembership`.`guest` of type `Guest!`
   """
-  invite: Invite_Filter
+  guest: Guest_Filter
 }
 """
 ✨ Generated first-row input type for table 'ChannelMembership'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
@@ -409,13 +403,13 @@ input ChannelMembership_Having {
   """
   channelId_count: Int_Filter
   """
+  ✨ Generated from Field `ChannelMembership`.`guestId_count` of type `Int!`
+  """
+  guestId_count: Int_Filter
+  """
   ✨ Generated from Field `ChannelMembership`.`id_count` of type `Int!`
   """
   id_count: Int_Filter
-  """
-  ✨ Generated from Field `ChannelMembership`.`inviteId_count` of type `Int!`
-  """
-  inviteId_count: Int_Filter
 }
 """
 ✨ Generated key input type for table 'ChannelMembership'. It represents the primary key fields used to uniquely identify a row in the table.
@@ -428,7 +422,7 @@ input ChannelMembership_Key {
   """
   ✨ `_expr` server value variant of `id` (✨ Generated from Field `ChannelMembership`.`id` of type `UUID!`)
   """
-  id_expr: UUID_Expr
+  id_expr: UUID_Expr @fdc_forbiddenInVariables
 }
 """
 ✨ Generated list filter input type for table 'ChannelMembership'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
@@ -456,17 +450,17 @@ input ChannelMembership_Order {
   """
   channelId: OrderDirection
   """
-  ✨ Generated from Field `ChannelMembership`.`inviteId` of type `UUID!`
+  ✨ Generated from Field `ChannelMembership`.`guestId` of type `UUID!`
   """
-  inviteId: OrderDirection
+  guestId: OrderDirection
   """
   ✨ Generated from Field `ChannelMembership`.`channel` of type `Channel!`
   """
   channel: Channel_Order
   """
-  ✨ Generated from Field `ChannelMembership`.`invite` of type `Invite!`
+  ✨ Generated from Field `ChannelMembership`.`guest` of type `Guest!`
   """
-  invite: Invite_Order
+  guest: Guest_Order
   """
   ✨ Generated from Field `ChannelMembership`.`_count` of type `Int!`
   """
@@ -476,13 +470,13 @@ input ChannelMembership_Order {
   """
   channelId_count: OrderDirection
   """
+  ✨ Generated from Field `ChannelMembership`.`guestId_count` of type `Int!`
+  """
+  guestId_count: OrderDirection
+  """
   ✨ Generated from Field `ChannelMembership`.`id_count` of type `Int!`
   """
   id_count: OrderDirection
-  """
-  ✨ Generated from Field `ChannelMembership`.`inviteId_count` of type `Int!`
-  """
-  inviteId_count: OrderDirection
 }
 """
 ✨ Generated data input type for table 'ChannelMessage'. It includes all necessary fields for creating or upserting rows into table.
@@ -495,7 +489,7 @@ input ChannelMessage_Data {
   """
   ✨ `_expr` server value variant of `id` (✨ Generated from Field `ChannelMessage`.`id` of type `UUID!`)
   """
-  id_expr: UUID_Expr
+  id_expr: UUID_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `ChannelMessage`.`channelId` of type `UUID!`
   """
@@ -503,11 +497,23 @@ input ChannelMessage_Data {
   """
   ✨ `_expr` server value variant of `channelId` (✨ Generated from Field `ChannelMessage`.`channelId` of type `UUID!`)
   """
-  channelId_expr: UUID_Expr
+  channelId_expr: UUID_Expr @fdc_forbiddenInVariables
+  """
+  ✨ Generated from Field `ChannelMessage`.`senderId` of type `UUID!`
+  """
+  senderId: UUID
+  """
+  ✨ `_expr` server value variant of `senderId` (✨ Generated from Field `ChannelMessage`.`senderId` of type `UUID!`)
+  """
+  senderId_expr: UUID_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `ChannelMessage`.`channel` of type `Channel!`
   """
-  channel: Channel_Key
+  channel: Channel_Key @fdc_forbiddenInVariables
+  """
+  ✨ Generated from Field `ChannelMessage`.`sender` of type `Guest!`
+  """
+  sender: Guest_Key @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `ChannelMessage`.`content` of type `String!`
   """
@@ -515,23 +521,23 @@ input ChannelMessage_Data {
   """
   ✨ `_expr` server value variant of `content` (✨ Generated from Field `ChannelMessage`.`content` of type `String!`)
   """
-  content_expr: String_Expr
+  content_expr: String_Expr @fdc_forbiddenInVariables
   """
-  ✨ Generated from Field `ChannelMessage`.`timestamp` of type `Date!`
+  ✨ Generated from Field `ChannelMessage`.`createdOn` of type `Date!`
   """
-  timestamp: Date
+  createdOn: Date
   """
-  ✨ `_date` server value variant of `timestamp` (✨ Generated from Field `ChannelMessage`.`timestamp` of type `Date!`)
+  ✨ `_date` server value variant of `createdOn` (✨ Generated from Field `ChannelMessage`.`createdOn` of type `Date!`)
   """
-  timestamp_date: Date_Relative
+  createdOn_date: Date_Relative @fdc_forbiddenInVariables
   """
-  ✨ `_expr` server value variant of `timestamp` (✨ Generated from Field `ChannelMessage`.`timestamp` of type `Date!`)
+  ✨ `_expr` server value variant of `createdOn` (✨ Generated from Field `ChannelMessage`.`createdOn` of type `Date!`)
   """
-  timestamp_expr: Date_Expr
+  createdOn_expr: Date_Expr @fdc_forbiddenInVariables
   """
-  ✨ `_update` server value variant of `timestamp` (✨ Generated from Field `ChannelMessage`.`timestamp` of type `Date!`)
+  ✨ `_update` server value variant of `createdOn` (✨ Generated from Field `ChannelMessage`.`createdOn` of type `Date!`)
   """
-  timestamp_update: [Date_Update!]
+  createdOn_update: [Date_Update!] @fdc_forbiddenInVariables
 }
 """
 ✨ Generated filter input type for table 'ChannelMessage'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
@@ -558,17 +564,25 @@ input ChannelMessage_Filter {
   """
   channelId: UUID_Filter
   """
+  ✨ Generated from Field `ChannelMessage`.`senderId` of type `UUID!`
+  """
+  senderId: UUID_Filter
+  """
   ✨ Generated from Field `ChannelMessage`.`channel` of type `Channel!`
   """
   channel: Channel_Filter
+  """
+  ✨ Generated from Field `ChannelMessage`.`sender` of type `Guest!`
+  """
+  sender: Guest_Filter
   """
   ✨ Generated from Field `ChannelMessage`.`content` of type `String!`
   """
   content: String_Filter
   """
-  ✨ Generated from Field `ChannelMessage`.`timestamp` of type `Date!`
+  ✨ Generated from Field `ChannelMessage`.`createdOn` of type `Date!`
   """
-  timestamp: Date_Filter
+  createdOn: Date_Filter
 }
 """
 ✨ Generated first-row input type for table 'ChannelMessage'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
@@ -616,21 +630,25 @@ input ChannelMessage_Having {
   """
   content_count: Int_Filter
   """
+  ✨ Generated from Field `ChannelMessage`.`createdOn_count` of type `Int!`
+  """
+  createdOn_count: Int_Filter
+  """
   ✨ Generated from Field `ChannelMessage`.`id_count` of type `Int!`
   """
   id_count: Int_Filter
   """
-  ✨ Generated from Field `ChannelMessage`.`timestamp_count` of type `Int!`
+  ✨ Generated from Field `ChannelMessage`.`senderId_count` of type `Int!`
   """
-  timestamp_count: Int_Filter
+  senderId_count: Int_Filter
   """
-  ✨ Generated from Field `ChannelMessage`.`timestamp_min` of type `Date`
+  ✨ Generated from Field `ChannelMessage`.`createdOn_min` of type `Date`
   """
-  timestamp_min: Date_Filter
+  createdOn_min: Date_Filter
   """
-  ✨ Generated from Field `ChannelMessage`.`timestamp_max` of type `Date`
+  ✨ Generated from Field `ChannelMessage`.`createdOn_max` of type `Date`
   """
-  timestamp_max: Date_Filter
+  createdOn_max: Date_Filter
 }
 """
 ✨ Generated key input type for table 'ChannelMessage'. It represents the primary key fields used to uniquely identify a row in the table.
@@ -643,7 +661,7 @@ input ChannelMessage_Key {
   """
   ✨ `_expr` server value variant of `id` (✨ Generated from Field `ChannelMessage`.`id` of type `UUID!`)
   """
-  id_expr: UUID_Expr
+  id_expr: UUID_Expr @fdc_forbiddenInVariables
 }
 """
 ✨ Generated list filter input type for table 'ChannelMessage'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
@@ -671,17 +689,25 @@ input ChannelMessage_Order {
   """
   channelId: OrderDirection
   """
+  ✨ Generated from Field `ChannelMessage`.`senderId` of type `UUID!`
+  """
+  senderId: OrderDirection
+  """
   ✨ Generated from Field `ChannelMessage`.`channel` of type `Channel!`
   """
   channel: Channel_Order
+  """
+  ✨ Generated from Field `ChannelMessage`.`sender` of type `Guest!`
+  """
+  sender: Guest_Order
   """
   ✨ Generated from Field `ChannelMessage`.`content` of type `String!`
   """
   content: OrderDirection
   """
-  ✨ Generated from Field `ChannelMessage`.`timestamp` of type `Date!`
+  ✨ Generated from Field `ChannelMessage`.`createdOn` of type `Date!`
   """
-  timestamp: OrderDirection
+  createdOn: OrderDirection
   """
   ✨ Generated from Field `ChannelMessage`.`_count` of type `Int!`
   """
@@ -695,21 +721,25 @@ input ChannelMessage_Order {
   """
   content_count: OrderDirection
   """
+  ✨ Generated from Field `ChannelMessage`.`createdOn_count` of type `Int!`
+  """
+  createdOn_count: OrderDirection
+  """
   ✨ Generated from Field `ChannelMessage`.`id_count` of type `Int!`
   """
   id_count: OrderDirection
   """
-  ✨ Generated from Field `ChannelMessage`.`timestamp_count` of type `Int!`
+  ✨ Generated from Field `ChannelMessage`.`senderId_count` of type `Int!`
   """
-  timestamp_count: OrderDirection
+  senderId_count: OrderDirection
   """
-  ✨ Generated from Field `ChannelMessage`.`timestamp_min` of type `Date`
+  ✨ Generated from Field `ChannelMessage`.`createdOn_min` of type `Date`
   """
-  timestamp_min: OrderDirection
+  createdOn_min: OrderDirection
   """
-  ✨ Generated from Field `ChannelMessage`.`timestamp_max` of type `Date`
+  ✨ Generated from Field `ChannelMessage`.`createdOn_max` of type `Date`
   """
-  timestamp_max: OrderDirection
+  createdOn_max: OrderDirection
 }
 """
 ✨ Generated data input type for table 'Guest'. It includes all necessary fields for creating or upserting rows into table.
@@ -722,7 +752,7 @@ input Guest_Data {
   """
   ✨ `_expr` server value variant of `id` (✨ Generated from Field `Guest`.`id` of type `UUID!`)
   """
-  id_expr: UUID_Expr
+  id_expr: UUID_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Guest`.`email` of type `String!`
   """
@@ -730,7 +760,7 @@ input Guest_Data {
   """
   ✨ `_expr` server value variant of `email` (✨ Generated from Field `Guest`.`email` of type `String!`)
   """
-  email_expr: String_Expr
+  email_expr: String_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Guest`.`name` of type `String!`
   """
@@ -738,7 +768,7 @@ input Guest_Data {
   """
   ✨ `_expr` server value variant of `name` (✨ Generated from Field `Guest`.`name` of type `String!`)
   """
-  name_expr: String_Expr
+  name_expr: String_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Guest`.`phone` of type `String`
   """
@@ -746,7 +776,7 @@ input Guest_Data {
   """
   ✨ `_expr` server value variant of `phone` (✨ Generated from Field `Guest`.`phone` of type `String`)
   """
-  phone_expr: String_Expr
+  phone_expr: String_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Guest`.`userId` of type `String`
   """
@@ -754,7 +784,7 @@ input Guest_Data {
   """
   ✨ `_expr` server value variant of `userId` (✨ Generated from Field `Guest`.`userId` of type `String`)
   """
-  userId_expr: String_Expr
+  userId_expr: String_Expr @fdc_forbiddenInVariables
 }
 """
 ✨ Generated filter input type for table 'Guest'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
@@ -792,6 +822,14 @@ input Guest_Filter {
   ✨ Generated from Field `Guest`.`userId` of type `String`
   """
   userId: String_Filter
+  """
+  ✨ Generated from Field `Guest`.`channelMemberships_on_guest` of type `[ChannelMembership!]!`
+  """
+  channelMemberships_on_guest: ChannelMembership_ListFilter
+  """
+  ✨ Generated from Field `Guest`.`channelMessages_on_sender` of type `[ChannelMessage!]!`
+  """
+  channelMessages_on_sender: ChannelMessage_ListFilter
   """
   ✨ Generated from Field `Guest`.`invites_on_guest` of type `[Invite!]!`
   """
@@ -866,7 +904,7 @@ input Guest_Key {
   """
   ✨ `_expr` server value variant of `id` (✨ Generated from Field `Guest`.`id` of type `UUID!`)
   """
-  id_expr: UUID_Expr
+  id_expr: UUID_Expr @fdc_forbiddenInVariables
 }
 """
 ✨ Generated list filter input type for table 'Guest'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
@@ -931,197 +969,6 @@ input Guest_Order {
   userId_count: OrderDirection
 }
 """
-✨ Generated data input type for table 'Host'. It includes all necessary fields for creating or upserting rows into table.
-"""
-input Host_Data {
-  """
-  ✨ Generated from Field `Host`.`id` of type `UUID!`
-  """
-  id: UUID
-  """
-  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Host`.`id` of type `UUID!`)
-  """
-  id_expr: UUID_Expr
-  """
-  ✨ Generated from Field `Host`.`email` of type `String!`
-  """
-  email: String
-  """
-  ✨ `_expr` server value variant of `email` (✨ Generated from Field `Host`.`email` of type `String!`)
-  """
-  email_expr: String_Expr
-  """
-  ✨ Generated from Field `Host`.`name` of type `String!`
-  """
-  name: String
-  """
-  ✨ `_expr` server value variant of `name` (✨ Generated from Field `Host`.`name` of type `String!`)
-  """
-  name_expr: String_Expr
-  """
-  ✨ Generated from Field `Host`.`userId` of type `String`
-  """
-  userId: String
-  """
-  ✨ `_expr` server value variant of `userId` (✨ Generated from Field `Host`.`userId` of type `String`)
-  """
-  userId_expr: String_Expr
-}
-"""
-✨ Generated filter input type for table 'Host'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
-"""
-input Host_Filter {
-  """
-  Apply multiple filter conditions using `AND` logic.
-  """
-  _and: [Host_Filter!]
-  """
-  Negate the result of the provided filter condition.
-  """
-  _not: Host_Filter
-  """
-  Apply multiple filter conditions using `OR` logic.
-  """
-  _or: [Host_Filter!]
-  """
-  ✨ Generated from Field `Host`.`id` of type `UUID!`
-  """
-  id: UUID_Filter
-  """
-  ✨ Generated from Field `Host`.`email` of type `String!`
-  """
-  email: String_Filter
-  """
-  ✨ Generated from Field `Host`.`name` of type `String!`
-  """
-  name: String_Filter
-  """
-  ✨ Generated from Field `Host`.`userId` of type `String`
-  """
-  userId: String_Filter
-}
-"""
-✨ Generated first-row input type for table 'Host'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
-"""
-input Host_FirstRow {
-  """
-  Order the result by the specified fields.
-  """
-  orderBy: [Host_Order!]
-  """
-  Filters rows based on the specified conditions.
-  """
-  where: Host_Filter
-}
-"""
-✨ Generated having input type for table 'Host'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
-"""
-input Host_Having {
-  """
-  Apply multiple Having conditions using `AND` logic.
-  """
-  _and: [Host_Having!]
-  """
-  Whether to apply DISTINCT to the aggregate function.
-  """
-  _distinct: Boolean
-  """
-  Negate the result of the provided Having condition.
-  """
-  _not: Host_Having
-  """
-  Apply multiple Having conditions using `OR` logic.
-  """
-  _or: [Host_Having!]
-  """
-  ✨ Generated from Field `Host`.`_count` of type `Int!`
-  """
-  _count: Int_Filter
-  """
-  ✨ Generated from Field `Host`.`email_count` of type `Int!`
-  """
-  email_count: Int_Filter
-  """
-  ✨ Generated from Field `Host`.`id_count` of type `Int!`
-  """
-  id_count: Int_Filter
-  """
-  ✨ Generated from Field `Host`.`name_count` of type `Int!`
-  """
-  name_count: Int_Filter
-  """
-  ✨ Generated from Field `Host`.`userId_count` of type `Int!`
-  """
-  userId_count: Int_Filter
-}
-"""
-✨ Generated key input type for table 'Host'. It represents the primary key fields used to uniquely identify a row in the table.
-"""
-input Host_Key {
-  """
-  ✨ Generated from Field `Host`.`id` of type `UUID!`
-  """
-  id: UUID
-  """
-  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Host`.`id` of type `UUID!`)
-  """
-  id_expr: UUID_Expr
-}
-"""
-✨ Generated list filter input type for table 'Host'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
-"""
-input Host_ListFilter {
-  """
-  The desired number of objects that match the condition (defaults to at least one).
-  """
-  count: Int_Filter = {gt:0}
-  """
-  Condition of the related objects to filter for.
-  """
-  exist: Host_Filter
-}
-"""
-✨ Generated order input type for table 'Host'. This input defines the sorting order of rows in query results based on one or more fields.
-"""
-input Host_Order {
-  """
-  ✨ Generated from Field `Host`.`id` of type `UUID!`
-  """
-  id: OrderDirection
-  """
-  ✨ Generated from Field `Host`.`email` of type `String!`
-  """
-  email: OrderDirection
-  """
-  ✨ Generated from Field `Host`.`name` of type `String!`
-  """
-  name: OrderDirection
-  """
-  ✨ Generated from Field `Host`.`userId` of type `String`
-  """
-  userId: OrderDirection
-  """
-  ✨ Generated from Field `Host`.`_count` of type `Int!`
-  """
-  _count: OrderDirection
-  """
-  ✨ Generated from Field `Host`.`email_count` of type `Int!`
-  """
-  email_count: OrderDirection
-  """
-  ✨ Generated from Field `Host`.`id_count` of type `Int!`
-  """
-  id_count: OrderDirection
-  """
-  ✨ Generated from Field `Host`.`name_count` of type `Int!`
-  """
-  name_count: OrderDirection
-  """
-  ✨ Generated from Field `Host`.`userId_count` of type `Int!`
-  """
-  userId_count: OrderDirection
-}
-"""
 ✨ Generated data input type for table 'Invite'. It includes all necessary fields for creating or upserting rows into table.
 """
 input Invite_Data {
@@ -1132,7 +979,7 @@ input Invite_Data {
   """
   ✨ `_expr` server value variant of `id` (✨ Generated from Field `Invite`.`id` of type `UUID!`)
   """
-  id_expr: UUID_Expr
+  id_expr: UUID_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Invite`.`guestId` of type `UUID!`
   """
@@ -1140,7 +987,7 @@ input Invite_Data {
   """
   ✨ `_expr` server value variant of `guestId` (✨ Generated from Field `Invite`.`guestId` of type `UUID!`)
   """
-  guestId_expr: UUID_Expr
+  guestId_expr: UUID_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Invite`.`partyId` of type `UUID!`
   """
@@ -1148,15 +995,15 @@ input Invite_Data {
   """
   ✨ `_expr` server value variant of `partyId` (✨ Generated from Field `Invite`.`partyId` of type `UUID!`)
   """
-  partyId_expr: UUID_Expr
+  partyId_expr: UUID_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Invite`.`guest` of type `Guest!`
   """
-  guest: Guest_Key
+  guest: Guest_Key @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Invite`.`party` of type `Party!`
   """
-  party: Party_Key
+  party: Party_Key @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Invite`.`state` of type `String!`
   """
@@ -1164,7 +1011,7 @@ input Invite_Data {
   """
   ✨ `_expr` server value variant of `state` (✨ Generated from Field `Invite`.`state` of type `String!`)
   """
-  state_expr: String_Expr
+  state_expr: String_Expr @fdc_forbiddenInVariables
 }
 """
 ✨ Generated filter input type for table 'Invite'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
@@ -1206,10 +1053,6 @@ input Invite_Filter {
   ✨ Generated from Field `Invite`.`state` of type `String!`
   """
   state: String_Filter
-  """
-  ✨ Generated from Field `Invite`.`channelMemberships_on_invite` of type `[ChannelMembership!]!`
-  """
-  channelMemberships_on_invite: ChannelMembership_ListFilter
 }
 """
 ✨ Generated first-row input type for table 'Invite'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
@@ -1276,7 +1119,7 @@ input Invite_Key {
   """
   ✨ `_expr` server value variant of `id` (✨ Generated from Field `Invite`.`id` of type `UUID!`)
   """
-  id_expr: UUID_Expr
+  id_expr: UUID_Expr @fdc_forbiddenInVariables
 }
 """
 ✨ Generated list filter input type for table 'Invite'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
@@ -1351,7 +1194,7 @@ input Party_Data {
   """
   ✨ `_expr` server value variant of `id` (✨ Generated from Field `Party`.`id` of type `UUID!`)
   """
-  id_expr: UUID_Expr
+  id_expr: UUID_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Party`.`details` of type `String!`
   """
@@ -1359,7 +1202,7 @@ input Party_Data {
   """
   ✨ `_expr` server value variant of `details` (✨ Generated from Field `Party`.`details` of type `String!`)
   """
-  details_expr: String_Expr
+  details_expr: String_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Party`.`scheduledFor` of type `Date!`
   """
@@ -1367,15 +1210,15 @@ input Party_Data {
   """
   ✨ `_date` server value variant of `scheduledFor` (✨ Generated from Field `Party`.`scheduledFor` of type `Date!`)
   """
-  scheduledFor_date: Date_Relative
+  scheduledFor_date: Date_Relative @fdc_forbiddenInVariables
   """
   ✨ `_expr` server value variant of `scheduledFor` (✨ Generated from Field `Party`.`scheduledFor` of type `Date!`)
   """
-  scheduledFor_expr: Date_Expr
+  scheduledFor_expr: Date_Expr @fdc_forbiddenInVariables
   """
   ✨ `_update` server value variant of `scheduledFor` (✨ Generated from Field `Party`.`scheduledFor` of type `Date!`)
   """
-  scheduledFor_update: [Date_Update!]
+  scheduledFor_update: [Date_Update!] @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Party`.`state` of type `String!`
   """
@@ -1383,7 +1226,7 @@ input Party_Data {
   """
   ✨ `_expr` server value variant of `state` (✨ Generated from Field `Party`.`state` of type `String!`)
   """
-  state_expr: String_Expr
+  state_expr: String_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Party`.`title` of type `String!`
   """
@@ -1391,7 +1234,7 @@ input Party_Data {
   """
   ✨ `_expr` server value variant of `title` (✨ Generated from Field `Party`.`title` of type `String!`)
   """
-  title_expr: String_Expr
+  title_expr: String_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `Party`.`userId` of type `String!`
   """
@@ -1399,7 +1242,7 @@ input Party_Data {
   """
   ✨ `_expr` server value variant of `userId` (✨ Generated from Field `Party`.`userId` of type `String!`)
   """
-  userId_expr: String_Expr
+  userId_expr: String_Expr @fdc_forbiddenInVariables
 }
 """
 ✨ Generated filter input type for table 'Party'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
@@ -1527,7 +1370,7 @@ input Party_Key {
   """
   ✨ `_expr` server value variant of `id` (✨ Generated from Field `Party`.`id` of type `UUID!`)
   """
-  id_expr: UUID_Expr
+  id_expr: UUID_Expr @fdc_forbiddenInVariables
 }
 """
 ✨ Generated list filter input type for table 'Party'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
@@ -1618,7 +1461,7 @@ input UserDevice_Data {
   """
   ✨ `_expr` server value variant of `id` (✨ Generated from Field `UserDevice`.`id` of type `UUID!`)
   """
-  id_expr: UUID_Expr
+  id_expr: UUID_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `UserDevice`.`platform` of type `String!`
   """
@@ -1626,7 +1469,7 @@ input UserDevice_Data {
   """
   ✨ `_expr` server value variant of `platform` (✨ Generated from Field `UserDevice`.`platform` of type `String!`)
   """
-  platform_expr: String_Expr
+  platform_expr: String_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `UserDevice`.`token` of type `String!`
   """
@@ -1634,7 +1477,7 @@ input UserDevice_Data {
   """
   ✨ `_expr` server value variant of `token` (✨ Generated from Field `UserDevice`.`token` of type `String!`)
   """
-  token_expr: String_Expr
+  token_expr: String_Expr @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `UserDevice`.`updatedAt` of type `Date!`
   """
@@ -1642,15 +1485,15 @@ input UserDevice_Data {
   """
   ✨ `_date` server value variant of `updatedAt` (✨ Generated from Field `UserDevice`.`updatedAt` of type `Date!`)
   """
-  updatedAt_date: Date_Relative
+  updatedAt_date: Date_Relative @fdc_forbiddenInVariables
   """
   ✨ `_expr` server value variant of `updatedAt` (✨ Generated from Field `UserDevice`.`updatedAt` of type `Date!`)
   """
-  updatedAt_expr: Date_Expr
+  updatedAt_expr: Date_Expr @fdc_forbiddenInVariables
   """
   ✨ `_update` server value variant of `updatedAt` (✨ Generated from Field `UserDevice`.`updatedAt` of type `Date!`)
   """
-  updatedAt_update: [Date_Update!]
+  updatedAt_update: [Date_Update!] @fdc_forbiddenInVariables
   """
   ✨ Generated from Field `UserDevice`.`userId` of type `String!`
   """
@@ -1658,7 +1501,7 @@ input UserDevice_Data {
   """
   ✨ `_expr` server value variant of `userId` (✨ Generated from Field `UserDevice`.`userId` of type `String!`)
   """
-  userId_expr: String_Expr
+  userId_expr: String_Expr @fdc_forbiddenInVariables
 }
 """
 ✨ Generated filter input type for table 'UserDevice'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
@@ -1774,7 +1617,7 @@ input UserDevice_Key {
   """
   ✨ `_expr` server value variant of `id` (✨ Generated from Field `UserDevice`.`id` of type `UUID!`)
   """
-  id_expr: UUID_Expr
+  id_expr: UUID_Expr @fdc_forbiddenInVariables
 }
 """
 ✨ Generated list filter input type for table 'UserDevice'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.

@@ -36,15 +36,6 @@ extend type Mutation {
     data: Guest_Data!
   ): Guest_KeyOutput! @fdc_generated(from: "Guest", purpose: INSERT_SINGLE)
   """
-  ✨ Insert a single `Host` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
-  """
-  host_insert(
-    """
-    Data object to insert into the table.
-    """
-    data: Host_Data!
-  ): Host_KeyOutput! @fdc_generated(from: "Host", purpose: INSERT_SINGLE)
-  """
   ✨ Insert a single `Invite` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
   invite_insert(
@@ -107,15 +98,6 @@ extend type Mutation {
     """
     data: [Guest_Data!]!
   ): [Guest_KeyOutput!]! @fdc_generated(from: "Guest", purpose: INSERT_MULTIPLE)
-  """
-  ✨ Insert `Host` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
-  """
-  host_insertMany(
-    """
-    List of data objects to insert into the table.
-    """
-    data: [Host_Data!]!
-  ): [Host_KeyOutput!]! @fdc_generated(from: "Host", purpose: INSERT_MULTIPLE)
   """
   ✨ Insert `Invite` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
@@ -180,15 +162,6 @@ extend type Mutation {
     data: Guest_Data!
   ): Guest_KeyOutput! @fdc_generated(from: "Guest", purpose: UPSERT_SINGLE)
   """
-  ✨ Insert or update a single `Host` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Host`.
-  """
-  host_upsert(
-    """
-    Data object to insert or update if it already exists.
-    """
-    data: Host_Data!
-  ): Host_KeyOutput! @fdc_generated(from: "Host", purpose: UPSERT_SINGLE)
-  """
   ✨ Insert or update a single `Invite` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Invite`.
   """
   invite_upsert(
@@ -251,15 +224,6 @@ extend type Mutation {
     """
     data: [Guest_Data!]!
   ): [Guest_KeyOutput!]! @fdc_generated(from: "Guest", purpose: UPSERT_MULTIPLE)
-  """
-  ✨ Insert or update `Host` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Host`.
-  """
-  host_upsertMany(
-    """
-    List of data objects to insert or update if it already exists.
-    """
-    data: [Host_Data!]!
-  ): [Host_KeyOutput!]! @fdc_generated(from: "Host", purpose: UPSERT_MULTIPLE)
   """
   ✨ Insert or update `Invite` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Invite`.
   """
@@ -383,30 +347,6 @@ extend type Mutation {
     """
     data: Guest_Data!
   ): Guest_KeyOutput @fdc_generated(from: "Guest", purpose: UPDATE_SINGLE)
-  """
-  ✨ Update a single `Host` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Host` or `null` if not found.
-  """
-  host_update(
-    """
-    The unique ID of the object.
-    """
-    id: UUID
-
-    """
-    The key used to identify the object.
-    """
-    key: Host_Key
-
-    """
-    Fetch the first row based on the filters and ordering.
-    """
-    first: Host_FirstRow
-
-    """
-    Data object containing fields to be updated.
-    """
-    data: Host_Data!
-  ): Host_KeyOutput @fdc_generated(from: "Host", purpose: UPDATE_SINGLE)
   """
   ✨ Update a single `Invite` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Invite` or `null` if not found.
   """
@@ -556,25 +496,6 @@ extend type Mutation {
     data: Guest_Data!
   ): Int! @fdc_generated(from: "Guest", purpose: UPDATE_MULTIPLE)
   """
-  ✨ Update `Host` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
-  """
-  host_updateMany(
-    """
-    Filter condition to specify which rows to update.
-    """
-    where: Host_Filter
-
-    """
-    Set to true to update all rows.
-    """
-    all: Boolean = false
-
-    """
-    Data object containing fields to update.
-    """
-    data: Host_Data!
-  ): Int! @fdc_generated(from: "Host", purpose: UPDATE_MULTIPLE)
-  """
   ✨ Update `Invite` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
   """
   invite_updateMany(
@@ -708,25 +629,6 @@ extend type Mutation {
     first: Guest_FirstRow
   ): Guest_KeyOutput @fdc_generated(from: "Guest", purpose: DELETE_SINGLE)
   """
-  ✨ Delete a single `Host` based on `id`, `key` or `first` and return its key (or `null` if not found).
-  """
-  host_delete(
-    """
-    The unique ID of the object.
-    """
-    id: UUID
-
-    """
-    The key used to identify the object.
-    """
-    key: Host_Key
-
-    """
-    Fetch the first row based on the filters and ordering.
-    """
-    first: Host_FirstRow
-  ): Host_KeyOutput @fdc_generated(from: "Host", purpose: DELETE_SINGLE)
-  """
   ✨ Delete a single `Invite` based on `id`, `key` or `first` and return its key (or `null` if not found).
   """
   invite_delete(
@@ -839,20 +741,6 @@ extend type Mutation {
     """
     all: Boolean = false
   ): Int! @fdc_generated(from: "Guest", purpose: DELETE_MULTIPLE)
-  """
-  ✨ Delete `Host` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
-  """
-  host_deleteMany(
-    """
-    Filter condition to specify which rows to delete.
-    """
-    where: Host_Filter
-
-    """
-    Set to true to delete all rows.
-    """
-    all: Boolean = false
-  ): Int! @fdc_generated(from: "Host", purpose: DELETE_MULTIPLE)
   """
   ✨ Delete `Invite` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
   """

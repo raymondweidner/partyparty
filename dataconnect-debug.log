@@ -1,10 +1,10 @@
-I0128 00:49:48.377419   68660 load.go:31] Reloading schema and connectors...
-I0128 00:49:48.412496   68660 control.go:94] [/emulator/partyparty d5fb] UpdateResources(): done
-Main schema: sources: schema\schema.gql [1435B] 
-I0128 00:49:48.449565   68660 collector.go:107] schema extensions wrote into "D:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
-Generated sources: prelude.gql [73219B] main\relation.gql [23012B] main\query.gql [10219B] main\mutation.gql [27645B] main\implicit.gql [3352B] main\input.gql [53197B] 
-I0128 00:49:48.449565   68660 load.go:109] Finished reloading
-I0128 00:49:48.451118   68660 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
-I0128 00:49:48.451422   68660 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
-I0128 00:49:51.207475   68660 control.go:94] [/emulator/partyparty b32a] UpdateResources(): done
-Main schema: sources: schema\schema.gql [1435B] 
+I0224 14:55:33.214139   52668 load.go:31] Reloading schema and connectors...
+I0224 14:55:33.250869   52668 control.go:100] [/emulator/partyparty 6bff] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1370B] 
+I0224 14:55:33.503615   52668 collector.go:107] schema extensions wrote into "D:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [73281B] main\relation.gql [22331B] main\query.gql [9003B] main\mutation.gql [24395B] main\implicit.gql [3344B] main\input.gql [48936B] 
+I0224 14:55:33.503615   52668 load.go:109] Finished reloading
+I0224 14:55:33.505860   52668 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
+I0224 14:55:33.506411   52668 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
+I0224 14:55:36.912486   52668 control.go:100] [/emulator/partyparty 4a39] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1370B] 

@@ -27,7 +27,7 @@
         web = {
           # Example: run "npm run dev" with PORT set to IDX's defined port for previews,
           # and show it in IDX's web preview panel
-          command = ["node" "index.js"];
+          command = ["node" "index.ts"];
           manager = "web";
         };
       };
@@ -39,7 +39,7 @@
         # Example: install JS dependencies from NPM
         npm-install = "npm install";
         # Open editors for the following files by default, if they exist:
-        default.openFiles = [ ".idx/dev.nix" "README.md" "index.js" ];
+        default.openFiles = [ ".idx/dev.nix" "README.md" "index.ts" ];
       };
       # Runs when the workspace is (re)started
       onStart = {

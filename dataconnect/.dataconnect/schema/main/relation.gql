@@ -76,6 +76,15 @@ extend type Channel {
   """
   _count: Int! @fdc_generated(from: "Channel.", purpose: QUERY_COUNT)
   """
+  ✨ Count the number of rows in the `Channel` table where the `createdOn` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdOn_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Channel.createdOn", purpose: QUERY_COUNT)
+  """
   ✨ Count the number of rows in the `Channel` table where the `description` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   description_count(
@@ -103,15 +112,6 @@ extend type Channel {
     distinct: Boolean = false
   ): Int! @fdc_generated(from: "Channel.name", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `Channel` table where the `scheduledFor` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  scheduledFor_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Channel.scheduledFor", purpose: QUERY_COUNT)
-  """
   ✨ Count the number of rows in the `Channel` table where the `type` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   type_count(
@@ -121,17 +121,17 @@ extend type Channel {
     distinct: Boolean = false
   ): Int! @fdc_generated(from: "Channel.type", purpose: QUERY_COUNT)
   """
-  ✨ Minimum of the `scheduledFor` field in the `Channel` table.
+  ✨ Minimum of the `createdOn` field in the `Channel` table.
   """
-  scheduledFor_min: Date @fdc_generated(from: "Channel.scheduledFor", purpose: QUERY_MIN)
+  createdOn_min: Date @fdc_generated(from: "Channel.createdOn", purpose: QUERY_MIN)
   """
-  ✨ Maximum of the `scheduledFor` field in the `Channel` table.
+  ✨ Maximum of the `createdOn` field in the `Channel` table.
   """
-  scheduledFor_max: Date @fdc_generated(from: "Channel.scheduledFor", purpose: QUERY_MAX)
+  createdOn_max: Date @fdc_generated(from: "Channel.createdOn", purpose: QUERY_MAX)
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "Channel.id", purpose: GLOBAL_ID)
+  _id: ID! @fdc_generated(from: "Channel.id", purpose: ENTITY_ID)
 }
 extend type ChannelMembership {
   """
@@ -152,6 +152,15 @@ extend type ChannelMembership {
     distinct: Boolean = false
   ): Int! @fdc_generated(from: "ChannelMembership.channelId", purpose: QUERY_COUNT)
   """
+  ✨ Count the number of rows in the `ChannelMembership` table where the `guestId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  guestId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ChannelMembership.guestId", purpose: QUERY_COUNT)
+  """
   ✨ Count the number of rows in the `ChannelMembership` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   id_count(
@@ -161,18 +170,9 @@ extend type ChannelMembership {
     distinct: Boolean = false
   ): Int! @fdc_generated(from: "ChannelMembership.id", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `ChannelMembership` table where the `inviteId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  inviteId_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "ChannelMembership.inviteId", purpose: QUERY_COUNT)
-  """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "ChannelMembership.id", purpose: GLOBAL_ID)
+  _id: ID! @fdc_generated(from: "ChannelMembership.id", purpose: ENTITY_ID)
 }
 extend type ChannelMessage {
   """
@@ -202,6 +202,15 @@ extend type ChannelMessage {
     distinct: Boolean = false
   ): Int! @fdc_generated(from: "ChannelMessage.content", purpose: QUERY_COUNT)
   """
+  ✨ Count the number of rows in the `ChannelMessage` table where the `createdOn` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdOn_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ChannelMessage.createdOn", purpose: QUERY_COUNT)
+  """
   ✨ Count the number of rows in the `ChannelMessage` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   id_count(
@@ -211,28 +220,96 @@ extend type ChannelMessage {
     distinct: Boolean = false
   ): Int! @fdc_generated(from: "ChannelMessage.id", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `ChannelMessage` table where the `timestamp` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `ChannelMessage` table where the `senderId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
-  timestamp_count(
+  senderId_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "ChannelMessage.timestamp", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "ChannelMessage.senderId", purpose: QUERY_COUNT)
   """
-  ✨ Minimum of the `timestamp` field in the `ChannelMessage` table.
+  ✨ Minimum of the `createdOn` field in the `ChannelMessage` table.
   """
-  timestamp_min: Date @fdc_generated(from: "ChannelMessage.timestamp", purpose: QUERY_MIN)
+  createdOn_min: Date @fdc_generated(from: "ChannelMessage.createdOn", purpose: QUERY_MIN)
   """
-  ✨ Maximum of the `timestamp` field in the `ChannelMessage` table.
+  ✨ Maximum of the `createdOn` field in the `ChannelMessage` table.
   """
-  timestamp_max: Date @fdc_generated(from: "ChannelMessage.timestamp", purpose: QUERY_MAX)
+  createdOn_max: Date @fdc_generated(from: "ChannelMessage.createdOn", purpose: QUERY_MAX)
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "ChannelMessage.id", purpose: GLOBAL_ID)
+  _id: ID! @fdc_generated(from: "ChannelMessage.id", purpose: ENTITY_ID)
 }
 extend type Guest {
+  """
+  ✨ List `ChannelMembership` objects in a one-to-many relationship (where `ChannelMembership`.`guest` is this object).
+  """
+  channelMemberships_on_guest(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: ChannelMembership_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [ChannelMembership_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: ChannelMembership_Having
+  ): [ChannelMembership!]! @fdc_generated(from: "ChannelMembership.guest", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `ChannelMessage` objects in a one-to-many relationship (where `ChannelMessage`.`sender` is this object).
+  """
+  channelMessages_on_sender(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: ChannelMessage_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [ChannelMessage_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: ChannelMessage_Having
+  ): [ChannelMessage!]! @fdc_generated(from: "ChannelMessage.sender", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
   """
   ✨ List `Invite` objects in a one-to-many relationship (where `Invite`.`guest` is this object).
   """
@@ -323,93 +400,9 @@ extend type Guest {
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "Guest.id", purpose: GLOBAL_ID)
-}
-extend type Host {
-  """
-  Implicit metadata field that cannot be written. It provides extra information about query results.
-  """
-  _metadata: _Metadata @fdc_generated(from: "Host", purpose: METADATA_FIELD)
-  """
-  ✨ Count the number of rows in the `Host` table.
-  """
-  _count: Int! @fdc_generated(from: "Host.", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `Host` table where the `email` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  email_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Host.email", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `Host` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  id_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Host.id", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `Host` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  name_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Host.name", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `Host` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  userId_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Host.userId", purpose: QUERY_COUNT)
-  """
-  A generated field that is used for caching results in SDKs.
-  """
-  _id: ID! @fdc_generated(from: "Host.id", purpose: GLOBAL_ID)
+  _id: ID! @fdc_generated(from: "Guest.id", purpose: ENTITY_ID)
 }
 extend type Invite {
-  """
-  ✨ List `ChannelMembership` objects in a one-to-many relationship (where `ChannelMembership`.`invite` is this object).
-  """
-  channelMemberships_on_invite(
-    """
-    Filter condition to narrow down the query results.
-    """
-    where: ChannelMembership_Filter
-
-    """
-    Order the query results by specific fields.
-    """
-    orderBy: [ChannelMembership_Order!]
-
-    """
-    Number of rows to skip before starting to return the results.
-    """
-    offset: Int
-
-    """
-    Maximum number of rows to return (defaults to 100 rows).
-    """
-    limit: Int = 100
-
-    """
-    Set to true to return distinct results.
-    """
-    distinct: Boolean = false
-
-    """
-    Filter condition to apply to the groups of aggregate queries.
-    """
-    having: ChannelMembership_Having
-  ): [ChannelMembership!]! @fdc_generated(from: "ChannelMembership.invite", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
   """
   Implicit metadata field that cannot be written. It provides extra information about query results.
   """
@@ -457,7 +450,7 @@ extend type Invite {
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "Invite.id", purpose: GLOBAL_ID)
+  _id: ID! @fdc_generated(from: "Invite.id", purpose: ENTITY_ID)
 }
 extend type Party {
   """
@@ -567,7 +560,7 @@ extend type Party {
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "Party.id", purpose: GLOBAL_ID)
+  _id: ID! @fdc_generated(from: "Party.id", purpose: ENTITY_ID)
 }
 extend type UserDevice {
   """
@@ -634,5 +627,5 @@ extend type UserDevice {
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "UserDevice.id", purpose: GLOBAL_ID)
+  _id: ID! @fdc_generated(from: "UserDevice.id", purpose: ENTITY_ID)
 }
