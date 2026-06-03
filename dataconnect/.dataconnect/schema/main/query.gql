@@ -1,8 +1,8 @@
 extend type Query {
   """
-  ✨ Look up a single `Channel` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  ✨ Look up a single `Account` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
-  channel(
+  account(
     """
     The unique ID of the object.
     """
@@ -11,17 +11,17 @@ extend type Query {
     """
     The key used to identify the object.
     """
-    key: Channel_Key
+    key: Account_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: Channel_FirstRow
-  ): Channel @fdc_generated(from: "Channel", purpose: QUERY_SINGLE)
+    first: Account_FirstRow
+  ): Account @fdc_generated(from: "Account", purpose: QUERY_SINGLE)
   """
-  ✨ Look up a single `ChannelMembership` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  ✨ Look up a single `Availability` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
-  channelMembership(
+  availability(
     """
     The unique ID of the object.
     """
@@ -30,17 +30,17 @@ extend type Query {
     """
     The key used to identify the object.
     """
-    key: ChannelMembership_Key
+    key: Availability_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: ChannelMembership_FirstRow
-  ): ChannelMembership @fdc_generated(from: "ChannelMembership", purpose: QUERY_SINGLE)
+    first: Availability_FirstRow
+  ): Availability @fdc_generated(from: "Availability", purpose: QUERY_SINGLE)
   """
-  ✨ Look up a single `ChannelMessage` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  ✨ Look up a single `Fam` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
-  channelMessage(
+  fam(
     """
     The unique ID of the object.
     """
@@ -49,17 +49,17 @@ extend type Query {
     """
     The key used to identify the object.
     """
-    key: ChannelMessage_Key
+    key: Fam_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: ChannelMessage_FirstRow
-  ): ChannelMessage @fdc_generated(from: "ChannelMessage", purpose: QUERY_SINGLE)
+    first: Fam_FirstRow
+  ): Fam @fdc_generated(from: "Fam", purpose: QUERY_SINGLE)
   """
-  ✨ Look up a single `Guest` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  ✨ Look up a single `Meetup` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
-  guest(
+  meetup(
     """
     The unique ID of the object.
     """
@@ -68,17 +68,17 @@ extend type Query {
     """
     The key used to identify the object.
     """
-    key: Guest_Key
+    key: Meetup_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: Guest_FirstRow
-  ): Guest @fdc_generated(from: "Guest", purpose: QUERY_SINGLE)
+    first: Meetup_FirstRow
+  ): Meetup @fdc_generated(from: "Meetup", purpose: QUERY_SINGLE)
   """
-  ✨ Look up a single `Invite` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  ✨ Look up a single `Tribe` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
-  invite(
+  tribe(
     """
     The unique ID of the object.
     """
@@ -87,32 +87,27 @@ extend type Query {
     """
     The key used to identify the object.
     """
-    key: Invite_Key
+    key: Tribe_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: Invite_FirstRow
-  ): Invite @fdc_generated(from: "Invite", purpose: QUERY_SINGLE)
+    first: Tribe_FirstRow
+  ): Tribe @fdc_generated(from: "Tribe", purpose: QUERY_SINGLE)
   """
-  ✨ Look up a single `Party` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  ✨ Look up a single `TribeFam` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
-  party(
-    """
-    The unique ID of the object.
-    """
-    id: UUID
-
+  tribeFam(
     """
     The key used to identify the object.
     """
-    key: Party_Key
+    key: TribeFam_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: Party_FirstRow
-  ): Party @fdc_generated(from: "Party", purpose: QUERY_SINGLE)
+    first: TribeFam_FirstRow
+  ): TribeFam @fdc_generated(from: "TribeFam", purpose: QUERY_SINGLE)
   """
   ✨ Look up a single `UserDevice` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
@@ -133,18 +128,18 @@ extend type Query {
     first: UserDevice_FirstRow
   ): UserDevice @fdc_generated(from: "UserDevice", purpose: QUERY_SINGLE)
   """
-  ✨ List `Channel` objects in the table and return selected fields, optionally filtered by `where` conditions
+  ✨ List `Account` objects in the table and return selected fields, optionally filtered by `where` conditions
   """
-  channels(
+  accounts(
     """
     Filter condition to narrow down the query results.
     """
-    where: Channel_Filter
+    where: Account_Filter
 
     """
     Order the query results by specific fields.
     """
-    orderBy: [Channel_Order!]
+    orderBy: [Account_Order!]
 
     """
     Number of rows to skip before starting to return the results.
@@ -164,21 +159,21 @@ extend type Query {
     """
     Filter condition to apply to the groups of aggregate queries.
     """
-    having: Channel_Having
-  ): [Channel!]! @fdc_generated(from: "Channel", purpose: QUERY_MULTIPLE)
+    having: Account_Having
+  ): [Account!]! @fdc_generated(from: "Account", purpose: QUERY_MULTIPLE)
   """
-  ✨ List `ChannelMembership` objects in the table and return selected fields, optionally filtered by `where` conditions
+  ✨ List `Availability` objects in the table and return selected fields, optionally filtered by `where` conditions
   """
-  channelMemberships(
+  availabilities(
     """
     Filter condition to narrow down the query results.
     """
-    where: ChannelMembership_Filter
+    where: Availability_Filter
 
     """
     Order the query results by specific fields.
     """
-    orderBy: [ChannelMembership_Order!]
+    orderBy: [Availability_Order!]
 
     """
     Number of rows to skip before starting to return the results.
@@ -198,21 +193,21 @@ extend type Query {
     """
     Filter condition to apply to the groups of aggregate queries.
     """
-    having: ChannelMembership_Having
-  ): [ChannelMembership!]! @fdc_generated(from: "ChannelMembership", purpose: QUERY_MULTIPLE)
+    having: Availability_Having
+  ): [Availability!]! @fdc_generated(from: "Availability", purpose: QUERY_MULTIPLE)
   """
-  ✨ List `ChannelMessage` objects in the table and return selected fields, optionally filtered by `where` conditions
+  ✨ List `Fam` objects in the table and return selected fields, optionally filtered by `where` conditions
   """
-  channelMessages(
+  fams(
     """
     Filter condition to narrow down the query results.
     """
-    where: ChannelMessage_Filter
+    where: Fam_Filter
 
     """
     Order the query results by specific fields.
     """
-    orderBy: [ChannelMessage_Order!]
+    orderBy: [Fam_Order!]
 
     """
     Number of rows to skip before starting to return the results.
@@ -232,21 +227,21 @@ extend type Query {
     """
     Filter condition to apply to the groups of aggregate queries.
     """
-    having: ChannelMessage_Having
-  ): [ChannelMessage!]! @fdc_generated(from: "ChannelMessage", purpose: QUERY_MULTIPLE)
+    having: Fam_Having
+  ): [Fam!]! @fdc_generated(from: "Fam", purpose: QUERY_MULTIPLE)
   """
-  ✨ List `Guest` objects in the table and return selected fields, optionally filtered by `where` conditions
+  ✨ List `Meetup` objects in the table and return selected fields, optionally filtered by `where` conditions
   """
-  guests(
+  meetups(
     """
     Filter condition to narrow down the query results.
     """
-    where: Guest_Filter
+    where: Meetup_Filter
 
     """
     Order the query results by specific fields.
     """
-    orderBy: [Guest_Order!]
+    orderBy: [Meetup_Order!]
 
     """
     Number of rows to skip before starting to return the results.
@@ -266,21 +261,21 @@ extend type Query {
     """
     Filter condition to apply to the groups of aggregate queries.
     """
-    having: Guest_Having
-  ): [Guest!]! @fdc_generated(from: "Guest", purpose: QUERY_MULTIPLE)
+    having: Meetup_Having
+  ): [Meetup!]! @fdc_generated(from: "Meetup", purpose: QUERY_MULTIPLE)
   """
-  ✨ List `Invite` objects in the table and return selected fields, optionally filtered by `where` conditions
+  ✨ List `Tribe` objects in the table and return selected fields, optionally filtered by `where` conditions
   """
-  invites(
+  tribes(
     """
     Filter condition to narrow down the query results.
     """
-    where: Invite_Filter
+    where: Tribe_Filter
 
     """
     Order the query results by specific fields.
     """
-    orderBy: [Invite_Order!]
+    orderBy: [Tribe_Order!]
 
     """
     Number of rows to skip before starting to return the results.
@@ -300,21 +295,21 @@ extend type Query {
     """
     Filter condition to apply to the groups of aggregate queries.
     """
-    having: Invite_Having
-  ): [Invite!]! @fdc_generated(from: "Invite", purpose: QUERY_MULTIPLE)
+    having: Tribe_Having
+  ): [Tribe!]! @fdc_generated(from: "Tribe", purpose: QUERY_MULTIPLE)
   """
-  ✨ List `Party` objects in the table and return selected fields, optionally filtered by `where` conditions
+  ✨ List `TribeFam` objects in the table and return selected fields, optionally filtered by `where` conditions
   """
-  parties(
+  tribeFams(
     """
     Filter condition to narrow down the query results.
     """
-    where: Party_Filter
+    where: TribeFam_Filter
 
     """
     Order the query results by specific fields.
     """
-    orderBy: [Party_Order!]
+    orderBy: [TribeFam_Order!]
 
     """
     Number of rows to skip before starting to return the results.
@@ -334,8 +329,8 @@ extend type Query {
     """
     Filter condition to apply to the groups of aggregate queries.
     """
-    having: Party_Having
-  ): [Party!]! @fdc_generated(from: "Party", purpose: QUERY_MULTIPLE)
+    having: TribeFam_Having
+  ): [TribeFam!]! @fdc_generated(from: "TribeFam", purpose: QUERY_MULTIPLE)
   """
   ✨ List `UserDevice` objects in the table and return selected fields, optionally filtered by `where` conditions
   """

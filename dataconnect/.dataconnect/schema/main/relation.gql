@@ -1,471 +1,381 @@
-extend type Channel {
-  """
-  ✨ List `ChannelMembership` objects in a one-to-many relationship (where `ChannelMembership`.`channel` is this object).
-  """
-  channelMemberships_on_channel(
-    """
-    Filter condition to narrow down the query results.
-    """
-    where: ChannelMembership_Filter
-
-    """
-    Order the query results by specific fields.
-    """
-    orderBy: [ChannelMembership_Order!]
-
-    """
-    Number of rows to skip before starting to return the results.
-    """
-    offset: Int
-
-    """
-    Maximum number of rows to return (defaults to 100 rows).
-    """
-    limit: Int = 100
-
-    """
-    Set to true to return distinct results.
-    """
-    distinct: Boolean = false
-
-    """
-    Filter condition to apply to the groups of aggregate queries.
-    """
-    having: ChannelMembership_Having
-  ): [ChannelMembership!]! @fdc_generated(from: "ChannelMembership.channel", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
-  """
-  ✨ List `ChannelMessage` objects in a one-to-many relationship (where `ChannelMessage`.`channel` is this object).
-  """
-  channelMessages_on_channel(
-    """
-    Filter condition to narrow down the query results.
-    """
-    where: ChannelMessage_Filter
-
-    """
-    Order the query results by specific fields.
-    """
-    orderBy: [ChannelMessage_Order!]
-
-    """
-    Number of rows to skip before starting to return the results.
-    """
-    offset: Int
-
-    """
-    Maximum number of rows to return (defaults to 100 rows).
-    """
-    limit: Int = 100
-
-    """
-    Set to true to return distinct results.
-    """
-    distinct: Boolean = false
-
-    """
-    Filter condition to apply to the groups of aggregate queries.
-    """
-    having: ChannelMessage_Having
-  ): [ChannelMessage!]! @fdc_generated(from: "ChannelMessage.channel", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+extend type Account {
   """
   Implicit metadata field that cannot be written. It provides extra information about query results.
   """
-  _metadata: _Metadata @fdc_generated(from: "Channel", purpose: METADATA_FIELD)
+  _metadata: _Metadata @fdc_generated(from: "Account", purpose: METADATA_FIELD)
   """
-  ✨ Count the number of rows in the `Channel` table.
+  ✨ Count the number of rows in the `Account` table.
   """
-  _count: Int! @fdc_generated(from: "Channel.", purpose: QUERY_COUNT)
+  _count: Int! @fdc_generated(from: "Account.", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `Channel` table where the `createdOn` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  createdOn_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Channel.createdOn", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `Channel` table where the `description` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  description_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Channel.description", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `Channel` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Account` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   id_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Channel.id", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "Account.id", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `Channel` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Account` table where the `networkUserId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
-  name_count(
+  networkUserId_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Channel.name", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "Account.networkUserId", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `Channel` table where the `type` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Account` table where the `networkUsername` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
-  type_count(
+  networkUsername_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Channel.type", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "Account.networkUsername", purpose: QUERY_COUNT)
   """
-  ✨ Minimum of the `createdOn` field in the `Channel` table.
+  ✨ Count the number of rows in the `Account` table where the `network` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
-  createdOn_min: Date @fdc_generated(from: "Channel.createdOn", purpose: QUERY_MIN)
+  network_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Account.network", purpose: QUERY_COUNT)
   """
-  ✨ Maximum of the `createdOn` field in the `Channel` table.
+  ✨ Count the number of rows in the `Account` table where the `securityToken` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
-  createdOn_max: Date @fdc_generated(from: "Channel.createdOn", purpose: QUERY_MAX)
+  securityToken_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Account.securityToken", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Account` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Account.userId", purpose: QUERY_COUNT)
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "Channel.id", purpose: ENTITY_ID)
+  _id: ID! @fdc_generated(from: "Account.id", purpose: ENTITY_ID)
 }
-extend type ChannelMembership {
+extend type Availability {
   """
   Implicit metadata field that cannot be written. It provides extra information about query results.
   """
-  _metadata: _Metadata @fdc_generated(from: "ChannelMembership", purpose: METADATA_FIELD)
+  _metadata: _Metadata @fdc_generated(from: "Availability", purpose: METADATA_FIELD)
   """
-  ✨ Count the number of rows in the `ChannelMembership` table.
+  ✨ Count the number of rows in the `Availability` table.
   """
-  _count: Int! @fdc_generated(from: "ChannelMembership.", purpose: QUERY_COUNT)
+  _count: Int! @fdc_generated(from: "Availability.", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `ChannelMembership` table where the `channelId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Availability` table where the `date` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
-  channelId_count(
+  date_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "ChannelMembership.channelId", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "Availability.date", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `ChannelMembership` table where the `guestId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Availability` table where the `famId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
-  guestId_count(
+  famId_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "ChannelMembership.guestId", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "Availability.famId", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `ChannelMembership` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Availability` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   id_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "ChannelMembership.id", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "Availability.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Availability` table where the `location` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  location_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Availability.location", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Availability` table where the `meetupId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  meetupId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Availability.meetupId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Availability` table where the `note` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  note_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Availability.note", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `date` field in the `Availability` table.
+  """
+  date_min: Date @fdc_generated(from: "Availability.date", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `date` field in the `Availability` table.
+  """
+  date_max: Date @fdc_generated(from: "Availability.date", purpose: QUERY_MAX)
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "ChannelMembership.id", purpose: ENTITY_ID)
+  _id: ID! @fdc_generated(from: "Availability.id", purpose: ENTITY_ID)
 }
-extend type ChannelMessage {
+extend type Fam {
+  """
+  ✨ List `Account` objects in a one-to-many relationship (where `Account`.`user` is this object).
+  """
+  accounts_on_user(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Account_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Account_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Account_Having
+  ): [Account!]! @fdc_generated(from: "Account.user", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Availability` objects in a one-to-many relationship (where `Availability`.`fam` is this object).
+  """
+  availabilities_on_fam(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Availability_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Availability_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Availability_Having
+  ): [Availability!]! @fdc_generated(from: "Availability.fam", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Meetup` objects in a one-to-many relationship (where `Meetup`.`host` is this object).
+  """
+  meetups_on_host(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Meetup_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Meetup_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Meetup_Having
+  ): [Meetup!]! @fdc_generated(from: "Meetup.host", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `TribeFam` objects in a one-to-many relationship (where `TribeFam`.`fam` is this object).
+  """
+  tribeFams_on_fam(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: TribeFam_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [TribeFam_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: TribeFam_Having
+  ): [TribeFam!]! @fdc_generated(from: "TribeFam.fam", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Tribe` objects using `TribeFam` as the join table (a `TribeFam` object exists where its `fam` is this and its `tribe` is that).
+  """
+  tribes_via_TribeFam(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: TribeFam_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [TribeFam_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: TribeFam_Having
+  ): [Tribe!]! @fdc_generated(from: "TribeFam", purpose: QUERY_MULTIPLE_MANY_TO_MANY)
   """
   Implicit metadata field that cannot be written. It provides extra information about query results.
   """
-  _metadata: _Metadata @fdc_generated(from: "ChannelMessage", purpose: METADATA_FIELD)
+  _metadata: _Metadata @fdc_generated(from: "Fam", purpose: METADATA_FIELD)
   """
-  ✨ Count the number of rows in the `ChannelMessage` table.
+  ✨ Count the number of rows in the `Fam` table.
   """
-  _count: Int! @fdc_generated(from: "ChannelMessage.", purpose: QUERY_COUNT)
+  _count: Int! @fdc_generated(from: "Fam.", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `ChannelMessage` table where the `channelId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  channelId_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "ChannelMessage.channelId", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `ChannelMessage` table where the `content` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  content_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "ChannelMessage.content", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `ChannelMessage` table where the `createdOn` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  createdOn_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "ChannelMessage.createdOn", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `ChannelMessage` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  id_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "ChannelMessage.id", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `ChannelMessage` table where the `senderId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  senderId_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "ChannelMessage.senderId", purpose: QUERY_COUNT)
-  """
-  ✨ Minimum of the `createdOn` field in the `ChannelMessage` table.
-  """
-  createdOn_min: Date @fdc_generated(from: "ChannelMessage.createdOn", purpose: QUERY_MIN)
-  """
-  ✨ Maximum of the `createdOn` field in the `ChannelMessage` table.
-  """
-  createdOn_max: Date @fdc_generated(from: "ChannelMessage.createdOn", purpose: QUERY_MAX)
-  """
-  A generated field that is used for caching results in SDKs.
-  """
-  _id: ID! @fdc_generated(from: "ChannelMessage.id", purpose: ENTITY_ID)
-}
-extend type Guest {
-  """
-  ✨ List `ChannelMembership` objects in a one-to-many relationship (where `ChannelMembership`.`guest` is this object).
-  """
-  channelMemberships_on_guest(
-    """
-    Filter condition to narrow down the query results.
-    """
-    where: ChannelMembership_Filter
-
-    """
-    Order the query results by specific fields.
-    """
-    orderBy: [ChannelMembership_Order!]
-
-    """
-    Number of rows to skip before starting to return the results.
-    """
-    offset: Int
-
-    """
-    Maximum number of rows to return (defaults to 100 rows).
-    """
-    limit: Int = 100
-
-    """
-    Set to true to return distinct results.
-    """
-    distinct: Boolean = false
-
-    """
-    Filter condition to apply to the groups of aggregate queries.
-    """
-    having: ChannelMembership_Having
-  ): [ChannelMembership!]! @fdc_generated(from: "ChannelMembership.guest", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
-  """
-  ✨ List `ChannelMessage` objects in a one-to-many relationship (where `ChannelMessage`.`sender` is this object).
-  """
-  channelMessages_on_sender(
-    """
-    Filter condition to narrow down the query results.
-    """
-    where: ChannelMessage_Filter
-
-    """
-    Order the query results by specific fields.
-    """
-    orderBy: [ChannelMessage_Order!]
-
-    """
-    Number of rows to skip before starting to return the results.
-    """
-    offset: Int
-
-    """
-    Maximum number of rows to return (defaults to 100 rows).
-    """
-    limit: Int = 100
-
-    """
-    Set to true to return distinct results.
-    """
-    distinct: Boolean = false
-
-    """
-    Filter condition to apply to the groups of aggregate queries.
-    """
-    having: ChannelMessage_Having
-  ): [ChannelMessage!]! @fdc_generated(from: "ChannelMessage.sender", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
-  """
-  ✨ List `Invite` objects in a one-to-many relationship (where `Invite`.`guest` is this object).
-  """
-  invites_on_guest(
-    """
-    Filter condition to narrow down the query results.
-    """
-    where: Invite_Filter
-
-    """
-    Order the query results by specific fields.
-    """
-    orderBy: [Invite_Order!]
-
-    """
-    Number of rows to skip before starting to return the results.
-    """
-    offset: Int
-
-    """
-    Maximum number of rows to return (defaults to 100 rows).
-    """
-    limit: Int = 100
-
-    """
-    Set to true to return distinct results.
-    """
-    distinct: Boolean = false
-
-    """
-    Filter condition to apply to the groups of aggregate queries.
-    """
-    having: Invite_Having
-  ): [Invite!]! @fdc_generated(from: "Invite.guest", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
-  """
-  Implicit metadata field that cannot be written. It provides extra information about query results.
-  """
-  _metadata: _Metadata @fdc_generated(from: "Guest", purpose: METADATA_FIELD)
-  """
-  ✨ Count the number of rows in the `Guest` table.
-  """
-  _count: Int! @fdc_generated(from: "Guest.", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `Guest` table where the `email` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Fam` table where the `email` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   email_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Guest.email", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "Fam.email", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `Guest` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Fam` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   id_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Guest.id", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "Fam.id", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `Guest` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Fam` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   name_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Guest.name", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "Fam.name", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `Guest` table where the `phone` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  phone_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Guest.phone", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `Guest` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Fam` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   userId_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Guest.userId", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "Fam.userId", purpose: QUERY_COUNT)
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "Guest.id", purpose: ENTITY_ID)
+  _id: ID! @fdc_generated(from: "Fam.id", purpose: ENTITY_ID)
 }
-extend type Invite {
+extend type Meetup {
   """
-  Implicit metadata field that cannot be written. It provides extra information about query results.
+  ✨ List `Availability` objects in a one-to-many relationship (where `Availability`.`meetup` is this object).
   """
-  _metadata: _Metadata @fdc_generated(from: "Invite", purpose: METADATA_FIELD)
-  """
-  ✨ Count the number of rows in the `Invite` table.
-  """
-  _count: Int! @fdc_generated(from: "Invite.", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `Invite` table where the `guestId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  guestId_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Invite.guestId", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `Invite` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  id_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Invite.id", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `Invite` table where the `partyId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  partyId_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Invite.partyId", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `Invite` table where the `state` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  state_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Invite.state", purpose: QUERY_COUNT)
-  """
-  A generated field that is used for caching results in SDKs.
-  """
-  _id: ID! @fdc_generated(from: "Invite.id", purpose: ENTITY_ID)
-}
-extend type Party {
-  """
-  ✨ List `Invite` objects in a one-to-many relationship (where `Invite`.`party` is this object).
-  """
-  invites_on_party(
+  availabilities_on_meetup(
     """
     Filter condition to narrow down the query results.
     """
-    where: Invite_Filter
+    where: Availability_Filter
 
     """
     Order the query results by specific fields.
     """
-    orderBy: [Invite_Order!]
+    orderBy: [Availability_Order!]
 
     """
     Number of rows to skip before starting to return the results.
@@ -485,82 +395,249 @@ extend type Party {
     """
     Filter condition to apply to the groups of aggregate queries.
     """
-    having: Invite_Having
-  ): [Invite!]! @fdc_generated(from: "Invite.party", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+    having: Availability_Having
+  ): [Availability!]! @fdc_generated(from: "Availability.meetup", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
   """
   Implicit metadata field that cannot be written. It provides extra information about query results.
   """
-  _metadata: _Metadata @fdc_generated(from: "Party", purpose: METADATA_FIELD)
+  _metadata: _Metadata @fdc_generated(from: "Meetup", purpose: METADATA_FIELD)
   """
-  ✨ Count the number of rows in the `Party` table.
+  ✨ Count the number of rows in the `Meetup` table.
   """
-  _count: Int! @fdc_generated(from: "Party.", purpose: QUERY_COUNT)
+  _count: Int! @fdc_generated(from: "Meetup.", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `Party` table where the `details` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Meetup` table where the `details` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   details_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Party.details", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "Meetup.details", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `Party` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Meetup` table where the `hostId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  hostId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Meetup.hostId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Meetup` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   id_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Party.id", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "Meetup.id", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `Party` table where the `scheduledFor` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Meetup` table where the `note` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
-  scheduledFor_count(
+  note_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Party.scheduledFor", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "Meetup.note", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `Party` table where the `state` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
-  """
-  state_count(
-    """
-    Set to true to count the number of distinct values.
-    """
-    distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Party.state", purpose: QUERY_COUNT)
-  """
-  ✨ Count the number of rows in the `Party` table where the `title` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Meetup` table where the `title` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   title_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Party.title", purpose: QUERY_COUNT)
+  ): Int! @fdc_generated(from: "Meetup.title", purpose: QUERY_COUNT)
   """
-  ✨ Count the number of rows in the `Party` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  ✨ Count the number of rows in the `Meetup` table where the `tribeId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
-  userId_count(
+  tribeId_count(
     """
     Set to true to count the number of distinct values.
     """
     distinct: Boolean = false
-  ): Int! @fdc_generated(from: "Party.userId", purpose: QUERY_COUNT)
-  """
-  ✨ Minimum of the `scheduledFor` field in the `Party` table.
-  """
-  scheduledFor_min: Date @fdc_generated(from: "Party.scheduledFor", purpose: QUERY_MIN)
-  """
-  ✨ Maximum of the `scheduledFor` field in the `Party` table.
-  """
-  scheduledFor_max: Date @fdc_generated(from: "Party.scheduledFor", purpose: QUERY_MAX)
+  ): Int! @fdc_generated(from: "Meetup.tribeId", purpose: QUERY_COUNT)
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "Party.id", purpose: ENTITY_ID)
+  _id: ID! @fdc_generated(from: "Meetup.id", purpose: ENTITY_ID)
+}
+extend type Tribe {
+  """
+  ✨ List `Meetup` objects in a one-to-many relationship (where `Meetup`.`tribe` is this object).
+  """
+  meetups_on_tribe(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Meetup_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Meetup_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Meetup_Having
+  ): [Meetup!]! @fdc_generated(from: "Meetup.tribe", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `TribeFam` objects in a one-to-many relationship (where `TribeFam`.`tribe` is this object).
+  """
+  tribeFams_on_tribe(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: TribeFam_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [TribeFam_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: TribeFam_Having
+  ): [TribeFam!]! @fdc_generated(from: "TribeFam.tribe", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Fam` objects using `TribeFam` as the join table (a `TribeFam` object exists where its `tribe` is this and its `fam` is that).
+  """
+  fams_via_TribeFam(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: TribeFam_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [TribeFam_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: TribeFam_Having
+  ): [Fam!]! @fdc_generated(from: "TribeFam", purpose: QUERY_MULTIPLE_MANY_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Tribe", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Tribe` table.
+  """
+  _count: Int! @fdc_generated(from: "Tribe.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Tribe` table where the `description` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  description_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Tribe.description", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Tribe` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Tribe.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Tribe` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  name_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Tribe.name", purpose: QUERY_COUNT)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Tribe.id", purpose: ENTITY_ID)
+}
+extend type TribeFam {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "TribeFam", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `TribeFam` table.
+  """
+  _count: Int! @fdc_generated(from: "TribeFam.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `TribeFam` table where the `famId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  famId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "TribeFam.famId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `TribeFam` table where the `tribeId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  tribeId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "TribeFam.tribeId", purpose: QUERY_COUNT)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "TribeFam.tribeId,famId", purpose: ENTITY_ID)
 }
 extend type UserDevice {
   """

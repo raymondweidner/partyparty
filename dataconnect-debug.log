@@ -1,10 +1,41 @@
-I0224 14:55:33.214139   52668 load.go:31] Reloading schema and connectors...
-I0224 14:55:33.250869   52668 control.go:100] [/emulator/partyparty 6bff] UpdateResources(): done
-Main schema: sources: schema\schema.gql [1370B] 
-I0224 14:55:33.503615   52668 collector.go:107] schema extensions wrote into "D:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
-Generated sources: prelude.gql [73281B] main\relation.gql [22331B] main\query.gql [9003B] main\mutation.gql [24395B] main\implicit.gql [3344B] main\input.gql [48936B] 
-I0224 14:55:33.503615   52668 load.go:109] Finished reloading
-I0224 14:55:33.505860   52668 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
-I0224 14:55:33.506411   52668 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
-I0224 14:55:36.912486   52668 control.go:100] [/emulator/partyparty 4a39] UpdateResources(): done
-Main schema: sources: schema\schema.gql [1370B] 
+I0529 18:09:31.582475   55664 load.go:31] Reloading schema and connectors...
+I0529 18:09:31.595264   55664 control.go:100] [projects/emulator/locations/emulator/services/partyparty 2ce7] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1124B] 
+I0529 18:09:31.643782   55664 collector.go:107] schema extensions wrote into "D:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\implicit.gql [3229B] main\input.gql [48057B] main\relation.gql [23491B] main\query.gql [8771B] main\mutation.gql [23684B] prelude.gql [83799B] 
+I0529 18:09:31.643782   55664 load.go:109] Finished reloading
+I0529 18:09:31.644844   55664 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
+I0529 18:09:31.644844   55664 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
+I0529 18:09:34.511635   55664 migrate.go:24] Running migration SQL:
+Step 1: DROP INDEX "public"."availability_fam_id_idx"
+Step 2: DROP INDEX "public"."availability_meetup_id_idx"
+Step 3: CREATE INDEX "availability_famId_idx" ON "public"."availability" ("fam_id")
+Step 4: CREATE INDEX "availability_meetupId_idx" ON "public"."availability" ("meetup_id")
+Step 5: DROP INDEX "public"."meetup_host_id_idx"
+Step 6: DROP INDEX "public"."meetup_tribe_id_idx"
+Step 7: CREATE INDEX "meetup_hostId_idx" ON "public"."meetup" ("host_id")
+Step 8: CREATE INDEX "meetup_tribeId_idx" ON "public"."meetup" ("tribe_id")
+Step 9: ALTER TABLE "public"."account" ALTER COLUMN "user_id" TYPE uuid, ADD CONSTRAINT "account_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."fam" ("id") ON DELETE CASCADE
+Step 10: DROP TABLE "public"."user"
+E0529 18:09:34.547530   55664 service.go:130] [projects/emulator/locations/emulator/services/partyparty b4d5] failed to migrate schema: SQL migration error: failed to apply migration: failed to execute SQL migration
+step 9 modify "account" table: pq: column "user_id" cannot be cast automatically to type uuid
+SQL: ALTER TABLE "public"."account" ALTER COLUMN "user_id" TYPE uuid, ADD CONSTRAINT "account_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."fam" ("id") ON DELETE CASCADE
+Original plan:
+Step 1: DROP INDEX "public"."availability_fam_id_idx"
+Step 2: DROP INDEX "public"."availability_meetup_id_idx"
+Step 3: CREATE INDEX "availability_famId_idx" ON "public"."availability" ("fam_id")
+Step 4: CREATE INDEX "availability_meetupId_idx" ON "public"."availability" ("meetup_id")
+Step 5: DROP INDEX "public"."meetup_host_id_idx"
+Step 6: DROP INDEX "public"."meetup_tribe_id_idx"
+Step 7: CREATE INDEX "meetup_hostId_idx" ON "public"."meetup" ("host_id")
+Step 8: CREATE INDEX "meetup_tribeId_idx" ON "public"."meetup" ("tribe_id")
+Step 9: ALTER TABLE "public"."account" ALTER COLUMN "user_id" TYPE uuid, ADD CONSTRAINT "account_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."fam" ("id") ON DELETE CASCADE
+Step 10: DROP TABLE "public"."user"
+I0529 18:09:34.552255   55664 control.go:100] [projects/emulator/locations/emulator/services/partyparty 5e47] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1124B] 
+I0529 18:09:34.559767   55664 configure_emulator.go:21] ConfigureEmulator successed
+Request: service_id:  "partyparty"
+connection_string:  "postgres://127.0.0.1:5432/postgres?sslmode=disable"
+database:  "postgres"
+
+Response: 
