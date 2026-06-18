@@ -4,8 +4,9 @@ import cors = require('cors');
 import * as admin from 'firebase-admin';
 import * as fs from 'fs';
 import * as path from 'path';
-import { setupEndpoints } from './lib/service';
+import { setupEndpoints, setupPublicEndpoints } from './lib/service';
 const validateFirebaseIdToken = require('./authMiddleware');
+import { processMeetupDecisions } from './lib/decisionEngine';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -23,12 +24,13 @@ if (fs.existsSync(serviceAccountPath)) {
 // Enable CORS for all routes and allow Express to parse JSON request bodies
 app.use(cors());
 app.use(express.json());
-app.use(validateFirebaseIdToken);
 
 const pool = new Pool({
   // Default to the emulator's port (5432) if DATABASE_URL is not set
   connectionString: process.env.DATABASE_URL || 'postgresql://postgres:@127.0.0.1:5432/postgres',
 });
+
+setupPublicEndpoints(app, pool);
 
 app.get('/', (req: express.Request, res: express.Response) => {
   res.send('Hello World!');
@@ -37,6 +39,7 @@ app.get('/', (req: express.Request, res: express.Response) => {
 app.get('/now', async (req: express.Request, res: express.Response) => {
   try {
     const result = await pool.query('SELECT NOW()');
+    console.log('Query Result:', result.rows);
     res.send(result.rows[0]);
   } catch (err) {
     console.error(err);
@@ -44,12 +47,26 @@ app.get('/now', async (req: express.Request, res: express.Response) => {
   }
 });
 
+app.post('/tasks/process-decisions', async (req: express.Request, res: express.Response) => {
+  if (req.headers.authorization !== `Bearer ${process.env.CRON_SECRET}`) {
+    res.status(403).send('Forbidden');
+    return;
+  }
+  
+  await processMeetupDecisions(pool);
+  res.status(200).send('Decisions processed');
+});
+
+// Apply authentication middleware to all subsequent routes
+app.use(validateFirebaseIdToken);
+
 async function startServer() {
   let retries = 10;
   while (retries > 0) {
     try {
       // Attempt to connect/query to verify DB is up
-      await pool.query('SELECT NOW()');
+      const result = await pool.query('SELECT NOW()');
+      console.log('Query Result:', result.rows);
       console.log('Connected to database');
       break;
     } catch (err: any) {

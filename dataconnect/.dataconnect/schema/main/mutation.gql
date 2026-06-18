@@ -1,14 +1,5 @@
 extend type Mutation {
   """
-  ✨ Insert a single `Account` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
-  """
-  account_insert(
-    """
-    Data object to insert into the table.
-    """
-    data: Account_Data!
-  ): Account_KeyOutput! @fdc_generated(from: "Account", purpose: INSERT_SINGLE)
-  """
   ✨ Insert a single `Availability` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
   availability_insert(
@@ -18,14 +9,23 @@ extend type Mutation {
     data: Availability_Data!
   ): Availability_KeyOutput! @fdc_generated(from: "Availability", purpose: INSERT_SINGLE)
   """
-  ✨ Insert a single `Fam` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  ✨ Insert a single `Chat` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
-  fam_insert(
+  chat_insert(
     """
     Data object to insert into the table.
     """
-    data: Fam_Data!
-  ): Fam_KeyOutput! @fdc_generated(from: "Fam", purpose: INSERT_SINGLE)
+    data: Chat_Data!
+  ): Chat_KeyOutput! @fdc_generated(from: "Chat", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `ChatMember` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  chatMember_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: ChatMember_Data!
+  ): ChatMember_KeyOutput! @fdc_generated(from: "ChatMember", purpose: INSERT_SINGLE)
   """
   ✨ Insert a single `Meetup` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
@@ -36,6 +36,33 @@ extend type Mutation {
     data: Meetup_Data!
   ): Meetup_KeyOutput! @fdc_generated(from: "Meetup", purpose: INSERT_SINGLE)
   """
+  ✨ Insert a single `Member` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  member_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Member_Data!
+  ): Member_KeyOutput! @fdc_generated(from: "Member", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `MemberContact` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  memberContact_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: MemberContact_Data!
+  ): MemberContact_KeyOutput! @fdc_generated(from: "MemberContact", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Proposal` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  proposal_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Proposal_Data!
+  ): Proposal_KeyOutput! @fdc_generated(from: "Proposal", purpose: INSERT_SINGLE)
+  """
   ✨ Insert a single `Tribe` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
   tribe_insert(
@@ -45,14 +72,14 @@ extend type Mutation {
     data: Tribe_Data!
   ): Tribe_KeyOutput! @fdc_generated(from: "Tribe", purpose: INSERT_SINGLE)
   """
-  ✨ Insert a single `TribeFam` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  ✨ Insert a single `TribeMember` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
-  tribeFam_insert(
+  tribeMember_insert(
     """
     Data object to insert into the table.
     """
-    data: TribeFam_Data!
-  ): TribeFam_KeyOutput! @fdc_generated(from: "TribeFam", purpose: INSERT_SINGLE)
+    data: TribeMember_Data!
+  ): TribeMember_KeyOutput! @fdc_generated(from: "TribeMember", purpose: INSERT_SINGLE)
   """
   ✨ Insert a single `UserDevice` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
@@ -63,15 +90,6 @@ extend type Mutation {
     data: UserDevice_Data!
   ): UserDevice_KeyOutput! @fdc_generated(from: "UserDevice", purpose: INSERT_SINGLE)
   """
-  ✨ Insert `Account` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
-  """
-  account_insertMany(
-    """
-    List of data objects to insert into the table.
-    """
-    data: [Account_Data!]!
-  ): [Account_KeyOutput!]! @fdc_generated(from: "Account", purpose: INSERT_MULTIPLE)
-  """
   ✨ Insert `Availability` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
   availability_insertMany(
@@ -81,14 +99,23 @@ extend type Mutation {
     data: [Availability_Data!]!
   ): [Availability_KeyOutput!]! @fdc_generated(from: "Availability", purpose: INSERT_MULTIPLE)
   """
-  ✨ Insert `Fam` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  ✨ Insert `Chat` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
-  fam_insertMany(
+  chat_insertMany(
     """
     List of data objects to insert into the table.
     """
-    data: [Fam_Data!]!
-  ): [Fam_KeyOutput!]! @fdc_generated(from: "Fam", purpose: INSERT_MULTIPLE)
+    data: [Chat_Data!]!
+  ): [Chat_KeyOutput!]! @fdc_generated(from: "Chat", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `ChatMember` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  chatMember_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [ChatMember_Data!]!
+  ): [ChatMember_KeyOutput!]! @fdc_generated(from: "ChatMember", purpose: INSERT_MULTIPLE)
   """
   ✨ Insert `Meetup` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
@@ -99,6 +126,33 @@ extend type Mutation {
     data: [Meetup_Data!]!
   ): [Meetup_KeyOutput!]! @fdc_generated(from: "Meetup", purpose: INSERT_MULTIPLE)
   """
+  ✨ Insert `Member` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  member_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Member_Data!]!
+  ): [Member_KeyOutput!]! @fdc_generated(from: "Member", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `MemberContact` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  memberContact_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [MemberContact_Data!]!
+  ): [MemberContact_KeyOutput!]! @fdc_generated(from: "MemberContact", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Proposal` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  proposal_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Proposal_Data!]!
+  ): [Proposal_KeyOutput!]! @fdc_generated(from: "Proposal", purpose: INSERT_MULTIPLE)
+  """
   ✨ Insert `Tribe` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
   tribe_insertMany(
@@ -108,14 +162,14 @@ extend type Mutation {
     data: [Tribe_Data!]!
   ): [Tribe_KeyOutput!]! @fdc_generated(from: "Tribe", purpose: INSERT_MULTIPLE)
   """
-  ✨ Insert `TribeFam` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  ✨ Insert `TribeMember` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
-  tribeFam_insertMany(
+  tribeMember_insertMany(
     """
     List of data objects to insert into the table.
     """
-    data: [TribeFam_Data!]!
-  ): [TribeFam_KeyOutput!]! @fdc_generated(from: "TribeFam", purpose: INSERT_MULTIPLE)
+    data: [TribeMember_Data!]!
+  ): [TribeMember_KeyOutput!]! @fdc_generated(from: "TribeMember", purpose: INSERT_MULTIPLE)
   """
   ✨ Insert `UserDevice` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
@@ -126,15 +180,6 @@ extend type Mutation {
     data: [UserDevice_Data!]!
   ): [UserDevice_KeyOutput!]! @fdc_generated(from: "UserDevice", purpose: INSERT_MULTIPLE)
   """
-  ✨ Insert or update a single `Account` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Account`.
-  """
-  account_upsert(
-    """
-    Data object to insert or update if it already exists.
-    """
-    data: Account_Data!
-  ): Account_KeyOutput! @fdc_generated(from: "Account", purpose: UPSERT_SINGLE)
-  """
   ✨ Insert or update a single `Availability` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Availability`.
   """
   availability_upsert(
@@ -144,14 +189,23 @@ extend type Mutation {
     data: Availability_Data!
   ): Availability_KeyOutput! @fdc_generated(from: "Availability", purpose: UPSERT_SINGLE)
   """
-  ✨ Insert or update a single `Fam` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Fam`.
+  ✨ Insert or update a single `Chat` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Chat`.
   """
-  fam_upsert(
+  chat_upsert(
     """
     Data object to insert or update if it already exists.
     """
-    data: Fam_Data!
-  ): Fam_KeyOutput! @fdc_generated(from: "Fam", purpose: UPSERT_SINGLE)
+    data: Chat_Data!
+  ): Chat_KeyOutput! @fdc_generated(from: "Chat", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `ChatMember` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `ChatMember`.
+  """
+  chatMember_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: ChatMember_Data!
+  ): ChatMember_KeyOutput! @fdc_generated(from: "ChatMember", purpose: UPSERT_SINGLE)
   """
   ✨ Insert or update a single `Meetup` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Meetup`.
   """
@@ -162,6 +216,33 @@ extend type Mutation {
     data: Meetup_Data!
   ): Meetup_KeyOutput! @fdc_generated(from: "Meetup", purpose: UPSERT_SINGLE)
   """
+  ✨ Insert or update a single `Member` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Member`.
+  """
+  member_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Member_Data!
+  ): Member_KeyOutput! @fdc_generated(from: "Member", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `MemberContact` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `MemberContact`.
+  """
+  memberContact_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: MemberContact_Data!
+  ): MemberContact_KeyOutput! @fdc_generated(from: "MemberContact", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Proposal` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Proposal`.
+  """
+  proposal_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Proposal_Data!
+  ): Proposal_KeyOutput! @fdc_generated(from: "Proposal", purpose: UPSERT_SINGLE)
+  """
   ✨ Insert or update a single `Tribe` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Tribe`.
   """
   tribe_upsert(
@@ -171,14 +252,14 @@ extend type Mutation {
     data: Tribe_Data!
   ): Tribe_KeyOutput! @fdc_generated(from: "Tribe", purpose: UPSERT_SINGLE)
   """
-  ✨ Insert or update a single `TribeFam` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `TribeFam`.
+  ✨ Insert or update a single `TribeMember` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `TribeMember`.
   """
-  tribeFam_upsert(
+  tribeMember_upsert(
     """
     Data object to insert or update if it already exists.
     """
-    data: TribeFam_Data!
-  ): TribeFam_KeyOutput! @fdc_generated(from: "TribeFam", purpose: UPSERT_SINGLE)
+    data: TribeMember_Data!
+  ): TribeMember_KeyOutput! @fdc_generated(from: "TribeMember", purpose: UPSERT_SINGLE)
   """
   ✨ Insert or update a single `UserDevice` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `UserDevice`.
   """
@@ -189,15 +270,6 @@ extend type Mutation {
     data: UserDevice_Data!
   ): UserDevice_KeyOutput! @fdc_generated(from: "UserDevice", purpose: UPSERT_SINGLE)
   """
-  ✨ Insert or update `Account` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Account`.
-  """
-  account_upsertMany(
-    """
-    List of data objects to insert or update if it already exists.
-    """
-    data: [Account_Data!]!
-  ): [Account_KeyOutput!]! @fdc_generated(from: "Account", purpose: UPSERT_MULTIPLE)
-  """
   ✨ Insert or update `Availability` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Availability`.
   """
   availability_upsertMany(
@@ -207,14 +279,23 @@ extend type Mutation {
     data: [Availability_Data!]!
   ): [Availability_KeyOutput!]! @fdc_generated(from: "Availability", purpose: UPSERT_MULTIPLE)
   """
-  ✨ Insert or update `Fam` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Fam`.
+  ✨ Insert or update `Chat` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Chat`.
   """
-  fam_upsertMany(
+  chat_upsertMany(
     """
     List of data objects to insert or update if it already exists.
     """
-    data: [Fam_Data!]!
-  ): [Fam_KeyOutput!]! @fdc_generated(from: "Fam", purpose: UPSERT_MULTIPLE)
+    data: [Chat_Data!]!
+  ): [Chat_KeyOutput!]! @fdc_generated(from: "Chat", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `ChatMember` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `ChatMember`.
+  """
+  chatMember_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [ChatMember_Data!]!
+  ): [ChatMember_KeyOutput!]! @fdc_generated(from: "ChatMember", purpose: UPSERT_MULTIPLE)
   """
   ✨ Insert or update `Meetup` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Meetup`.
   """
@@ -225,6 +306,33 @@ extend type Mutation {
     data: [Meetup_Data!]!
   ): [Meetup_KeyOutput!]! @fdc_generated(from: "Meetup", purpose: UPSERT_MULTIPLE)
   """
+  ✨ Insert or update `Member` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Member`.
+  """
+  member_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Member_Data!]!
+  ): [Member_KeyOutput!]! @fdc_generated(from: "Member", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `MemberContact` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `MemberContact`.
+  """
+  memberContact_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [MemberContact_Data!]!
+  ): [MemberContact_KeyOutput!]! @fdc_generated(from: "MemberContact", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Proposal` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Proposal`.
+  """
+  proposal_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Proposal_Data!]!
+  ): [Proposal_KeyOutput!]! @fdc_generated(from: "Proposal", purpose: UPSERT_MULTIPLE)
+  """
   ✨ Insert or update `Tribe` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Tribe`.
   """
   tribe_upsertMany(
@@ -234,14 +342,14 @@ extend type Mutation {
     data: [Tribe_Data!]!
   ): [Tribe_KeyOutput!]! @fdc_generated(from: "Tribe", purpose: UPSERT_MULTIPLE)
   """
-  ✨ Insert or update `TribeFam` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `TribeFam`.
+  ✨ Insert or update `TribeMember` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `TribeMember`.
   """
-  tribeFam_upsertMany(
+  tribeMember_upsertMany(
     """
     List of data objects to insert or update if it already exists.
     """
-    data: [TribeFam_Data!]!
-  ): [TribeFam_KeyOutput!]! @fdc_generated(from: "TribeFam", purpose: UPSERT_MULTIPLE)
+    data: [TribeMember_Data!]!
+  ): [TribeMember_KeyOutput!]! @fdc_generated(from: "TribeMember", purpose: UPSERT_MULTIPLE)
   """
   ✨ Insert or update `UserDevice` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `UserDevice`.
   """
@@ -251,30 +359,6 @@ extend type Mutation {
     """
     data: [UserDevice_Data!]!
   ): [UserDevice_KeyOutput!]! @fdc_generated(from: "UserDevice", purpose: UPSERT_MULTIPLE)
-  """
-  ✨ Update a single `Account` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Account` or `null` if not found.
-  """
-  account_update(
-    """
-    The unique ID of the object.
-    """
-    id: UUID
-
-    """
-    The key used to identify the object.
-    """
-    key: Account_Key
-
-    """
-    Fetch the first row based on the filters and ordering.
-    """
-    first: Account_FirstRow
-
-    """
-    Data object containing fields to be updated.
-    """
-    data: Account_Data!
-  ): Account_KeyOutput @fdc_generated(from: "Account", purpose: UPDATE_SINGLE)
   """
   ✨ Update a single `Availability` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Availability` or `null` if not found.
   """
@@ -300,9 +384,9 @@ extend type Mutation {
     data: Availability_Data!
   ): Availability_KeyOutput @fdc_generated(from: "Availability", purpose: UPDATE_SINGLE)
   """
-  ✨ Update a single `Fam` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Fam` or `null` if not found.
+  ✨ Update a single `Chat` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Chat` or `null` if not found.
   """
-  fam_update(
+  chat_update(
     """
     The unique ID of the object.
     """
@@ -311,18 +395,42 @@ extend type Mutation {
     """
     The key used to identify the object.
     """
-    key: Fam_Key
+    key: Chat_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: Fam_FirstRow
+    first: Chat_FirstRow
 
     """
     Data object containing fields to be updated.
     """
-    data: Fam_Data!
-  ): Fam_KeyOutput @fdc_generated(from: "Fam", purpose: UPDATE_SINGLE)
+    data: Chat_Data!
+  ): Chat_KeyOutput @fdc_generated(from: "Chat", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `ChatMember` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `ChatMember` or `null` if not found.
+  """
+  chatMember_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: ChatMember_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: ChatMember_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: ChatMember_Data!
+  ): ChatMember_KeyOutput @fdc_generated(from: "ChatMember", purpose: UPDATE_SINGLE)
   """
   ✨ Update a single `Meetup` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Meetup` or `null` if not found.
   """
@@ -348,6 +456,78 @@ extend type Mutation {
     data: Meetup_Data!
   ): Meetup_KeyOutput @fdc_generated(from: "Meetup", purpose: UPDATE_SINGLE)
   """
+  ✨ Update a single `Member` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Member` or `null` if not found.
+  """
+  member_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Member_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Member_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Member_Data!
+  ): Member_KeyOutput @fdc_generated(from: "Member", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `MemberContact` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `MemberContact` or `null` if not found.
+  """
+  memberContact_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: MemberContact_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: MemberContact_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: MemberContact_Data!
+  ): MemberContact_KeyOutput @fdc_generated(from: "MemberContact", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Proposal` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Proposal` or `null` if not found.
+  """
+  proposal_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Proposal_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Proposal_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Proposal_Data!
+  ): Proposal_KeyOutput @fdc_generated(from: "Proposal", purpose: UPDATE_SINGLE)
+  """
   ✨ Update a single `Tribe` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Tribe` or `null` if not found.
   """
   tribe_update(
@@ -372,24 +552,24 @@ extend type Mutation {
     data: Tribe_Data!
   ): Tribe_KeyOutput @fdc_generated(from: "Tribe", purpose: UPDATE_SINGLE)
   """
-  ✨ Update a single `TribeFam` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `TribeFam` or `null` if not found.
+  ✨ Update a single `TribeMember` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `TribeMember` or `null` if not found.
   """
-  tribeFam_update(
+  tribeMember_update(
     """
     The key used to identify the object.
     """
-    key: TribeFam_Key
+    key: TribeMember_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: TribeFam_FirstRow
+    first: TribeMember_FirstRow
 
     """
     Data object containing fields to be updated.
     """
-    data: TribeFam_Data!
-  ): TribeFam_KeyOutput @fdc_generated(from: "TribeFam", purpose: UPDATE_SINGLE)
+    data: TribeMember_Data!
+  ): TribeMember_KeyOutput @fdc_generated(from: "TribeMember", purpose: UPDATE_SINGLE)
   """
   ✨ Update a single `UserDevice` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `UserDevice` or `null` if not found.
   """
@@ -415,25 +595,6 @@ extend type Mutation {
     data: UserDevice_Data!
   ): UserDevice_KeyOutput @fdc_generated(from: "UserDevice", purpose: UPDATE_SINGLE)
   """
-  ✨ Update `Account` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
-  """
-  account_updateMany(
-    """
-    Filter condition to specify which rows to update.
-    """
-    where: Account_Filter
-
-    """
-    Set to true to update all rows.
-    """
-    all: Boolean = false
-
-    """
-    Data object containing fields to update.
-    """
-    data: Account_Data!
-  ): Int! @fdc_generated(from: "Account", purpose: UPDATE_MULTIPLE)
-  """
   ✨ Update `Availability` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
   """
   availability_updateMany(
@@ -453,13 +614,13 @@ extend type Mutation {
     data: Availability_Data!
   ): Int! @fdc_generated(from: "Availability", purpose: UPDATE_MULTIPLE)
   """
-  ✨ Update `Fam` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  ✨ Update `Chat` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
   """
-  fam_updateMany(
+  chat_updateMany(
     """
     Filter condition to specify which rows to update.
     """
-    where: Fam_Filter
+    where: Chat_Filter
 
     """
     Set to true to update all rows.
@@ -469,8 +630,27 @@ extend type Mutation {
     """
     Data object containing fields to update.
     """
-    data: Fam_Data!
-  ): Int! @fdc_generated(from: "Fam", purpose: UPDATE_MULTIPLE)
+    data: Chat_Data!
+  ): Int! @fdc_generated(from: "Chat", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `ChatMember` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  chatMember_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: ChatMember_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: ChatMember_Data!
+  ): Int! @fdc_generated(from: "ChatMember", purpose: UPDATE_MULTIPLE)
   """
   ✨ Update `Meetup` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
   """
@@ -491,6 +671,63 @@ extend type Mutation {
     data: Meetup_Data!
   ): Int! @fdc_generated(from: "Meetup", purpose: UPDATE_MULTIPLE)
   """
+  ✨ Update `Member` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  member_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Member_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Member_Data!
+  ): Int! @fdc_generated(from: "Member", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `MemberContact` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  memberContact_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: MemberContact_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: MemberContact_Data!
+  ): Int! @fdc_generated(from: "MemberContact", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Proposal` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  proposal_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Proposal_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Proposal_Data!
+  ): Int! @fdc_generated(from: "Proposal", purpose: UPDATE_MULTIPLE)
+  """
   ✨ Update `Tribe` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
   """
   tribe_updateMany(
@@ -510,13 +747,13 @@ extend type Mutation {
     data: Tribe_Data!
   ): Int! @fdc_generated(from: "Tribe", purpose: UPDATE_MULTIPLE)
   """
-  ✨ Update `TribeFam` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  ✨ Update `TribeMember` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
   """
-  tribeFam_updateMany(
+  tribeMember_updateMany(
     """
     Filter condition to specify which rows to update.
     """
-    where: TribeFam_Filter
+    where: TribeMember_Filter
 
     """
     Set to true to update all rows.
@@ -526,8 +763,8 @@ extend type Mutation {
     """
     Data object containing fields to update.
     """
-    data: TribeFam_Data!
-  ): Int! @fdc_generated(from: "TribeFam", purpose: UPDATE_MULTIPLE)
+    data: TribeMember_Data!
+  ): Int! @fdc_generated(from: "TribeMember", purpose: UPDATE_MULTIPLE)
   """
   ✨ Update `UserDevice` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
   """
@@ -548,25 +785,6 @@ extend type Mutation {
     data: UserDevice_Data!
   ): Int! @fdc_generated(from: "UserDevice", purpose: UPDATE_MULTIPLE)
   """
-  ✨ Delete a single `Account` based on `id`, `key` or `first` and return its key (or `null` if not found).
-  """
-  account_delete(
-    """
-    The unique ID of the object.
-    """
-    id: UUID
-
-    """
-    The key used to identify the object.
-    """
-    key: Account_Key
-
-    """
-    Fetch the first row based on the filters and ordering.
-    """
-    first: Account_FirstRow
-  ): Account_KeyOutput @fdc_generated(from: "Account", purpose: DELETE_SINGLE)
-  """
   ✨ Delete a single `Availability` based on `id`, `key` or `first` and return its key (or `null` if not found).
   """
   availability_delete(
@@ -586,9 +804,9 @@ extend type Mutation {
     first: Availability_FirstRow
   ): Availability_KeyOutput @fdc_generated(from: "Availability", purpose: DELETE_SINGLE)
   """
-  ✨ Delete a single `Fam` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  ✨ Delete a single `Chat` based on `id`, `key` or `first` and return its key (or `null` if not found).
   """
-  fam_delete(
+  chat_delete(
     """
     The unique ID of the object.
     """
@@ -597,13 +815,32 @@ extend type Mutation {
     """
     The key used to identify the object.
     """
-    key: Fam_Key
+    key: Chat_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: Fam_FirstRow
-  ): Fam_KeyOutput @fdc_generated(from: "Fam", purpose: DELETE_SINGLE)
+    first: Chat_FirstRow
+  ): Chat_KeyOutput @fdc_generated(from: "Chat", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `ChatMember` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  chatMember_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: ChatMember_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: ChatMember_FirstRow
+  ): ChatMember_KeyOutput @fdc_generated(from: "ChatMember", purpose: DELETE_SINGLE)
   """
   ✨ Delete a single `Meetup` based on `id`, `key` or `first` and return its key (or `null` if not found).
   """
@@ -624,6 +861,63 @@ extend type Mutation {
     first: Meetup_FirstRow
   ): Meetup_KeyOutput @fdc_generated(from: "Meetup", purpose: DELETE_SINGLE)
   """
+  ✨ Delete a single `Member` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  member_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Member_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Member_FirstRow
+  ): Member_KeyOutput @fdc_generated(from: "Member", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `MemberContact` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  memberContact_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: MemberContact_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: MemberContact_FirstRow
+  ): MemberContact_KeyOutput @fdc_generated(from: "MemberContact", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Proposal` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  proposal_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Proposal_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Proposal_FirstRow
+  ): Proposal_KeyOutput @fdc_generated(from: "Proposal", purpose: DELETE_SINGLE)
+  """
   ✨ Delete a single `Tribe` based on `id`, `key` or `first` and return its key (or `null` if not found).
   """
   tribe_delete(
@@ -643,19 +937,19 @@ extend type Mutation {
     first: Tribe_FirstRow
   ): Tribe_KeyOutput @fdc_generated(from: "Tribe", purpose: DELETE_SINGLE)
   """
-  ✨ Delete a single `TribeFam` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  ✨ Delete a single `TribeMember` based on `id`, `key` or `first` and return its key (or `null` if not found).
   """
-  tribeFam_delete(
+  tribeMember_delete(
     """
     The key used to identify the object.
     """
-    key: TribeFam_Key
+    key: TribeMember_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: TribeFam_FirstRow
-  ): TribeFam_KeyOutput @fdc_generated(from: "TribeFam", purpose: DELETE_SINGLE)
+    first: TribeMember_FirstRow
+  ): TribeMember_KeyOutput @fdc_generated(from: "TribeMember", purpose: DELETE_SINGLE)
   """
   ✨ Delete a single `UserDevice` based on `id`, `key` or `first` and return its key (or `null` if not found).
   """
@@ -676,20 +970,6 @@ extend type Mutation {
     first: UserDevice_FirstRow
   ): UserDevice_KeyOutput @fdc_generated(from: "UserDevice", purpose: DELETE_SINGLE)
   """
-  ✨ Delete `Account` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
-  """
-  account_deleteMany(
-    """
-    Filter condition to specify which rows to delete.
-    """
-    where: Account_Filter
-
-    """
-    Set to true to delete all rows.
-    """
-    all: Boolean = false
-  ): Int! @fdc_generated(from: "Account", purpose: DELETE_MULTIPLE)
-  """
   ✨ Delete `Availability` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
   """
   availability_deleteMany(
@@ -704,19 +984,33 @@ extend type Mutation {
     all: Boolean = false
   ): Int! @fdc_generated(from: "Availability", purpose: DELETE_MULTIPLE)
   """
-  ✨ Delete `Fam` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  ✨ Delete `Chat` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
   """
-  fam_deleteMany(
+  chat_deleteMany(
     """
     Filter condition to specify which rows to delete.
     """
-    where: Fam_Filter
+    where: Chat_Filter
 
     """
     Set to true to delete all rows.
     """
     all: Boolean = false
-  ): Int! @fdc_generated(from: "Fam", purpose: DELETE_MULTIPLE)
+  ): Int! @fdc_generated(from: "Chat", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `ChatMember` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  chatMember_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: ChatMember_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "ChatMember", purpose: DELETE_MULTIPLE)
   """
   ✨ Delete `Meetup` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
   """
@@ -732,6 +1026,48 @@ extend type Mutation {
     all: Boolean = false
   ): Int! @fdc_generated(from: "Meetup", purpose: DELETE_MULTIPLE)
   """
+  ✨ Delete `Member` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  member_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Member_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Member", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `MemberContact` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  memberContact_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: MemberContact_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "MemberContact", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Proposal` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  proposal_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Proposal_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Proposal", purpose: DELETE_MULTIPLE)
+  """
   ✨ Delete `Tribe` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
   """
   tribe_deleteMany(
@@ -746,19 +1082,19 @@ extend type Mutation {
     all: Boolean = false
   ): Int! @fdc_generated(from: "Tribe", purpose: DELETE_MULTIPLE)
   """
-  ✨ Delete `TribeFam` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  ✨ Delete `TribeMember` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
   """
-  tribeFam_deleteMany(
+  tribeMember_deleteMany(
     """
     Filter condition to specify which rows to delete.
     """
-    where: TribeFam_Filter
+    where: TribeMember_Filter
 
     """
     Set to true to delete all rows.
     """
     all: Boolean = false
-  ): Int! @fdc_generated(from: "TribeFam", purpose: DELETE_MULTIPLE)
+  ): Int! @fdc_generated(from: "TribeMember", purpose: DELETE_MULTIPLE)
   """
   ✨ Delete `UserDevice` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
   """

@@ -1,32 +1,36 @@
-extend type Account {
-  """
-  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
-  """
-  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Account", purpose: IMPLICIT_KEY_FIELD)
-  """
-  ✨ Implicit foreign key field based on `Account`.`user`. It must match the value of `Fam`.`id`. See `@ref` for how to customize it.
-  """
-  userId: UUID! @fdc_generated(from: "Account.user", purpose: IMPLICIT_REF_FIELD)
-}
 extend type Availability {
   """
   ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
   """
   id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Availability", purpose: IMPLICIT_KEY_FIELD)
   """
-  ✨ Implicit foreign key field based on `Availability`.`fam`. It must match the value of `Fam`.`id`. See `@ref` for how to customize it.
+  ✨ Implicit foreign key field based on `Availability`.`member`. It must match the value of `Member`.`id`. See `@ref` for how to customize it.
   """
-  famId: UUID! @fdc_generated(from: "Availability.fam", purpose: IMPLICIT_REF_FIELD)
+  memberId: UUID! @fdc_generated(from: "Availability.member", purpose: IMPLICIT_REF_FIELD)
   """
-  ✨ Implicit foreign key field based on `Availability`.`meetup`. It must match the value of `Meetup`.`id`. See `@ref` for how to customize it.
+  ✨ Implicit foreign key field based on `Availability`.`proposal`. It must match the value of `Proposal`.`id`. See `@ref` for how to customize it.
   """
-  meetupId: UUID! @fdc_generated(from: "Availability.meetup", purpose: IMPLICIT_REF_FIELD)
+  proposalId: UUID! @fdc_generated(from: "Availability.proposal", purpose: IMPLICIT_REF_FIELD)
 }
-extend type Fam {
+extend type Chat {
   """
   ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
   """
-  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Fam", purpose: IMPLICIT_KEY_FIELD)
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Chat", purpose: IMPLICIT_KEY_FIELD)
+}
+extend type ChatMember {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "ChatMember", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `ChatMember`.`chat`. It must match the value of `Chat`.`id`. See `@ref` for how to customize it.
+  """
+  chatId: UUID! @fdc_generated(from: "ChatMember.chat", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `ChatMember`.`member`. It must match the value of `Member`.`id`. See `@ref` for how to customize it.
+  """
+  memberId: UUID! @fdc_generated(from: "ChatMember.member", purpose: IMPLICIT_REF_FIELD)
 }
 extend type Meetup {
   """
@@ -34,13 +38,47 @@ extend type Meetup {
   """
   id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Meetup", purpose: IMPLICIT_KEY_FIELD)
   """
-  ✨ Implicit foreign key field based on `Meetup`.`host`. It must match the value of `Fam`.`id`. See `@ref` for how to customize it.
+  ✨ Implicit foreign key field based on `Meetup`.`creator`. It must match the value of `Member`.`id`. See `@ref` for how to customize it.
   """
-  hostId: UUID! @fdc_generated(from: "Meetup.host", purpose: IMPLICIT_REF_FIELD)
+  creatorId: UUID! @fdc_generated(from: "Meetup.creator", purpose: IMPLICIT_REF_FIELD)
   """
   ✨ Implicit foreign key field based on `Meetup`.`tribe`. It must match the value of `Tribe`.`id`. See `@ref` for how to customize it.
   """
   tribeId: UUID! @fdc_generated(from: "Meetup.tribe", purpose: IMPLICIT_REF_FIELD)
+}
+extend type Member {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Member", purpose: IMPLICIT_KEY_FIELD)
+}
+extend type MemberContact {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "MemberContact", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `MemberContact`.`source`. It must match the value of `Member`.`id`. See `@ref` for how to customize it.
+  """
+  sourceId: UUID! @fdc_generated(from: "MemberContact.source", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `MemberContact`.`subject`. It must match the value of `Member`.`id`. See `@ref` for how to customize it.
+  """
+  subjectId: UUID! @fdc_generated(from: "MemberContact.subject", purpose: IMPLICIT_REF_FIELD)
+}
+extend type Proposal {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Proposal", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Proposal`.`host`. It must match the value of `Member`.`id`. See `@ref` for how to customize it.
+  """
+  hostId: UUID! @fdc_generated(from: "Proposal.host", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Proposal`.`meetup`. It must match the value of `Meetup`.`id`. See `@ref` for how to customize it.
+  """
+  meetupId: UUID! @fdc_generated(from: "Proposal.meetup", purpose: IMPLICIT_REF_FIELD)
 }
 extend type Tribe {
   """
@@ -48,15 +86,15 @@ extend type Tribe {
   """
   id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Tribe", purpose: IMPLICIT_KEY_FIELD)
 }
-extend type TribeFam {
+extend type TribeMember {
   """
-  ✨ Implicit foreign key field based on `TribeFam`.`tribe`. It must match the value of `Tribe`.`id`. See `@ref` for how to customize it.
+  ✨ Implicit foreign key field based on `TribeMember`.`tribe`. It must match the value of `Tribe`.`id`. See `@ref` for how to customize it.
   """
-  tribeId: UUID! @fdc_generated(from: "TribeFam.tribe", purpose: IMPLICIT_REF_FIELD)
+  tribeId: UUID! @fdc_generated(from: "TribeMember.tribe", purpose: IMPLICIT_REF_FIELD)
   """
-  ✨ Implicit foreign key field based on `TribeFam`.`fam`. It must match the value of `Fam`.`id`. See `@ref` for how to customize it.
+  ✨ Implicit foreign key field based on `TribeMember`.`member`. It must match the value of `Member`.`id`. See `@ref` for how to customize it.
   """
-  famId: UUID! @fdc_generated(from: "TribeFam.fam", purpose: IMPLICIT_REF_FIELD)
+  memberId: UUID! @fdc_generated(from: "TribeMember.member", purpose: IMPLICIT_REF_FIELD)
 }
 extend type UserDevice {
   """

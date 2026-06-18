@@ -1,24 +1,5 @@
 extend type Query {
   """
-  ✨ Look up a single `Account` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
-  """
-  account(
-    """
-    The unique ID of the object.
-    """
-    id: UUID
-
-    """
-    The key used to identify the object.
-    """
-    key: Account_Key
-
-    """
-    Fetch the first row based on the filters and ordering.
-    """
-    first: Account_FirstRow
-  ): Account @fdc_generated(from: "Account", purpose: QUERY_SINGLE)
-  """
   ✨ Look up a single `Availability` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
   availability(
@@ -38,9 +19,9 @@ extend type Query {
     first: Availability_FirstRow
   ): Availability @fdc_generated(from: "Availability", purpose: QUERY_SINGLE)
   """
-  ✨ Look up a single `Fam` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  ✨ Look up a single `Chat` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
-  fam(
+  chat(
     """
     The unique ID of the object.
     """
@@ -49,13 +30,32 @@ extend type Query {
     """
     The key used to identify the object.
     """
-    key: Fam_Key
+    key: Chat_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: Fam_FirstRow
-  ): Fam @fdc_generated(from: "Fam", purpose: QUERY_SINGLE)
+    first: Chat_FirstRow
+  ): Chat @fdc_generated(from: "Chat", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `ChatMember` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  chatMember(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: ChatMember_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: ChatMember_FirstRow
+  ): ChatMember @fdc_generated(from: "ChatMember", purpose: QUERY_SINGLE)
   """
   ✨ Look up a single `Meetup` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
@@ -76,6 +76,63 @@ extend type Query {
     first: Meetup_FirstRow
   ): Meetup @fdc_generated(from: "Meetup", purpose: QUERY_SINGLE)
   """
+  ✨ Look up a single `Member` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  member(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Member_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Member_FirstRow
+  ): Member @fdc_generated(from: "Member", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `MemberContact` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  memberContact(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: MemberContact_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: MemberContact_FirstRow
+  ): MemberContact @fdc_generated(from: "MemberContact", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Proposal` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  proposal(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Proposal_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Proposal_FirstRow
+  ): Proposal @fdc_generated(from: "Proposal", purpose: QUERY_SINGLE)
+  """
   ✨ Look up a single `Tribe` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
   tribe(
@@ -95,19 +152,19 @@ extend type Query {
     first: Tribe_FirstRow
   ): Tribe @fdc_generated(from: "Tribe", purpose: QUERY_SINGLE)
   """
-  ✨ Look up a single `TribeFam` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  ✨ Look up a single `TribeMember` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
-  tribeFam(
+  tribeMember(
     """
     The key used to identify the object.
     """
-    key: TribeFam_Key
+    key: TribeMember_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: TribeFam_FirstRow
-  ): TribeFam @fdc_generated(from: "TribeFam", purpose: QUERY_SINGLE)
+    first: TribeMember_FirstRow
+  ): TribeMember @fdc_generated(from: "TribeMember", purpose: QUERY_SINGLE)
   """
   ✨ Look up a single `UserDevice` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
@@ -127,40 +184,6 @@ extend type Query {
     """
     first: UserDevice_FirstRow
   ): UserDevice @fdc_generated(from: "UserDevice", purpose: QUERY_SINGLE)
-  """
-  ✨ List `Account` objects in the table and return selected fields, optionally filtered by `where` conditions
-  """
-  accounts(
-    """
-    Filter condition to narrow down the query results.
-    """
-    where: Account_Filter
-
-    """
-    Order the query results by specific fields.
-    """
-    orderBy: [Account_Order!]
-
-    """
-    Number of rows to skip before starting to return the results.
-    """
-    offset: Int
-
-    """
-    Maximum number of rows to return (defaults to 100 rows).
-    """
-    limit: Int = 100
-
-    """
-    Set to true to return distinct results.
-    """
-    distinct: Boolean = false
-
-    """
-    Filter condition to apply to the groups of aggregate queries.
-    """
-    having: Account_Having
-  ): [Account!]! @fdc_generated(from: "Account", purpose: QUERY_MULTIPLE)
   """
   ✨ List `Availability` objects in the table and return selected fields, optionally filtered by `where` conditions
   """
@@ -196,18 +219,18 @@ extend type Query {
     having: Availability_Having
   ): [Availability!]! @fdc_generated(from: "Availability", purpose: QUERY_MULTIPLE)
   """
-  ✨ List `Fam` objects in the table and return selected fields, optionally filtered by `where` conditions
+  ✨ List `Chat` objects in the table and return selected fields, optionally filtered by `where` conditions
   """
-  fams(
+  chats(
     """
     Filter condition to narrow down the query results.
     """
-    where: Fam_Filter
+    where: Chat_Filter
 
     """
     Order the query results by specific fields.
     """
-    orderBy: [Fam_Order!]
+    orderBy: [Chat_Order!]
 
     """
     Number of rows to skip before starting to return the results.
@@ -227,8 +250,42 @@ extend type Query {
     """
     Filter condition to apply to the groups of aggregate queries.
     """
-    having: Fam_Having
-  ): [Fam!]! @fdc_generated(from: "Fam", purpose: QUERY_MULTIPLE)
+    having: Chat_Having
+  ): [Chat!]! @fdc_generated(from: "Chat", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `ChatMember` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  chatMembers(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: ChatMember_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [ChatMember_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: ChatMember_Having
+  ): [ChatMember!]! @fdc_generated(from: "ChatMember", purpose: QUERY_MULTIPLE)
   """
   ✨ List `Meetup` objects in the table and return selected fields, optionally filtered by `where` conditions
   """
@@ -264,6 +321,108 @@ extend type Query {
     having: Meetup_Having
   ): [Meetup!]! @fdc_generated(from: "Meetup", purpose: QUERY_MULTIPLE)
   """
+  ✨ List `Member` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  members(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Member_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Member_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Member_Having
+  ): [Member!]! @fdc_generated(from: "Member", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `MemberContact` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  memberContacts(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: MemberContact_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [MemberContact_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: MemberContact_Having
+  ): [MemberContact!]! @fdc_generated(from: "MemberContact", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Proposal` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  proposals(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Proposal_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Proposal_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Proposal_Having
+  ): [Proposal!]! @fdc_generated(from: "Proposal", purpose: QUERY_MULTIPLE)
+  """
   ✨ List `Tribe` objects in the table and return selected fields, optionally filtered by `where` conditions
   """
   tribes(
@@ -298,18 +457,18 @@ extend type Query {
     having: Tribe_Having
   ): [Tribe!]! @fdc_generated(from: "Tribe", purpose: QUERY_MULTIPLE)
   """
-  ✨ List `TribeFam` objects in the table and return selected fields, optionally filtered by `where` conditions
+  ✨ List `TribeMember` objects in the table and return selected fields, optionally filtered by `where` conditions
   """
-  tribeFams(
+  tribeMembers(
     """
     Filter condition to narrow down the query results.
     """
-    where: TribeFam_Filter
+    where: TribeMember_Filter
 
     """
     Order the query results by specific fields.
     """
-    orderBy: [TribeFam_Order!]
+    orderBy: [TribeMember_Order!]
 
     """
     Number of rows to skip before starting to return the results.
@@ -329,8 +488,8 @@ extend type Query {
     """
     Filter condition to apply to the groups of aggregate queries.
     """
-    having: TribeFam_Having
-  ): [TribeFam!]! @fdc_generated(from: "TribeFam", purpose: QUERY_MULTIPLE)
+    having: TribeMember_Having
+  ): [TribeMember!]! @fdc_generated(from: "TribeMember", purpose: QUERY_MULTIPLE)
   """
   ✨ List `UserDevice` objects in the table and return selected fields, optionally filtered by `where` conditions
   """

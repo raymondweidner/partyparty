@@ -2513,3 +2513,491 @@ I0603 13:11:52.553643   46500 dev.go:104] Listening on address (HTTP + gRPC): 12
  {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 13:11:52.462717   46500 load.go:31] Reloading schema and connectors...\nI0603 13:11:52.481268   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 7534] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1124B] \nI0603 13:11:52.534961   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: prelude.gql [84995B] main\\mutation.gql [23684B] main\\implicit.gql [3229B] main\\input.gql [48966B] main\\relation.gql [23491B] main\\query.gql [8771B] \nI0603 13:11:52.535469   46500 load.go:109] Finished reloading\nI0603 13:11:52.553643   46500 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
 [debug] [2026-06-03T17:11:56.249Z] I0603 13:11:56.220821   46500 engine.go:209] [projects/emulator/locations/emulator/services/partyparty 7534] ExecuteGraphqlRead query IntrospectionQuery: succeeded. 
  {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 13:11:56.220821   46500 engine.go:209] [projects/emulator/locations/emulator/services/partyparty 7534] ExecuteGraphqlRead query IntrospectionQuery: succeeded. \n"}}
+[debug] [2026-06-03T17:15:46.667Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-03T17:28:42.537Z] I0603 13:28:42.536826   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 13:28:42.536826   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-03T17:28:42.548Z] I0603 13:28:42.548067   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 5fbe] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1323B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 13:28:42.548067   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 5fbe] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1323B] \n"}}
+[debug] [2026-06-03T17:28:42.563Z] I0603 13:28:42.562924   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\implicit.gql [3971B] main\input.gql [56509B] main\relation.gql [27476B] main\query.gql [10039B] main\mutation.gql [27114B] prelude.gql [84995B] 
+I0603 13:28:42.562924   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 13:28:42.562924   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\implicit.gql [3971B] main\\input.gql [56509B] main\\relation.gql [27476B] main\\query.gql [10039B] main\\mutation.gql [27114B] prelude.gql [84995B] \nI0603 13:28:42.562924   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-03T17:30:32.537Z] I0603 13:30:32.536974   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 13:30:32.536974   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-03T17:30:32.546Z] I0603 13:30:32.546601   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty f9b2] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1322B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 13:30:32.546601   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty f9b2] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1322B] \n"}}
+[debug] [2026-06-03T17:30:32.560Z] I0603 13:30:32.560554   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\mutation.gql [27114B] prelude.gql [84995B] main\implicit.gql [3968B] main\input.gql [56486B] main\relation.gql [27470B] main\query.gql [10039B] 
+I0603 13:30:32.560554   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 13:30:32.560554   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\mutation.gql [27114B] prelude.gql [84995B] main\\implicit.gql [3968B] main\\input.gql [56486B] main\\relation.gql [27470B] main\\query.gql [10039B] \nI0603 13:30:32.560554   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-03T20:27:16.581Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-03T20:27:16.583Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-03T20:28:35.633Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-03T20:37:32.942Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-03T20:37:32.943Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-03T20:38:16.691Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-04T00:55:12.542Z] I0603 20:55:12.537043   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 20:55:12.537043   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-04T00:55:12.554Z] I0603 20:55:12.554366   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 119d] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1307B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 20:55:12.554366   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 119d] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1307B] \n"}}
+[debug] [2026-06-04T00:55:12.565Z] I0603 20:55:12.565871   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\implicit.gql [3968B] main\input.gql [55836B] main\relation.gql [27108B] main\query.gql [10039B] main\mutation.gql [27114B] prelude.gql [84995B] 
+I0603 20:55:12.565871   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 20:55:12.565871   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\implicit.gql [3968B] main\\input.gql [55836B] main\\relation.gql [27108B] main\\query.gql [10039B] main\\mutation.gql [27114B] prelude.gql [84995B] \nI0603 20:55:12.565871   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-04T00:56:02.536Z] I0603 20:56:02.536614   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 20:56:02.536614   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-04T00:56:02.546Z] I0603 20:56:02.546292   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 8dc6] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1308B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 20:56:02.546292   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 8dc6] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1308B] \n"}}
+[debug] [2026-06-04T00:56:02.558Z] I0603 20:56:02.558577   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [84995B] main\mutation.gql [27114B] main\implicit.gql [3971B] main\input.gql [55859B] main\relation.gql [27114B] main\query.gql [10039B] 
+I0603 20:56:02.558577   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 20:56:02.558577   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: prelude.gql [84995B] main\\mutation.gql [27114B] main\\implicit.gql [3971B] main\\input.gql [55859B] main\\relation.gql [27114B] main\\query.gql [10039B] \nI0603 20:56:02.558577   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-04T01:34:12.537Z] I0603 21:34:12.537308   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 21:34:12.537308   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-04T01:34:12.549Z] I0603 21:34:12.549414   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty f7a6] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1430B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 21:34:12.549414   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty f7a6] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1430B] \n"}}
+[debug] [2026-06-04T01:34:12.560Z] I0603 21:34:12.560664   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [84995B] main\query.gql [10039B] main\mutation.gql [27114B] main\implicit.gql [3983B] main\input.gql [56643B] main\relation.gql [27510B] 
+I0603 21:34:12.560664   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 21:34:12.560664   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: prelude.gql [84995B] main\\query.gql [10039B] main\\mutation.gql [27114B] main\\implicit.gql [3983B] main\\input.gql [56643B] main\\relation.gql [27510B] \nI0603 21:34:12.560664   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-04T01:58:12.537Z] I0603 21:58:12.537481   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 21:58:12.537481   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-04T01:58:12.550Z] I0603 21:58:12.550393   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 1677] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1429B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 21:58:12.550393   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 1677] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1429B] \n"}}
+[debug] [2026-06-04T01:58:12.563Z] I0603 21:58:12.563127   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [84995B] main\mutation.gql [27114B] main\implicit.gql [3980B] main\input.gql [56620B] main\relation.gql [27504B] main\query.gql [10039B] 
+I0603 21:58:12.563127   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0603 21:58:12.563127   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: prelude.gql [84995B] main\\mutation.gql [27114B] main\\implicit.gql [3980B] main\\input.gql [56620B] main\\relation.gql [27504B] main\\query.gql [10039B] \nI0603 21:58:12.563127   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-04T01:58:41.363Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-04T01:58:50.576Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T01:58:50.577Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T01:59:29.818Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T01:59:29.841Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T02:00:10.990Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-04T19:45:10.045Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-04T19:47:42.537Z] I0604 15:47:42.537113   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0604 15:47:42.537113   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-04T19:47:42.549Z] I0604 15:47:42.549503   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 14fe] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1242B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0604 15:47:42.549503   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 14fe] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1242B] \n"}}
+[debug] [2026-06-04T19:47:42.563Z] I0604 15:47:42.563930   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [84995B] main\implicit.gql [3490B] main\input.gql [48749B] main\relation.gql [23916B] main\query.gql [8784B] main\mutation.gql [23729B] 
+I0604 15:47:42.563930   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0604 15:47:42.563930   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: prelude.gql [84995B] main\\implicit.gql [3490B] main\\input.gql [48749B] main\\relation.gql [23916B] main\\query.gql [8784B] main\\mutation.gql [23729B] \nI0604 15:47:42.563930   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-04T20:13:42.537Z] I0604 16:13:42.536934   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0604 16:13:42.536934   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-04T20:13:42.546Z] I0604 16:13:42.546961   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty aed5] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1251B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0604 16:13:42.546961   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty aed5] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1251B] \n"}}
+[debug] [2026-06-04T20:13:42.558Z] I0604 16:13:42.558889   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\input.gql [48963B] main\relation.gql [23986B] main\query.gql [8810B] main\mutation.gql [23819B] prelude.gql [84995B] main\implicit.gql [3507B] 
+I0604 16:13:42.558889   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0604 16:13:42.558889   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\input.gql [48963B] main\\relation.gql [23986B] main\\query.gql [8810B] main\\mutation.gql [23819B] prelude.gql [84995B] main\\implicit.gql [3507B] \nI0604 16:13:42.558889   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-04T20:19:02.537Z] I0604 16:19:02.537167   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0604 16:19:02.537167   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-04T20:19:02.545Z] I0604 16:19:02.545656   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 5aac] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1273B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0604 16:19:02.545656   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 5aac] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1273B] \n"}}
+[debug] [2026-06-04T20:19:02.557Z] I0604 16:19:02.557026   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\query.gql [8862B] main\mutation.gql [23999B] prelude.gql [84995B] main\implicit.gql [3541B] main\input.gql [49443B] main\relation.gql [24138B] 
+I0604 16:19:02.557026   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0604 16:19:02.557026   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\query.gql [8862B] main\\mutation.gql [23999B] prelude.gql [84995B] main\\implicit.gql [3541B] main\\input.gql [49443B] main\\relation.gql [24138B] \nI0604 16:19:02.557026   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-04T21:11:51.503Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T21:11:51.505Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T21:11:51.506Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T21:12:26.723Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-04T21:16:14.413Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T21:16:14.415Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T21:16:39.927Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T21:17:22.410Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-04T21:17:53.119Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T21:17:53.121Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T21:37:16.068Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T21:37:48.055Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-04T21:42:42.884Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T21:42:42.886Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T21:42:42.886Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T21:52:39.416Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T21:53:04.828Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-04T23:47:16.509Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T23:47:16.512Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T23:57:12.547Z] I0604 19:57:12.536746   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0604 19:57:12.536746   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-04T23:57:12.548Z] I0604 19:57:12.548607   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 47e5] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1271B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0604 19:57:12.548607   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 47e5] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1271B] \n"}}
+[debug] [2026-06-04T23:57:12.560Z] I0604 19:57:12.560793   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [84995B] main\relation.gql [24132B] main\query.gql [8862B] main\mutation.gql [23999B] main\implicit.gql [3541B] main\input.gql [49417B] 
+I0604 19:57:12.560793   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0604 19:57:12.560793   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: prelude.gql [84995B] main\\relation.gql [24132B] main\\query.gql [8862B] main\\mutation.gql [23999B] main\\implicit.gql [3541B] main\\input.gql [49417B] \nI0604 19:57:12.560793   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-04T23:57:36.034Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-04T23:58:09.760Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-05T00:18:22.560Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T00:18:22.561Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T00:18:58.136Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-05T00:19:42.346Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T00:19:42.348Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T00:24:57.391Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T00:25:20.978Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-05T00:29:16.708Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T00:29:16.709Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T00:30:03.415Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T00:30:29.626Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-05T00:31:23.522Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T00:31:23.523Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T00:32:17.271Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T00:32:44.045Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-05T00:35:53.526Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T00:35:53.527Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T00:36:43.845Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T15:58:21.817Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T15:58:54.115Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-05T15:59:47.771Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T15:59:47.773Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T15:59:47.774Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:00:27.724Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:00:42.659Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:01:12.155Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-05T16:03:39.912Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:03:39.913Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:04:24.652Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:04:56.710Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:05:25.223Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-05T16:05:50.542Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:05:50.544Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:05:50.545Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:08:17.935Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:08:49.051Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-05T16:09:20.285Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:09:20.286Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:09:20.288Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:11:34.894Z] I0605 12:11:34.888545   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 12:11:34.888545   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-05T16:11:34.979Z] I0605 12:11:34.978439   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty c49f] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1269B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 12:11:34.978439   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty c49f] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1269B] \n"}}
+[debug] [2026-06-05T16:11:35.002Z] I0605 12:11:35.001383   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\implicit.gql [3541B] prelude.gql [84995B] main\input.gql [49391B] main\relation.gql [24126B] main\query.gql [8862B] main\mutation.gql [23999B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 12:11:35.001383   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\implicit.gql [3541B] prelude.gql [84995B] main\\input.gql [49391B] main\\relation.gql [24126B] main\\query.gql [8862B] main\\mutation.gql [23999B] \n"}}
+[debug] [2026-06-05T16:11:35.003Z] I0605 12:11:35.002382   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 12:11:35.002382   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-05T16:11:44.389Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:12:13.571Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-05T16:13:02.301Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:13:02.303Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:13:41.685Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:25:06.046Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:25:34.295Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-05T16:30:08.559Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:30:08.560Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T16:31:08.167Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-05T20:14:34.888Z] I0605 16:14:34.888104   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:14:34.888104   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-05T20:14:34.893Z] E0605 16:14:34.892894   46500 load.go:73] Could not load sources: 
+Errors: schema\schema.gql:34:13: Undefined type DateTime.
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0605 16:14:34.892894   46500 load.go:73] Could not load sources: \nErrors: schema\\schema.gql:34:13: Undefined type DateTime.\n"}}
+[debug] [2026-06-05T20:14:34.895Z] I0605 16:14:34.895616   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\implicit.gql [3541B] main\input.gql [49391B] main\relation.gql [24126B] main\query.gql [8862B] main\mutation.gql [23999B] prelude.gql [84995B] 
+I0605 16:14:34.895616   46500 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:14:34.895616   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\implicit.gql [3541B] main\\input.gql [49391B] main\\relation.gql [24126B] main\\query.gql [8862B] main\\mutation.gql [23999B] prelude.gql [84995B] \nI0605 16:14:34.895616   46500 load.go:74] Finished reloading\n"}}
+[debug] [2026-06-05T20:33:04.888Z] I0605 16:33:04.888125   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:33:04.888125   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-05T20:33:04.891Z] E0605 16:33:04.891330   46500 load.go:73] Could not load sources: 
+Errors: schema\schema.gql:40:9: Undefined type DateTime.
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0605 16:33:04.891330   46500 load.go:73] Could not load sources: \nErrors: schema\\schema.gql:40:9: Undefined type DateTime.\n"}}
+[debug] [2026-06-05T20:33:04.892Z] I0605 16:33:04.892386   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\input.gql [49391B] main\relation.gql [24126B] main\query.gql [8862B] main\mutation.gql [23999B] prelude.gql [84995B] main\implicit.gql [3541B] 
+I0605 16:33:04.892386   46500 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:33:04.892386   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\input.gql [49391B] main\\relation.gql [24126B] main\\query.gql [8862B] main\\mutation.gql [23999B] prelude.gql [84995B] main\\implicit.gql [3541B] \nI0605 16:33:04.892386   46500 load.go:74] Finished reloading\n"}}
+[debug] [2026-06-05T20:34:34.887Z] I0605 16:34:34.887412   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:34:34.887412   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-05T20:34:34.891Z] E0605 16:34:34.891751   46500 load.go:73] Could not load sources: 
+Errors: schema\schema.gql:34:13: Undefined type Time.
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0605 16:34:34.891751   46500 load.go:73] Could not load sources: \nErrors: schema\\schema.gql:34:13: Undefined type Time.\n"}}
+[debug] [2026-06-05T20:34:34.893Z] I0605 16:34:34.893329   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\relation.gql [24126B] prelude.gql [84995B] main\query.gql [8862B] main\mutation.gql [23999B] main\implicit.gql [3541B] main\input.gql [49391B] 
+I0605 16:34:34.893329   46500 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:34:34.893329   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\relation.gql [24126B] prelude.gql [84995B] main\\query.gql [8862B] main\\mutation.gql [23999B] main\\implicit.gql [3541B] main\\input.gql [49391B] \nI0605 16:34:34.893329   46500 load.go:74] Finished reloading\n"}}
+[debug] [2026-06-05T20:34:44.887Z] I0605 16:34:44.887622   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:34:44.887622   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-05T20:34:44.895Z] E0605 16:34:44.896175   46500 load.go:73] Could not load sources: 
+Errors: schema\schema.gql:33:3: On Meetup.decision_method: field name must not contain '_', we recommend camelCase
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0605 16:34:44.896175   46500 load.go:73] Could not load sources: \nErrors: schema\\schema.gql:33:3: On Meetup.decision_method: field name must not contain '_', we recommend camelCase\n"}}
+[debug] [2026-06-05T20:34:44.897Z] I0605 16:34:44.897261   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\relation.gql [24126B] main\query.gql [8862B] main\mutation.gql [23999B] main\implicit.gql [3541B] prelude.gql [84995B] main\input.gql [49391B] 
+I0605 16:34:44.897261   46500 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:34:44.897261   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\relation.gql [24126B] main\\query.gql [8862B] main\\mutation.gql [23999B] main\\implicit.gql [3541B] prelude.gql [84995B] main\\input.gql [49391B] \nI0605 16:34:44.897261   46500 load.go:74] Finished reloading\n"}}
+[debug] [2026-06-05T20:35:14.887Z] I0605 16:35:14.888164   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:35:14.888164   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-05T20:35:14.900Z] I0605 16:35:14.900983   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 5b70] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1415B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:35:14.900983   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 5b70] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1415B] \n"}}
+[debug] [2026-06-05T20:35:14.913Z] I0605 16:35:14.913944   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\input.gql [51834B] main\relation.gql [25220B] prelude.gql [84995B] main\query.gql [8862B] main\mutation.gql [23999B] main\implicit.gql [3541B] 
+I0605 16:35:14.913944   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:35:14.913944   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\input.gql [51834B] main\\relation.gql [25220B] prelude.gql [84995B] main\\query.gql [8862B] main\\mutation.gql [23999B] main\\implicit.gql [3541B] \nI0605 16:35:14.913944   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-05T20:36:04.887Z] I0605 16:36:04.887885   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:36:04.887885   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-05T20:36:04.896Z] I0605 16:36:04.896247   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 8472] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1468B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:36:04.896247   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 8472] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1468B] \n"}}
+[debug] [2026-06-05T20:36:04.910Z] I0605 16:36:04.911237   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\query.gql [8862B] main\mutation.gql [23999B] main\implicit.gql [3541B] main\input.gql [52503B] prelude.gql [84995B] main\relation.gql [25586B] 
+I0605 16:36:04.911237   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:36:04.911237   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\query.gql [8862B] main\\mutation.gql [23999B] main\\implicit.gql [3541B] main\\input.gql [52503B] prelude.gql [84995B] main\\relation.gql [25586B] \nI0605 16:36:04.911237   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-05T20:43:44.888Z] I0605 16:43:44.888382   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:43:44.888382   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-05T20:43:44.890Z] E0605 16:43:44.890471   46500 load.go:73] Could not load sources: 
+Errors: schema\schema.gql:34:17: Undefined type Integer.
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0605 16:43:44.890471   46500 load.go:73] Could not load sources: \nErrors: schema\\schema.gql:34:17: Undefined type Integer.\n"}}
+[debug] [2026-06-05T20:43:44.891Z] I0605 16:43:44.892055   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\implicit.gql [3541B] main\input.gql [52503B] main\relation.gql [25586B] main\query.gql [8862B] prelude.gql [84995B] main\mutation.gql [23999B] 
+I0605 16:43:44.892055   46500 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:43:44.892055   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\implicit.gql [3541B] main\\input.gql [52503B] main\\relation.gql [25586B] main\\query.gql [8862B] prelude.gql [84995B] main\\mutation.gql [23999B] \nI0605 16:43:44.892055   46500 load.go:74] Finished reloading\n"}}
+[debug] [2026-06-05T20:45:44.888Z] I0605 16:45:44.887964   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:45:44.887964   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-05T20:45:44.898Z] I0605 16:45:44.898974   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty e148] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1496B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:45:44.898974   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty e148] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1496B] \n"}}
+[debug] [2026-06-05T20:45:44.911Z] I0605 16:45:44.911584   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\implicit.gql [3541B] main\input.gql [54376B] main\relation.gql [26827B] main\query.gql [8862B] main\mutation.gql [23999B] prelude.gql [84995B] 
+I0605 16:45:44.911584   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:45:44.911584   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\implicit.gql [3541B] main\\input.gql [54376B] main\\relation.gql [26827B] main\\query.gql [8862B] main\\mutation.gql [23999B] prelude.gql [84995B] \nI0605 16:45:44.911584   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-05T20:46:04.887Z] I0605 16:46:04.888080   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:46:04.888080   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-05T20:46:04.901Z] I0605 16:46:04.901438   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 6ff0] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1526B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:46:04.901438   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 6ff0] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1526B] \n"}}
+[debug] [2026-06-05T20:46:04.914Z] I0605 16:46:04.915203   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\mutation.gql [23999B] main\implicit.gql [3541B] prelude.gql [84995B] main\input.gql [56318B] main\relation.gql [28104B] main\query.gql [8862B] 
+I0605 16:46:04.915203   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 16:46:04.915203   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\mutation.gql [23999B] main\\implicit.gql [3541B] prelude.gql [84995B] main\\input.gql [56318B] main\\relation.gql [28104B] main\\query.gql [8862B] \nI0605 16:46:04.915203   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-05T21:57:44.888Z] I0605 17:57:44.887703   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 17:57:44.887703   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-05T21:57:44.901Z] I0605 17:57:44.901023   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 809d] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1593B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 17:57:44.901023   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 809d] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1593B] \n"}}
+[debug] [2026-06-05T21:57:44.914Z] I0605 17:57:44.914779   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\input.gql [56998B] main\relation.gql [28472B] main\query.gql [8862B] prelude.gql [84995B] main\mutation.gql [23999B] main\implicit.gql [3541B] 
+I0605 17:57:44.914779   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0605 17:57:44.914779   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\input.gql [56998B] main\\relation.gql [28472B] main\\query.gql [8862B] prelude.gql [84995B] main\\mutation.gql [23999B] main\\implicit.gql [3541B] \nI0605 17:57:44.914779   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-05T21:58:12.953Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T21:58:12.955Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T22:59:57.330Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-05T23:00:40.214Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-05T23:00:40.216Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-08T16:03:55.014Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-08T16:04:40.441Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-08T16:15:41.496Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-08T16:15:41.497Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-08T16:25:07.652Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-08T16:25:42.161Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-08T17:37:52.440Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-08T17:37:52.441Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-08T17:38:10.737Z] I0608 13:38:10.734535   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0608 13:38:10.734535   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-08T17:38:10.784Z] I0608 13:38:10.782898   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty f3b6] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1622B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0608 13:38:10.782898   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty f3b6] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1622B] \n"}}
+[debug] [2026-06-08T17:38:10.805Z] I0608 13:38:10.803969   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [84995B] main\implicit.gql [3541B] main\input.gql [57745B] main\relation.gql [28856B] main\query.gql [8862B] main\mutation.gql [23999B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0608 13:38:10.803969   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: prelude.gql [84995B] main\\implicit.gql [3541B] main\\input.gql [57745B] main\\relation.gql [28856B] main\\query.gql [8862B] main\\mutation.gql [23999B] \n"}}
+[debug] [2026-06-08T17:38:10.805Z] I0608 13:38:10.804969   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0608 13:38:10.804969   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-08T17:38:25.117Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-08T20:06:40.735Z] I0608 16:06:40.733727   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0608 16:06:40.733727   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-08T20:06:40.750Z] I0608 16:06:40.750333   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 7ab5] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1593B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0608 16:06:40.750333   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 7ab5] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1593B] \n"}}
+[debug] [2026-06-08T20:06:40.765Z] I0608 16:06:40.765238   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [84995B] main\query.gql [8862B] main\mutation.gql [23999B] main\implicit.gql [3541B] main\input.gql [57022B] main\relation.gql [28480B] 
+I0608 16:06:40.765238   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0608 16:06:40.765238   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: prelude.gql [84995B] main\\query.gql [8862B] main\\mutation.gql [23999B] main\\implicit.gql [3541B] main\\input.gql [57022B] main\\relation.gql [28480B] \nI0608 16:06:40.765238   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-08T20:10:23.848Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-08T20:10:23.850Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-08T20:11:08.186Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-08T21:37:30.734Z] I0608 17:37:30.733993   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0608 17:37:30.733993   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-08T21:37:30.751Z] I0608 17:37:30.751042   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty cbf1] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1667B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0608 17:37:30.751042   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty cbf1] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1667B] \n"}}
+[debug] [2026-06-08T21:37:30.768Z] I0608 17:37:30.768329   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [84995B] main\mutation.gql [23999B] main\implicit.gql [3541B] main\input.gql [57702B] main\relation.gql [28848B] main\query.gql [8862B] 
+I0608 17:37:30.768329   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0608 17:37:30.768329   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: prelude.gql [84995B] main\\mutation.gql [23999B] main\\implicit.gql [3541B] main\\input.gql [57702B] main\\relation.gql [28848B] main\\query.gql [8862B] \nI0608 17:37:30.768329   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-09T01:56:09.168Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-09T01:56:09.169Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-09T01:56:50.400Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-09T01:56:50.401Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-09T02:00:44.100Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-09T02:00:44.101Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-09T02:03:55.327Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-09T02:03:55.328Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-09T02:05:00.924Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-09T19:17:12.996Z] I0609 15:17:12.988963   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0609 15:17:12.988963   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-09T19:17:13.074Z] I0609 15:17:13.070331   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 48be] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1844B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0609 15:17:13.070331   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 48be] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1844B] \n"}}
+[debug] [2026-06-09T19:17:13.094Z] I0609 15:17:13.093861   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\mutation.gql [27654B] main\implicit.gql [4317B] main\input.gql [65047B] main\relation.gql [32642B] main\query.gql [10195B] prelude.gql [84995B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0609 15:17:13.093861   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\mutation.gql [27654B] main\\implicit.gql [4317B] main\\input.gql [65047B] main\\relation.gql [32642B] main\\query.gql [10195B] prelude.gql [84995B] \n"}}
+[debug] [2026-06-09T19:17:13.095Z] I0609 15:17:13.094864   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0609 15:17:13.094864   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-09T19:18:01.625Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-09T19:18:01.626Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-09T19:19:42.995Z] I0609 15:19:42.995829   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0609 15:19:42.995829   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-09T19:19:43.008Z] I0609 15:19:43.008049   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 37fa] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1872B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0609 15:19:43.008049   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 37fa] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1872B] \n"}}
+[debug] [2026-06-09T19:19:43.022Z] I0609 15:19:43.022245   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [84995B] main\input.gql [65039B] main\relation.gql [34105B] main\query.gql [10132B] main\mutation.gql [27528B] main\implicit.gql [4074B] 
+I0609 15:19:43.022245   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0609 15:19:43.022245   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: prelude.gql [84995B] main\\input.gql [65039B] main\\relation.gql [34105B] main\\query.gql [10132B] main\\mutation.gql [27528B] main\\implicit.gql [4074B] \nI0609 15:19:43.022245   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-09T19:21:24.036Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-10T18:36:41.830Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-10T18:36:41.833Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-10T18:46:52.139Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-10T18:54:51.834Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-10T20:58:59.524Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-10T20:58:59.527Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-10T20:59:03.046Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-10T20:59:36.054Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-11T19:12:27.056Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-11T19:12:27.058Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-11T19:13:18.752Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-11T19:40:32.586Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-11T19:40:32.587Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-11T19:41:49.662Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-11T20:55:32.625Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-11T20:55:32.627Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-11T20:55:32.628Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-11T20:56:13.585Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-11T21:44:16.447Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-11T21:44:16.449Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-11T21:44:54.974Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-12T19:01:53.848Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T19:01:53.850Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T19:02:36.048Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-12T19:05:17.560Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T19:05:17.563Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T19:05:17.564Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T19:05:32.253Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T19:06:27.843Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-12T19:10:07.192Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T19:10:07.193Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T19:10:41.151Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-12T19:12:56.770Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T19:12:56.771Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T19:13:03.838Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T19:13:31.533Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-12T19:29:15.947Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T19:29:15.948Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T19:29:15.949Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T19:29:47.352Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-12T21:30:29.049Z] I0612 17:30:29.043244   46500 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0612 17:30:29.043244   46500 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-12T21:30:29.161Z] I0612 17:30:29.161145   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 79b8] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1883B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0612 17:30:29.161145   46500 control.go:100] [projects/emulator/locations/emulator/services/partyparty 79b8] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1883B] \n"}}
+[debug] [2026-06-12T21:30:29.184Z] I0612 17:30:29.184192   46500 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\relation.gql [32642B] main\query.gql [10195B] prelude.gql [84995B] main\mutation.gql [27654B] main\implicit.gql [4317B] main\input.gql [65047B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0612 17:30:29.184192   46500 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\relation.gql [32642B] main\\query.gql [10195B] prelude.gql [84995B] main\\mutation.gql [27654B] main\\implicit.gql [4317B] main\\input.gql [65047B] \n"}}
+[debug] [2026-06-12T21:30:29.185Z] I0612 17:30:29.185204   46500 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0612 17:30:29.185204   46500 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-12T21:31:02.791Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T21:31:02.792Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T21:31:50.326Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-12T21:42:48.552Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T21:42:48.554Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-12T21:46:29.667Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-15T21:01:47.418Z] [Firebase Plugin] Activating Firebase extension.
+[debug] [2026-06-15T21:01:50.535Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2026-06-15T21:01:50.537Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-06-15T21:01:50.538Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2026-06-15T21:01:50.541Z] Checked if tokens are valid: false, expires at: 1781303482178
+[debug] [2026-06-15T21:01:50.542Z] Checked if tokens are valid: false, expires at: 1781303482178
+[debug] [2026-06-15T21:01:50.542Z] > refreshing access token with scopes: []
+[debug] [2026-06-15T21:01:50.544Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-15T21:01:50.544Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-15T21:01:50.557Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[info] [Firebase Plugin] Starting SQL Connect toolkit (version 3.4.10) on port 50001
+[info] i  dataconnect: downloading dataconnect-emulator-3.4.10.exe... {"metadata":{"emulator":{"name":"dataconnect"},"message":"downloading dataconnect-emulator-3.4.10.exe..."}}
+[debug] [2026-06-15T21:01:50.957Z] >>> [apiv2][query] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-windows-amd64-v3.4.10 
+[debug] [2026-06-15T21:01:51.059Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-15T21:01:51.059Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-15T21:01:51.081Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2026-06-15T21:01:51.083Z] Checked if tokens are valid: true, expires at: 1781560910059
+[debug] [2026-06-15T21:01:51.084Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2026-06-15T21:01:51.288Z] <<< [apiv2][status] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-windows-amd64-v3.4.10 200
+[debug] [2026-06-15T21:01:51.289Z] <<< [apiv2][body] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-windows-amd64-v3.4.10 [stream]
+[debug] [2026-06-15T21:01:51.934Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-06-15T21:01:51.935Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  dataconnect: Removing outdated emulator files: dataconnect-emulator-3.4.6.exe {"metadata":{"emulator":{"name":"dataconnect"},"message":"Removing outdated emulator files: dataconnect-emulator-3.4.6.exe"}}
+[info] i  dataconnect: Removing outdated emulator files: dataconnect-emulator-3.4.9.exe {"metadata":{"emulator":{"name":"dataconnect"},"message":"Removing outdated emulator files: dataconnect-emulator-3.4.9.exe"}}
+[debug] [2026-06-15T21:02:03.090Z] I0615 17:02:03.065346   40572 control.go:100] [projects/emulator/locations/emulator/services/partyparty b79a] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1883B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0615 17:02:03.065346   40572 control.go:100] [projects/emulator/locations/emulator/services/partyparty b79a] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1883B] \n"}}
+[debug] [2026-06-15T21:02:03.092Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2026-06-15T21:02:03.092Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2026-06-15T21:02:03.093Z] Starting SQL Connect Emulator with command {"binary":"C:\\Users\\raymo\\.cache\\firebase\\emulators\\dataconnect-emulator-3.4.10.exe","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=d:\\projects\\partyparty\\dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting SQL Connect Emulator with command {\"binary\":\"C:\\\\Users\\\\raymo\\\\.cache\\\\firebase\\\\emulators\\\\dataconnect-emulator-3.4.10.exe\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=d:\\\\projects\\\\partyparty\\\\dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: SQL Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"SQL Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2026-06-15T21:02:03.161Z] I0615 17:02:03.160004   27508 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0615 17:02:03.160004   27508 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-15T21:02:03.192Z] I0615 17:02:03.188919   27508 control.go:100] [projects/emulator/locations/emulator/services/partyparty 7412] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1883B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0615 17:02:03.188919   27508 control.go:100] [projects/emulator/locations/emulator/services/partyparty 7412] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [1883B] \n"}}
+[debug] [2026-06-15T21:02:03.331Z] I0615 17:02:03.330407   27508 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\implicit.gql [4317B] main\input.gql [65047B] main\relation.gql [32642B] main\query.gql [10195B] main\mutation.gql [27654B] prelude.gql [84995B] 
+I0615 17:02:03.331528   27508 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0615 17:02:03.330407   27508 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\implicit.gql [4317B] main\\input.gql [65047B] main\\relation.gql [32642B] main\\query.gql [10195B] main\\mutation.gql [27654B] prelude.gql [84995B] \nI0615 17:02:03.331528   27508 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-15T21:02:03.355Z] I0615 17:02:03.353767   27508 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0615 17:02:03.353767   27508 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2026-06-15T21:02:03.588Z] I0615 17:02:03.587945   27508 engine.go:209] [projects/emulator/locations/emulator/services/partyparty 7412] ExecuteGraphqlRead query IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0615 17:02:03.587945   27508 engine.go:209] [projects/emulator/locations/emulator/services/partyparty 7412] ExecuteGraphqlRead query IntrospectionQuery: succeeded. \n"}}
+[debug] [2026-06-15T21:03:30.362Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-17T18:43:57.809Z] I0617 14:43:57.808620   27508 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0617 14:43:57.808620   27508 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-17T18:43:57.827Z] I0617 14:43:57.827980   27508 control.go:100] [projects/emulator/locations/emulator/services/partyparty 380f] UpdateResources(): done
+Main schema: sources: schema\schema.gql [2140B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0617 14:43:57.827980   27508 control.go:100] [projects/emulator/locations/emulator/services/partyparty 380f] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [2140B] \n"}}
+[debug] [2026-06-17T18:43:57.873Z] I0617 14:43:57.873240   27508 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\mutation.gql [34424B] prelude.gql [84995B] main\implicit.gql [5319B] main\input.gql [76136B] main\relation.gql [37499B] main\query.gql [12705B] 
+I0617 14:43:57.873746   27508 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0617 14:43:57.873240   27508 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\mutation.gql [34424B] prelude.gql [84995B] main\\implicit.gql [5319B] main\\input.gql [76136B] main\\relation.gql [37499B] main\\query.gql [12705B] \nI0617 14:43:57.873746   27508 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-17T21:17:09.497Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-17T21:17:09.502Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-17T21:17:09.503Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-17T21:17:21.297Z] [Firebase Plugin] Received CLI notification.
+[debug] [2026-06-17T21:17:21.300Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-17T21:17:58.543Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-17T21:47:33.876Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-17T21:47:33.878Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-17T21:48:07.808Z] I0617 17:48:07.808316   27508 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0617 17:48:07.808316   27508 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-06-17T21:48:07.826Z] I0617 17:48:07.826164   27508 control.go:100] [projects/emulator/locations/emulator/services/partyparty ab59] UpdateResources(): done
+Main schema: sources: schema\schema.gql [2165B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0617 17:48:07.826164   27508 control.go:100] [projects/emulator/locations/emulator/services/partyparty ab59] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [2165B] \n"}}
+[debug] [2026-06-17T21:48:07.864Z] I0617 17:48:07.863867   27508 collector.go:107] schema extensions wrote into "d:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\relation.gql [37864B] main\query.gql [12705B] main\mutation.gql [34424B] main\implicit.gql [5319B] prelude.gql [84995B] main\input.gql [76803B] 
+I0617 17:48:07.863867   27508 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0617 17:48:07.863867   27508 collector.go:107] schema extensions wrote into \"d:\\\\projects\\\\partyparty\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\relation.gql [37864B] main\\query.gql [12705B] main\\mutation.gql [34424B] main\\implicit.gql [5319B] prelude.gql [84995B] main\\input.gql [76803B] \nI0617 17:48:07.863867   27508 load.go:109] Finished reloading\n"}}
+[debug] [2026-06-17T21:48:19.833Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-17T21:48:48.571Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-17T21:50:38.703Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-17T21:50:38.704Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-17T21:50:42.022Z] [Firebase Plugin] Received CLI notification.
+[debug] [2026-06-17T21:50:42.025Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-17T21:51:32.437Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-17T22:01:40.738Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-17T22:01:40.740Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-17T22:02:12.288Z] [Firebase Plugin] Received emulators started notification. Running detection.
