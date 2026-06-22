@@ -552,6 +552,40 @@ extend type Member {
     having: MemberContact_Having
   ): [MemberContact!]! @fdc_generated(from: "MemberContact.subject", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
   """
+  ✨ List `Notification` objects in a one-to-many relationship (where `Notification`.`member` is this object).
+  """
+  notifications_on_member(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Notification_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Notification_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Notification_Having
+  ): [Notification!]! @fdc_generated(from: "Notification.member", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
   ✨ List `Proposal` objects in a one-to-many relationship (where `Proposal`.`host` is this object).
   """
   proposals_on_host(
@@ -769,6 +803,92 @@ extend type MemberContact {
   A generated field that is used for caching results in SDKs.
   """
   _id: ID! @fdc_generated(from: "MemberContact.id", purpose: ENTITY_ID)
+}
+extend type Notification {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Notification", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Notification` table.
+  """
+  _count: Int! @fdc_generated(from: "Notification.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `actionMode` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  actionMode_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.actionMode", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `body` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  body_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.body", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `htmlBody` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  htmlBody_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.htmlBody", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `memberId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  memberId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.memberId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `resourceId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  resourceId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.resourceId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `resourceType` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  resourceType_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.resourceType", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `title` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  title_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.title", purpose: QUERY_COUNT)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Notification.id", purpose: ENTITY_ID)
 }
 extend type Proposal {
   """

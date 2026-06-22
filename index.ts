@@ -7,6 +7,7 @@ import * as path from 'path';
 import { setupEndpoints, setupPublicEndpoints } from './lib/service';
 const validateFirebaseIdToken = require('./authMiddleware');
 import { processMeetupDecisions } from './lib/decisionEngine';
+import { logger } from './lib/logger';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -30,6 +31,11 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL || 'postgresql://postgres:@127.0.0.1:5432/postgres',
 });
 
+// Catch idle client errors to prevent the Node process from crashing when the DB disconnects
+pool.on('error', (err, client) => {
+  logger.fatal({ err, client_config: (client as any).connectionParameters }, 'Unexpected error on idle database client');
+});
+
 setupPublicEndpoints(app, pool);
 
 app.get('/', (req: express.Request, res: express.Response) => {
@@ -39,10 +45,10 @@ app.get('/', (req: express.Request, res: express.Response) => {
 app.get('/now', async (req: express.Request, res: express.Response) => {
   try {
     const result = await pool.query('SELECT NOW()');
-    console.log('Query Result:', result.rows);
+    logger.info({ rows: result.rows }, 'Query Result');
     res.send(result.rows[0]);
   } catch (err) {
-    console.error(err);
+    logger.error({ err }, 'Error connecting to database');
     res.status(500).send('Error connecting to database');
   }
 });
@@ -66,14 +72,14 @@ async function startServer() {
     try {
       // Attempt to connect/query to verify DB is up
       const result = await pool.query('SELECT NOW()');
-      console.log('Query Result:', result.rows);
-      console.log('Connected to database');
+      logger.info({ rows: result.rows }, 'Query Result');
+      logger.info('Connected to database');
       break;
     } catch (err: any) {
-      console.error(`Database connection failed (retries left: ${retries}):`, err.message);
+      logger.error({ err, retries_left: retries }, 'Database connection failed');
       retries--;
       if (retries === 0) {
-        console.error('Could not connect to database. Exiting.');
+        logger.fatal('Could not connect to database. Exiting.');
         process.exit(1);
       }
       await new Promise((res) => setTimeout(res, 2000));
@@ -84,10 +90,10 @@ async function startServer() {
     await setupEndpoints(app, pool);
 
     app.listen(port, () => {
-      console.log(`Example app listening on port ${port}`);
+      logger.info(`Example app listening on port ${port}`);
     });
   } catch (err) {
-    console.error('Failed to start server:', err);
+    logger.fatal({ err }, 'Failed to start server');
     process.exit(1);
   }
 }

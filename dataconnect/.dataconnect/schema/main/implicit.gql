@@ -66,6 +66,16 @@ extend type MemberContact {
   """
   subjectId: UUID! @fdc_generated(from: "MemberContact.subject", purpose: IMPLICIT_REF_FIELD)
 }
+extend type Notification {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Notification", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Notification`.`member`. It must match the value of `Member`.`id`. See `@ref` for how to customize it.
+  """
+  memberId: UUID! @fdc_generated(from: "Notification.member", purpose: IMPLICIT_REF_FIELD)
+}
 extend type Proposal {
   """
   ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.

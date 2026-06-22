@@ -3001,3 +3001,13 @@ I0617 17:48:07.863867   27508 load.go:109] Finished reloading
 [debug] [2026-06-17T22:01:40.738Z] [Firebase Plugin] Received emulators shutdown notification.
 [debug] [2026-06-17T22:01:40.740Z] [Firebase Plugin] Received emulators shutdown notification.
 [debug] [2026-06-17T22:02:12.288Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[debug] [2026-06-18T19:02:42.981Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-18T19:02:42.983Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-18T19:02:42.984Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-18T19:02:42.985Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-18T19:02:42.986Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-18T19:02:42.987Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-18T20:54:41.444Z] [Firebase Plugin] Received emulators shutdown notification.
+[debug] [2026-06-18T21:03:43.684Z] [Firebase Plugin] Received emulators started notification. Running detection.
+[info] [Firebase Plugin] Stopping SQL Connect toolkit
+[warn] !  SQL Connect Emulator has exited upon receiving signal: SIGINT 

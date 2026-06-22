@@ -1,17 +1,17 @@
 import { Pool } from 'pg';
+import { getRecords, createRecord, updateRecord } from './data';
+import { logger } from './logger';
 
 /**
  * Dummy function to select a proposal based on the meetup's decision method.
  */
 async function executeDecisionMethod(meetup: any, pool: Pool): Promise<string | null> {
-  console.log(`[Decision Engine] Executing dummy decision method '${meetup.decision_method}' for meetup ${meetup.id}`);
+  logger.info({ meetupId: meetup.id, method: meetup.decision_method }, '[Decision Engine] Executing dummy decision method');
   
-  const query = `SELECT * FROM "proposal" WHERE "meetup_id" = $1 AND "status" = 'pending'`;
-  const proposalsRes = await pool.query(query, [meetup.id]);
-  const proposals = proposalsRes.rows;
+  const proposals = await getRecords(pool, 'proposal', { meetup_id: meetup.id, status: 'pending' });
 
   if (proposals.length === 0) {
-    console.log(`[Decision Engine] No pending proposals found for meetup ${meetup.id}`);
+    logger.info({ meetupId: meetup.id }, '[Decision Engine] No pending proposals found for meetup');
     return null;
   }
 
@@ -25,28 +25,21 @@ async function executeDecisionMethod(meetup: any, pool: Pool): Promise<string | 
  */
 async function rescheduleMeetup(meetup: any, pool: Pool) {
   try {
-    console.log(`[Decision Engine] Rescheduling meetup ${meetup.id} (recurs every ${meetup.recurs_every_days} days).`);
-    const query = `
-      INSERT INTO "meetup" (
-        "creator_id", "tribe_id", "title", "details", 
-        "status", "created_at", "decision_method", 
-        "days_to_decide", "recurs_every_days"
-      ) VALUES ($1, $2, $3, $4, 'pending', NOW(), $5, $6, $7)
-      RETURNING id
-    `;
-    const values = [
-      meetup.creator_id,
-      meetup.tribe_id,
-      meetup.title,
-      meetup.details,
-      meetup.decision_method,
-      meetup.days_to_decide,
-      meetup.recurs_every_days
-    ];
-    const res = await pool.query(query, values);
-    console.log(`[Decision Engine] Successfully rescheduled meetup. New Meetup ID: ${res.rows[0].id}`);
+    logger.info({ meetupId: meetup.id, recursEveryDays: meetup.recurs_every_days }, '[Decision Engine] Rescheduling meetup');
+    const newMeetup = await createRecord(pool, 'meetup', {
+      creator_id: meetup.creator_id,
+      tribe_id: meetup.tribe_id,
+      title: meetup.title,
+      details: meetup.details,
+      status: 'pending',
+      created_at: new Date(),
+      decision_method: meetup.decision_method,
+      days_to_decide: meetup.days_to_decide,
+      recurs_every_days: meetup.recurs_every_days
+    });
+    logger.info({ newMeetupId: newMeetup.id }, '[Decision Engine] Successfully rescheduled meetup');
   } catch (error) {
-    console.error(`[Decision Engine] Failed to reschedule meetup ${meetup.id}:`, error);
+    logger.error({ error, meetupId: meetup.id }, '[Decision Engine] Failed to reschedule meetup');
   }
 }
 
@@ -63,7 +56,7 @@ async function makeMeetupDecisions(pool: Pool) {
   const { rows: meetups } = await pool.query(query);
 
   for (const meetup of meetups) {
-    console.log(`[Decision Engine] Deadline reached for meetup ${meetup.id}. Selecting proposal...`);
+    logger.info({ meetupId: meetup.id }, '[Decision Engine] Deadline reached for meetup. Selecting proposal...');
     const selectedProposalId = await executeDecisionMethod(meetup, pool);
     
     if (selectedProposalId) {
@@ -74,7 +67,7 @@ async function makeMeetupDecisions(pool: Pool) {
         await client.query(`UPDATE "proposal" SET "status" = 'rejected' WHERE "meetup_id" = $1 AND "id" != $2`, [meetup.id, selectedProposalId]);
         await client.query(`UPDATE "meetup" SET "status" = 'decided' WHERE "id" = $1`, [meetup.id]);
         await client.query('COMMIT');
-        console.log(`[Decision Engine] Meetup ${meetup.id} marked as decided.`);
+        logger.info({ meetupId: meetup.id }, '[Decision Engine] Meetup marked as decided');
       } catch (e) {
         await client.query('ROLLBACK');
         throw e;
@@ -82,8 +75,8 @@ async function makeMeetupDecisions(pool: Pool) {
         client.release();
       }
     } else {
-      await pool.query(`UPDATE "meetup" SET "status" = 'cancelled' WHERE "id" = $1`, [meetup.id]);
-      console.log(`[Decision Engine] Meetup ${meetup.id} marked as cancelled (no proposals).`);
+      await updateRecord(pool, 'meetup', meetup.id, { status: 'cancelled' });
+      logger.info({ meetupId: meetup.id }, '[Decision Engine] Meetup marked as cancelled (no proposals)');
     }
   }
 }
@@ -103,7 +96,7 @@ async function completeExpiredMeetups(pool: Pool) {
   const { rows: meetups } = await pool.query(query);
 
   for (const meetup of meetups) {
-    console.log(`[Decision Engine] Accepted proposal expired for meetup ${meetup.id}. Marking as completed...`);
+    logger.info({ meetupId: meetup.id }, '[Decision Engine] Accepted proposal expired for meetup. Marking as completed...');
     const client = await pool.connect();
     try {
       await client.query('BEGIN');
@@ -137,7 +130,7 @@ async function activateRecurringMeetups(pool: Pool) {
   const { rows: meetups } = await pool.query(query);
 
   for (const meetup of meetups) {
-    console.log(`[Decision Engine] Recurrence period reached for meetup ${meetup.id}. Transitioning to active...`);
+    logger.info({ meetupId: meetup.id }, '[Decision Engine] Recurrence period reached for meetup. Transitioning to active...');
     await pool.query(`UPDATE "meetup" SET "status" = 'active', "created_at" = NOW() WHERE "id" = $1`, [meetup.id]);
   }
 }
@@ -151,6 +144,6 @@ export async function processMeetupDecisions(pool: Pool) {
     await completeExpiredMeetups(pool);
     await activateRecurringMeetups(pool);
   } catch (error) {
-    console.error('[Decision Engine] Error processing meetup engine tasks:', error);
+    logger.error({ error }, '[Decision Engine] Error processing meetup engine tasks');
   }
 }

@@ -76,3 +76,14 @@ type ChatMember @table @unique(fields: ["chat", "member"]) {
   chat: Chat! @index
   member: Member! @index
 }
+
+type Notification @table {
+  # id: UUID! @default(expr: "uuidV4()")
+  member: Member! @index
+  title: String!
+  body: String!
+  htmlBody: String
+  resourceType: String
+  resourceId: String
+  actionMode: String
+}
