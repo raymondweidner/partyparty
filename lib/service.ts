@@ -19,15 +19,15 @@ export const setupPublicEndpoints = (app: Express, pool: Pool) => {
         return res.status(400).send('Valid email query parameter is required');
       }
 
-      const query = `SELECT "name" FROM "member" WHERE "email" = $1 AND "status" = 'invited'`;
+      const query = `SELECT * FROM "member" WHERE "email" = $1 AND "status" = 'invited'`;
       logger.info({ query, email }, 'Executing SELECT for member invite');
 
       const result = await pool.query(query, [email]);
       logger.info({ rows: result.rows }, 'Query Result');
 
       if (result.rows.length === 0) return res.status(404).send('Invited member not found');
-      
-      res.send({ name: result.rows[0].name, email: email });
+
+      res.send({ name: result.rows[0].name, email: email, phone: result.rows[0].phone });
     } catch (err: any) {
       handleSqlErrorForRest(err, res);
     }
@@ -60,7 +60,7 @@ export const setupEndpoints = async (app: Express, pool: Pool) => {
     // GET: List all records
     if (GET_ENTITIES.includes(tableName.toLowerCase())) {
       logger.info({ table: tableName, method: 'GET' }, 'Generating endpoint');
-      
+
       app.get(route, async (req: Request, res: Response) => {
         try {
           const queryParams = req.query;
@@ -103,7 +103,7 @@ export const setupEndpoints = async (app: Express, pool: Pool) => {
           let newRecord;
           if (tableName.toLowerCase() === 'notification') {
             logger.info({ table: tableName, values: req.body }, 'Executing createAndSendNotification');
-            
+
             const memberId = req.body.member_id || req.body.user_id;
             if (!memberId) return res.status(400).send({ error: 'Bad Request: Missing member_id' });
             if (!req.body.title || !req.body.body) return res.status(400).send({ error: 'Bad Request: Missing title or body' });
@@ -139,7 +139,7 @@ export const setupEndpoints = async (app: Express, pool: Pool) => {
       app.put(`${route}/:id`, async (req: Request, res: Response) => {
         try {
           const { id } = req.params;
-          
+
           const updateData = { ...req.body };
           delete updateData.id;
 
