@@ -4,10 +4,10 @@ import { getRecords, getRecordById, createRecord, updateRecord, deleteRecord, cr
 import { handleSqlErrorForRest } from './errorHandler';
 import { logger } from './logger';
 
-const GET_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "notification"];
-const POST_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "notification"];
-const PUT_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "notification"];
-const DELETE_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "notification"];
+const GET_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "notification", "member_alert_preference"];
+const POST_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "notification", "member_alert_preference"];
+const PUT_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "notification", "member_alert_preference"];
+const DELETE_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "notification", "member_alert_preference"];
 
 
 

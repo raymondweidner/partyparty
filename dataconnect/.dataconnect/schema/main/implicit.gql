@@ -52,6 +52,16 @@ extend type Member {
   """
   id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Member", purpose: IMPLICIT_KEY_FIELD)
 }
+extend type MemberAlertPreference {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "MemberAlertPreference", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `MemberAlertPreference`.`member`. It must match the value of `Member`.`id`. See `@ref` for how to customize it.
+  """
+  memberId: UUID! @fdc_generated(from: "MemberAlertPreference.member", purpose: IMPLICIT_REF_FIELD)
+}
 extend type MemberContact {
   """
   ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
@@ -98,13 +108,17 @@ extend type Tribe {
 }
 extend type TribeMember {
   """
-  ✨ Implicit foreign key field based on `TribeMember`.`tribe`. It must match the value of `Tribe`.`id`. See `@ref` for how to customize it.
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
   """
-  tribeId: UUID! @fdc_generated(from: "TribeMember.tribe", purpose: IMPLICIT_REF_FIELD)
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "TribeMember", purpose: IMPLICIT_KEY_FIELD)
   """
   ✨ Implicit foreign key field based on `TribeMember`.`member`. It must match the value of `Member`.`id`. See `@ref` for how to customize it.
   """
   memberId: UUID! @fdc_generated(from: "TribeMember.member", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `TribeMember`.`tribe`. It must match the value of `Tribe`.`id`. See `@ref` for how to customize it.
+  """
+  tribeId: UUID! @fdc_generated(from: "TribeMember.tribe", purpose: IMPLICIT_REF_FIELD)
 }
 extend type UserDevice {
   """

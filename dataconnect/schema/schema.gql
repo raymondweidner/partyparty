@@ -5,6 +5,15 @@ type Member @table {
   phone: String! @unique
   userId: String @index
   status: String! @index # e.g. "invited", "active", "inactive", "banned"
+  profilePicData: String
+}
+
+type MemberAlertPreference @table @unique(fields: ["member", "alertType"]) {
+  # id: UUID! @default(expr: "uuidV4()")
+  member: Member! @index
+  alertType: String! @index
+  emailEnabled: Boolean!
+  pushEnabled: Boolean!
 }
 
 type UserDevice @table {
@@ -21,7 +30,8 @@ type Tribe @table {
   description: String! @index
 }
 
-type TribeMember @table(key: ["tribe", "member"]) {
+type TribeMember @table @unique(fields: ["tribe", "member"]) {
+  # id: UUID! @default(expr: "uuidV4()")
   tribe: Tribe! @index
   member: Member! @index
 }
@@ -35,8 +45,10 @@ type Meetup @table {
   status: String! @index # e.g. "active", "cancelled", "completed"
   createdAt: Timestamp! @index
   decisionMethod: String! @index # e.g. "most_available", "single_choice_voting", etc.
-  daysToDecide: Int @index
-  recursEveryDays: Int @index
+  daysToDecide: Int! @index
+  recursEveryDays: Int
+  eventType: String @index
+  iconType: String @index
 }
 
 type Proposal @table {

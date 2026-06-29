@@ -25,7 +25,8 @@ async function notifyMeetupStateChange(pool: Pool, meetupId: string, newState: s
         `<p>The meetup "<strong>${meetupTitle}</strong>" has changed its status to <strong>${newState}</strong>.</p>`,
         "meetup",
         meetupId,
-        "GET"
+        "GET",
+        "meetup_state_changed"
       );
     }
   } catch (err) {
@@ -54,7 +55,8 @@ async function notifyProposalSelected(pool: Pool, meetupId: string) {
         `<p>A proposal has been selected for the meetup "<strong>${meetupTitle}</strong>".</p>`,
         "meetup",
         meetupId,
-        "GET"
+        "GET",
+        "proposal_selected"
       );
     }
   } catch (err) {
@@ -62,9 +64,9 @@ async function notifyProposalSelected(pool: Pool, meetupId: string) {
   }
 }
 
-export async function createAndSendNotification(pool: Pool, memberId: string, title: string, body: string, htmlBody?: string, resourceType?: string, resourceId?: string, actionMode?: string) {
+export async function createAndSendNotification(pool: Pool, memberId: string, title: string, body: string, htmlBody?: string, resourceType?: string, resourceId?: string, actionMode?: string, alertType?: string) {
   try {
-    logger.info({ memberId, title, resourceType, resourceId, actionMode }, 'Processing new notification creation');
+    logger.info({ memberId, title, resourceType, resourceId, actionMode, alertType }, 'Processing new notification creation');
 
     // 1. Insert into Notification table
     const newRecord = await createRecord(pool, 'notification', {
@@ -77,6 +79,17 @@ export async function createAndSendNotification(pool: Pool, memberId: string, ti
       action_mode: actionMode || null,
     });
     logger.info({ notificationId: newRecord.id, memberId, title }, 'Database notification record created successfully');
+
+    let emailEnabled = true;
+    let pushEnabled = true;
+
+    if (alertType) {
+      const prefRes = await pool.query('SELECT email_enabled, push_enabled FROM member_alert_preference WHERE member_id = $1 AND alert_type = $2', [memberId, alertType]);
+      if (prefRes.rows.length > 0) {
+        emailEnabled = prefRes.rows[0].email_enabled;
+        pushEnabled = prefRes.rows[0].push_enabled;
+      }
+    }
 
     // 2. Query user_device tokens
     // Note: user_device stores the Firebase Auth UID, whereas memberId is the Postgres UUID. 
@@ -93,7 +106,7 @@ export async function createAndSendNotification(pool: Pool, memberId: string, ti
     logger.info({ memberId, tokensFound: tokens.length }, 'Queried user_device for FCM tokens');
 
     // 3. Send Push Notification via FCM
-    if (tokens.length > 0) {
+    if (tokens.length > 0 && pushEnabled) {
       await sendMessagesToDevices({ notificationId: newRecord.id, title, body, htmlBody, resourceType, resourceId, actionMode }, 'notification', tokens);
       logger.info({ memberId, tokensCount: tokens.length }, 'Notification payload handed off to FCM');
     } else {
@@ -101,20 +114,22 @@ export async function createAndSendNotification(pool: Pool, memberId: string, ti
     }
 
     // 4. Send Email Fallback
-    const memberRes = await pool.query('SELECT "email" FROM "member" WHERE "id" = $1', [memberId]);
-    if (memberRes.rows.length > 0 && memberRes.rows[0].email) {
-      const email = memberRes.rows[0].email;
-      const transporter = nodemailer.createTransport(config.email);
-      await transporter.sendMail({
-        from: '"PartyParty" <noreply@partyparty.com>',
-        to: email,
-        subject: title,
-        text: body,
-        html: htmlBody || `<p>${body}</p>`,
-      });
-      logger.info({ email }, 'Notification email fallback sent');
+    if (emailEnabled) {
+      const memberRes = await pool.query('SELECT "email" FROM "member" WHERE "id" = $1', [memberId]);
+      if (memberRes.rows.length > 0 && memberRes.rows[0].email) {
+        const email = memberRes.rows[0].email;
+        const transporter = nodemailer.createTransport(config.email);
+        await transporter.sendMail({
+          from: '"PartyParty" <noreply@partyparty.com>',
+          to: email,
+          subject: title,
+          text: body,
+          html: htmlBody || `<p>${body}</p>`,
+        });
+        logger.info({ memberId, email }, 'Sent email notification fallback');
+      }
     }
-
+    
     return newRecord;
   } catch (err) {
     logger.error({ err, memberId, title }, 'Error in createAndSendNotification');
@@ -166,8 +181,23 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
   const result = await pool.query(query, values);
   const newRecord = result.rows[0];
 
-  if (tableName.toLowerCase() === 'member' && newRecord.status === 'invited') {
-    const email = newRecord.email;
+  if (tableName.toLowerCase() === 'member') {
+    const alertTypes = [
+      'meetup_state_changed', 'proposal_selected', 'chat_invite', 'tribe_invite', 
+      'meetup_created', 'proposal_created', 'tribe_member_added', 'app_invite_accepted', 
+      'availability_updated', 'contact_request_received', 'contact_request_accepted'
+    ];
+    for (const alertType of alertTypes) {
+      await createRecord(pool, 'member_alert_preference', {
+        member_id: newRecord.id,
+        alert_type: alertType,
+        email_enabled: true,
+        push_enabled: true,
+      });
+    }
+
+    if (newRecord.status === 'invited') {
+      const email = newRecord.email;
     const transporter = nodemailer.createTransport(config.email);
     const inviteLink = `${config.app.url}/login?invite=${encodeURIComponent(email)}`;
 
@@ -178,6 +208,7 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
       text: `You have been invited! Click to join!`,
       html: `<p>You have been invited! <a href="${inviteLink}">Click to join!</a></p>`,
     });
+    }
   }
 
   if (tableName.toLowerCase() === 'chat_member' && newRecord.status === 'invited') {
@@ -197,7 +228,8 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
         `<p>You have been invited to join "<strong>${chatTitle}</strong>". <a href="${chatLink}">Click here to see the chat.</a></p>`,
         "chat",
         chat_id,
-        "GET"
+        "GET",
+        "chat_invite"
       );
     } else {
       logger.error({ member_id }, 'Could not find member to send chat invite email');
@@ -214,7 +246,11 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
       subject_id,
       `New Contact Request!`,
       `${sourceName} wants to connect with you.`,
-      `<p><strong>${sourceName}</strong> wants to connect with you.</p>`
+      `<p><strong>${sourceName}</strong> wants to connect with you.</p>`,
+      undefined,
+      undefined,
+      undefined,
+      "contact_request_received"
     );
   }
 
@@ -238,7 +274,8 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
             `<p>You have been added to the tribe "<strong>${tribeName}</strong>".</p>`,
             "tribe",
             tribe_id,
-            "GET"
+            "GET",
+            "tribe_invite"
           );
         } else {
           await createAndSendNotification(
@@ -249,7 +286,8 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
             `<p><strong>${memberName}</strong> has been added to "<strong>${tribeName}</strong>".</p>`,
             "tribe",
             tribe_id,
-            "GET"
+            "GET",
+            "tribe_member_added"
           );
         }
       }
@@ -269,7 +307,8 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
         `<p>A new meetup "<strong>${title}</strong>" has been created in your tribe.</p>`,
         "meetup",
         meetupId,
-        "GET"
+        "GET",
+        "meetup_created"
       );
     }
   }
@@ -290,7 +329,8 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
           `<p>A new proposal has been added to the meetup "<strong>${meetupTitle}</strong>".</p>`,
           "meetup",
           meetup_id,
-          "GET"
+          "GET",
+          "proposal_created"
         );
       }
     }
@@ -335,7 +375,11 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
         source_id,
         `Contact Request Accepted!`,
         `${subjectName} accepted your contact request.`,
-        `<p><strong>${subjectName}</strong> accepted your contact request.</p>`
+        `<p><strong>${subjectName}</strong> accepted your contact request.</p>`,
+        undefined,
+        undefined,
+        undefined,
+        "contact_request_accepted"
       );
     }
     if (tableName.toLowerCase() === 'member' && newRecord.status === 'active' && oldRecord.status === 'invited') {
@@ -349,7 +393,11 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
           inviterId,
           `${newMemberName} joined PartyParty!`,
           `${newMemberName} has accepted your invite and joined the app.`,
-          `<p><strong>${newMemberName}</strong> has accepted your invite and joined the app.</p>`
+          `<p><strong>${newMemberName}</strong> has accepted your invite and joined the app.</p>`,
+          undefined,
+          undefined,
+          undefined,
+          "app_invite_accepted"
         );
       }
     }
@@ -369,7 +417,8 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
             `<p><strong>${memberName}</strong> updated their availability for your proposal to: <strong>${status}</strong>.</p>`,
             "meetup",
             meetup_id,
-            "GET"
+            "GET",
+            "availability_updated"
           );
         }
       }

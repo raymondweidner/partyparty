@@ -1,16 +1,25 @@
-I0622 15:36:29.124903   84476 load.go:31] Reloading schema and connectors...
-I0622 15:36:29.140320   84476 control.go:100] [projects/emulator/locations/emulator/services/partyparty d7b7] UpdateResources(): done
-Main schema: sources: schema\schema.gql [2378B] 
-I0622 15:36:29.158305   84476 collector.go:107] schema extensions wrote into "D:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
-Generated sources: main\relation.gql [42316B] prelude.gql [83799B] main\query.gql [14025B] main\mutation.gql [38034B] main\implicit.gql [5838B] main\input.gql [84576B] 
-I0622 15:36:29.158305   84476 load.go:109] Finished reloading
-I0622 15:36:29.159354   84476 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
-I0622 15:36:29.159354   84476 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
-I0622 15:36:32.076894   84476 control.go:100] [projects/emulator/locations/emulator/services/partyparty 5f06] UpdateResources(): done
-Main schema: sources: schema\schema.gql [2378B] 
-I0622 15:36:32.082171   84476 configure_emulator.go:21] ConfigureEmulator successed
+I0626 12:40:35.484073   75844 load.go:31] Reloading schema and connectors...
+I0626 12:40:35.500574   75844 control.go:100] [projects/emulator/locations/emulator/services/partyparty a3c5] UpdateResources(): done
+Main schema: sources: schema\schema.gql [2632B] 
+I0626 12:40:35.520185   75844 collector.go:107] schema extensions wrote into "D:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [83799B] main\implicit.gql [6393B] main\input.gql [94748B] main\relation.gql [46981B] main\query.gql [15462B] main\mutation.gql [42049B] 
+I0626 12:40:35.520185   75844 load.go:109] Finished reloading
+I0626 12:40:35.522691   75844 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
+I0626 12:40:35.523218   75844 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
+I0626 12:40:38.867834   75844 control.go:100] [projects/emulator/locations/emulator/services/partyparty 79c1] UpdateResources(): done
+Main schema: sources: schema\schema.gql [2632B] 
+I0626 12:40:38.877903   75844 configure_emulator.go:21] ConfigureEmulator successed
 Request: service_id:  "partyparty"
 connection_string:  "postgres://127.0.0.1:5432/postgres?sslmode=disable"
 database:  "postgres"
 
 Response: 
+I0626 13:00:05.521228   75844 load.go:31] Reloading schema and connectors...
+I0626 13:00:05.624157   75844 migrate.go:24] Running migration SQL:
+Step 1: ALTER TABLE "public"."tribe_member" DROP CONSTRAINT "tribe_user_pkey", ADD COLUMN "id" uuid NOT NULL DEFAULT uuid_generate_v4(), ADD PRIMARY KEY ("id")
+Step 2: CREATE UNIQUE INDEX "tribe_member_tribeId_memberId_uidx" ON "public"."tribe_member" ("tribe_id", "member_id")
+I0626 13:00:05.800494   75844 control.go:100] [projects/emulator/locations/emulator/services/partyparty 4659] UpdateResources(): done
+Main schema: sources: schema\schema.gql [2725B] 
+I0626 13:00:05.822937   75844 collector.go:107] schema extensions wrote into "D:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [83799B] main\mutation.gql [42175B] main\implicit.gql [6634B] main\input.gql [94813B] main\relation.gql [45572B] main\query.gql [15525B] 
+I0626 13:00:05.822937   75844 load.go:109] Finished reloading

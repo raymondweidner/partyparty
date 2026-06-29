@@ -271,6 +271,24 @@ extend type Meetup {
     distinct: Boolean = false
   ): Int! @fdc_generated(from: "Meetup.details", purpose: QUERY_COUNT)
   """
+  ✨ Count the number of rows in the `Meetup` table where the `eventType` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  eventType_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Meetup.eventType", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Meetup` table where the `iconType` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  iconType_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Meetup.iconType", purpose: QUERY_COUNT)
+  """
   ✨ Count the number of rows in the `Meetup` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   id_count(
@@ -484,6 +502,40 @@ extend type Member {
     having: Meetup_Having
   ): [Meetup!]! @fdc_generated(from: "Meetup.creator", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
   """
+  ✨ List `MemberAlertPreference` objects in a one-to-many relationship (where `MemberAlertPreference`.`member` is this object).
+  """
+  memberAlertPreferences_on_member(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: MemberAlertPreference_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [MemberAlertPreference_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: MemberAlertPreference_Having
+  ): [MemberAlertPreference!]! @fdc_generated(from: "MemberAlertPreference.member", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
   ✨ List `MemberContact` objects in a one-to-many relationship (where `MemberContact`.`source` is this object).
   """
   memberContacts_on_source(
@@ -654,40 +706,6 @@ extend type Member {
     having: TribeMember_Having
   ): [TribeMember!]! @fdc_generated(from: "TribeMember.member", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
   """
-  ✨ List `Tribe` objects using `TribeMember` as the join table (a `TribeMember` object exists where its `member` is this and its `tribe` is that).
-  """
-  tribes_via_TribeMember(
-    """
-    Filter condition to narrow down the query results.
-    """
-    where: TribeMember_Filter
-
-    """
-    Order the query results by specific fields.
-    """
-    orderBy: [TribeMember_Order!]
-
-    """
-    Number of rows to skip before starting to return the results.
-    """
-    offset: Int
-
-    """
-    Maximum number of rows to return (defaults to 100 rows).
-    """
-    limit: Int = 100
-
-    """
-    Set to true to return distinct results.
-    """
-    distinct: Boolean = false
-
-    """
-    Filter condition to apply to the groups of aggregate queries.
-    """
-    having: TribeMember_Having
-  ): [Tribe!]! @fdc_generated(from: "TribeMember", purpose: QUERY_MULTIPLE_MANY_TO_MANY)
-  """
   Implicit metadata field that cannot be written. It provides extra information about query results.
   """
   _metadata: _Metadata @fdc_generated(from: "Member", purpose: METADATA_FIELD)
@@ -732,6 +750,15 @@ extend type Member {
     distinct: Boolean = false
   ): Int! @fdc_generated(from: "Member.phone", purpose: QUERY_COUNT)
   """
+  ✨ Count the number of rows in the `Member` table where the `profilePicData` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  profilePicData_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Member.profilePicData", purpose: QUERY_COUNT)
+  """
   ✨ Count the number of rows in the `Member` table where the `status` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   status_count(
@@ -753,6 +780,65 @@ extend type Member {
   A generated field that is used for caching results in SDKs.
   """
   _id: ID! @fdc_generated(from: "Member.id", purpose: ENTITY_ID)
+}
+extend type MemberAlertPreference {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "MemberAlertPreference", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `MemberAlertPreference` table.
+  """
+  _count: Int! @fdc_generated(from: "MemberAlertPreference.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `MemberAlertPreference` table where the `alertType` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  alertType_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "MemberAlertPreference.alertType", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `MemberAlertPreference` table where the `emailEnabled` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  emailEnabled_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "MemberAlertPreference.emailEnabled", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `MemberAlertPreference` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "MemberAlertPreference.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `MemberAlertPreference` table where the `memberId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  memberId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "MemberAlertPreference.memberId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `MemberAlertPreference` table where the `pushEnabled` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  pushEnabled_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "MemberAlertPreference.pushEnabled", purpose: QUERY_COUNT)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "MemberAlertPreference.id", purpose: ENTITY_ID)
 }
 extend type MemberContact {
   """
@@ -1079,40 +1165,6 @@ extend type Tribe {
     having: TribeMember_Having
   ): [TribeMember!]! @fdc_generated(from: "TribeMember.tribe", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
   """
-  ✨ List `Member` objects using `TribeMember` as the join table (a `TribeMember` object exists where its `tribe` is this and its `member` is that).
-  """
-  members_via_TribeMember(
-    """
-    Filter condition to narrow down the query results.
-    """
-    where: TribeMember_Filter
-
-    """
-    Order the query results by specific fields.
-    """
-    orderBy: [TribeMember_Order!]
-
-    """
-    Number of rows to skip before starting to return the results.
-    """
-    offset: Int
-
-    """
-    Maximum number of rows to return (defaults to 100 rows).
-    """
-    limit: Int = 100
-
-    """
-    Set to true to return distinct results.
-    """
-    distinct: Boolean = false
-
-    """
-    Filter condition to apply to the groups of aggregate queries.
-    """
-    having: TribeMember_Having
-  ): [Member!]! @fdc_generated(from: "TribeMember", purpose: QUERY_MULTIPLE_MANY_TO_MANY)
-  """
   Implicit metadata field that cannot be written. It provides extra information about query results.
   """
   _metadata: _Metadata @fdc_generated(from: "Tribe", purpose: METADATA_FIELD)
@@ -1162,6 +1214,15 @@ extend type TribeMember {
   """
   _count: Int! @fdc_generated(from: "TribeMember.", purpose: QUERY_COUNT)
   """
+  ✨ Count the number of rows in the `TribeMember` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "TribeMember.id", purpose: QUERY_COUNT)
+  """
   ✨ Count the number of rows in the `TribeMember` table where the `memberId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   memberId_count(
@@ -1182,7 +1243,7 @@ extend type TribeMember {
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "TribeMember.tribeId,memberId", purpose: ENTITY_ID)
+  _id: ID! @fdc_generated(from: "TribeMember.id", purpose: ENTITY_ID)
 }
 extend type UserDevice {
   """
