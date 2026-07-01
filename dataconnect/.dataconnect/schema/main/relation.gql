@@ -732,6 +732,15 @@ extend type Member {
     distinct: Boolean = false
   ): Int! @fdc_generated(from: "Member.id", purpose: QUERY_COUNT)
   """
+  ✨ Count the number of rows in the `Member` table where the `mapType` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  mapType_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Member.mapType", purpose: QUERY_COUNT)
+  """
   ✨ Count the number of rows in the `Member` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """
   name_count(
@@ -1181,6 +1190,15 @@ extend type Tribe {
     """
     distinct: Boolean = false
   ): Int! @fdc_generated(from: "Tribe.description", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Tribe` table where the `iconType` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  iconType_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Tribe.iconType", purpose: QUERY_COUNT)
   """
   ✨ Count the number of rows in the `Tribe` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
   """

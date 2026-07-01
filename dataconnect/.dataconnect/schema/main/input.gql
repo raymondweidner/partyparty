@@ -1223,6 +1223,14 @@ input Member_Data {
   """
   email_expr: String_Expr @fdc_forbiddenInVariables
   """
+  ✨ Generated from Field `Member`.`mapType` of type `String`
+  """
+  mapType: String
+  """
+  ✨ `_expr` server value variant of `mapType` (✨ Generated from Field `Member`.`mapType` of type `String`)
+  """
+  mapType_expr: String_Expr @fdc_forbiddenInVariables
+  """
   ✨ Generated from Field `Member`.`name` of type `String!`
   """
   name: String
@@ -1287,6 +1295,10 @@ input Member_Filter {
   ✨ Generated from Field `Member`.`email` of type `String!`
   """
   email: String_Filter
+  """
+  ✨ Generated from Field `Member`.`mapType` of type `String`
+  """
+  mapType: String_Filter
   """
   ✨ Generated from Field `Member`.`name` of type `String!`
   """
@@ -1390,6 +1402,10 @@ input Member_Having {
   """
   id_count: Int_Filter
   """
+  ✨ Generated from Field `Member`.`mapType_count` of type `Int!`
+  """
+  mapType_count: Int_Filter
+  """
   ✨ Generated from Field `Member`.`name_count` of type `Int!`
   """
   name_count: Int_Filter
@@ -1449,6 +1465,10 @@ input Member_Order {
   """
   email: OrderDirection
   """
+  ✨ Generated from Field `Member`.`mapType` of type `String`
+  """
+  mapType: OrderDirection
+  """
   ✨ Generated from Field `Member`.`name` of type `String!`
   """
   name: OrderDirection
@@ -1480,6 +1500,10 @@ input Member_Order {
   ✨ Generated from Field `Member`.`id_count` of type `Int!`
   """
   id_count: OrderDirection
+  """
+  ✨ Generated from Field `Member`.`mapType_count` of type `Int!`
+  """
+  mapType_count: OrderDirection
   """
   ✨ Generated from Field `Member`.`name_count` of type `Int!`
   """
@@ -2578,6 +2602,14 @@ input Tribe_Data {
   """
   description_expr: String_Expr @fdc_forbiddenInVariables
   """
+  ✨ Generated from Field `Tribe`.`iconType` of type `String`
+  """
+  iconType: String
+  """
+  ✨ `_expr` server value variant of `iconType` (✨ Generated from Field `Tribe`.`iconType` of type `String`)
+  """
+  iconType_expr: String_Expr @fdc_forbiddenInVariables
+  """
   ✨ Generated from Field `Tribe`.`name` of type `String`
   """
   name: String
@@ -2610,6 +2642,10 @@ input Tribe_Filter {
   ✨ Generated from Field `Tribe`.`description` of type `String!`
   """
   description: String_Filter
+  """
+  ✨ Generated from Field `Tribe`.`iconType` of type `String`
+  """
+  iconType: String_Filter
   """
   ✨ Generated from Field `Tribe`.`name` of type `String`
   """
@@ -2665,6 +2701,10 @@ input Tribe_Having {
   """
   description_count: Int_Filter
   """
+  ✨ Generated from Field `Tribe`.`iconType_count` of type `Int!`
+  """
+  iconType_count: Int_Filter
+  """
   ✨ Generated from Field `Tribe`.`id_count` of type `Int!`
   """
   id_count: Int_Filter
@@ -2712,6 +2752,10 @@ input Tribe_Order {
   """
   description: OrderDirection
   """
+  ✨ Generated from Field `Tribe`.`iconType` of type `String`
+  """
+  iconType: OrderDirection
+  """
   ✨ Generated from Field `Tribe`.`name` of type `String`
   """
   name: OrderDirection
@@ -2723,6 +2767,10 @@ input Tribe_Order {
   ✨ Generated from Field `Tribe`.`description_count` of type `Int!`
   """
   description_count: OrderDirection
+  """
+  ✨ Generated from Field `Tribe`.`iconType_count` of type `Int!`
+  """
+  iconType_count: OrderDirection
   """
   ✨ Generated from Field `Tribe`.`id_count` of type `Int!`
   """

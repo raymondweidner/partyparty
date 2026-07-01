@@ -3011,3 +3011,26 @@ I0617 17:48:07.863867   27508 load.go:109] Finished reloading
 [debug] [2026-06-18T21:03:43.684Z] [Firebase Plugin] Received emulators started notification. Running detection.
 [info] [Firebase Plugin] Stopping SQL Connect toolkit
 [warn] !  SQL Connect Emulator has exited upon receiving signal: SIGINT 
+[debug] [2026-07-01T18:42:30.401Z] [Firebase Plugin] Activating Firebase extension.
+[debug] [2026-07-01T18:42:36.003Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2026-07-01T18:42:36.005Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-01T18:42:36.006Z] > authorizing via signed-in user (raymond.weidner@gmail.com)
+[debug] [2026-07-01T18:42:36.009Z] Checked if tokens are valid: false, expires at: 1782772839360
+[debug] [2026-07-01T18:42:36.009Z] Checked if tokens are valid: false, expires at: 1782772839360
+[debug] [2026-07-01T18:42:36.009Z] > refreshing access token with scopes: []
+[debug] [2026-07-01T18:42:36.011Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-07-01T18:42:36.011Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-07-01T18:42:36.025Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[info] [Firebase Plugin] Starting SQL Connect toolkit (version 3.4.11) on port 50001
+[info] i  dataconnect: downloading dataconnect-emulator-3.4.11.exe... {"metadata":{"emulator":{"name":"dataconnect"},"message":"downloading dataconnect-emulator-3.4.11.exe..."}}
+[debug] [2026-07-01T18:42:36.343Z] >>> [apiv2][query] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-windows-amd64-v3.4.11 
+[debug] [2026-07-01T18:42:36.474Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-07-01T18:42:36.474Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-07-01T18:42:36.511Z] [Firebase Plugin] User found:  raymond.weidner@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2026-07-01T18:42:36.513Z] Checked if tokens are valid: true, expires at: 1782934955475
+[debug] [2026-07-01T18:42:36.514Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2026-07-01T18:42:36.755Z] <<< [apiv2][status] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-windows-amd64-v3.4.11 200
+[debug] [2026-07-01T18:42:36.755Z] <<< [apiv2][body] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-windows-amd64-v3.4.11 [stream]
+[debug] [2026-07-01T18:42:37.069Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-07-01T18:42:37.069Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]

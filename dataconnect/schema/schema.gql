@@ -6,6 +6,7 @@ type Member @table {
   userId: String @index
   status: String! @index # e.g. "invited", "active", "inactive", "banned"
   profilePicData: String
+  mapType: String
 }
 
 type MemberAlertPreference @table @unique(fields: ["member", "alertType"]) {
@@ -28,6 +29,7 @@ type Tribe @table {
   # id: UUID! @default(expr: "uuidV4()")
   name: String @index
   description: String! @index
+  iconType: String @index
 }
 
 type TribeMember @table @unique(fields: ["tribe", "member"]) {
@@ -46,7 +48,7 @@ type Meetup @table {
   createdAt: Timestamp! @index
   decisionMethod: String! @index # e.g. "most_available", "single_choice_voting", etc.
   daysToDecide: Int! @index
-  recursEveryDays: Int
+  recursEveryDays: Int @index
   eventType: String @index
   iconType: String @index
 }
