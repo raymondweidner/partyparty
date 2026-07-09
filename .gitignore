@@ -1,4 +1,9 @@
 node_modules
 firebase-debug.log
+pglite-debug.log
 .DS_Store
 service-account.json
+secrets.json
+.dataconnect/
+dataconnect/.dataconnect/
+dist/

@@ -1,14 +1,14 @@
-I0701 14:49:38.657372   52424 load.go:31] Reloading schema and connectors...
-I0701 14:49:38.674322   52424 control.go:100] [projects/emulator/locations/emulator/services/partyparty 3e0e] UpdateResources(): done
-Main schema: sources: schema\schema.gql [2776B] 
-I0701 14:49:38.695346   52424 collector.go:107] schema extensions wrote into "D:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
-Generated sources: main\input.gql [96198B] main\relation.gql [46315B] main\query.gql [15525B] main\mutation.gql [42175B] main\implicit.gql [6634B] prelude.gql [83799B] 
-I0701 14:49:38.695346   52424 load.go:109] Finished reloading
-I0701 14:49:38.697347   52424 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
-I0701 14:49:38.697347   52424 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
-I0701 14:49:41.487903   52424 control.go:100] [projects/emulator/locations/emulator/services/partyparty ad52] UpdateResources(): done
-Main schema: sources: schema\schema.gql [2776B] 
-I0701 14:49:41.495367   52424 configure_emulator.go:21] ConfigureEmulator successed
+I0709 08:51:27.065944   51476 load.go:31] Reloading schema and connectors...
+I0709 08:51:27.091980   51476 control.go:100] [projects/emulator/locations/emulator/services/partyparty 8948] UpdateResources(): done
+Main schema: sources: schema\schema.gql [4638B] 
+I0709 08:51:27.119510   51476 collector.go:107] schema extensions wrote into "D:\\projects\\partyparty\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\mutation.gql [70290B] prelude.gql [83799B] main\implicit.gql [13420B] main\input.gql [182426B] main\relation.gql [94715B] main\query.gql [25866B] 
+I0709 08:51:27.119510   51476 load.go:109] Finished reloading
+I0709 08:51:27.121109   51476 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
+I0709 08:51:27.121640   51476 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
+I0709 08:51:31.318357   51476 control.go:100] [projects/emulator/locations/emulator/services/partyparty fbbf] UpdateResources(): done
+Main schema: sources: schema\schema.gql [4638B] 
+I0709 08:51:31.331444   51476 configure_emulator.go:21] ConfigureEmulator successed
 Request: service_id:  "partyparty"
 connection_string:  "postgres://127.0.0.1:5432/postgres?sslmode=disable"
 database:  "postgres"

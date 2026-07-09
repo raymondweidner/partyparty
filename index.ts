@@ -9,6 +9,16 @@ const validateFirebaseIdToken = require('./authMiddleware');
 import { processMeetupDecisions } from './lib/decisionEngine';
 import { logger } from './lib/logger';
 
+const secretsPath = path.resolve('secrets.json');
+if (fs.existsSync(secretsPath)) {
+  const secrets = JSON.parse(fs.readFileSync(secretsPath, 'utf8'));
+  for (const [key, value] of Object.entries(secrets)) {
+    if (!process.env[key]) {
+      process.env[key] = value as string;
+    }
+  }
+}
+
 const app = express();
 const port = process.env.PORT || 3000;
 

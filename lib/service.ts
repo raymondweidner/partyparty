@@ -1,13 +1,15 @@
 import { Express, Request, Response } from 'express';
 import { Pool } from 'pg';
-import { getRecords, getRecordById, createRecord, updateRecord, deleteRecord, createAndSendNotification } from './data';
+import { getRecords, getRecordById, createRecord, updateRecord, deleteRecord, createAndSendNotification, handleDriveAuthError } from './data';
 import { handleSqlErrorForRest } from './errorHandler';
 import { logger } from './logger';
+import Busboy from 'busboy';
+import { getDriveClient, createFolder, uploadFileStream, deleteFile } from './googleDriveService';
 
-const GET_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "notification", "member_alert_preference"];
-const POST_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "notification", "member_alert_preference"];
-const PUT_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "notification", "member_alert_preference"];
-const DELETE_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "notification", "member_alert_preference"];
+const GET_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council"];
+const POST_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council"];
+const PUT_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council"];
+const DELETE_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council"];
 
 
 
@@ -40,6 +42,191 @@ export const setupPublicEndpoints = (app: Express, pool: Pool) => {
  * @param pool 
  */
 export const setupEndpoints = async (app: Express, pool: Pool) => {
+
+  app.post('/media/:filename', (req: Request, res: Response) => {
+    const filename = req.params.filename;
+    const meetupId = req.query.meetup_id as string;
+    const pollId = req.query.poll_id as string;
+
+
+    if (!meetupId) {
+      return res.status(400).send('meetup_id query parameter is required');
+    }
+
+    const firebaseUid = (req as any).user?.uid;
+    if (!firebaseUid) return res.status(401).send('Unauthorized');
+
+    let bb: any;
+    try {
+      bb = Busboy({ headers: req.headers, limits: { fileSize: 10 * 1024 * 1024 } });
+    } catch (err) {
+      return res.status(400).send('Invalid request headers');
+    }
+
+    let fileUploaded = false;
+
+    // We do all async db/folder checks in a promise so busboy can start consuming the stream immediately
+    const resolveContext = async () => {
+      const memberRes = await pool.query('SELECT id FROM "member" WHERE user_id = $1', [firebaseUid]);
+      if (memberRes.rows.length === 0) throw new Error('Member not found');
+      const uploaderId = memberRes.rows[0].id;
+
+      const meetupRes = await pool.query('SELECT creator_id, root_folder_id, title FROM "meetup" WHERE id = $1', [meetupId]);
+      if (meetupRes.rows.length === 0) throw new Error('Meetup not found');
+      let meetupRootFolderId = meetupRes.rows[0].root_folder_id;
+      const creatorId = meetupRes.rows[0].creator_id;
+      const meetupTitle = meetupRes.rows[0].title || 'Untitled Meetup';
+
+      const eventRes = await pool.query('SELECT host_id, root_folder_id FROM "meetup_event" WHERE meetup_id = $1 ORDER BY start_at DESC LIMIT 1', [meetupId]);
+      let tokenHolderId = creatorId;
+
+      if (eventRes.rows.length > 0 && eventRes.rows[0].root_folder_id) {
+         meetupRootFolderId = eventRes.rows[0].root_folder_id;
+         tokenHolderId = eventRes.rows[0].host_id;
+      }
+
+      const tokenRes = await pool.query('SELECT google_refresh_token, root_folder_id FROM "member" WHERE id = $1', [tokenHolderId]);
+      const token = tokenRes.rows[0].google_refresh_token;
+      const memberRootFolderId = tokenRes.rows[0].root_folder_id;
+
+      if (!token) throw new Error('Meetup organizer has not integrated Google Drive');
+
+      const driveClient = getDriveClient(token);
+
+      if (!meetupRootFolderId) {
+         if (!memberRootFolderId) {
+            throw new Error('Meetup organizer has no root Drive folder configured');
+         }
+         meetupRootFolderId = await createFolder(driveClient, meetupTitle, memberRootFolderId);
+         if (!meetupRootFolderId) {
+             throw new Error('Failed to create Meetup Drive folder');
+         }
+         if (tokenHolderId === creatorId) {
+            await pool.query('UPDATE "meetup" SET root_folder_id = $1 WHERE id = $2', [meetupRootFolderId, meetupId]);
+         } else {
+            await pool.query('UPDATE "meetup_event" SET root_folder_id = $1 WHERE meetup_id = $2 AND host_id = $3', [meetupRootFolderId, meetupId, tokenHolderId]);
+         }
+      }
+
+      let uploadFolderId = meetupRootFolderId;
+
+      if (pollId) {
+        const pollRes = await pool.query('SELECT title, root_folder_id FROM "poll" WHERE id = $1', [pollId]);
+        if (pollRes.rows.length === 0) throw new Error('Poll not found');
+
+        const pollTitle = pollRes.rows[0].title;
+        let pollFolderId = pollRes.rows[0].root_folder_id;
+
+        if (!pollFolderId) {
+          const pollsRootFolderId = await createFolder(driveClient, "Polls", meetupRootFolderId);
+          pollFolderId = await createFolder(driveClient, pollTitle, pollsRootFolderId || meetupRootFolderId);
+          if (pollFolderId) {
+            await updateRecord(pool, 'poll', pollId, { root_folder_id: pollFolderId });
+          }
+        }
+        uploadFolderId = pollFolderId || meetupRootFolderId;
+      }
+
+      return { uploaderId, tokenHolderId, driveClient, uploadFolderId };
+    };
+
+    const contextPromise = resolveContext();
+
+    bb.on('file', async (name: any, file: any, info: any) => {
+      logger.info({ name, filename }, 'Busboy file event');
+      if (fileUploaded) {
+        file.resume();
+        return;
+      }
+      fileUploaded = true;
+
+      const chunks: Buffer[] = [];
+      file.on('data', (data: Buffer) => chunks.push(data));
+
+      file.on('end', async () => {
+        let currentTokenHolderId: string | undefined;
+
+        try {
+          const { uploaderId, tokenHolderId, driveClient, uploadFolderId } = await contextPromise;
+          currentTokenHolderId = tokenHolderId;
+          
+          const buffer = Buffer.concat(chunks);
+          const { Readable } = require('stream');
+          const bufferStream = Readable.from(buffer);
+          
+          const fileId = await uploadFileStream(driveClient, filename, info.mimeType, bufferStream, uploadFolderId);
+
+        if (fileId && pollId) {
+          logger.info({ pollId, fileId }, 'File uploaded to Drive, updating database');
+          const caption = req.query.caption as string | undefined;
+
+          let thumbnail: string | null = null;
+          if (info.mimeType.startsWith('image/')) {
+            try {
+              const sharp = require('sharp');
+              const resized = await sharp(buffer)
+                .resize(256, 256, { fit: 'inside' })
+                .jpeg({ quality: 80 })
+                .toBuffer();
+              thumbnail = `data:image/jpeg;base64,${resized.toString('base64')}`;
+            } catch (err) {
+              logger.warn({ err }, 'Failed to generate thumbnail');
+            }
+          }
+
+          const existingEntry = await pool.query(
+            'SELECT id, file_id FROM "poll_entry" WHERE poll_id = $1 AND creator_id = $2',
+            [pollId, uploaderId]
+          );
+
+          if (existingEntry.rows.length > 0) {
+            const entryId = existingEntry.rows[0].id;
+            const oldFileId = existingEntry.rows[0].file_id;
+            if (oldFileId) await deleteFile(driveClient, oldFileId);
+            await updateRecord(pool, 'poll_entry', entryId, { file_id: fileId, caption: caption || null, thumbnail });
+          } else {
+            await createRecord(pool, 'poll_entry', {
+              poll_id: pollId,
+              file_id: fileId,
+              creator_id: uploaderId,
+              caption: caption || null,
+              thumbnail
+            });
+          }
+        }
+        res.status(200).send({ success: true, fileId });
+      } catch (err: any) {
+        if (currentTokenHolderId) {
+          await handleDriveAuthError(pool, err, currentTokenHolderId);
+        }
+        logger.error({ err, filename }, 'Error streaming file');
+        if (err.message && err.message.includes('not found')) {
+          res.status(404).send(err.message);
+        } else if (err.message && err.message.includes('configured')) {
+           res.status(400).send(err.message);
+        } else {
+           res.status(500).send('Error uploading file');
+        }
+        }
+      });
+    });
+
+    bb.on('finish', () => {
+      logger.info('Busboy finish event triggered');
+      if (!fileUploaded) {
+        logger.warn('Busboy finished but no file was uploaded');
+        res.status(400).send('No file found in request');
+      }
+    });
+
+    bb.on('error', (err: any) => {
+      logger.error({ err }, 'Busboy error');
+      if (!res.headersSent) res.status(500).send('Upload parsing error');
+    });
+
+    logger.info('Piping request to Busboy');
+    req.pipe(bb);
+  });
 
   // Query the schema for a list of public tables
   const schemaRes = await pool.query(`

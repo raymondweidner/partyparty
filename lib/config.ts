@@ -3,8 +3,8 @@ export const config = {
     host: process.env.SMTP_HOST || 'smtp.gmail.com',
     port: parseInt(process.env.SMTP_PORT || '587', 10),
     auth: {
-      user: process.env.SMTP_USER || 'raymond.weidner@gmail.com',
-      pass: process.env.SMTP_PASS || 'yaojihqcraepqdai',
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
     },
   },
   app: {

@@ -7,6 +7,9 @@ type Member @table {
   status: String! @index # e.g. "invited", "active", "inactive", "banned"
   profilePicData: String
   mapType: String
+  googleId: String @index
+  googleRefreshToken: String
+  rootFolderId: String
 }
 
 type MemberAlertPreference @table @unique(fields: ["member", "alertType"]) {
@@ -44,23 +47,43 @@ type Meetup @table {
   tribe: Tribe! @index
   title: String @index
   details: String @index
-  status: String! @index # e.g. "active", "cancelled", "completed"
+  status: String! @index # e.g. "Planning", "Upcoming", "Ongoing", "Cancelled", "Complete"
   createdAt: Timestamp! @index
   decisionMethod: String! @index # e.g. "most_available", "single_choice_voting", etc.
   daysToDecide: Int! @index
-  recursEveryDays: Int @index
+  recurrenceType: String @index # weekly, monthly, yearly
+  recurrenceBasis: Int @index
+  monthToRecur: Int @index
+  weekToRecur: Int @index
+  dayToRecur: Int @index
+  recursOn: Timestamp @index
   eventType: String @index
   iconType: String @index
+  rootFolderId: String
+  leaderTitle: String
 }
 
 type Proposal @table {
   # id: UUID! @default(expr: "uuidV4()")
   meetup: Meetup! @index
   host: Member! @index
-  date: Timestamp! @index
+  startAt: Timestamp! @index
+  endAt: Timestamp! @index
   location: String! @index
   status: String! @index # e.g. "pending", "accepted", "rejected", "cancelled", "completed"
   note: String
+  rootFolderId: String
+}
+
+type MeetupEvent @table {
+  # id: UUID! @default(expr: "uuidV4()")
+  meetup: Meetup! @index
+  host: Member! @index
+  startAt: Timestamp! @index
+  endAt: Timestamp! @index
+  location: String! @index
+  note: String
+  rootFolderId: String
 }
 
 type Availability @table {
@@ -83,6 +106,9 @@ type Chat @table {
   # id: UUID! @default(expr: "uuidV4()")
   name: String @index
   url: String @index
+  isCouncil: Boolean
+  meetup: Meetup @index
+  tribe: Tribe @index
 }
 
 type ChatMember @table @unique(fields: ["chat", "member"]) {
@@ -100,4 +126,57 @@ type Notification @table {
   resourceType: String
   resourceId: String
   actionMode: String
+}
+
+type Poll @table {
+  creator: Member! @index
+  meetup: Meetup! @index
+  meetupEvent: MeetupEvent @index
+  title: String!
+  details: String
+  status: String! @index # e.g. "Posting", "Voting", "Complete"
+  rootFolderId: String
+  entryDeadline: Timestamp
+  voteDeadline: Timestamp
+  iconType: String
+}
+
+type PollEntry @table {
+  poll: Poll! @index
+  fileId: String!
+  creator: Member! @index
+  caption: String
+  thumbnail: String
+}
+
+type PollVote @table @unique(fields: ["poll", "voter"]) {
+  poll: Poll! @index
+  voter: Member! @index
+  pollEntry: PollEntry! @index
+}
+
+type PollWinner @table @unique(fields: ["poll", "pollEntry"]) {
+  poll: Poll! @index
+  pollEntry: PollEntry! @index
+}
+
+type HelpRegistry @table {
+  proposal: Proposal @index
+  meetupEvent: MeetupEvent @index
+  name: String!
+  details: String
+  isCouncil: Boolean
+}
+
+type RegistryItem @table {
+  helpRegistry: HelpRegistry! @index
+  details: String!
+  helper: Member @index
+  status: String! @index # e.g. "Todo", "InProgress", "Blocked", "Complete", "Cancelled"
+}
+
+type TribalCouncil @table @unique(fields: ["meetup", "member"]) {
+  id: UUID! @default(expr: "uuidV4()")
+  meetup: Meetup! @index
+  member: Member! @index
 }
