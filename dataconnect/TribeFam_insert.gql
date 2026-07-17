@@ -1,7 +1,0 @@
-# This is a file for you to write an un-named mutation. 
-# Only one un-named mutation is allowed per file.
-mutation {
-  tribeFam_insert(
-    data: {tribeId: "11111111222233334444555555555555", famId: "11111111222233334444555555555555"}
-  )
-}

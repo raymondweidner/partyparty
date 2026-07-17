@@ -6,10 +6,10 @@ import { logger } from './logger';
 import Busboy from 'busboy';
 import { getDriveClient, createFolder, uploadFileStream, deleteFile } from './googleDriveService';
 
-const GET_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council"];
-const POST_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council"];
-const PUT_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council"];
-const DELETE_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council"];
+const GET_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council", "event_check_in"];
+const POST_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council", "event_check_in"];
+const PUT_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council", "event_check_in"];
+const DELETE_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council", "event_check_in"];
 
 
 
@@ -42,6 +42,86 @@ export const setupPublicEndpoints = (app: Express, pool: Pool) => {
  * @param pool 
  */
 export const setupEndpoints = async (app: Express, pool: Pool) => {
+
+  function getDistanceFromLatLonInM(lat1: number, lon1: number, lat2: number, lon2: number) {
+    var R = 6371000; // Radius of the earth in m
+    var dLat = (lat2 - lat1) * Math.PI / 180;
+    var dLon = (lon2 - lon1) * Math.PI / 180;
+    var a = 
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+      Math.sin(dLon / 2) * Math.sin(dLon / 2)
+      ; 
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
+    var d = R * c; // Distance in m
+    return d;
+  }
+
+  app.post('/meetup_event/:id/checkin', async (req: Request, res: Response) => {
+    try {
+      const eventId = req.params.id;
+      const { latitude, longitude } = req.body;
+      const firebaseUid = (req as any).user?.uid;
+      
+      if (!firebaseUid) return res.status(401).send('Unauthorized');
+      if (latitude === undefined || longitude === undefined) return res.status(400).send('Missing latitude or longitude');
+
+      const memberRes = await pool.query('SELECT id FROM "member" WHERE user_id = $1', [firebaseUid]);
+      if (memberRes.rows.length === 0) return res.status(404).send('Member not found');
+      const memberId = memberRes.rows[0].id;
+
+      const eventRes = await pool.query('SELECT latitude, longitude, geofence_radius_meters FROM "meetup_event" WHERE id = $1', [eventId]);
+      if (eventRes.rows.length === 0) return res.status(404).send('Event not found');
+      const event = eventRes.rows[0];
+
+      if (event.latitude != null && event.longitude != null && event.geofence_radius_meters != null) {
+        const distance = getDistanceFromLatLonInM(latitude, longitude, event.latitude, event.longitude);
+        if (distance > event.geofence_radius_meters) {
+          return res.status(403).send({ error: 'You are too far from the event to check in', distance });
+        }
+      }
+
+      // Upsert check-in
+      const existing = await pool.query('SELECT id FROM "event_check_in" WHERE meetup_event_id = $1 AND member_id = $2', [eventId, memberId]);
+      let checkinRecord;
+      if (existing.rows.length > 0) {
+         checkinRecord = await updateRecord(pool, 'event_check_in', existing.rows[0].id, { status: 'checked_in', check_in_time: new Date() });
+      } else {
+         checkinRecord = await createRecord(pool, 'event_check_in', { meetup_event_id: eventId, member_id: memberId, status: 'checked_in', check_in_time: new Date() });
+      }
+
+      res.status(200).send(checkinRecord);
+    } catch (err: any) {
+      handleSqlErrorForRest(err, res);
+    }
+  });
+
+  app.post('/meetup_event/:id/checkout', async (req: Request, res: Response) => {
+    try {
+      const eventId = req.params.id;
+      const firebaseUid = (req as any).user?.uid;
+      if (!firebaseUid) return res.status(401).send('Unauthorized');
+
+      const memberRes = await pool.query('SELECT id FROM "member" WHERE user_id = $1', [firebaseUid]);
+      if (memberRes.rows.length === 0) return res.status(404).send('Member not found');
+      const memberId = memberRes.rows[0].id;
+
+      const existing = await pool.query('SELECT id FROM "event_check_in" WHERE meetup_event_id = $1 AND member_id = $2', [eventId, memberId]);
+      if (existing.rows.length > 0) {
+         await updateRecord(pool, 'event_check_in', existing.rows[0].id, { status: 'checked_out', check_out_time: new Date() });
+      }
+
+      // Clear from firestore
+      const admin = require('firebase-admin');
+      if (admin.apps.length > 0) {
+         await admin.firestore().collection('events').doc(eventId).collection('locations').doc(memberId).delete().catch(() => {});
+      }
+
+      res.status(200).send({ success: true });
+    } catch (err: any) {
+      handleSqlErrorForRest(err, res);
+    }
+  });
 
   app.post('/media/:filename', (req: Request, res: Response) => {
     const filename = req.params.filename;

@@ -70,6 +70,9 @@ type Proposal @table {
   startAt: Timestamp! @index
   endAt: Timestamp! @index
   location: String! @index
+  latitude: Float
+  longitude: Float
+  geofenceRadiusMeters: Int
   status: String! @index # e.g. "pending", "accepted", "rejected", "cancelled", "completed"
   note: String
   rootFolderId: String
@@ -82,8 +85,19 @@ type MeetupEvent @table {
   startAt: Timestamp! @index
   endAt: Timestamp! @index
   location: String! @index
+  latitude: Float
+  longitude: Float
+  geofenceRadiusMeters: Int
   note: String
   rootFolderId: String
+}
+
+type EventCheckIn @table {
+  meetupEvent: MeetupEvent! @index
+  member: Member! @index
+  status: String! @index # "checked_in", "checked_out"
+  checkInTime: Timestamp!
+  checkOutTime: Timestamp
 }
 
 type Availability @table {
