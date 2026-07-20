@@ -77,25 +77,7 @@ app.post('/tasks/process-decisions', async (req: express.Request, res: express.R
 app.use(validateFirebaseIdToken);
 
 async function startServer() {
-  let retries = 10;
-  while (retries > 0) {
-    try {
-      // Attempt to connect/query to verify DB is up
-      const result = await pool.query('SELECT NOW()');
-      logger.info({ rows: result.rows }, 'Query Result');
-      logger.info('Connected to database');
-      break;
-    } catch (err: any) {
-      logger.error({ err, retries_left: retries }, 'Database connection failed');
-      retries--;
-      if (retries === 0) {
-        logger.fatal('Could not connect to database. Exiting.');
-        process.exit(1);
-      }
-      await new Promise((res) => setTimeout(res, 2000));
-    }
-  }
-
+  // Start the server immediately so Cloud Run health checks pass
   try {
     await setupEndpoints(app, pool);
 
@@ -106,6 +88,28 @@ async function startServer() {
     logger.fatal({ err }, 'Failed to start server');
     process.exit(1);
   }
+
+  // Check database connection asynchronously in the background
+  (async () => {
+    let retries = 10;
+    while (retries > 0) {
+      try {
+        // Attempt to connect/query to verify DB is up
+        const result = await pool.query('SELECT NOW()');
+        logger.info({ rows: result.rows }, 'Query Result');
+        logger.info('Connected to database');
+        break;
+      } catch (err: any) {
+        logger.error({ err, retries_left: retries }, 'Database connection failed');
+        retries--;
+        if (retries === 0) {
+          logger.fatal('Could not connect to database. Endpoints requiring DB will fail.');
+          // We intentionally do NOT exit here so Cloud Run keeps the container alive
+        }
+        await new Promise((res) => setTimeout(res, 2000));
+      }
+    }
+  })();
 }
 
 startServer();
