@@ -12,9 +12,10 @@ type Member @table(name: "member") {
   rootFolderId: String @col(name: "root_folder_id")
 }
 
-type MemberAlertPreference @table(name: "member_alert_preference") @unique(fields: ["member", "alertType"]) {
+type MemberAlertPreference @table(name: "member_alert_preference") @unique(fields: ["memberId", "alertType"]) {
   # id: UUID! @default(expr: "uuidV4()")
-  member: Member! @col(name: "member_id") @index
+  memberId: UUID! @col(name: "member_id") @index
+  member: Member! @ref(fields: "memberId")
   alertType: String! @col(name: "alert_type") @index
   emailEnabled: Boolean! @col(name: "email_enabled")
   pushEnabled: Boolean! @col(name: "push_enabled")
@@ -35,16 +36,20 @@ type Tribe @table(name: "tribe") {
   iconType: String @col(name: "icon_type") @index
 }
 
-type TribeMember @table(name: "tribe_member") @unique(fields: ["tribe", "member"]) {
+type TribeMember @table(name: "tribe_member") @unique(fields: ["tribeId", "memberId"]) {
   # id: UUID! @default(expr: "uuidV4()")
-  tribe: Tribe! @col(name: "tribe_id") @index
-  member: Member! @col(name: "member_id") @index
+  tribeId: UUID! @col(name: "tribe_id") @index
+  tribe: Tribe! @ref(fields: "tribeId")
+  memberId: UUID! @col(name: "member_id") @index
+  member: Member! @ref(fields: "memberId")
 }
 
 type Meetup @table(name: "meetup") {
   # id: UUID! @default(expr: "uuidV4()")
-  creator: Member! @col(name: "creator_id") @index
-  tribe: Tribe! @col(name: "tribe_id") @index
+  creatorId: UUID! @col(name: "creator_id") @index
+  creator: Member! @ref(fields: "creatorId")
+  tribeId: UUID! @col(name: "tribe_id") @index
+  tribe: Tribe! @ref(fields: "tribeId")
   title: String @index
   details: String @index
   status: String! @index # e.g. "Planning", "Upcoming", "Ongoing", "Cancelled", "Complete"
@@ -65,8 +70,10 @@ type Meetup @table(name: "meetup") {
 
 type Proposal @table(name: "proposal") {
   # id: UUID! @default(expr: "uuidV4()")
-  meetup: Meetup! @col(name: "meetup_id") @index
-  host: Member! @col(name: "host_id") @index
+  meetupId: UUID! @col(name: "meetup_id") @index
+  meetup: Meetup! @ref(fields: "meetupId")
+  hostId: UUID! @col(name: "host_id") @index
+  host: Member! @ref(fields: "hostId")
   startAt: Timestamp! @col(name: "start_at") @index
   endAt: Timestamp! @col(name: "end_at") @index
   location: String! @index
@@ -80,8 +87,10 @@ type Proposal @table(name: "proposal") {
 
 type MeetupEvent @table(name: "meetup_event") {
   # id: UUID! @default(expr: "uuidV4()")
-  meetup: Meetup! @col(name: "meetup_id") @index
-  host: Member! @col(name: "host_id") @index
+  meetupId: UUID! @col(name: "meetup_id") @index
+  meetup: Meetup! @ref(fields: "meetupId")
+  hostId: UUID! @col(name: "host_id") @index
+  host: Member! @ref(fields: "hostId")
   startAt: Timestamp! @col(name: "start_at") @index
   endAt: Timestamp! @col(name: "end_at") @index
   location: String! @index
@@ -93,8 +102,10 @@ type MeetupEvent @table(name: "meetup_event") {
 }
 
 type EventCheckIn @table(name: "event_check_in") {
-  meetupEvent: MeetupEvent! @col(name: "meetup_event_id") @index
-  member: Member! @col(name: "member_id") @index
+  meetupEventId: UUID! @col(name: "meetup_event_id") @index
+  meetupEvent: MeetupEvent! @ref(fields: "meetupEventId")
+  memberId: UUID! @col(name: "member_id") @index
+  member: Member! @ref(fields: "memberId")
   status: String! @index # "checked_in", "checked_out"
   checkInTime: Timestamp! @col(name: "check_in_time")
   checkOutTime: Timestamp @col(name: "check_out_time")
@@ -102,17 +113,21 @@ type EventCheckIn @table(name: "event_check_in") {
 
 type Availability @table(name: "availability") {
   # id: UUID! @default(expr: "uuidV4()")
-  member: Member! @col(name: "member_id") @index
-  proposal: Proposal! @col(name: "proposal_id") @index
+  memberId: UUID! @col(name: "member_id") @index
+  member: Member! @ref(fields: "memberId")
+  proposalId: UUID! @col(name: "proposal_id") @index
+  proposal: Proposal! @ref(fields: "proposalId")
   status: String! @index # e.g. "unanswered", "attending", "maybe_attending", "not_attending"
   vote: Boolean # true for yes, false for no (used for single_choice_voting)
   note: String
 }
 
-type MemberContact @table(name: "member_contact") @unique(fields: ["source", "subject"]) {
+type MemberContact @table(name: "member_contact") @unique(fields: ["sourceId", "subjectId"]) {
   # id: UUID! @default(expr: "uuidV4()")
-  source: Member! @col(name: "source_id") @index
-  subject: Member! @col(name: "subject_id") @index
+  sourceId: UUID! @col(name: "source_id") @index
+  source: Member! @ref(fields: "sourceId")
+  subjectId: UUID! @col(name: "subject_id") @index
+  subject: Member! @ref(fields: "subjectId")
   status: String! @index # e.g. "pending", "accepted"
 }
 
@@ -121,19 +136,24 @@ type Chat @table(name: "chat") {
   name: String @index
   url: String @index
   isCouncil: Boolean @col(name: "is_council")
-  meetup: Meetup @col(name: "meetup_id") @index
-  tribe: Tribe @col(name: "tribe_id") @index
+  meetupId: UUID @col(name: "meetup_id") @index
+  meetup: Meetup @ref(fields: "meetupId")
+  tribeId: UUID @col(name: "tribe_id") @index
+  tribe: Tribe @ref(fields: "tribeId")
 }
 
-type ChatMember @table(name: "chat_member") @unique(fields: ["chat", "member"]) {
+type ChatMember @table(name: "chat_member") @unique(fields: ["chatId", "memberId"]) {
   # id: UUID! @default(expr: "uuidV4()")
-  chat: Chat! @col(name: "chat_id") @index
-  member: Member! @col(name: "member_id") @index
+  chatId: UUID! @col(name: "chat_id") @index
+  chat: Chat! @ref(fields: "chatId")
+  memberId: UUID! @col(name: "member_id") @index
+  member: Member! @ref(fields: "memberId")
 }
 
 type Notification @table(name: "notification") {
   # id: UUID! @default(expr: "uuidV4()")
-  member: Member! @col(name: "member_id") @index
+  memberId: UUID! @col(name: "member_id") @index
+  member: Member! @ref(fields: "memberId")
   title: String!
   body: String!
   htmlBody: String @col(name: "html_body")
@@ -143,9 +163,12 @@ type Notification @table(name: "notification") {
 }
 
 type Poll @table(name: "poll") {
-  creator: Member! @col(name: "creator_id") @index
-  meetup: Meetup! @col(name: "meetup_id") @index
-  meetupEvent: MeetupEvent @col(name: "meetup_event_id") @index
+  creatorId: UUID! @col(name: "creator_id") @index
+  creator: Member! @ref(fields: "creatorId")
+  meetupId: UUID! @col(name: "meetup_id") @index
+  meetup: Meetup! @ref(fields: "meetupId")
+  meetupEventId: UUID @col(name: "meetup_event_id") @index
+  meetupEvent: MeetupEvent @ref(fields: "meetupEventId")
   title: String!
   details: String
   status: String! @index # e.g. "Posting", "Voting", "Complete"
@@ -156,41 +179,54 @@ type Poll @table(name: "poll") {
 }
 
 type PollEntry @table(name: "poll_entry") {
-  poll: Poll! @col(name: "poll_id") @index
+  pollId: UUID! @col(name: "poll_id") @index
+  poll: Poll! @ref(fields: "pollId")
   fileId: String! @col(name: "file_id")
-  creator: Member! @col(name: "creator_id") @index
+  creatorId: UUID! @col(name: "creator_id") @index
+  creator: Member! @ref(fields: "creatorId")
   caption: String
   thumbnail: String
 }
 
-type PollVote @table(name: "poll_vote") @unique(fields: ["poll", "voter"]) {
-  poll: Poll! @col(name: "poll_id") @index
-  voter: Member! @col(name: "voter_id") @index
-  pollEntry: PollEntry! @col(name: "poll_entry_id") @index
+type PollVote @table(name: "poll_vote") @unique(fields: ["pollId", "voterId"]) {
+  pollId: UUID! @col(name: "poll_id") @index
+  poll: Poll! @ref(fields: "pollId")
+  voterId: UUID! @col(name: "voter_id") @index
+  voter: Member! @ref(fields: "voterId")
+  pollEntryId: UUID! @col(name: "poll_entry_id") @index
+  pollEntry: PollEntry! @ref(fields: "pollEntryId")
 }
 
-type PollWinner @table(name: "poll_winner") @unique(fields: ["poll", "pollEntry"]) {
-  poll: Poll! @col(name: "poll_id") @index
-  pollEntry: PollEntry! @col(name: "poll_entry_id") @index
+type PollWinner @table(name: "poll_winner") @unique(fields: ["pollId", "pollEntryId"]) {
+  pollId: UUID! @col(name: "poll_id") @index
+  poll: Poll! @ref(fields: "pollId")
+  pollEntryId: UUID! @col(name: "poll_entry_id") @index
+  pollEntry: PollEntry! @ref(fields: "pollEntryId")
 }
 
 type HelpRegistry @table(name: "help_registry") {
-  proposal: Proposal @col(name: "proposal_id") @index
-  meetupEvent: MeetupEvent @col(name: "meetup_event_id") @index
+  proposalId: UUID @col(name: "proposal_id") @index
+  proposal: Proposal @ref(fields: "proposalId")
+  meetupEventId: UUID @col(name: "meetup_event_id") @index
+  meetupEvent: MeetupEvent @ref(fields: "meetupEventId")
   name: String!
   details: String
   isCouncil: Boolean @col(name: "is_council")
 }
 
 type RegistryItem @table(name: "registry_item") {
-  helpRegistry: HelpRegistry! @col(name: "help_registry_id") @index
+  helpRegistryId: UUID! @col(name: "help_registry_id") @index
+  helpRegistry: HelpRegistry! @ref(fields: "helpRegistryId")
   details: String!
-  helper: Member @col(name: "helper_id") @index
+  helperId: UUID @col(name: "helper_id") @index
+  helper: Member @ref(fields: "helperId")
   status: String! @index # e.g. "Todo", "InProgress", "Blocked", "Complete", "Cancelled"
 }
 
-type TribalCouncil @table(name: "tribal_council") @unique(fields: ["meetup", "member"]) {
+type TribalCouncil @table(name: "tribal_council") @unique(fields: ["meetupId", "memberId"]) {
   id: UUID! @default(expr: "uuidV4()")
-  meetup: Meetup! @col(name: "meetup_id") @index
-  member: Member! @col(name: "member_id") @index
+  meetupId: UUID! @col(name: "meetup_id") @index
+  meetup: Meetup! @ref(fields: "meetupId")
+  memberId: UUID! @col(name: "member_id") @index
+  member: Member! @ref(fields: "memberId")
 }
