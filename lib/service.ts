@@ -308,21 +308,24 @@ export const setupEndpoints = async (app: Express, pool: Pool) => {
     req.pipe(bb);
   });
 
-  // Discover the correct schema dynamically (Data Connect might use 'public', 'partyparty', 'fdc', etc.)
+  // Discover the correct schema dynamically (Data Connect might use 'partyparty', 'fdc', etc.)
+  // We explicitly avoid 'public' first to avoid being tricked by old database migrations.
   const schemaDiscovery = await pool.query(`
-    SELECT table_schema 
+    SELECT table_schema, count(*) as count
     FROM information_schema.tables 
-    WHERE table_name = 'member'
-    AND table_schema NOT IN ('pg_catalog', 'information_schema')
+    WHERE table_schema NOT IN ('pg_catalog', 'information_schema', 'public')
+    AND table_type = 'BASE TABLE'
+    GROUP BY table_schema
+    ORDER BY count DESC
     LIMIT 1
   `);
   
   let targetSchema = 'public';
   if (schemaDiscovery.rows.length > 0) {
     targetSchema = schemaDiscovery.rows[0].table_schema;
-    logger.info({ targetSchema }, 'Discovered Data Connect schema');
+    logger.info({ targetSchema, tableCount: schemaDiscovery.rows[0].count }, 'Discovered Data Connect schema');
   } else {
-    logger.warn('Could not find member table to discover schema, defaulting to public');
+    logger.warn('Could not find any non-public schemas, defaulting to public');
   }
 
   // Set search_path for the pool dynamically so all queries find the tables
