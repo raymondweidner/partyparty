@@ -308,22 +308,45 @@ export const setupEndpoints = async (app: Express, pool: Pool) => {
     req.pipe(bb);
   });
 
-  // Query the schema for a list of tables
-  const schemaRes = await pool.query(`
-    SELECT table_name 
+  // Discover the correct schema dynamically (Data Connect might use 'public', 'partyparty', 'fdc', etc.)
+  const schemaDiscovery = await pool.query(`
+    SELECT table_schema 
     FROM information_schema.tables 
-    WHERE table_schema IN ('public', 'partyparty') 
-    AND table_type = 'BASE TABLE'
-    AND table_name != 'pgmigrations'
+    WHERE table_name = 'member'
+    AND table_schema NOT IN ('pg_catalog', 'information_schema')
+    LIMIT 1
   `);
-  logger.info({ rows: schemaRes.rows }, 'Schema Query Result');
+  
+  let targetSchema = 'public';
+  if (schemaDiscovery.rows.length > 0) {
+    targetSchema = schemaDiscovery.rows[0].table_schema;
+    logger.info({ targetSchema }, 'Discovered Data Connect schema');
+  } else {
+    logger.warn('Could not find member table to discover schema, defaulting to public');
+  }
 
+  // Set search_path for the pool dynamically so all queries find the tables
+  pool.on('connect', (client) => {
+    client.query(`SET search_path TO "${targetSchema}", public`).catch((err) => {
+      logger.error({ err }, 'Failed to set search_path');
+    });
+  });
 
-  // Dynamically register routes for each table
-  schemaRes.rows.forEach((row: { table_name: string }) => {
-    const tableName = row.table_name;
+  // Apply to existing active connection
+  await pool.query(`SET search_path TO "${targetSchema}", public`);
+
+  // Dynamically register routes based on predefined entity lists
+  const allEntities = Array.from(new Set([
+    ...GET_ENTITIES,
+    ...POST_ENTITIES,
+    ...PUT_ENTITIES,
+    ...DELETE_ENTITIES
+  ]));
+
+  logger.info({ entitiesCount: allEntities.length }, 'Generating REST endpoints from constants');
+
+  allEntities.forEach((tableName) => {
     const route = `/${tableName}`;
-    logger.info({ table: tableName }, 'Generating REST endpoints');
 
     // GET: List all records
     if (GET_ENTITIES.includes(tableName.toLowerCase())) {

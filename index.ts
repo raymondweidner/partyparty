@@ -46,13 +46,6 @@ pool.on('error', (err, client) => {
   logger.fatal({ err, client_config: (client as any).connectionParameters }, 'Unexpected error on idle database client');
 });
 
-// Set default schema for Data Connect
-pool.on('connect', (client) => {
-  client.query('SET search_path TO "partyparty", public').catch((err) => {
-    logger.error({ err }, 'Failed to set search_path');
-  });
-});
-
 // Patch pool.query to log all SQL queries
 const originalQuery = pool.query;
 pool.query = function (this: any, ...args: any[]) {
@@ -62,6 +55,7 @@ pool.query = function (this: any, ...args: any[]) {
   logger.info({ sql: text, values }, 'Executing SQL Query');
   return originalQuery.apply(this, args as any);
 } as any;
+
 
 setupPublicEndpoints(app, pool);
 
