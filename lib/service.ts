@@ -308,15 +308,16 @@ export const setupEndpoints = async (app: Express, pool: Pool) => {
     req.pipe(bb);
   });
 
-  // Query the schema for a list of public tables
+  // Query the schema for a list of tables
   const schemaRes = await pool.query(`
     SELECT table_name 
     FROM information_schema.tables 
-    WHERE table_schema = 'public' 
+    WHERE table_schema IN ('public', 'partyparty') 
     AND table_type = 'BASE TABLE'
     AND table_name != 'pgmigrations'
   `);
   logger.info({ rows: schemaRes.rows }, 'Schema Query Result');
+
 
   // Dynamically register routes for each table
   schemaRes.rows.forEach((row: { table_name: string }) => {
