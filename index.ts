@@ -48,7 +48,7 @@ pool.on('error', (err, client) => {
 
 // Patch pool.query to log all SQL queries
 const originalQuery = pool.query;
-pool.query = function (...args: any[]) {
+pool.query = function (this: any, ...args: any[]) {
   const queryObj = args[0];
   const text = typeof queryObj === 'string' ? queryObj : queryObj?.text;
   const values = args[1] instanceof Array ? args[1] : (queryObj?.values || []);
