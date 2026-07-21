@@ -46,6 +46,16 @@ pool.on('error', (err, client) => {
   logger.fatal({ err, client_config: (client as any).connectionParameters }, 'Unexpected error on idle database client');
 });
 
+// Patch pool.query to log all SQL queries
+const originalQuery = pool.query;
+pool.query = function (...args: any[]) {
+  const queryObj = args[0];
+  const text = typeof queryObj === 'string' ? queryObj : queryObj?.text;
+  const values = args[1] instanceof Array ? args[1] : (queryObj?.values || []);
+  logger.info({ sql: text, values }, 'Executing SQL Query');
+  return originalQuery.apply(this, args as any);
+} as any;
+
 setupPublicEndpoints(app, pool);
 
 app.get('/', (req: express.Request, res: express.Response) => {
