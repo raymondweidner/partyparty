@@ -7,3 +7,5 @@ secrets.json
 .dataconnect/
 dataconnect/.dataconnect/
 dist/
+dataconnect-debug.log
+
