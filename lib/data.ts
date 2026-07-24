@@ -388,16 +388,16 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
       });
     }
 
-    // Google Drive Integration: Create root TribeVibe folder
+    // Google Drive Integration: Create root TribalVibe folder
     if (newRecord.google_refresh_token) {
       try {
         const driveClient = getDriveClient(newRecord.google_refresh_token);
-        const rootFolderId = await createFolder(driveClient, 'TribeVibe');
+        const rootFolderId = await createFolder(driveClient, 'TribalVibe');
         if (rootFolderId) {
            await updateRecord(pool, 'member', newRecord.id, { root_folder_id: rootFolderId });
         }
       } catch(err) {
-        logger.error({ err, memberId: newRecord.id }, 'Error creating TribeVibe folder for new member');
+        logger.error({ err, memberId: newRecord.id }, 'Error creating TribalVibe folder for new member');
       }
     }
   }
@@ -496,7 +496,7 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
         
         let rootFolderId = creatorRes.rows[0].root_folder_id;
         if (!rootFolderId) {
-          rootFolderId = await createFolder(driveClient, 'TribeVibe');
+          rootFolderId = await createFolder(driveClient, 'TribalVibe');
           if (rootFolderId) {
             await pool.query('UPDATE "member" SET root_folder_id = $1 WHERE id = $2', [rootFolderId, creator_id]);
           }
@@ -546,7 +546,7 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
 
           let rootFolderId = hostRes.rows[0].root_folder_id;
           if (!rootFolderId) {
-            rootFolderId = await createFolder(driveClient, 'TribeVibe');
+            rootFolderId = await createFolder(driveClient, 'TribalVibe');
             if (rootFolderId) {
               await pool.query('UPDATE "member" SET root_folder_id = $1 WHERE id = $2', [rootFolderId, host_id]);
             }
@@ -792,15 +792,16 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
       }
     }
     if (tableName.toLowerCase() === 'member') {
-      if (newRecord.google_refresh_token !== oldRecord.google_refresh_token || newRecord.root_folder_id !== oldRecord.root_folder_id) {
-        if (newRecord.google_refresh_token) {
-          // Integration connected/updated
+      const tokenChanged = newRecord.google_refresh_token !== oldRecord.google_refresh_token;
+      
+      if (newRecord.google_refresh_token) {
+        // Integration connected/updated - proactively backfill
           try {
             const driveClient = getDriveClient(newRecord.google_refresh_token);
             let rootFolderId = newRecord.root_folder_id;
             
             if (!rootFolderId) {
-              rootFolderId = await createFolder(driveClient, 'TribeVibe');
+              rootFolderId = await createFolder(driveClient, 'TribalVibe');
               if (rootFolderId) {
                  await pool.query('UPDATE "member" SET root_folder_id = $1 WHERE id = $2', [rootFolderId, newRecord.id]);
               }
@@ -809,7 +810,11 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
             if (rootFolderId) {
               // Fetch meetups created by this member
               const createdMeetupsRes = await pool.query(`
-                SELECT id, title FROM "meetup" WHERE creator_id = $1
+                SELECT id, title FROM "meetup" 
+                WHERE creator_id = $1
+                  AND root_folder_id IS NULL
+                  AND status != 'Complete'
+                  AND status != 'Cancelled'
               `, [newRecord.id]);
               
               for (const row of createdMeetupsRes.rows) {
@@ -842,6 +847,9 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
                 FROM "proposal" p
                 JOIN "meetup" m ON p.meetup_id = m.id
                 WHERE p.host_id = $1
+                  AND p.root_folder_id IS NULL
+                  AND p.status != 'Complete'
+                  AND p.status != 'Cancelled'
               `, [newRecord.id]);
               
               for (const row of hostedProposalsRes.rows) {
@@ -884,7 +892,7 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
           } catch(err) {
             logger.error({ err, memberId: newRecord.id }, 'Error setting up Drive folders during member update');
           }
-        } else {
+        } else if (tokenChanged && !newRecord.google_refresh_token) {
           // Integration removed
           try {
             // Nullify root_folder_id on the member
@@ -917,7 +925,6 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
             logger.error({ err, memberId: newRecord.id }, 'Error removing Drive folders during member update');
           }
         }
-      }
     }
   }
 
