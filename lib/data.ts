@@ -770,7 +770,7 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
       }
     }
     if (tableName.toLowerCase() === 'member') {
-      if (newRecord.google_refresh_token !== oldRecord.google_refresh_token) {
+      if (newRecord.google_refresh_token !== oldRecord.google_refresh_token || newRecord.root_folder_id !== oldRecord.root_folder_id) {
         if (newRecord.google_refresh_token) {
           // Integration connected/updated
           try {

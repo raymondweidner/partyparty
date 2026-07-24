@@ -4,7 +4,7 @@ import { getRecords, getRecordById, createRecord, updateRecord, deleteRecord, cr
 import { handleSqlErrorForRest } from './errorHandler';
 import { logger } from './logger';
 import Busboy from 'busboy';
-import { getDriveClient, createFolder, uploadFileStream, deleteFile } from './googleDriveService';
+import { getDriveClient, createFolder, uploadFileStream, deleteFile, folderExists } from './googleDriveService';
 
 const GET_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council", "event_check_in"];
 const POST_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council", "event_check_in"];
@@ -173,6 +173,13 @@ export const setupEndpoints = async (app: Express, pool: Pool) => {
 
       const driveClient = getDriveClient(token);
 
+      if (meetupRootFolderId) {
+         const exists = await folderExists(driveClient, meetupRootFolderId);
+         if (!exists) {
+            meetupRootFolderId = null;
+         }
+      }
+
       if (!meetupRootFolderId) {
          if (!memberRootFolderId) {
             throw new Error('Meetup organizer has no root Drive folder configured');
@@ -196,6 +203,13 @@ export const setupEndpoints = async (app: Express, pool: Pool) => {
 
         const pollTitle = pollRes.rows[0].title;
         let pollFolderId = pollRes.rows[0].root_folder_id;
+
+        if (pollFolderId) {
+           const exists = await folderExists(driveClient, pollFolderId);
+           if (!exists) {
+              pollFolderId = null;
+           }
+        }
 
         if (!pollFolderId) {
           const pollsRootFolderId = await createFolder(driveClient, "Polls", meetupRootFolderId);

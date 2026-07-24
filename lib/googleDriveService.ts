@@ -123,3 +123,16 @@ export async function deleteFile(
     // We don't throw because if it fails, it's just an orphaned file
   }
 }
+
+export async function folderExists(
+  drive: drive_v3.Drive,
+  folderId: string
+): Promise<boolean> {
+  try {
+    const res = await drive.files.get({ fileId: folderId, fields: 'id, trashed, mimeType' });
+    return !!res.data && res.data.mimeType === 'application/vnd.google-apps.folder' && !res.data.trashed;
+  } catch (err: any) {
+    if (err.status === 404) return false;
+    throw err;
+  }
+}
