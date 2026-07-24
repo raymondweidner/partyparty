@@ -2,7 +2,7 @@ type Member @table(name: "member") {
   # id: UUID! @default(expr: "uuidV4()")
   name: String! @index
   email: String! @unique
-  phone: String! @unique
+  phone: String @unique
   userId: String @col(name: "user_id") @index
   status: String! @index # e.g. "invited", "active", "inactive", "banned"
   profilePicData: String @col(name: "profile_pic_data")
