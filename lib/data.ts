@@ -491,13 +491,24 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
     // Create Google Drive Folder for Meetup
     try {
       const creatorRes = await pool.query('SELECT google_refresh_token, root_folder_id FROM "member" WHERE id = $1', [creator_id]);
-      if (creatorRes.rows.length > 0 && creatorRes.rows[0].google_refresh_token && creatorRes.rows[0].root_folder_id) {
+      if (creatorRes.rows.length > 0 && creatorRes.rows[0].google_refresh_token) {
         const driveClient = getDriveClient(creatorRes.rows[0].google_refresh_token);
-        const meetupTitle = title || 'Untitled Meetup';
-        const meetupFolderId = await createFolder(driveClient, meetupTitle, creatorRes.rows[0].root_folder_id);
-        if (meetupFolderId) {
-           await pool.query('UPDATE "meetup" SET root_folder_id = $1 WHERE id = $2', [meetupFolderId, meetupId]);
-           newRecord.root_folder_id = meetupFolderId;
+        
+        let rootFolderId = creatorRes.rows[0].root_folder_id;
+        if (!rootFolderId) {
+          rootFolderId = await createFolder(driveClient, 'TribeVibe');
+          if (rootFolderId) {
+            await pool.query('UPDATE "member" SET root_folder_id = $1 WHERE id = $2', [rootFolderId, creator_id]);
+          }
+        }
+
+        if (rootFolderId) {
+          const meetupTitle = title || 'Untitled Meetup';
+          const meetupFolderId = await createFolder(driveClient, meetupTitle, rootFolderId);
+          if (meetupFolderId) {
+             await pool.query('UPDATE "meetup" SET root_folder_id = $1 WHERE id = $2', [meetupFolderId, meetupId]);
+             newRecord.root_folder_id = meetupFolderId;
+          }
         }
       }
     } catch (err) {
@@ -530,12 +541,23 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
       // Google Drive logic: Create folder for Proposal in host's drive
       try {
         const hostRes = await pool.query('SELECT google_refresh_token, root_folder_id FROM "member" WHERE id = $1', [host_id]);
-        if (hostRes.rows.length > 0 && hostRes.rows[0].google_refresh_token && hostRes.rows[0].root_folder_id) {
+        if (hostRes.rows.length > 0 && hostRes.rows[0].google_refresh_token) {
           const driveClient = getDriveClient(hostRes.rows[0].google_refresh_token);
-          const proposalFolderId = await createFolder(driveClient, meetupTitle || 'Untitled Meetup', hostRes.rows[0].root_folder_id);
-          if (proposalFolderId) {
-             await pool.query('UPDATE "proposal" SET root_folder_id = $1 WHERE id = $2', [proposalFolderId, proposalId]);
-             newRecord.root_folder_id = proposalFolderId;
+
+          let rootFolderId = hostRes.rows[0].root_folder_id;
+          if (!rootFolderId) {
+            rootFolderId = await createFolder(driveClient, 'TribeVibe');
+            if (rootFolderId) {
+              await pool.query('UPDATE "member" SET root_folder_id = $1 WHERE id = $2', [rootFolderId, host_id]);
+            }
+          }
+
+          if (rootFolderId) {
+            const proposalFolderId = await createFolder(driveClient, meetupTitle || 'Untitled Meetup', rootFolderId);
+            if (proposalFolderId) {
+               await pool.query('UPDATE "proposal" SET root_folder_id = $1 WHERE id = $2', [proposalFolderId, proposalId]);
+               newRecord.root_folder_id = proposalFolderId;
+            }
           }
         }
       } catch (err) {
