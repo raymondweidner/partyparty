@@ -308,7 +308,7 @@ export const setupEndpoints = async (app: Express, pool: Pool) => {
     req.pipe(bb);
   });
 
-  const targetSchema = 'public';
+  const targetSchema = 'partyparty';
   logger.info({ targetSchema }, 'Using fixed schema');
 
   // Set search_path for the pool dynamically so all queries find the tables
