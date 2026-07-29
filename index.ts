@@ -36,9 +36,12 @@ if (fs.existsSync(serviceAccountPath)) {
 app.use(cors());
 app.use(express.json());
 
+const dbUrl = process.env.DATABASE_URL || 'postgresql://postgres:@127.0.0.1:5432/postgres';
+const isLocal = dbUrl.includes('127.0.0.1') || dbUrl.includes('localhost');
+
 const pool = new Pool({
-  // Default to the emulator's port (5432) if DATABASE_URL is not set
-  connectionString: process.env.DATABASE_URL || 'postgresql://postgres:@127.0.0.1:5432/postgres',
+  connectionString: dbUrl,
+  ...(isLocal ? {} : { ssl: { rejectUnauthorized: false } }),
 });
 
 // Catch idle client errors to prevent the Node process from crashing when the DB disconnects
