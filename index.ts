@@ -36,11 +36,13 @@ if (fs.existsSync(serviceAccountPath)) {
 app.use(cors());
 app.use(express.json());
 
-const dbUrl = process.env.DATABASE_URL || 'postgresql://postgres:@127.0.0.1:5432/postgres';
+const dbUrl = process.env.CUSTOM_DB_URL || process.env.DATABASE_URL || 'postgresql://postgres:@127.0.0.1:5432/postgres';
 const isLocal = dbUrl.includes('127.0.0.1') || dbUrl.includes('localhost');
 
 logger.info({ 
-  hasDbUrl: !!process.env.DATABASE_URL, 
+  hasCustomDbUrl: !!process.env.CUSTOM_DB_URL,
+  hasDbUrl: !!process.env.DATABASE_URL,
+  dbUrlHostAndPort: dbUrl.split('@')[1], // Just print everything after the @ sign (e.g. host:port/db?params)
   isLocal,
   parsedDbUrlHost: dbUrl.includes('/cloudsql/') ? 'unix-socket' : 'tcp'
 }, 'Initializing Postgres Pool');

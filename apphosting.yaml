@@ -19,5 +19,5 @@ env:
 
   # Grant access to secrets in Cloud Secret Manager.
   # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
-  - variable: DATABASE_URL
+  - variable: CUSTOM_DB_URL
     secret: DATABASE_URL
