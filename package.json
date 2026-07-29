@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres nodemon --exec ts-node index.ts",
+    "dev": "cross-env DATABASE_URL=postgres://postgres:postgres@127.0.0.1:5432/postgres nodemon --exec ts-node index.ts",
     "migrate": "node-pg-migrate",
-    "migrate:local": "cross-env DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres node-pg-migrate",
+    "migrate:local": "cross-env DATABASE_URL=postgres://postgres:postgres@127.0.0.1:5432/postgres node-pg-migrate",
     "lint": "eslint --ext .js,.ts .",
     "build": "tsc",
     "build:watch": "tsc --watch",
