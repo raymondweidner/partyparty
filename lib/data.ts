@@ -747,7 +747,10 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
         }
       }
     }
-    if (tableName.toLowerCase() === 'registry_item' && newRecord.status !== oldRecord.status) {
+    if (
+      tableName.toLowerCase() === 'registry_item' && 
+      (newRecord.status !== oldRecord.status || newRecord.helper_id !== oldRecord.helper_id)
+    ) {
       const { help_registry_id, helper_id, status, details } = newRecord;
       const registryRes = await pool.query('SELECT proposal_id, meetup_event_id, name FROM "help_registry" WHERE "id" = $1', [help_registry_id]);
       if (registryRes.rows.length > 0) {
@@ -778,17 +781,46 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
             }
           }
 
-          await createAndSendNotification(
-            pool,
-            hostId,
-            `Registry Item Updated`,
-            `${helperName} updated the status of "${details}" in ${registryName} to: ${status}.`,
-            `<p><strong>${helperName}</strong> updated the status of "<strong>${details}</strong>" in <strong>${registryName}</strong> to: <strong>${status}</strong>.</p>`,
-            "meetup",
-            meetupId || undefined,
-            "GET",
-            "registry_item_updated"
-          );
+          let notificationText = '';
+          let notificationHtml = '';
+
+          if (newRecord.status !== oldRecord.status && newRecord.helper_id !== oldRecord.helper_id) {
+            notificationText = `${helperName} is now assigned to "${details}" in ${registryName} and updated status to: ${status}.`;
+            notificationHtml = `<p><strong>${helperName}</strong> is now assigned to "<strong>${details}</strong>" in <strong>${registryName}</strong> and updated status to: <strong>${status}</strong>.</p>`;
+          } else if (newRecord.status !== oldRecord.status) {
+            notificationText = `${helperName} updated the status of "${details}" in ${registryName} to: ${status}.`;
+            notificationHtml = `<p><strong>${helperName}</strong> updated the status of "<strong>${details}</strong>" in <strong>${registryName}</strong> to: <strong>${status}</strong>.</p>`;
+          } else {
+            if (helper_id) {
+               notificationText = `${helperName} is now assigned to "${details}" in ${registryName}.`;
+               notificationHtml = `<p><strong>${helperName}</strong> is now assigned to "<strong>${details}</strong>" in <strong>${registryName}</strong>.</p>`;
+            } else {
+               notificationText = `"${details}" in ${registryName} was unassigned.`;
+               notificationHtml = `<p>"<strong>${details}</strong>" in <strong>${registryName}</strong> was unassigned.</p>`;
+            }
+          }
+
+          let recipientIds: string[] = [hostId];
+          if (meetupId) {
+            const councilRes = await pool.query('SELECT member_id FROM "tribal_council" WHERE meetup_id = $1', [meetupId]);
+            if (councilRes.rows.length > 0) {
+               recipientIds = Array.from(new Set([...councilRes.rows.map(r => r.member_id), hostId]));
+            }
+          }
+
+          for (const recipientId of recipientIds) {
+            await createAndSendNotification(
+              pool,
+              recipientId,
+              `Registry Item Updated`,
+              notificationText,
+              notificationHtml,
+              "meetup",
+              meetupId || undefined,
+              "GET",
+              "registry_item_updated"
+            );
+          }
         }
       }
     }
