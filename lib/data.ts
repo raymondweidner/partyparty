@@ -395,6 +395,7 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
         const rootFolderId = await createFolder(driveClient, 'TribalVibe');
         if (rootFolderId) {
            await updateRecord(pool, 'member', newRecord.id, { root_folder_id: rootFolderId });
+           newRecord.root_folder_id = rootFolderId;
         }
       } catch(err) {
         logger.error({ err, memberId: newRecord.id }, 'Error creating TribalVibe folder for new member');
@@ -804,6 +805,7 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
               rootFolderId = await createFolder(driveClient, 'TribalVibe');
               if (rootFolderId) {
                  await pool.query('UPDATE "member" SET root_folder_id = $1 WHERE id = $2', [rootFolderId, newRecord.id]);
+                 newRecord.root_folder_id = rootFolderId;
               }
             }
             
@@ -897,6 +899,7 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
           try {
             // Nullify root_folder_id on the member
             await pool.query('UPDATE "member" SET root_folder_id = NULL WHERE id = $1', [newRecord.id]);
+            newRecord.root_folder_id = null;
             
             // Nullify root_folder_id on all meetups they created and their polls
             const createdMeetupsRes = await pool.query(`
