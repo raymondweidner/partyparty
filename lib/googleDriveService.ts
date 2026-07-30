@@ -57,6 +57,20 @@ export async function createFolder(
       fields: 'id',
     });
 
+    if (folder.data.id) {
+      try {
+        await drive.permissions.create({
+          fileId: folder.data.id,
+          requestBody: {
+            role: 'reader',
+            type: 'anyone',
+          },
+        });
+      } catch (permErr) {
+        logger.error({ permErr, folderId: folder.data.id }, 'Could not set public permissions on folder');
+      }
+    }
+
     logger.info({ folderName, folderId: folder.data.id }, 'Google Drive folder created');
     return folder.data.id!;
   } catch (err) {
