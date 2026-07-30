@@ -16,6 +16,20 @@ export function getDriveClient(refreshToken: string): drive_v3.Drive {
   return google.drive({ version: 'v3', auth: oauth2Client });
 }
 
+export async function revokeDriveToken(refreshToken: string): Promise<void> {
+  try {
+    const oauth2Client = new google.auth.OAuth2(
+      process.env.GOOGLE_CLIENT_ID,
+      process.env.GOOGLE_CLIENT_SECRET,
+      process.env.GOOGLE_REDIRECT_URI
+    );
+    await oauth2Client.revokeToken(refreshToken);
+    logger.info('Successfully revoked Google Drive refresh token');
+  } catch (err) {
+    logger.error({ err }, 'Failed to revoke Google Drive refresh token');
+  }
+}
+
 export async function createFolder(
   drive: drive_v3.Drive,
   folderName: string,

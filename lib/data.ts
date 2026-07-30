@@ -3,7 +3,7 @@ import { Pool } from 'pg';
 import { config } from './config';
 import { logger } from './logger';
 import { sendMessagesToDevices } from './messaging';
-import { getDriveClient, createFolder } from './googleDriveService';
+import { getDriveClient, createFolder, revokeDriveToken } from './googleDriveService';
 
 async function notifyMeetupStateChange(pool: Pool, meetupId: string, newState: string) {
   try {
@@ -896,6 +896,9 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
           }
         } else if (tokenChanged && !newRecord.google_refresh_token) {
           // Integration removed
+          if (oldRecord.google_refresh_token) {
+            await revokeDriveToken(oldRecord.google_refresh_token);
+          }
           try {
             // Nullify root_folder_id on the member
             await pool.query('UPDATE "member" SET root_folder_id = NULL WHERE id = $1', [newRecord.id]);
