@@ -802,7 +802,7 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
 
           let recipientIds: string[] = [hostId];
           if (meetupId) {
-            const councilRes = await pool.query('SELECT member_id FROM "tribal_council" WHERE meetup_id = $1', [meetupId]);
+            const councilRes = await pool.query('SELECT member_id FROM "squad" WHERE meetup_id = $1', [meetupId]);
             if (councilRes.rows.length > 0) {
                recipientIds = Array.from(new Set([...councilRes.rows.map(r => r.member_id), hostId]));
             }

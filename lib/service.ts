@@ -6,10 +6,10 @@ import { logger } from './logger';
 import Busboy from 'busboy';
 import { getDriveClient, createFolder, uploadFileStream, deleteFile, folderExists } from './googleDriveService';
 
-const GET_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council", "event_check_in"];
-const POST_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council", "event_check_in"];
-const PUT_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council", "event_check_in"];
-const DELETE_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council", "event_check_in"];
+const GET_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council", "squad", "event_check_in"];
+const POST_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council", "squad", "event_check_in"];
+const PUT_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council", "squad", "event_check_in"];
+const DELETE_ENTITIES = ["member", "member_contact", "chat", "chat_member", "user_device", "tribe", "tribe_member", "proposal", "availability", "meetup", "meetup_event", "notification", "member_alert_preference", "poll", "poll_entry", "poll_vote", "poll_winner", "help_registry", "registry_item", "tribal_council", "squad", "event_check_in"];
 
 
 

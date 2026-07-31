@@ -34,6 +34,9 @@ type Tribe @table(name: "tribe") {
   name: String @index
   description: String! @index
   iconType: String @col(name: "icon_type") @index
+  creatorId: UUID @col(name: "creator_id") @index
+  creator: Member @ref(fields: "creatorId")
+  leaderTitle: String @col(name: "leader_title")
 }
 
 type TribeMember @table(name: "tribe_member") @unique(fields: ["tribeId", "memberId"]) {
@@ -135,7 +138,7 @@ type Chat @table(name: "chat") {
   # id: UUID! @default(expr: "uuidV4()")
   name: String @index
   url: String @index
-  isCouncil: Boolean @col(name: "is_council")
+  chatType: String @col(name: "chat_type")
   meetupId: UUID @col(name: "meetup_id") @index
   meetup: Meetup @ref(fields: "meetupId")
   tribeId: UUID @col(name: "tribe_id") @index
@@ -211,7 +214,7 @@ type HelpRegistry @table(name: "help_registry") {
   meetupEvent: MeetupEvent @ref(fields: "meetupEventId")
   name: String!
   details: String
-  isCouncil: Boolean @col(name: "is_council")
+  isSquad: Boolean @col(name: "is_squad")
 }
 
 type RegistryItem @table(name: "registry_item") {
@@ -223,10 +226,18 @@ type RegistryItem @table(name: "registry_item") {
   status: String! @index # e.g. "Todo", "InProgress", "Blocked", "Complete", "Cancelled"
 }
 
-type TribalCouncil @table(name: "tribal_council") @unique(fields: ["meetupId", "memberId"]) {
+type Squad @table(name: "squad") @unique(fields: ["meetupId", "memberId"]) {
   id: UUID! @default(expr: "uuidV4()")
   meetupId: UUID! @col(name: "meetup_id") @index
   meetup: Meetup! @ref(fields: "meetupId")
+  memberId: UUID! @col(name: "member_id") @index
+  member: Member! @ref(fields: "memberId")
+}
+
+type TribalCouncil @table(name: "tribal_council") @unique(fields: ["tribeId", "memberId"]) {
+  id: UUID! @default(expr: "uuidV4()")
+  tribeId: UUID! @col(name: "tribe_id") @index
+  tribe: Tribe! @ref(fields: "tribeId")
   memberId: UUID! @col(name: "member_id") @index
   member: Member! @ref(fields: "memberId")
 }
