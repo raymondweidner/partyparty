@@ -611,6 +611,42 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
     }
   }
 
+  if (tableName.toLowerCase() === 'tribal_council') {
+    const { tribe_id, member_id } = newRecord;
+    const tribeRes = await pool.query('SELECT "name" FROM "tribe" WHERE "id" = $1', [tribe_id]);
+    const tribeName = tribeRes.rows.length > 0 ? tribeRes.rows[0].name : 'a tribe';
+    
+    await createAndSendNotification(
+      pool,
+      member_id,
+      `Tribal Council Member`,
+      `You have been added to the Tribal Council for "${tribeName}".`,
+      `<p>You have been added to the Tribal Council for "<strong>${tribeName}</strong>".</p>`,
+      "tribe",
+      tribe_id,
+      "GET",
+      "tribal_council_added"
+    );
+  }
+
+  if (tableName.toLowerCase() === 'squad') {
+    const { meetup_id, member_id } = newRecord;
+    const meetupRes = await pool.query('SELECT "title" FROM "meetup" WHERE "id" = $1', [meetup_id]);
+    const meetupTitle = meetupRes.rows.length > 0 ? meetupRes.rows[0].title : 'a meetup';
+    
+    await createAndSendNotification(
+      pool,
+      member_id,
+      `Squad Member`,
+      `You have been added to the Squad for "${meetupTitle}".`,
+      `<p>You have been added to the Squad for "<strong>${meetupTitle}</strong>".</p>`,
+      "meetup",
+      meetup_id,
+      "GET",
+      "squad_added"
+    );
+  }
+
   return newRecord;
 }
 
@@ -975,5 +1011,45 @@ export async function updateRecord(pool: Pool, tableName: string, id: string | n
 export async function deleteRecord(pool: Pool, tableName: string, id: string | number) {
   const query = `DELETE FROM "${tableName}" WHERE "id" = $1 RETURNING *`;
   const result = await pool.query(query, [id]);
-  return result.rows.length > 0 ? result.rows[0] : null;
+  const deletedRecord = result.rows.length > 0 ? result.rows[0] : null;
+
+  if (deletedRecord) {
+    if (tableName.toLowerCase() === 'tribal_council') {
+      const { tribe_id, member_id } = deletedRecord;
+      const tribeRes = await pool.query('SELECT "name" FROM "tribe" WHERE "id" = $1', [tribe_id]);
+      const tribeName = tribeRes.rows.length > 0 ? tribeRes.rows[0].name : 'a tribe';
+      
+      await createAndSendNotification(
+        pool,
+        member_id,
+        `Removed from Tribal Council`,
+        `You have been removed from the Tribal Council for "${tribeName}".`,
+        `<p>You have been removed from the Tribal Council for "<strong>${tribeName}</strong>".</p>`,
+        "tribe",
+        tribe_id,
+        "GET",
+        "tribal_council_removed"
+      );
+    }
+
+    if (tableName.toLowerCase() === 'squad') {
+      const { meetup_id, member_id } = deletedRecord;
+      const meetupRes = await pool.query('SELECT "title" FROM "meetup" WHERE "id" = $1', [meetup_id]);
+      const meetupTitle = meetupRes.rows.length > 0 ? meetupRes.rows[0].title : 'a meetup';
+      
+      await createAndSendNotification(
+        pool,
+        member_id,
+        `Removed from Squad`,
+        `You have been removed from the Squad for "${meetupTitle}".`,
+        `<p>You have been removed from the Squad for "<strong>${meetupTitle}</strong>".</p>`,
+        "meetup",
+        meetup_id,
+        "GET",
+        "squad_removed"
+      );
+    }
+  }
+
+  return deletedRecord;
 }
