@@ -239,55 +239,62 @@ export async function createAndSendNotification(pool: Pool, memberId: string, ti
     });
     logger.info({ notificationId: newRecord.id, memberId, title }, 'Database notification record created successfully');
 
-    let emailEnabled = true;
-    let pushEnabled = true;
+    // Process push notification and email fallback asynchronously
+    (async () => {
+      try {
+        let emailEnabled = true;
+        let pushEnabled = true;
 
-    if (alertType) {
-      const prefRes = await pool.query('SELECT email_enabled, push_enabled FROM member_alert_preference WHERE member_id = $1 AND alert_type = $2', [memberId, alertType]);
-      if (prefRes.rows.length > 0) {
-        emailEnabled = prefRes.rows[0].email_enabled;
-        pushEnabled = prefRes.rows[0].push_enabled;
+        if (alertType) {
+          const prefRes = await pool.query('SELECT email_enabled, push_enabled FROM member_alert_preference WHERE member_id = $1 AND alert_type = $2', [memberId, alertType]);
+          if (prefRes.rows.length > 0) {
+            emailEnabled = prefRes.rows[0].email_enabled;
+            pushEnabled = prefRes.rows[0].push_enabled;
+          }
+        }
+
+        // 2. Query user_device tokens
+        // Note: user_device stores the Firebase Auth UID, whereas memberId is the Postgres UUID. 
+        // We must first fetch the Firebase UID from the member record!
+        let tokens: string[] = [];
+        const memRes = await pool.query(`SELECT * FROM "member" WHERE "id" = $1`, [memberId]);
+        if (memRes.rows.length > 0) {
+          const firebaseUid = memRes.rows[0].user_id;
+          if (firebaseUid) {
+            const tokensRes = await pool.query(`SELECT "token" FROM "user_device" WHERE "user_id" = $1`, [firebaseUid]);
+            tokens = tokensRes.rows.map((r: any) => r.token);
+          }
+        }
+        logger.info({ memberId, tokensFound: tokens.length }, 'Queried user_device for FCM tokens');
+
+        // 3. Send Push Notification via FCM
+        if (tokens.length > 0 && pushEnabled) {
+          await sendMessagesToDevices({ notificationId: newRecord.id, title, body, htmlBody, resourceType, resourceId, actionMode }, 'notification', tokens);
+          logger.info({ memberId, tokensCount: tokens.length }, 'Notification payload handed off to FCM');
+        } else {
+          logger.warn({ memberId }, 'No FCM tokens found for member, skipping push notification');
+        }
+
+        // 4. Send Email Fallback
+        if (emailEnabled) {
+          const memberRes = await pool.query('SELECT "email" FROM "member" WHERE "id" = $1', [memberId]);
+          if (memberRes.rows.length > 0 && memberRes.rows[0].email) {
+            const email = memberRes.rows[0].email;
+            const transporter = nodemailer.createTransport(config.email);
+            await transporter.sendMail({
+              from: '"PartyParty" <noreply@partyparty.com>',
+              to: email,
+              subject: title,
+              text: body,
+              html: htmlBody || `<p>${body}</p>`,
+            });
+            logger.info({ memberId, email }, 'Sent email notification fallback');
+          }
+        }
+      } catch (err) {
+        logger.error({ err, memberId, title }, 'Error in async background notification tasks');
       }
-    }
-
-    // 2. Query user_device tokens
-    // Note: user_device stores the Firebase Auth UID, whereas memberId is the Postgres UUID. 
-    // We must first fetch the Firebase UID from the member record!
-    let tokens: string[] = [];
-    const memRes = await pool.query(`SELECT * FROM "member" WHERE "id" = $1`, [memberId]);
-    if (memRes.rows.length > 0) {
-      const firebaseUid = memRes.rows[0].user_id;
-      if (firebaseUid) {
-        const tokensRes = await pool.query(`SELECT "token" FROM "user_device" WHERE "user_id" = $1`, [firebaseUid]);
-        tokens = tokensRes.rows.map((r: any) => r.token);
-      }
-    }
-    logger.info({ memberId, tokensFound: tokens.length }, 'Queried user_device for FCM tokens');
-
-    // 3. Send Push Notification via FCM
-    if (tokens.length > 0 && pushEnabled) {
-      await sendMessagesToDevices({ notificationId: newRecord.id, title, body, htmlBody, resourceType, resourceId, actionMode }, 'notification', tokens);
-      logger.info({ memberId, tokensCount: tokens.length }, 'Notification payload handed off to FCM');
-    } else {
-      logger.warn({ memberId }, 'No FCM tokens found for member, skipping push notification');
-    }
-
-    // 4. Send Email Fallback
-    if (emailEnabled) {
-      const memberRes = await pool.query('SELECT "email" FROM "member" WHERE "id" = $1', [memberId]);
-      if (memberRes.rows.length > 0 && memberRes.rows[0].email) {
-        const email = memberRes.rows[0].email;
-        const transporter = nodemailer.createTransport(config.email);
-        await transporter.sendMail({
-          from: '"PartyParty" <noreply@partyparty.com>',
-          to: email,
-          subject: title,
-          text: body,
-          html: htmlBody || `<p>${body}</p>`,
-        });
-        logger.info({ memberId, email }, 'Sent email notification fallback');
-      }
-    }
+    })();
     
     return newRecord;
   } catch (err) {
