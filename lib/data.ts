@@ -386,13 +386,17 @@ export async function createRecord(pool: Pool, tableName: string, data: Record<s
       const transporter = nodemailer.createTransport(config.email);
       const inviteLink = `${config.app.url}/login?invite=${encodeURIComponent(email)}`;
 
-      await transporter.sendMail({
-        from: '"PartyParty" <noreply@partyparty.com>',
-        to: email,
-        subject: "You're invited to PartyParty!",
-        text: `You have been invited! Click to join!`,
-        html: `<p>You have been invited! <a href="${inviteLink}">Click to join!</a></p>`,
-      });
+      try {
+        await transporter.sendMail({
+          from: '"PartyParty" <noreply@partyparty.com>',
+          to: email,
+          subject: "You're invited to PartyParty!",
+          text: `You have been invited! Click to join!`,
+          html: `<p>You have been invited! <a href="${inviteLink}">Click to join!</a></p>`,
+        });
+      } catch (err) {
+        logger.error({ err, email }, 'Failed to send invite email for new member');
+      }
     }
 
     // Google Drive Integration: Create root TribalVibe folder
